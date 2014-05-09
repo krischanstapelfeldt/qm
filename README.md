@@ -1,0 +1,4 @@
+qm
+==
+
+Grundlagen des Qualitätsmanagements
