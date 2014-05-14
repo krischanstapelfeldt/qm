@@ -23,7 +23,7 @@ public class MeineKlasseTest extends TestCase {
 		assertEquals("Job muss 'Quadrat' sein.", "Quadrat",
 				meineKlasse1.getJob());
 	}
-
+	
 	public void testDoJobs() throws Exception {
 		meineKlasse1.setJob("Quadrat");
 		assertTrue("Quadrat von '4' muss '16' sein.",
