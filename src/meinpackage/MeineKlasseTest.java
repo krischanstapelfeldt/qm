@@ -2,6 +2,7 @@ package meinpackage;
 
 import junit.framework.TestCase;
 
+
 public class MeineKlasseTest extends TestCase {
 	MeineKlasse meineKlasse1;
 
