@@ -1,5 +1,6 @@
-package meinpackage;
+package junit;
 
+import meinpackage.MeineKlasse;
 import junit.framework.TestCase;
 
 
