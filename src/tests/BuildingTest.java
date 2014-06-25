@@ -3,7 +3,6 @@ package tests;
 import global.Building;
 import junit.framework.TestCase;
 
-
 public class BuildingTest extends TestCase {
 	Building building;
 
@@ -19,5 +18,14 @@ public class BuildingTest extends TestCase {
 	public void testPositiveAddBuilding() {
 		assertEquals("", true, building.add());
 	}
-	
+
+	public void testPositiveDeleteBuilding() {
+		assertEquals("", true, building.delete());
+	}
+
+	public void testPositiveListBuilding() {
+		int[] i = null;
+		assertEquals("", i, building.list());
+	}
+
 }

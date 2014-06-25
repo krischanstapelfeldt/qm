@@ -1,6 +1,6 @@
 package global;
 
-public class Building {
+public class Apartment {
 
 	public boolean add() {
 		return true;
@@ -10,7 +10,7 @@ public class Building {
 		return true;
 	}
 
-	public int[] list() {
+	public int[] list(int id) {
 		int[] i = null;
 		return i;
 	}
