@@ -38,6 +38,23 @@ Enumerationsoperationen
 - listEntrance(int apartmentID)
 - listMeter(int entranceID)
 
+Datenmanipulation
+-
+*Hinzufügen*
+
+- addBuilding()
+- addApartment()
+- addEntrance()
+- addMeter()
+
+*Löschen*
+
+- deleteBuilding()
+- deleteApartment()
+- deleteEntrance()
+- deleteMeter()
+
+
 Geschäftslogik
 -
-- checkMeter(int oldValue, int newValue)
+- readMeter(int newValue, date readingDate)
