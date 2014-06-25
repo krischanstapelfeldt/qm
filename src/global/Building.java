@@ -1,4 +1,4 @@
-package meinpackage;
+package global;
 
 public class Building {
 

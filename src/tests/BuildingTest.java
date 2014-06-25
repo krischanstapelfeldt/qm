@@ -1,6 +1,6 @@
-package junit;
+package tests;
 
-import meinpackage.Building;
+import global.Building;
 import junit.framework.TestCase;
 
 
