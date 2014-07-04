@@ -9,7 +9,19 @@ public class Meter {
 	int currentValue;
 	int yearValue; // wert zum 01.01 eines Jahres
 	Date lastRead; // letzter ablesewert
-// TODO MeterReader, also wer hats gelesen implementieren.
+// TODO MeterReader ENUM, also wer hats gelesen implementieren.
+	
+//================================================================================
+// other stuff, dont know nice name
+//================================================================================
+	@Override
+	public String toString() {
+		return (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
+	}
+	
+//================================================================================
+// test functions
+//================================================================================
 	public boolean add() {
 		return true;
 	}

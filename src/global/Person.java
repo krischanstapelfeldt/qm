@@ -36,7 +36,7 @@ public class Person {
 	}
 
 //================================================================================
-// other stuff, dont know nice name#
+// other stuff, dont know nice name
 //================================================================================
 	@Override
 	public String toString() {
