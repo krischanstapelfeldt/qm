@@ -1,28 +1,35 @@
 package tests;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import global.Building;
 import junit.framework.TestCase;
 
 public class BuildingTest extends TestCase {
 	Building building;
 
-	@Override
+	@Before
 	public void setUp() throws Exception {
 		building = new Building();
 	}
 
-	@Override
+	@After
 	public void tearDown() throws Exception {
 	}
 
+	@Test
 	public void testPositiveAddBuilding() {
 		assertEquals("", true, building.add());
 	}
 
+	@Test
 	public void testPositiveDeleteBuilding() {
 		assertEquals("", true, building.delete());
 	}
 
+	@Test
 	public void testPositiveListBuilding() {
 		int[] i = null;
 		assertEquals("", i, building.list());
