@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /* abgedeckte Anforderungen
  * A1 - Die Anwendung kann eine Gebäudestruktur darstellen
  * A18 - Löschen von Gebäuden WORK IN PROGRESS
+ * ...
  */
 
 public class BuildingStructure {
@@ -25,14 +26,14 @@ public class BuildingStructure {
 	}
 	
 //================================================================================
-// additionl functions
+// access private variables
 //================================================================================
 	public void addBuilding(Building building) {
 		buildings.add(building);
 	}
 	
 	public void removeBuilding(int index) { // oder ueber key?
-		// TODO Abfrage ob Gebäude "leer" bevor es gelöscht wird
+		// TODO Abfrage ob Gebaueude "leer" bevor es geloescht wird
 		buildings.remove(index);
 	}
 	
@@ -40,9 +41,16 @@ public class BuildingStructure {
 		return buildings.get(index);
 	}
 	
-	public void listBuildings() {
+//================================================================================
+// other stuff, dont know nice name
+//================================================================================
+	@Override
+	public String toString() {
+		// TODO WORK IN PROGRESS need toString() implementation from atomic classes
+		String output = "";
 		for (int i = 0; i < buildings.size(); i++) {
-			System.out.println("Building: Nr. " + i);
+			output += "Building: Nr." + i + "\n";
 		}
+		return output;
 	}
 }

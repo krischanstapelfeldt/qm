@@ -7,7 +7,9 @@ public class Person {
 	String phone;
 	String email;
 	
+//================================================================================
 // getter setter
+//================================================================================
 	public String getName() {
 		return name;
 	}
@@ -33,4 +35,11 @@ public class Person {
 		this.email = email;
 	}
 
+//================================================================================
+// other stuff, dont know nice name#
+//================================================================================
+	@Override
+	public String toString() {
+		return (surname + ", " + name + "\n" + phone + " " + email);
+	}
 }
