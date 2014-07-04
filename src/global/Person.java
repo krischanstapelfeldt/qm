@@ -6,7 +6,6 @@ public class Person {
 	String surname;
 	String phone;
 	String email;
-	Persontype type; // enum
 	
 // getter setter
 	public String getName() {

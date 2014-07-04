@@ -1,14 +1,16 @@
 Klassen
 =
+- BuildingStructure
+	- 1..n Building
 - Building
 	- 1 renter
 	- 1...n entrance 
-		- 0...n meter
-		- 1...n apartment
-			- 1...n meter
-			- 0...n tenant
 - Entrance
+	- 0...n meter
+	- 1...n apartment
 - Apartment
+	- 1...n meter
+	- 0...n tentant
 - Meter
 	- date (date)
 	- value (int)
@@ -17,12 +19,12 @@ Klassen
 	- MeterType (Strom, Gas, Wasser)
 	
 - Person
-	- name
-	- surname
-	- phone
-	- email
-	- renter (Vermieter)
-	- tenant (Mieter)
+	- name (String)
+	- surname (String)
+	- phone (String)
+	- email (String)
+	- renter (subclass)
+	- tenant (subclass)
 
 Enums
 =
