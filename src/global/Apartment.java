@@ -1,6 +1,11 @@
 package global;
 
+import java.util.ArrayList;
+
 public class Apartment {
+	
+	private ArrayList<Meter> meters;
+	private ArrayList<Person> tentants;
 
 	public boolean add() {
 		return true;

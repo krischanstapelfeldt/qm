@@ -1,45 +1,59 @@
-Klassen
-=
+#Allgemein
+Bitte class BuildingStructure für Klassenaufbau beachten. 
+
+Lasst uns das direkt ordentlich machen.
+
+#Klassen
+
+- BuildingStructure
+	- 1..n Building
 - Building
 	- 1 renter
 	- 1...n entrance 
-		- 0...n meter
-		- 1...n apartment
-			- 1...n meter
-			- 0...n tenant
 - Entrance
+	- 0...n meter
+	- 1...n apartment
 - Apartment
+	- 1...n meter
+	- 0...n tentant
 - Meter
 	- date (date)
 	- value (int)
 	- valueFirst (int) //Wert am 1.1. jedes Jahres
 	- id (int)
 	- MeterType (Strom, Gas, Wasser)
-	
+- Reading
+	- id (int)
+	- meterId (int)
+	- date (Date)
+	- value (int)
+	- ReadingInfo (enum)
+	- MeterReader (enum)
 - Person
-	- name
-	- surname
-	- phone
-	- email
-	- renter (Vermieter)
-	- tenant (Mieter)
+	- name (String)
+	- surname (String)
+	- phone (String)
+	- email (String)
+- renter (person subclass)
+- tenant (person subclass)
 
-Enums
-=
+#Enums
+
 - MeterReader (Hauswart, Mieter, Energieversorger)
 - ReadingInfo (Ablesung, Schätzung)
+- MeterType (Strom, Gas, Wasser)
+ 
+#Funktionen
 
-Funktionen
-=
-Enumerationsoperationen
--
+##Enumerationsoperationen
+
 - listBuilding()
 - listApartment(int buildingID)
 - listEntrance(int apartmentID)
 - listMeter(int entranceID)
 
-Datenmanipulation
--
+##Datenmanipulation
+
 *Hinzufügen*
 
 - addBuilding()
@@ -55,6 +69,6 @@ Datenmanipulation
 - deleteMeter()
 
 
-Geschäftslogik
--
+##Geschäftslogik
+
 - readMeter(int newValue, date readingDate)
