@@ -1,4 +1,4 @@
-package global;
+package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
 

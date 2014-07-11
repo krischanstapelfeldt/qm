@@ -1,22 +1,23 @@
-package global;
+package de.globalposeidon.Qualitaet.model;
 
-import java.util.Date;
+import java.util.ArrayList;
 
-public class Meter {
+public class Entrance {
 	
-	int meterID;
-	Metertype type;
-	int currentValue;
-	int yearValue; // wert zum 01.01 eines Jahres
-	Date lastRead; // letzter ablesewert
-// TODO MeterReader ENUM, also wer hats gelesen implementieren.
+	private ArrayList<Meter> meters; //can be 0
+	private ArrayList<Apartment> apartments;
 	
 //================================================================================
 // other stuff, dont know nice name
 //================================================================================
 	@Override
 	public String toString() {
-		return (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
+		// TODO WORK IN PROGRESS need toString() implementation from atomic classes
+		String output = "";
+		for (int i = 0; i < apartments.size(); i++) {
+			output += "Apartment: Nr." + i;
+		}
+		return output;
 	}
 	
 //================================================================================
@@ -33,10 +34,6 @@ public class Meter {
 	public int[] list(int id) {
 		int[] i = null;
 		return i;
-	}
-
-	public boolean read(int newValue, Date readingDate) {
-		return true;
 	}
 
 }

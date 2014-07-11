@@ -1,11 +1,12 @@
-package tests;
+package de.globalposeidon.Qualitaet.tests;
 
-import global.Apartment;
 import junit.framework.TestCase;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import de.globalposeidon.Qualitaet.model.Apartment;
 
 public class ApartmentTest extends TestCase {
 	Apartment apartment;

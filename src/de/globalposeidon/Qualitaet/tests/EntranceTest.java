@@ -1,10 +1,10 @@
-package tests;
+package de.globalposeidon.Qualitaet.tests;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import global.Entrance;
+import de.globalposeidon.Qualitaet.model.Entrance;
 import junit.framework.TestCase;
 
 public class EntranceTest extends TestCase {

@@ -1,10 +1,10 @@
-package tests;
+package de.globalposeidon.Qualitaet.tests;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import global.Building;
+import de.globalposeidon.Qualitaet.model.Building;
 import junit.framework.TestCase;
 
 public class BuildingTest extends TestCase {

@@ -1,10 +1,10 @@
-package global;
+package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
 
 /* abgedeckte Anforderungen
  * A1 - Die Anwendung kann eine Gebäudestruktur darstellen
- * A18 - Löschen von Gebäuden WORK IN PROGRESS
+ * A18 - Löschen von Gebäuden WORK IN PROGRESS222222
  * ...
  */
 

@@ -1,6 +1,4 @@
-package tests;
-
-import global.Meter;
+package de.globalposeidon.Qualitaet.tests;
 
 import java.util.Date;
 
@@ -9,6 +7,8 @@ import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import de.globalposeidon.Qualitaet.model.Meter;
 
 public class MeterTest extends TestCase {
 	Meter meter;
