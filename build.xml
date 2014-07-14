@@ -65,7 +65,7 @@
             <classpath refid="qm.classpath"/>
         </junit>
     </target>
-    <target name="Launcher (1)">
+    <target name="Launcher">
         <java classname="de.globalposeidon.Qualitaet.Launcher" failonerror="true" fork="yes">
             <classpath refid="qm.classpath"/>
         </java>

@@ -1,7 +1,5 @@
 #Allgemein
-Bitte class BuildingStructure für Klassenaufbau beachten. 
 
-Lasst uns das direkt ordentlich machen.
 
 #Klassen
 
