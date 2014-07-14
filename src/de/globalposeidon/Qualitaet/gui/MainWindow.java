@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 
 
 public class MainWindow extends JFrame {
+	private static final long serialVersionUID = 8601779252949758710L;
 	final Logger logger = LoggerFactory.getLogger(MainWindow.class);
 	private JSplitPane treeTableSplit;	
 	private JTree treeView;
