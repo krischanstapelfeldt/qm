@@ -1,5 +1,7 @@
 package de.globalposeidon.Qualitaet.model;
 
+import java.util.ArrayList;
+
 public class Person {
 	
 	String name;
@@ -7,6 +9,20 @@ public class Person {
 	String phone;
 	String email;
 	
+//================================================================================
+// constructor
+//================================================================================
+	public Person() {
+		// some standard value for empty person
+		this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
+	}
+	
+	public Person(String name, String surname, String phone, String email) {
+		this.name = name;
+		this.surname = surname;
+		this.phone = phone;
+		this.email = email;
+	}
 //================================================================================
 // getter setter
 //================================================================================

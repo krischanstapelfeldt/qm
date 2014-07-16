@@ -2,50 +2,75 @@ package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
 
+/* abgedeckte Anforderungen
+ * A16 - Einfuegen eines Einganges
+ */
+
 public class Building {
 	
-	private Person renter;
+	private Renter renter;
 	private ArrayList<Entrance> entrances;
 	
 //================================================================================
-// constructos
+// constructor
 //================================================================================
-	public Building() {
-		// TODO Add standard value for a person, maybe Obama?
-		//renter = new Person() // need to implement person constructor
+	// empty building not allowed, so no Building()
+	
+	public Building(Renter renter, Entrance initialEntrance) {
 		entrances = new ArrayList<Entrance>();
+		this.addEntrance(initialEntrance);
+		this.renter = renter; 
 	}
 	
 //================================================================================
 // access private variables
 //================================================================================
+	public Renter getRenter() {
+		return renter;
+	}
+
+	public void replaceRenter(Renter renter) {
+		this.renter = renter;
+	}
+	
 	public void addEntrance(Entrance entrance) {
 		entrances.add(entrance);
 	}
-	
-	public void removeEntrance(int index) { // oder ueber key?
-		// TODO Abfrage ob Entrance "leer" bevor es geloescht wird
-		entrances.remove(index);
+
+	public boolean removeEntrance(int index) { 
+		//entrance has to be empty
+		if (entrances.get(index).entranceIsEmpty()) {
+			entrances.remove(index);
+			return true;
+		}
+		return false;
 	}
 	
-	public Entrance getEntrance(int index) { // oder ueber key?
+	public Entrance getEntrance(int index) {
 		return entrances.get(index);
 	}
 	
 //================================================================================
-// other stuff, dont know nice name
+// other stuff...
 //================================================================================
+	public boolean buildingIsEmpty() {
+
+		return false;
+	}
+	
 	@Override
 	public String toString() {
-		// TODO WORK IN PROGRESS need toString() implementation from atomic classes
 		String output = "Renter: " + "\n";
 		for (int i = 0; i < entrances.size(); i++) {
 			output += "Entrance: Nr." + i;
 		}
 		return output;
 	}
+	
+	
+	
 //================================================================================
-// test functions
+// TODO: REMOVE OLD TEST STUFF
 //================================================================================
 
 	public boolean add() {

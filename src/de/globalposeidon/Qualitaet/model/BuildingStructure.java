@@ -3,8 +3,9 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.ArrayList;
 
 /* abgedeckte Anforderungen
- * A1 - Die Anwendung kann eine Gebäudestruktur darstellen
- * A18 - Löschen von Gebäuden WORK IN PROGRESS222222
+ * A1 - Die Anwendung kann eine Gebaeudestruktur darstellen
+ * A15 - Hinzufuegen von Gebaueden
+ * A18 - Loeschen von Gebaeuden
  * ...
  */
 
@@ -15,26 +16,28 @@ public class BuildingStructure {
 //================================================================================
 // constructors
 //================================================================================
-	// empty strucuture
-	public BuildingStructure() {
-		buildings = new ArrayList<Building>();
-	}
+	// empty strucuture not allowed, so no BuildingStructure()
+
 	// structure with initial building
 	public BuildingStructure(Building initialBuilding) {
-		this();
-		buildings.add(initialBuilding);
+		buildings = new ArrayList<Building>();
+		this.addBuilding(initialBuilding);
 	}
 	
 //================================================================================
 // access private variables
 //================================================================================
-	public void addBuilding(Building building) {
+	public boolean addBuilding(Building building) {
 		buildings.add(building);
+		return true;
 	}
 	
-	public void removeBuilding(int index) { // oder ueber key?
-		// TODO Abfrage ob Gebaueude "leer" bevor es geloescht wird
-		buildings.remove(index);
+	public boolean removeBuilding(int index) { // oder ueber key?
+		if (buildings.get(index).buildingIsEmpty()) {
+			buildings.remove(index);
+			return true;
+		}
+		return false;
 	}
 	
 	public Building getBuilding(int index) { // oder ueber key?
@@ -42,11 +45,10 @@ public class BuildingStructure {
 	}
 	
 //================================================================================
-// other stuff, dont know nice name
+// other stuff...
 //================================================================================
 	@Override
 	public String toString() {
-		// TODO WORK IN PROGRESS need toString() implementation from atomic classes
 		String output = "";
 		for (int i = 0; i < buildings.size(); i++) {
 			output += "Building: Nr." + i + "\n";
