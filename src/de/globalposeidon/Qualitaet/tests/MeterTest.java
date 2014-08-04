@@ -40,7 +40,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveCreateMeter()
 	 * 
 	 * @result create new meter with specific data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateMeter() {
@@ -53,7 +53,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveGetMeterID()
 	 * 
 	 * @result get ID from selected meter. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetMeterID() {
@@ -66,7 +66,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveGetType()
 	 * 
 	 * @result get type from selected meter. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetType() {
@@ -78,7 +78,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveGetCurrentValue()
 	 * 
 	 * @result get current value from selected meter. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetCurrentValue() {
@@ -91,7 +91,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveSetCurrentValue()
 	 * 
 	 * @result set current value for selected meter. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetCurrentValue() {
@@ -104,7 +104,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveGetYearValue()
 	 * 
 	 * @result get year value from selected meter. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetYearValue() {
@@ -117,7 +117,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveSetYearYalue()
 	 * 
 	 * @result set year value for selected meter. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetYearYalue() {
@@ -130,7 +130,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveGetLastRead()
 	 * 
 	 * @result get last reading from selected meter. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetLastRead() {
@@ -143,7 +143,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveSetLastRead()
 	 * 
 	 * @result set last reading for selected meter. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetLastRead() {
@@ -159,7 +159,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveMakeReading()
 	 * 
 	 * @result 
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveMakeReading() {
@@ -172,7 +172,7 @@ public class MeterTest extends TestCase {
 	 * testPositiveGetMeter()
 	 * 
 	 * @result get meter with data from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetMeter() {

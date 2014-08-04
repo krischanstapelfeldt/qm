@@ -25,7 +25,7 @@ public class RenterTest extends TestCase {
 	 * 
 	 * @result create two new renter. one with specific data, one with empty
 	 *         data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateRenter() {

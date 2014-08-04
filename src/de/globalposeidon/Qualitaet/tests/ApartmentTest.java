@@ -33,7 +33,7 @@ public class ApartmentTest extends TestCase {
 	 * 
 	 * @result create two new apartments. one with specific data, one with empty
 	 *         data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateApartment() {
@@ -47,7 +47,7 @@ public class ApartmentTest extends TestCase {
 	 * testPositiveAddMeter()
 	 * 
 	 * @result add meter to selected apartment. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveAddMeter() {
@@ -60,7 +60,7 @@ public class ApartmentTest extends TestCase {
 	 * testPositiveGetMeter()
 	 * 
 	 * @result get meter from selected apartment. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetMeter() {
@@ -73,7 +73,7 @@ public class ApartmentTest extends TestCase {
 	 * testPositiveAddTenant()
 	 * 
 	 * @result add tenant to selected apartment. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveAddTenant() {
@@ -86,7 +86,7 @@ public class ApartmentTest extends TestCase {
 	 * testPositiveGetTenant()
 	 * 
 	 * @result get tenant from selected apartment. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetTenant() {
@@ -99,7 +99,7 @@ public class ApartmentTest extends TestCase {
 	 * testPositiveApartmentIsEmpty()
 	 * 
 	 * @result get boolean if apartment is empty. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveApartmentIsEmpty() {
@@ -112,7 +112,7 @@ public class ApartmentTest extends TestCase {
 	 * testPositiveGetApartment()
 	 * 
 	 * @result get apartment with all tenants. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetApartment() {

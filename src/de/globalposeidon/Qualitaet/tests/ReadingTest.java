@@ -25,7 +25,7 @@ public class ReadingTest extends TestCase {
 	 * testPositiveSetReading()
 	 * 
 	 * @result create new reading. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetReading() {
@@ -43,7 +43,7 @@ public class ReadingTest extends TestCase {
 //	 * testPositiveGetReading()
 //	 * 
 //	 * @result get reading by id. load from database.
-//	 * @author Krischan
+//	 * @author ks
 //	 */
 //	@Test
 //	public void testPositiveGetReading() {

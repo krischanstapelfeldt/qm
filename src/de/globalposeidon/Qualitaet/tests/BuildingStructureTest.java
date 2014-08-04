@@ -31,7 +31,7 @@ public class BuildingStructureTest extends TestCase {
 	 * testPositiveCreateBuildingStructure()
 	 * 
 	 * @result create a new buildingstructure with specific data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateBuildingStructure() {
@@ -44,7 +44,7 @@ public class BuildingStructureTest extends TestCase {
 	 * testPositiveAddBuilding()
 	 * 
 	 * @result add building to selected buildingstructure. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveAddBuilding() {
@@ -57,7 +57,7 @@ public class BuildingStructureTest extends TestCase {
 	 * testPositiveGetBuilding()
 	 * 
 	 * @result get building from selected buildingstructure. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetBuilding() {
@@ -70,7 +70,7 @@ public class BuildingStructureTest extends TestCase {
 	 * testPositiveRemoveBuilding()
 	 * 
 	 * @result remove building from selected buildingstructure. delete from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveRemoveBuilding() {
@@ -83,7 +83,7 @@ public class BuildingStructureTest extends TestCase {
 	 * testPositiveGetBuildingStructure()
 	 * 
 	 * @result get buildingstructure with all buildings. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetBuildingStructure() {

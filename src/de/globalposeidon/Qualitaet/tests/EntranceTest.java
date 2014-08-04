@@ -39,7 +39,7 @@ public class EntranceTest extends TestCase {
 	 * 
 	 * @result create two new entrances. one with specific data, one with empty
 	 *         data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateEntrance() {
@@ -53,7 +53,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveAddMeter()
 	 * 
 	 * @result add meter to selected ArrayList. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveAddMeter() {
@@ -66,7 +66,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveGetMeter()
 	 * 
 	 * @result get meter from selected ArrayList. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetMeter() {
@@ -78,7 +78,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveRemoveMeter()
 	 * 
 	 * @result remove meter from selected ArrayList. delete from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveRemoveMeter() {
@@ -91,7 +91,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveAddApartment()
 	 * 
 	 * @result add apartment to selected ArrayList. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveAddApartment() {
@@ -104,7 +104,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveGetApartment()
 	 * 
 	 * @result get apartment from selected ArrayList. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetApartment() {
@@ -117,7 +117,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveRemoveApartment()
 	 * 
 	 * @result remove apartment from selected ArrayList. delete from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveRemoveApartment() {
@@ -130,7 +130,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveGetEmptyApartments()
 	 * 
 	 * @result get empty apartments from selected ArrayList. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetEmptyApartments() {
@@ -146,7 +146,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveGetRentedApartments()
 	 * 
 	 * @result get rented apartments from selected ArrayList. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetRentedApartments() {
@@ -162,7 +162,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveEntranceIsEmpty()
 	 * 
 	 * @result get boolean if entrance is empty. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveEntranceIsEmpty() {
@@ -175,7 +175,7 @@ public class EntranceTest extends TestCase {
 	 * testPositiveGetEntrance()
 	 * 
 	 * @result get entrance with all apartments. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetEntrance() {

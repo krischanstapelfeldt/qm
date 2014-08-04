@@ -25,7 +25,7 @@ public class TenantTest extends TestCase {
 	 * 
 	 * @result create two new tenants. one with specific data, one with empty
 	 *         data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateTenant() {

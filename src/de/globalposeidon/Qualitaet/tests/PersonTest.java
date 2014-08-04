@@ -40,7 +40,7 @@ public class PersonTest extends TestCase {
 	 * 
 	 * @result create two new persons. one with specific data, one with empty
 	 *         data. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreatePerson() {
@@ -54,7 +54,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveGetName()
 	 * 
 	 * @result get name from selected persons. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetName() {
@@ -67,7 +67,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveSetName()
 	 * 
 	 * @result set name for selected person. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetName() {
@@ -80,7 +80,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveGetSurname()
 	 * 
 	 * @result get surname from selected persons. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetSurname() {
@@ -93,7 +93,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveSetSurname()
 	 * 
 	 * @result set surname for selected person. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetSurname() {
@@ -106,7 +106,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveGetPhone()
 	 * 
 	 * @result get phone from selected persons. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetPhone() {
@@ -119,7 +119,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveSetPhone()
 	 * 
 	 * @result set phone for selected person. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetPhone() {
@@ -132,7 +132,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveGetEmail()
 	 * 
 	 * @result get email from selected persons. load from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetEmail() {
@@ -145,7 +145,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveSetEmail()
 	 * 
 	 * @result set email for selected person. insert into database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveSetEmail() {
@@ -158,7 +158,7 @@ public class PersonTest extends TestCase {
 	 * testPositiveGetPerson()
 	 * 
 	 * @result get person with data from database.
-	 * @author Krischan
+	 * @author ks
 	 */
 	@Test
 	public void testPositiveGetPerson() {
