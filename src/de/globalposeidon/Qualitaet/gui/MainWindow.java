@@ -206,9 +206,11 @@ public class MainWindow extends JFrame{
 		JLabel lblSort = new JLabel("Sort by rented/unrented:");
 		
 		JRadioButton rdRented = new JRadioButton("Rented");
-		
 		JRadioButton rdUnrented = new JRadioButton("Unrented");
 		
+		ButtonGroup rdGroup = new ButtonGroup();
+		rdGroup.add(rdRented);
+		rdGroup.add(rdUnrented);
 		
 		seperatorVerical.setOrientation(SwingConstants.VERTICAL);
 		GroupLayout glBottomRightPanel = new GroupLayout(BottomRightPanel);
