@@ -56,6 +56,6 @@ public class Person {
 //================================================================================
 	@Override
 	public String toString() {
-		return (surname + ", " + name + "\n" + phone + " " + email);
+		return (surname + ", " + name + " " + phone + " " + email);
 	}
 }

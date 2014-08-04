@@ -15,6 +15,8 @@ import javax.swing.UIManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.globalposeidon.Qualitaet.model.*;
+
 
 public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 8601779252949758710L;
@@ -62,6 +64,10 @@ public class MainWindow extends JFrame {
 		add(buttonPanel, BorderLayout.SOUTH);
 		add(treeTableSplit, BorderLayout.CENTER);
 		
+		// TEST TEST MODEL
+		
+		new DataContainer();
+		// TEST TEST END
 		pack();
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

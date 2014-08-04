@@ -3,6 +3,7 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.Date;
 
 /* abgedeckte Anforderungen
+ * A2 - Zaehler unterstützen verschieden Typen
  * A3 - Zaehler sind eindeutig zu identifizieren -> meterID
  * A5 - Zaehler haben eine Ablesewert ->currentValue/yearValue
  * A8 - Zaehlerwert und Datum laufen vorwaerts
@@ -11,7 +12,7 @@ import java.util.Date;
 public class Meter {
 	
 	final int meterID;
-	Metertype type;
+	final Metertype type;
 	int currentValue;
 	int yearValue; // wert zum 01.01 eines Jahres
 	Date lastRead; // letzter ablesewert
@@ -19,7 +20,7 @@ public class Meter {
 //================================================================================
 // constructors
 //================================================================================
-	// empty strucuture not allowed, so no BuildingStructure()
+	// empty meter not allowed, so no Meter()
 
 	// structure with initial building
 	public Meter(int meterID, Metertype type) {
@@ -27,6 +28,7 @@ public class Meter {
 		this.type = type;
 		this.currentValue = 0;
 		this.yearValue = 0;
+		this.lastRead = new Date();
 	}
 //================================================================================
 // access private variables
@@ -37,10 +39,6 @@ public class Meter {
 
 	public Metertype getType() {
 		return type;
-	}
-	// TODO: type as final too?
-	public void setType(Metertype type) {
-		this.type = type;
 	}
 
 	public int getCurrentValue() {
@@ -79,13 +77,14 @@ public class Meter {
 //================================================================================
 // other stuff, dont know nice name
 //================================================================================
+	public Reading makeReading() {
+		return new Reading(this, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
+	}
+	
 	@Override
 	public String toString() {
 		return (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
 	}
-	
-	
-	
 	
 //================================================================================
 // TODO: REMOVE OLD TEST STUFF

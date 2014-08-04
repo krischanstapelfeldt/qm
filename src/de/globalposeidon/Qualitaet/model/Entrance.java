@@ -46,10 +46,8 @@ public class Entrance {
 		return apartments.get(index);
 	}
 	
-	public boolean addApartment(Apartment val) {
-		
+	public void addApartment(Apartment val) {
 		this.apartments.add(val);
-		return true;
 	}
 	
 	public boolean removeApartment(int index) {
@@ -63,15 +61,25 @@ public class Entrance {
 // other stuff...
 //================================================================================
 	public ArrayList<Apartment> getEmptyApartments() {
-		return this.apartments;
+		ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+		for (int i = 0; i < this.apartments.size(); ++i) {
+			if (!this.apartments.get(i).apartmentIsEmpty())
+				tmpList.add(this.apartments.get(i));
+		}
+		return tmpList;
 	}
 	
 	public ArrayList<Apartment> getRentedApartments() {
-		return this.apartments;
+		ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+		for (int i = 0; i < this.apartments.size(); ++i) {
+			if (this.apartments.get(i).apartmentIsEmpty())
+				tmpList.add(this.apartments.get(i));
+		}
+		return tmpList;
 	}
 	
 	public boolean entranceIsEmpty() {
-		return true;
+		return this.apartments.size() != 0 ? true : false;
 	}
 	
 	
@@ -79,7 +87,7 @@ public class Entrance {
 	public String toString() {
 		String output = "";
 		for (int i = 0; i < apartments.size(); i++) {
-			output += "Apartment: Nr." + i;
+			output += "\n\t\tApartment " + i + " " + getApartment(i);
 		}
 		return output;
 	}

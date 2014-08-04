@@ -19,11 +19,11 @@ public class Apartment {
 	public Apartment(Meter initialMeter) {
 		meters = new ArrayList<Meter>();
 		meters.add(initialMeter);
+		this.tenants = new ArrayList<Tenant>();
 	}
 	
 	public Apartment(Meter initialMeter, Tenant initialTenant) {
 		this(initialMeter);
-		this.tenants = new ArrayList<Tenant>();
 		this.tenants.add(initialTenant);
 	}
 	
@@ -39,26 +39,28 @@ public class Apartment {
 	}
 	
 	public boolean addTenant(Tenant tentant) {
-		if(this.tenants.size() < 5) {
+		if(this.tenants.size() < 5) { //max 4 tenants for each apartment
 			this.tenants.add(tentant);
 			return true;
 		}
 		return false;
 	}
 	
+	public Tenant getTenant(int index) {
+		return this.tenants.get(index);
+	}
 //================================================================================
 // other stuff...
 //================================================================================
 	public boolean apartmentIsEmpty() {
-
-		return false;
+		return this.meters.size() != 0 ? true : false;
 	}
 
 	@Override
 	public String toString() {
-		String output = "Renter: " + "\n";
+		String output = "";
 		for (int i = 0; i < tenants.size(); i++) {
-			output += "Tentant: Nr." + i;
+			output += "\n\t\t\t with Tenant: " + getTenant(i);
 		}
 		return output;
 	}

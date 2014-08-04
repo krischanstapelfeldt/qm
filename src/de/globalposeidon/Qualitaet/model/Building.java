@@ -54,15 +54,15 @@ public class Building {
 // other stuff...
 //================================================================================
 	public boolean buildingIsEmpty() {
-
-		return false;
+		return this.entrances.size() != 0 ? true : false;
 	}
 	
 	@Override
 	public String toString() {
-		String output = "Renter: " + "\n";
+		String output = "";
 		for (int i = 0; i < entrances.size(); i++) {
-			output += "Entrance: Nr." + i;
+			output += " Rented by " + this.renter;
+			output += "\n\tEntrance " + i + " " + getEntrance(i);
 		}
 		return output;
 	}

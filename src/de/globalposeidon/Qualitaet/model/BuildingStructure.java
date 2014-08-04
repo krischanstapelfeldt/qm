@@ -51,7 +51,7 @@ public class BuildingStructure {
 	public String toString() {
 		String output = "";
 		for (int i = 0; i < buildings.size(); i++) {
-			output += "Building: Nr." + i + "\n";
+			output += "Bulding " + i  + " " + getBuilding(i) + "\n";
 		}
 		return output;
 	}
