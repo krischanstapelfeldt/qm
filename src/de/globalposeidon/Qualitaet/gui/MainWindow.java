@@ -13,11 +13,11 @@ import org.slf4j.LoggerFactory;
 import de.globalposeidon.Qualitaet.model.*;
 
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 8601779252949758710L;
 	final Logger logger = LoggerFactory.getLogger(MainWindow.class);
 	private JFrame frame;
-	private JTextField tfTest;
+	private JTextField tfMeterId;
 	private JTable table;
 
 	
@@ -59,7 +59,8 @@ public class MainWindow extends JFrame {
 		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JSeparator separator = new JSeparator();
+		JSeparator separatorPopup = new JSeparator();
+		JSeparator seperatorVerical = new JSeparator();
 	
 		// MenuBar in the top
 		JMenuBar menuBar = new JMenuBar();
@@ -163,7 +164,7 @@ public class MainWindow extends JFrame {
 		popMenu.add(AddTenant);
 		
 		
-		popMenu.add(separator);
+		popMenu.add(separatorPopup);
 		
 		JMenuItem DelBuilding = new JMenuItem("Delete Building");
 		popMenu.add(DelBuilding);
@@ -184,57 +185,90 @@ public class MainWindow extends JFrame {
 		JPanel rightPanel = new JPanel();
 		splitPane.setRightComponent(rightPanel);
 		
-		// Set Gridlayout at right splitpane
-		rightPanel.setLayout(new GridLayout(2, 0, 0, 0));
-		
 		// Initial scrollpane for the JTable
 		JScrollPane scrollPane = new JScrollPane();
-		rightPanel.add(scrollPane);
 		
 		// Initial Table for the datail view
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
-		// Set cardlayout at the top part of the right splitpane
-		JPanel clTopRightPanel = new JPanel();
-		rightPanel.add(clTopRightPanel);
-		clTopRightPanel.setLayout(new CardLayout(0, 0));
-		
 		// Set new panel at the bottom part of the right splitpane
 		JPanel BottomRightPanel = new JPanel();
-		clTopRightPanel.add(BottomRightPanel, "name_39926974484125");
+		BottomRightPanel.setForeground(Color.GRAY);
 		
-		JLabel lblTest = new JLabel("Test Lable");
+		JLabel lblMeterId = new JLabel("Meter ID");
 		
-		tfTest = new JTextField();
-		tfTest.setColumns(10);
+		tfMeterId = new JTextField();
+		tfMeterId.setColumns(10);
 		
-		JLabel label = new JLabel("New label");
+		JLabel lblMeterSearch = new JLabel("Meter search:");
+		
+		JLabel lblSort = new JLabel("Sort by rented/unrented:");
+		
+		JRadioButton rdRented = new JRadioButton("Rented");
+		
+		JRadioButton rdUnrented = new JRadioButton("Unrented");
+		
+		
+		seperatorVerical.setOrientation(SwingConstants.VERTICAL);
 		GroupLayout glBottomRightPanel = new GroupLayout(BottomRightPanel);
 		glBottomRightPanel.setHorizontalGroup(
-				glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+			glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(glBottomRightPanel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblMeterSearch)
 						.addGroup(glBottomRightPanel.createSequentialGroup()
-							.addComponent(lblTest)
+							.addComponent(lblMeterId)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(tfTest, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addComponent(label))
-					.addContainerGap(385, Short.MAX_VALUE))
+							.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(30)
+					.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(28)
+					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+						.addComponent(rdUnrented)
+						.addComponent(rdRented)
+						.addComponent(lblSort))
+					.addContainerGap(256, Short.MAX_VALUE))
 		);
 		glBottomRightPanel.setVerticalGroup(
-				glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+			glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(glBottomRightPanel.createSequentialGroup()
-					.addGap(42)
-					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblTest)
-						.addComponent(tfTest, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(26)
-					.addComponent(label)
-					.addContainerGap(157, Short.MAX_VALUE))
+					.addContainerGap(153, Short.MAX_VALUE)
+					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+						.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+						.addGroup(glBottomRightPanel.createSequentialGroup()
+							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblMeterSearch)
+								.addComponent(lblSort))
+							.addGap(18)
+							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblMeterId)
+								.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(rdRented))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(rdUnrented)))
+					.addGap(18))
 		);
 		BottomRightPanel.setLayout(glBottomRightPanel);
+		GroupLayout gl_rightPanel = new GroupLayout(rightPanel);
+		gl_rightPanel.setHorizontalGroup(
+			gl_rightPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_rightPanel.createSequentialGroup()
+					.addGroup(gl_rightPanel.createParallelGroup(Alignment.LEADING)
+						.addComponent(BottomRightPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 636, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		gl_rightPanel.setVerticalGroup(
+			gl_rightPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_rightPanel.createSequentialGroup()
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(BottomRightPanel, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
+					.addGap(1))
+		);
+		rightPanel.setLayout(gl_rightPanel);
 		
 		
 
@@ -261,7 +295,14 @@ public class MainWindow extends JFrame {
 	}
 }
 
-	
+
+
+
+
+
+
+
+
 
 		
 	
