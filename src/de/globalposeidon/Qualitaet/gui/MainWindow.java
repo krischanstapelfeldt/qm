@@ -1,12 +1,10 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -57,7 +55,7 @@ public class MainWindow extends JFrame{
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
+		frame.setSize(800,600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JSeparator separatorPopup = new JSeparator();
@@ -121,20 +119,18 @@ public class MainWindow extends JFrame{
 		glLeftPanel.setHorizontalGroup(
 				glLeftPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(glLeftPanel.createSequentialGroup()
-					.addGap(0)
-					.addComponent(tree, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-					.addGap(1))
+					.addComponent(tree, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
 				.addGroup(glLeftPanel.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(glLeftPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(Alignment.TRAILING, glLeftPanel.createSequentialGroup()
 							.addGap(10)
-							.addComponent(btnAddRenter, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+							.addComponent(btnAddRenter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addContainerGap())
 						.addGroup(glLeftPanel.createSequentialGroup()
 							.addGap(10)
 							.addGroup(glLeftPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+								.addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addContainerGap())))
 		);
@@ -186,40 +182,40 @@ public class MainWindow extends JFrame{
 		JPanel rightPanel = new JPanel();
 		splitPane.setRightComponent(rightPanel);
 		
-		// Initial scrollpane for the JTable
-		JScrollPane scrollPane = new JScrollPane();
-		
-		// Initial Table for the datail view
-		JTable table = new JTable();
-		scrollPane.setViewportView(table);
-		
 		// Set new panel at the bottom part of the right splitpane
 		JPanel BottomRightPanel = new JPanel();
-		BottomRightPanel.setForeground(Color.GRAY);
+		
 		
 		JLabel lblMeterId = new JLabel("Meter ID");
 		
 		JTextField tfMeterId = new JTextField();
-		tfMeterId.setColumns(10);
+		tfMeterId.setPreferredSize(new Dimension(100,20));
 		
 		JLabel lblMeterSearch = new JLabel("Meter search:");
 		
 		JLabel lblSort = new JLabel("Sort by rented/unrented:");
 		
+		//Initial Radiobuttons
 		JRadioButton rdRented = new JRadioButton("Rented");
-		
 		JRadioButton rdUnrented = new JRadioButton("Unrented");
+				
+		//Group Radiobuttons
+		ButtonGroup rdGroup = new ButtonGroup();
+				
+		rdGroup.add(rdRented);
+		rdGroup.add(rdUnrented);
 		
-		
+		// Set Vertical-Seperator
 		seperatorVerical.setOrientation(SwingConstants.VERTICAL);
 		
+		// Set Components to fill the Meter Details
 		JLabel lblDesReadingVal = new JLabel("Meter reading value:");
-		
-		JTextField tfReadingVal = new JTextField();
-		tfReadingVal.setColumns(10);
-		
 		JLabel lblReadingVal = new JLabel("Reading Value");
+		JTextField tfReadingVal = new JTextField();
+		tfReadingVal.setPreferredSize(new Dimension(100,20));
 		
+	
+		// Set Layout at the bottom part of the right splitpane
 		GroupLayout glBottomRightPanel = new GroupLayout(BottomRightPanel);
 		glBottomRightPanel.setHorizontalGroup(
 			glBottomRightPanel.createParallelGroup(Alignment.LEADING)
@@ -231,31 +227,31 @@ public class MainWindow extends JFrame{
 							.addComponent(lblMeterId)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(27)
+					.addGap(25)
 					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblDesReadingVal, Alignment.LEADING)
 						.addGroup(glBottomRightPanel.createSequentialGroup()
 							.addComponent(lblReadingVal)
-							.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18)
-					.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addGap(28)
+					.addGap(20)
+					.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(25)
 					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 						.addComponent(rdUnrented)
 						.addComponent(rdRented)
 						.addComponent(lblSort))
-					.addGap(36))
+					.addGap(35))
 		);
 		glBottomRightPanel.setVerticalGroup(
 			glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(glBottomRightPanel.createSequentialGroup()
-					.addContainerGap(26, Short.MAX_VALUE)
+					.addContainerGap(25, Short.MAX_VALUE)
 					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+						.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 						.addGroup(glBottomRightPanel.createSequentialGroup()
 							.addComponent(lblSort)
-							.addGap(18)
+							.addGap(20)
 							.addComponent(rdRented)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(rdUnrented))
@@ -263,39 +259,50 @@ public class MainWindow extends JFrame{
 							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblMeterSearch)
 								.addComponent(lblDesReadingVal))
-							.addGap(18)
+							.addGap(20)
 							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblMeterId)
 								.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblReadingVal))))
-					.addGap(18))
+					.addGap(20))
 		);
 		BottomRightPanel.setLayout(glBottomRightPanel);
-		GroupLayout gl_rightPanel = new GroupLayout(rightPanel);
-		gl_rightPanel.setHorizontalGroup(
-			gl_rightPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_rightPanel.createSequentialGroup()
-					.addGroup(gl_rightPanel.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(BottomRightPanel, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
-						.addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
-					.addContainerGap(0, Short.MAX_VALUE))
+		
+		
+		
+		// Initial Scrollpane
+		JScrollPane scrollPane = new JScrollPane();
+		
+		// Set Layout at the Top part of the right splitpane
+		
+		GroupLayout glTopRightPanel = new GroupLayout(rightPanel);
+		glTopRightPanel.setHorizontalGroup(
+			glTopRightPanel.createParallelGroup(Alignment.LEADING)
+				.addComponent(BottomRightPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 		);
-		gl_rightPanel.setVerticalGroup(
-			gl_rightPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_rightPanel.createSequentialGroup()
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 383, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(BottomRightPanel, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
-					.addGap(1))
+		glTopRightPanel.setVerticalGroup(
+			glTopRightPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(glTopRightPanel.createSequentialGroup()
+				
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				
+					.addComponent(BottomRightPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(20))
 		);
-		rightPanel.setLayout(gl_rightPanel);
+		
+		// Initial JTable
+		
+		JTable table = new JTable();
+		scrollPane.setViewportView(table);
+		rightPanel.setLayout(glTopRightPanel);
 		
 		
 
 	}
 	
-	// necessary to open the popup-menu
+	// Necessary to open the popup-menu
 	
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
@@ -318,5 +325,4 @@ public class MainWindow extends JFrame{
 
 
 
-		
 	
