@@ -1,9 +1,13 @@
 package de.globalposeidon.Qualitaet.gui;
+
+import java.awt.*;
 import java.awt.EventQueue;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout.ParallelGroup;
+import javax.swing.GroupLayout.SequentialGroup;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +16,7 @@ import de.globalposeidon.Qualitaet.model.*;
 
 public class AddBuilding extends JFrame {
 
-	private JPanel contentPane;
+	// private JPanel content;
 	private JTextField tfBuildingName;
 	private JTextField tfFirstname;
 	private JTextField tfSurname;
@@ -22,8 +26,6 @@ public class AddBuilding extends JFrame {
 	private JTextField tfHNo;
 	private JTextField tfZip;
 	private JTextField tfTown;
-
-
 
 	// Launch the application.
 
@@ -40,57 +42,36 @@ public class AddBuilding extends JFrame {
 		});
 	}
 
-	
-	 // Create the frame.
-	
+	// Create the frame.
+
 	public AddBuilding() {
 		super("Add Building");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 400);
-		contentPane = new JPanel();
-		setContentPane(contentPane);
-		
-		// Initial Button Panel
-		JPanel btnPanel = new JPanel();
-		
+		setSize(550, 400);
+
 		JPanel tfPanel = new JPanel();
-		
-		// Set Layout at full Pane
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addComponent(tfPanel, GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-				.addComponent(btnPanel, GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addComponent(tfPanel, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(btnPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(27, Short.MAX_VALUE))
-		);
-		
+		setContentPane(tfPanel);
+
 		// Initial Textfields and their length
 		tfBuildingName = new JTextField();
-		tfBuildingName.setColumns(10);
+		tfBuildingName.setPreferredSize(new Dimension(150, 20));
 		tfFirstname = new JTextField();
-		tfFirstname.setColumns(10);
+		tfFirstname.setPreferredSize(new Dimension(150, 20));
 		tfSurname = new JTextField();
-		tfSurname.setColumns(10);
+		tfSurname.setPreferredSize(new Dimension(150, 20));
 		tfTel = new JTextField();
-		tfTel.setColumns(10);
+		tfTel.setPreferredSize(new Dimension(150, 20));
 		tfEmail = new JTextField();
-		tfEmail.setColumns(10);
+		tfEmail.setPreferredSize(new Dimension(150, 20));
 		tfStreet = new JTextField();
-		tfStreet.setColumns(10);
+		tfStreet.setPreferredSize(new Dimension(150, 20));
 		tfHNo = new JTextField();
-		tfHNo.setColumns(10);
+		tfHNo.setPreferredSize(new Dimension(150, 20));
 		tfZip = new JTextField();
-		tfZip.setColumns(10);
+		tfZip.setPreferredSize(new Dimension(150, 20));
 		tfTown = new JTextField();
-		tfTown.setColumns(10);
-		
+		tfTown.setPreferredSize(new Dimension(150, 20));
+
 		// Initial Labels
 		JLabel lblBuilding = new JLabel("Building name");
 		JLabel lblTenant = new JLabel("Tenant details");
@@ -103,119 +84,204 @@ public class AddBuilding extends JFrame {
 		JLabel lblZip = new JLabel("Zip");
 		JLabel lblTown = new JLabel("Town");
 		JLabel lblAdress = new JLabel("Adress details");
-		
-		// Set Layout at Textfield Panel
-		
-	GroupLayout glTfPanel = new GroupLayout(tfPanel);
-	glTfPanel.setHorizontalGroup(
-			glTfPanel.createParallelGroup(Alignment.LEADING)
-			.addGroup(glTfPanel.createSequentialGroup()
-				.addContainerGap()
-				.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-					.addGroup(glTfPanel.createSequentialGroup()
-						.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-							.addComponent(lblTenant)
-							.addGroup(glTfPanel.createSequentialGroup()
-								.addComponent(lblBuilding)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(tfBuildingName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addComponent(lblBuilding)
-							.addGroup(glTfPanel.createSequentialGroup()
-								.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-									.addGroup(glTfPanel.createSequentialGroup()
-										.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-											.addComponent(lblStreet)
-											.addComponent(lblZip, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-										.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-											.addComponent(tfZip, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addComponent(tfStreet, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED))
-									.addGroup(glTfPanel.createSequentialGroup()
-										.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-											.addComponent(lblFirstname)
-											.addComponent(lblTel))
-										.addGap(18)
-										.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-											.addComponent(tfFirstname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addComponent(tfTel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-								.addGap(27)
-								.addGroup(glTfPanel.createParallelGroup(Alignment.TRAILING)
-									.addGroup(glTfPanel.createSequentialGroup()
-										.addComponent(lblSurname)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(tfSurname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-									.addGroup(glTfPanel.createSequentialGroup()
-										.addComponent(lblEmail)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(tfEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-									.addGroup(glTfPanel.createSequentialGroup()
-										.addGroup(glTfPanel.createParallelGroup(Alignment.TRAILING)
-											.addComponent(lblTown)
-											.addComponent(lblHNo))
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-											.addComponent(tfTown, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addComponent(tfHNo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
-						.addContainerGap(63, Short.MAX_VALUE))
-					.addGroup(glTfPanel.createSequentialGroup()
-						.addComponent(lblAdress)
-						.addContainerGap(380, Short.MAX_VALUE))))
-	);
-	glTfPanel.setVerticalGroup(
-		glTfPanel.createParallelGroup(Alignment.LEADING)
-			.addGroup(glTfPanel.createSequentialGroup()
-				.addContainerGap()
-				.addGroup(glTfPanel.createParallelGroup(Alignment.BASELINE)
-					.addComponent(lblBuilding)
-					.addComponent(tfBuildingName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addGap(39)
-				.addComponent(lblTenant)
-				.addGap(18)
-				.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-					.addGroup(glTfPanel.createSequentialGroup()
-						.addGroup(glTfPanel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(lblSurname)
-							.addComponent(tfSurname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(tfFirstname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(glTfPanel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(tfEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(lblEmail)))
-					.addGroup(glTfPanel.createSequentialGroup()
-						.addComponent(lblFirstname)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(glTfPanel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(lblTel)
-							.addComponent(tfTel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-				.addPreferredGap(ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-				.addComponent(lblAdress)
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addGroup(glTfPanel.createParallelGroup(Alignment.LEADING)
-					.addComponent(tfHNo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGroup(glTfPanel.createSequentialGroup()
-						.addComponent(lblStreet)
-						.addGap(18)
-						.addComponent(lblZip))
-					.addComponent(tfStreet, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGroup(glTfPanel.createSequentialGroup()
-						.addComponent(lblHNo)
-						.addGap(18)
-						.addGroup(glTfPanel.createParallelGroup(Alignment.BASELINE)
-							.addComponent(tfTown, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(tfZip, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(lblTown))))
-				.addGap(55))
-	);
-	
-		tfPanel.setLayout(glTfPanel);
-		
+
+		Font f = new Font("Arial", Font.ITALIC, 14);
+		lblTenant.setFont(f);
+		lblAdress.setFont(f);
+
 		// Initial Buttons
 		JButton btnSave = new JButton("Save");
-		btnPanel.add(btnSave);
-		
 		JButton btnCancel = new JButton("Cancel");
-		btnPanel.add(btnCancel);
-		contentPane.setLayout(gl_contentPane);
+
+		// Set Layout at Textfield Panel
+
+		GroupLayout layout = new GroupLayout(tfPanel);
+
+		tfPanel.setLayout(layout);
+		layout.setAutoCreateGaps(true);
+		layout.setAutoCreateContainerGaps(true);
+
+		SequentialGroup horizontalGroup = layout.createSequentialGroup();
+
+		SequentialGroup verticalGroup = layout.createSequentialGroup();
+
+		// Set horizontal Groups
+
+		horizontalGroup.addGroup(layout
+				.createParallelGroup(Alignment.CENTER)
+				.addComponent(lblBuilding)
+				.addComponent(tfBuildingName, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+		horizontalGroup.addGroup(layout.createParallelGroup(Alignment.CENTER)
+				.addGap(30));
+		horizontalGroup.addGroup(layout.createParallelGroup(Alignment.CENTER)
+
+		.addComponent(lblTenant));
+
+		horizontalGroup.addGroup(layout
+				.createParallelGroup(Alignment.CENTER)
+				.addComponent(lblFirstname)
+				.addComponent(tfFirstname, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblSurname)
+				.addComponent(tfSurname, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+
+		horizontalGroup.addGroup(layout
+				.createParallelGroup(Alignment.CENTER)
+				.addComponent(lblTel)
+				.addComponent(tfTel, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblEmail)
+				.addComponent(tfEmail, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+
+		horizontalGroup.addGroup(layout.createParallelGroup(Alignment.CENTER)
+				.addGap(30));
+		horizontalGroup.addGroup(layout.createParallelGroup(Alignment.CENTER)
+				.addComponent(lblAdress));
+
+		horizontalGroup.addGroup(layout
+				.createParallelGroup(Alignment.CENTER)
+				.addComponent(lblStreet)
+				.addComponent(tfStreet, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblHNo)
+				.addComponent(tfHNo, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+
+		horizontalGroup.addGroup(layout
+				.createParallelGroup(Alignment.CENTER)
+				.addComponent(lblZip)
+				.addComponent(tfZip, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+				.addComponent(lblTown)
+				.addComponent(tfTown, GroupLayout.DEFAULT_SIZE,
+						GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE));
+
+		horizontalGroup.addGroup(layout.createParallelGroup(Alignment.CENTER)
+				.addGap(0, 0, Short.MAX_VALUE).addComponent(btnSave)
+				.addComponent(btnCancel));
+
+		// Set Parallel Group - Left Label Group
+
+		ParallelGroup lblGroup1 = layout
+				.createParallelGroup()
+				.addGroup(layout.createSequentialGroup()
+
+				.addComponent(lblBuilding))
+
+				.addGroup(layout.createSequentialGroup()
+
+				.addComponent(lblTenant))
+				.addGroup(layout.createSequentialGroup()
+
+				.addComponent(lblFirstname))
+
+				.addGroup(layout.createSequentialGroup().addComponent(lblTel))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(lblAdress))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(lblStreet))
+
+				.addGroup(layout.createSequentialGroup().addComponent(lblZip));
+
+		// Set Parallel Group - Left Textfield Group
+
+		ParallelGroup tfGroup1 = layout
+				.createParallelGroup()
+				.addGroup(
+						layout.createSequentialGroup().addComponent(
+								tfBuildingName, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(
+								tfFirstname, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(tfTel,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(tfStreet,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup()
+
+						.addComponent(tfZip, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(layout.createSequentialGroup().addComponent(btnSave));
+
+		// Set Parallel Group - Right Label Group
+
+		ParallelGroup lblGroup2 = layout
+				.createParallelGroup()
+				.addGroup(
+						layout.createSequentialGroup().addComponent(lblSurname))
+
+				.addGroup(layout.createSequentialGroup().addComponent(lblEmail))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(lblAdress))
+
+				.addGroup(layout.createSequentialGroup().addComponent(lblHNo))
+
+				.addGroup(
+						layout.createSequentialGroup()
+								.addComponent(lblTown)
+
+								.addGroup(
+										layout.createSequentialGroup()
+												.addComponent(btnCancel)));
+
+		// Set Parallel Group - Right TextField Group
+		ParallelGroup tfGroup2 = layout
+				.createParallelGroup()
+				.addGroup(
+						layout.createSequentialGroup().addComponent(tfSurname,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(tfEmail,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(tfHNo,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE))
+
+				.addGroup(
+						layout.createSequentialGroup().addComponent(tfTown,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE));
+
+		layout.setVerticalGroup(horizontalGroup);
+		layout.setHorizontalGroup(verticalGroup);
+
+		// Connect the groups
+		verticalGroup.addGroup(lblGroup1).addGroup(tfGroup1)
+				.addGroup(lblGroup2).addGroup(tfGroup2);
+
+		// Set same button size
+		layout.linkSize(SwingConstants.HORIZONTAL, btnSave, btnCancel);
 	}
 }
