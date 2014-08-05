@@ -1,9 +1,12 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import javax.swing.*;
+
 import java.awt.*;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -17,8 +20,6 @@ public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 8601779252949758710L;
 	final Logger logger = LoggerFactory.getLogger(MainWindow.class);
 	private JFrame frame;
-	private JTextField tfMeterId;
-	private JTable table;
 
 	
 	 // Launch the application.
@@ -189,7 +190,7 @@ public class MainWindow extends JFrame{
 		JScrollPane scrollPane = new JScrollPane();
 		
 		// Initial Table for the datail view
-		table = new JTable();
+		JTable table = new JTable();
 		scrollPane.setViewportView(table);
 		
 		// Set new panel at the bottom part of the right splitpane
@@ -198,7 +199,7 @@ public class MainWindow extends JFrame{
 		
 		JLabel lblMeterId = new JLabel("Meter ID");
 		
-		tfMeterId = new JTextField();
+		JTextField tfMeterId = new JTextField();
 		tfMeterId.setColumns(10);
 		
 		JLabel lblMeterSearch = new JLabel("Meter search:");
@@ -206,13 +207,19 @@ public class MainWindow extends JFrame{
 		JLabel lblSort = new JLabel("Sort by rented/unrented:");
 		
 		JRadioButton rdRented = new JRadioButton("Rented");
+		
 		JRadioButton rdUnrented = new JRadioButton("Unrented");
 		
-		ButtonGroup rdGroup = new ButtonGroup();
-		rdGroup.add(rdRented);
-		rdGroup.add(rdUnrented);
 		
 		seperatorVerical.setOrientation(SwingConstants.VERTICAL);
+		
+		JLabel lblDesReadingVal = new JLabel("Meter reading value:");
+		
+		JTextField tfReadingVal = new JTextField();
+		tfReadingVal.setColumns(10);
+		
+		JLabel lblReadingVal = new JLabel("Reading Value");
+		
 		GroupLayout glBottomRightPanel = new GroupLayout(BottomRightPanel);
 		glBottomRightPanel.setHorizontalGroup(
 			glBottomRightPanel.createParallelGroup(Alignment.LEADING)
@@ -224,32 +231,44 @@ public class MainWindow extends JFrame{
 							.addComponent(lblMeterId)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(30)
+					.addGap(27)
+					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblDesReadingVal, Alignment.LEADING)
+						.addGroup(glBottomRightPanel.createSequentialGroup()
+							.addComponent(lblReadingVal)
+							.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+							.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(18)
 					.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addGap(28)
 					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 						.addComponent(rdUnrented)
 						.addComponent(rdRented)
 						.addComponent(lblSort))
-					.addContainerGap(256, Short.MAX_VALUE))
+					.addGap(36))
 		);
 		glBottomRightPanel.setVerticalGroup(
 			glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(glBottomRightPanel.createSequentialGroup()
-					.addContainerGap(153, Short.MAX_VALUE)
+					.addContainerGap(26, Short.MAX_VALUE)
 					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 						.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
 						.addGroup(glBottomRightPanel.createSequentialGroup()
+							.addComponent(lblSort)
+							.addGap(18)
+							.addComponent(rdRented)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(rdUnrented))
+						.addGroup(glBottomRightPanel.createSequentialGroup()
 							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblMeterSearch)
-								.addComponent(lblSort))
+								.addComponent(lblDesReadingVal))
 							.addGap(18)
 							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblMeterId)
 								.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(rdRented))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(rdUnrented)))
+								.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblReadingVal))))
 					.addGap(18))
 		);
 		BottomRightPanel.setLayout(glBottomRightPanel);
@@ -257,10 +276,10 @@ public class MainWindow extends JFrame{
 		gl_rightPanel.setHorizontalGroup(
 			gl_rightPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_rightPanel.createSequentialGroup()
-					.addGroup(gl_rightPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(BottomRightPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 636, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGroup(gl_rightPanel.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(BottomRightPanel, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+						.addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE))
+					.addContainerGap(0, Short.MAX_VALUE))
 		);
 		gl_rightPanel.setVerticalGroup(
 			gl_rightPanel.createParallelGroup(Alignment.LEADING)
@@ -296,13 +315,6 @@ public class MainWindow extends JFrame{
 		});
 	}
 }
-
-
-
-
-
-
-
 
 
 
