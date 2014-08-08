@@ -1,10 +1,12 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -183,6 +185,7 @@ public class MainWindow extends JFrame{
 		splitPane.setRightComponent(rightPanel);
 		
 		// Set new panel at the bottom part of the right splitpane
+		
 		JPanel BottomRightPanel = new JPanel();
 		
 		
@@ -193,9 +196,13 @@ public class MainWindow extends JFrame{
 		
 		JLabel lblMeterSearch = new JLabel("Meter search:");
 		
-		JLabel lblSort = new JLabel("Sort by rented/unrented:");
+		JButton btnSave = new JButton("Save");
+		JButton btnCancel = new JButton("Cancel");
+		
+		
 		
 		//Initial Radiobuttons
+		JLabel lblSort = new JLabel("Sort by rented/unrented:");
 		JRadioButton rdRented = new JRadioButton("Rented");
 		JRadioButton rdUnrented = new JRadioButton("Unrented");
 				
@@ -220,53 +227,67 @@ public class MainWindow extends JFrame{
 		glBottomRightPanel.setHorizontalGroup(
 			glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(glBottomRightPanel.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblMeterSearch)
+					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.TRAILING, false)
 						.addGroup(glBottomRightPanel.createSequentialGroup()
-							.addComponent(lblMeterId)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(25)
-					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
-						.addComponent(lblDesReadingVal, Alignment.LEADING)
-						.addGroup(glBottomRightPanel.createSequentialGroup()
-							.addComponent(lblReadingVal)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(20)
-					.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(25)
-					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(rdUnrented)
-						.addComponent(rdRented)
-						.addComponent(lblSort))
-					.addGap(35))
-		);
-		glBottomRightPanel.setVerticalGroup(
-			glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(glBottomRightPanel.createSequentialGroup()
-					.addContainerGap(25, Short.MAX_VALUE)
-					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
-						.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
-						.addGroup(glBottomRightPanel.createSequentialGroup()
-							.addComponent(lblSort)
-							.addGap(20)
-							.addComponent(rdRented)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(rdUnrented))
-						.addGroup(glBottomRightPanel.createSequentialGroup()
-							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(btnSave))
+						.addGroup(Alignment.LEADING, glBottomRightPanel.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblMeterSearch)
-								.addComponent(lblDesReadingVal))
+								.addGroup(glBottomRightPanel.createSequentialGroup()
+									.addComponent(lblMeterId)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+					.addGap(25)
+					.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(glBottomRightPanel.createSequentialGroup()
+							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
+								.addComponent(lblDesReadingVal, Alignment.LEADING)
+								.addGroup(glBottomRightPanel.createSequentialGroup()
+									.addComponent(lblReadingVal)
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 							.addGap(20)
-							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblMeterId)
-								.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblReadingVal))))
-					.addGap(20))
+							.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(25)
+							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+								.addComponent(rdUnrented)
+								.addComponent(rdRented)
+								.addComponent(lblSort)))
+						.addComponent(btnCancel))
+						.addContainerGap())
 		);
+		
+			
+		glBottomRightPanel.setVerticalGroup(
+				glBottomRightPanel.createParallelGroup(Alignment.TRAILING)
+					.addGroup(glBottomRightPanel.createSequentialGroup()
+						.addContainerGap(25, Short.MAX_VALUE)
+						.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
+							.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+							.addGroup(glBottomRightPanel.createSequentialGroup()
+								.addComponent(lblSort)
+								.addGap(20)
+								.addComponent(rdRented)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(rdUnrented))
+							.addGroup(glBottomRightPanel.createSequentialGroup()
+								.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
+									.addComponent(lblMeterSearch)
+									.addComponent(lblDesReadingVal))
+								.addGap(20)
+								.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
+									.addComponent(lblMeterId)
+									.addComponent(tfMeterId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(lblReadingVal))))
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(glBottomRightPanel.createParallelGroup(Alignment.BASELINE)
+							.addComponent(btnSave)
+							.addComponent(btnCancel)))
+			);
+		
 		BottomRightPanel.setLayout(glBottomRightPanel);
 		
 		
