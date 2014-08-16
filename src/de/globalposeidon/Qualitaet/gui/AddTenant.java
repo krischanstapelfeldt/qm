@@ -1,21 +1,22 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import java.awt.*;
-import java.awt.EventQueue;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
-
+import javax.swing.text.AttributeSet.FontAttribute;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
 public class AddTenant extends JFrame {
 
+	private static final long serialVersionUID = 7393374690213796358L;
 	// private JPanel content;
 	private JTextField tfBuildingName;
 	private JTextField tfFirstname;
@@ -27,26 +28,8 @@ public class AddTenant extends JFrame {
 	private JTextField tfZip;
 	private JTextField tfTown;
 
-	// Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddTenant frame = new AddTenant();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	// Create the frame.
-
 	public AddTenant() {
-		super("Add Tenant");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super(Strings.addTenant);
 		setSize(550, 400);
 
 		JPanel tfPanel = new JPanel();
@@ -73,25 +56,25 @@ public class AddTenant extends JFrame {
 		tfTown.setPreferredSize(new Dimension(150, 20));
 
 		// Initial Labels
-		JLabel lblBuilding = new JLabel("Building name");
-		JLabel lblTenant = new JLabel("Tenant details");
-		JLabel lblFirstname = new JLabel("Firstname");
-		JLabel lblSurname = new JLabel("Surname");
-		JLabel lblTel = new JLabel("Tel.");
-		JLabel lblEmail = new JLabel("E-Mail");
-		JLabel lblStreet = new JLabel("Street");
-		JLabel lblHNo = new JLabel("House No.");
-		JLabel lblZip = new JLabel("Zip");
-		JLabel lblTown = new JLabel("Town");
-		JLabel lblAdress = new JLabel("Adress details");
+		JLabel lblBuilding = new JLabel(Strings.buildingName);
+		JLabel lblTenant = new JLabel(Strings.tenantDetails);
+		JLabel lblFirstname = new JLabel(Strings.firstname);
+		JLabel lblSurname = new JLabel(Strings.surname);
+		JLabel lblTel = new JLabel(Strings.phone);
+		JLabel lblEmail = new JLabel(Strings.email);
+		JLabel lblStreet = new JLabel(Strings.street);
+		JLabel lblHNo = new JLabel(Strings.houseNo);
+		JLabel lblZip = new JLabel(Strings.zip);
+		JLabel lblTown = new JLabel(Strings.town);
+		JLabel lblAdress = new JLabel(Strings.adressDetails);
 
-		Font f = new Font("Arial", Font.ITALIC, 14);
+		Font f = getFont().deriveFont(Font.ITALIC);
 		lblTenant.setFont(f);
 		lblAdress.setFont(f);
 
 		// Initial Buttons
-		JButton btnSave = new JButton("Save");
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnSave = new JButton(Strings.save);
+		JButton btnCancel = new JButton(Strings.cancel);
 
 		// Set Layout at Textfield Panel
 

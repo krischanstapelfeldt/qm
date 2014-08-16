@@ -13,35 +13,19 @@ import java.awt.event.MouseEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
 
 public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 8601779252949758710L;
 	final Logger logger = LoggerFactory.getLogger(MainWindow.class);
-	private JFrame frame;
-
-	
-	 // Launch the application.
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	
 	 // Create the application.
 	
 	public MainWindow() {
-		super("Global Poseidon");
+		super(Strings.globalposeidon);
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
@@ -56,52 +40,21 @@ public class MainWindow extends JFrame{
 	 // Initialize the contents of the frame.
 	
 	private void initialize() {
-		frame = new JFrame();
-		frame.setSize(800,600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(800,600);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JSeparator separatorPopup = new JSeparator();
-		JSeparator seperatorVerical = new JSeparator();
+		JSeparator seperatorVertical = new JSeparator();
 	
-		// MenuBar in the top
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-		
-		JMenu file = new JMenu("File");
-		menuBar.add(file);
-		
-		JMenuItem close = new JMenuItem("close");
-		file.add(close);
-		
-		JMenu edit = new JMenu("edit");
-		menuBar.add(edit);
-		
-		JMenuItem building = new JMenuItem("Add building");
-		edit.add(building);
-		
-		JMenuItem apartment = new JMenuItem("Add apartment");
-		edit.add(apartment);
-		
-		JMenuItem renter = new JMenuItem("Add renter");
-		edit.add(renter);
-		
-			
-		JMenu help = new JMenu("help");
-		menuBar.add(help);
-		
-		JMenuItem about = new JMenuItem("about");
-		help.add(about);
-		
-		JMenuItem faq = new JMenuItem("faq");
-		help.add(faq);
+		// MenuBar
+		setJMenuBar(new MainMenuBar());
 		
 		// Set Layout in the frame
-		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
+		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 		
 		// Initial splitpanes
 		
 		JSplitPane splitPane = new JSplitPane();
-		frame.getContentPane().add(splitPane);
+		getContentPane().add(splitPane);
 		
 		// Initial left splitpane
 		JPanel leftPanel = new JPanel();
@@ -112,9 +65,9 @@ public class MainWindow extends JFrame{
 		
 		// Initial Buttons
 				
-		JButton btnAddRenter = new JButton("Add renter");
-		JButton btnAddApartment = new JButton("Add apartment");
-		JButton btnAddBuilding = new JButton("Add building");
+		JButton btnAddRenter = new JButton(Strings.addRenter);
+		JButton btnAddApartment = new JButton(Strings.addAppartment);
+		JButton btnAddBuilding = new JButton(Strings.addBuilding);
 		
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);
@@ -149,36 +102,12 @@ public class MainWindow extends JFrame{
 					.addContainerGap())
 		);
 		
-		// Initial popup-menu
-		JPopupMenu popMenu = new JPopupMenu();
-		addPopup(tree, popMenu);
-		
-		JMenuItem AddBuilding = new JMenuItem("Add Tenant");
-		popMenu.add(AddBuilding);
-		
-		JMenuItem AddRenter = new JMenuItem("Add Tenant");
-		popMenu.add(AddRenter);
-		
-		JMenuItem AddTenant = new JMenuItem("Add Tenant");
-		popMenu.add(AddTenant);
+		// popup-menu for tree
+		addPopup(tree, new MainPopupMenu());
 		
 		
-		popMenu.add(separatorPopup);
-		
-		JMenuItem DelBuilding = new JMenuItem("Delete Building");
-		popMenu.add(DelBuilding);
-		
-		JMenuItem DelFlat = new JMenuItem("Delete Flat");
-		popMenu.add(DelFlat);
-		
-		JMenuItem DelEntrance = new JMenuItem("Delete Entrance");
-		popMenu.add(DelEntrance);
-		
-		JMenuItem DelRenter = new JMenuItem("Delete Renter");
-		popMenu.add(DelRenter);
 		leftPanel.setLayout(glLeftPanel);
-		
-		
+			
 		
 		// Initial right splitpane
 		JPanel rightPanel = new JPanel();
@@ -187,24 +116,23 @@ public class MainWindow extends JFrame{
 		// Set new panel at the bottom part of the right splitpane
 		
 		JPanel BottomRightPanel = new JPanel();
-		
-		
-		JLabel lblMeterId = new JLabel("Meter ID");
+				
+		JLabel lblMeterId = new JLabel(Strings.meterID);
 		
 		JTextField tfMeterId = new JTextField();
 		tfMeterId.setPreferredSize(new Dimension(100,20));
 		
-		JLabel lblMeterSearch = new JLabel("Meter search:");
+		JLabel lblMeterSearch = new JLabel(Strings.meterSearch);
 		
-		JButton btnSave = new JButton("Save");
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnSave = new JButton(Strings.save);
+		JButton btnCancel = new JButton(Strings.cancel);
 		
 		
 		
 		//Initial Radiobuttons
-		JLabel lblSort = new JLabel("Sort by rented/unrented:");
-		JRadioButton rdRented = new JRadioButton("Rented");
-		JRadioButton rdUnrented = new JRadioButton("Unrented");
+		JLabel lblSort = new JLabel(Strings.sortByRentedUnrented);
+		JRadioButton rdRented = new JRadioButton(Strings.rended);
+		JRadioButton rdUnrented = new JRadioButton(Strings.unrented);
 				
 		//Group Radiobuttons
 		ButtonGroup rdGroup = new ButtonGroup();
@@ -213,11 +141,11 @@ public class MainWindow extends JFrame{
 		rdGroup.add(rdUnrented);
 		
 		// Set Vertical-Seperator
-		seperatorVerical.setOrientation(SwingConstants.VERTICAL);
+		seperatorVertical.setOrientation(SwingConstants.VERTICAL);
 		
 		// Set Components to fill the Meter Details
-		JLabel lblDesReadingVal = new JLabel("Meter reading value:");
-		JLabel lblReadingVal = new JLabel("Reading Value");
+		JLabel lblDesReadingVal = new JLabel(Strings.meterReadingValue);
+		JLabel lblReadingVal = new JLabel(Strings.readingValue);
 		JTextField tfReadingVal = new JTextField();
 		tfReadingVal.setPreferredSize(new Dimension(100,20));
 		
@@ -249,7 +177,7 @@ public class MainWindow extends JFrame{
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(tfReadingVal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 							.addGap(20)
-							.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(seperatorVertical, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(25)
 							.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
 								.addComponent(rdUnrented)
@@ -265,7 +193,7 @@ public class MainWindow extends JFrame{
 					.addGroup(glBottomRightPanel.createSequentialGroup()
 						.addContainerGap(25, Short.MAX_VALUE)
 						.addGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING)
-							.addComponent(seperatorVerical, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+							.addComponent(seperatorVertical, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
 							.addGroup(glBottomRightPanel.createSequentialGroup()
 								.addComponent(lblSort)
 								.addGap(20)
@@ -319,7 +247,8 @@ public class MainWindow extends JFrame{
 		scrollPane.setViewportView(table);
 		rightPanel.setLayout(glTopRightPanel);
 		
-		
+		// Center frame
+		setLocationRelativeTo(null);
 
 	}
 	

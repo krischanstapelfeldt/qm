@@ -1,7 +1,6 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import java.awt.*;
-import java.awt.EventQueue;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
@@ -9,9 +8,11 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
 public class AddApartment extends JFrame {
@@ -26,26 +27,10 @@ public class AddApartment extends JFrame {
 	private JTextField tfReadingVal;
 	
 
-	// Launch the application.
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddApartment frame = new AddApartment();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	// Create the frame.
 
 	public AddApartment() {
-		super("Add Apartment");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super(Strings.addAppartment);
 		setSize(550, 350);
 
 		JPanel tfPanel = new JPanel();
@@ -69,23 +54,23 @@ public class AddApartment extends JFrame {
 
 
 		// Initial Labels
-		JLabel lblApartment = new JLabel("Apartment name");
-		JLabel lblRenter = new JLabel("Renter details");
-		JLabel lblFirstname = new JLabel("Firstname");
-		JLabel lblSurname = new JLabel("Surname");
-		JLabel lblTel = new JLabel("Tel.");
-		JLabel lblEmail = new JLabel("E-Mail");
-		JLabel lblMeter = new JLabel("Meter ID");
-		JLabel lblReadingVal = new JLabel("Reading Value");
-		JLabel lblMeterDet = new JLabel("Meter details");
+		JLabel lblApartment = new JLabel(Strings.appartmentName);
+		JLabel lblRenter = new JLabel(Strings.renterDetails);
+		JLabel lblFirstname = new JLabel(Strings.firstname);
+		JLabel lblSurname = new JLabel(Strings.surname);
+		JLabel lblTel = new JLabel(Strings.phone);
+		JLabel lblEmail = new JLabel(Strings.email);
+		JLabel lblMeter = new JLabel(Strings.meterID);
+		JLabel lblReadingVal = new JLabel(Strings.readingValue);
+		JLabel lblMeterDet = new JLabel(Strings.meterDetails);
 
-		Font f = new Font("Arial", Font.ITALIC, 14);
+		Font f = getFont().deriveFont(Font.ITALIC);
 		lblRenter.setFont(f);
 		lblMeterDet.setFont(f);
 
 		// Initial Buttons
-		JButton btnSave = new JButton("Save");
-		JButton btnCancel = new JButton("Cancel");
+		JButton btnSave = new JButton(Strings.save);
+		JButton btnCancel = new JButton(Strings.cancel);
 
 		// Set Layout at Textfield Panel
 
