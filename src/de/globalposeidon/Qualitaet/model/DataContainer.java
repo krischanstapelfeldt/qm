@@ -23,7 +23,7 @@ public class DataContainer {
 		Tenant tenant2a = new Tenant("Jessi", "j", "541651", "jj@web.de");
 		Tenant tenant2b = new Tenant("Hans", "Wurst", "8123651", "88@web.de");
 		Tenant tenant2c = new Tenant("Sebastian", "Stapelfeldt", "684157887", "reger8@web.de");
-		Tenant tenant2d = new Tenant("Steffen", "Gülle", "64651", "lgiwe@web.de");
+		Tenant tenant2d = new Tenant("Steffen", "GÃ¶lle", "64651", "lgiwe@web.de");
 		Meter meter2 = new Meter(001, Metertype.GAS);
 		Apartment apartment2 = new Apartment(meter2, tenant2);
 		apartment2.addTenant(tenant2a); apartment2.addTenant(tenant2b);

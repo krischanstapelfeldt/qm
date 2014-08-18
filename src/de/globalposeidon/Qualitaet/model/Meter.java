@@ -3,7 +3,7 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.Date;
 
 /* abgedeckte Anforderungen
- * A2 - Zaehler unterstützen verschieden Typen
+ * A2 - Zaehler unterstÃ¼tzen verschieden Typen
  * A3 - Zaehler sind eindeutig zu identifizieren -> meterID
  * A5 - Zaehler haben eine Ablesewert ->currentValue/yearValue
  * A8 - Zaehlerwert und Datum laufen vorwaerts
