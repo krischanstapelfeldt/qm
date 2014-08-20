@@ -3,7 +3,7 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.Date;
 
 /* abgedeckte Anforderungen
- * A2 - Zaehler unterstützen verschieden Typen
+ * A2 - Zaehler unterstuetzen verschieden Typen
  * A3 - Zaehler sind eindeutig zu identifizieren -> meterID
  * A5 - Zaehler haben eine Ablesewert ->currentValue/yearValue
  * A8 - Zaehlerwert und Datum laufen vorwaerts
@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class Meter {
 	
-	final int meterID;
+	private int ID;
 	final Metertype type;
 	int currentValue;
 	int yearValue; // wert zum 01.01 eines Jahres
@@ -24,7 +24,7 @@ public class Meter {
 
 	// structure with initial building
 	public Meter(int meterID, Metertype type) {
-		this.meterID = meterID;
+		this.ID = meterID;
 		this.type = type;
 		this.currentValue = 0;
 		this.yearValue = 0;
@@ -33,12 +33,12 @@ public class Meter {
 //================================================================================
 // access private variables
 //================================================================================
-	public int getMeterID() {
-		return meterID;
+	public int getID() {
+		return ID;
 	}
 
-	public Metertype getType() {
-		return type;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public int getCurrentValue() {
@@ -83,7 +83,7 @@ public class Meter {
 	
 	@Override
 	public String toString() {
-		return (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
+		return (ID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
 	}
 	
 //================================================================================

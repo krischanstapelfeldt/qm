@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Apartment {
 	
+	private int ID;
+
 	private ArrayList<Meter> meters;
 	private ArrayList<Tenant> tenants;
 	
@@ -15,6 +17,9 @@ public class Apartment {
 // constructor
 //================================================================================
 	// empty apartment not allowed, so no Building()
+	public Apartment() {
+		meters = new ArrayList<Meter>();
+	}
 	
 	public Apartment(Meter initialMeter) {
 		meters = new ArrayList<Meter>();
@@ -30,12 +35,23 @@ public class Apartment {
 //================================================================================
 // access private variables
 //================================================================================
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 	public void addMeter(Meter meter) {
 		this.meters.add(meter);
 	}
 	
 	public Meter getMeter(int index) {
 		return this.meters.get(index);
+	}
+	public void removeMeter(int index) {
+		this.meters.remove(index);
 	}
 	
 	public boolean addTenant(Tenant tentant) {
@@ -48,6 +64,10 @@ public class Apartment {
 	
 	public Tenant getTenant(int index) {
 		return this.tenants.get(index);
+	}
+	
+	public void removeTenant(int index) {
+		this.tenants.remove(index);
 	}
 //================================================================================
 // other stuff...

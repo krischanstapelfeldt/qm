@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Entrance {
 	
+	private int ID;
+	
 	private ArrayList<Meter> meters; //can be 0
 	private ArrayList<Apartment> apartments;
 	
@@ -15,6 +17,9 @@ public class Entrance {
 // constructor
 //================================================================================
 	// empty entrance not allowed, so no Entrance()
+	public Entrance() {
+		this.apartments = new ArrayList<Apartment>();
+	}
 	
 	public Entrance(Apartment initialApartment) {
 		this.apartments = new ArrayList<Apartment>();
@@ -30,6 +35,14 @@ public class Entrance {
 //================================================================================
 // access private variables
 //================================================================================
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 	public Meter getMeter(int index) { 
 		return meters.get(index);
 	}

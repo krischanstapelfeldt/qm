@@ -11,12 +11,16 @@ import java.util.ArrayList;
 
 public class BuildingStructure {
 	
+	private int ID;
+	
 	private ArrayList<Building> buildings;
 	
 //================================================================================
 // constructors
 //================================================================================
-	// empty strucuture not allowed, so no BuildingStructure()
+	public BuildingStructure() {
+		buildings = new ArrayList<Building>();
+	}
 
 	// structure with initial building
 	public BuildingStructure(Building initialBuilding) {
@@ -27,6 +31,14 @@ public class BuildingStructure {
 //================================================================================
 // access private variables
 //================================================================================
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 	public boolean addBuilding(Building building) {
 		buildings.add(building);
 		return true;
