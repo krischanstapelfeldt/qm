@@ -17,6 +17,9 @@ public class Entrance {
 // constructor
 //================================================================================
 	// empty entrance not allowed, so no Entrance()
+	public Entrance() {
+		this.apartments = new ArrayList<Apartment>();
+	}
 	
 	public Entrance(Apartment initialApartment) {
 		this.apartments = new ArrayList<Apartment>();

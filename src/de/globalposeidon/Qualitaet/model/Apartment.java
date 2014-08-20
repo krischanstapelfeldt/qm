@@ -17,6 +17,9 @@ public class Apartment {
 // constructor
 //================================================================================
 	// empty apartment not allowed, so no Building()
+	public Apartment() {
+		meters = new ArrayList<Meter>();
+	}
 	
 	public Apartment(Meter initialMeter) {
 		meters = new ArrayList<Meter>();

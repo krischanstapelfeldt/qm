@@ -18,7 +18,9 @@ public class BuildingStructure {
 //================================================================================
 // constructors
 //================================================================================
-	// empty strucuture not allowed, so no BuildingStructure()
+	public BuildingStructure() {
+		buildings = new ArrayList<Building>();
+	}
 
 	// structure with initial building
 	public BuildingStructure(Building initialBuilding) {
