@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 public class BuildingStructure {
 	
+	private int ID;
+	
 	private ArrayList<Building> buildings;
 	
 //================================================================================
@@ -27,6 +29,14 @@ public class BuildingStructure {
 //================================================================================
 // access private variables
 //================================================================================
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 	public boolean addBuilding(Building building) {
 		buildings.add(building);
 		return true;

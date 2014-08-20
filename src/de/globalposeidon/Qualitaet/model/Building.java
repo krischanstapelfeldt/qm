@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Building {
 	
+	private int ID;
+	
 	private Renter renter;
 	private ArrayList<Entrance> entrances;
 	
@@ -25,6 +27,14 @@ public class Building {
 //================================================================================
 // access private variables
 //================================================================================
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 	public Renter getRenter() {
 		return renter;
 	}

@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Reading {
 	
+	private int ID;
+	
 	Meter meter;
 	MeterReader reader;
 	ReadingInfo info;
@@ -17,5 +19,12 @@ public class Reading {
 		this.info = info;
 		readingValue = meter.currentValue;
 	}
+	
+	public int getID() {
+		return ID;
+	}
 
+	public void setID(int iD) {
+		ID = iD;
+	}
 }

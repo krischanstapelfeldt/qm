@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Person {
 	
+	private int ID;
+	
 	String name;
 	String surname;
 	String phone;
@@ -26,6 +28,14 @@ public class Person {
 //================================================================================
 // getter setter
 //================================================================================
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+	
 	public String getName() {
 		return name;
 	}
