@@ -74,6 +74,16 @@ public class MainMenuBar extends JMenuBar{
 		});
 		dev.add(jenkins);
 		
+		JMenuItem jUnitJenkins = new JMenuItem(Strings.openJUnitJenkins);
+		jUnitJenkins.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openWebpage("http://stapelfeldt.selfhost.eu:8080/job/Global%20Poseidon/ws/junit/index.html");
+			}
+		});
+		dev.add(jUnitJenkins);
+		
 		JMenuItem mantis = new JMenuItem(Strings.openMantis);
 		mantis.addActionListener(new ActionListener() {
 			
