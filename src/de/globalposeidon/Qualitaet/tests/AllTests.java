@@ -7,7 +7,6 @@ public class AllTests extends TestSuite {
 	public static Test suite() {
 		TestSuite mySuite = new TestSuite("Global Poseidon TestSuite");
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.ApartmentTest.class);
-		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.BuildingStructureTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.BuildingTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.EntranceTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.MeterTest.class);

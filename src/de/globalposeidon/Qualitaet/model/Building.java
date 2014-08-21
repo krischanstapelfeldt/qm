@@ -42,7 +42,7 @@ public class Building {
 		return renter;
 	}
 
-	public void replaceRenter(Renter renter) {
+	public void setRenter(Renter renter) {
 		this.renter = renter;
 	}
 	
