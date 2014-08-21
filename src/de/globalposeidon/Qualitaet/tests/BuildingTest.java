@@ -68,7 +68,7 @@ public class BuildingTest extends TestCase {
 	public void testPositiveReplaceRenter() {
 
 		Renter newRenter = new Renter();
-		building.replaceRenter(newRenter);
+		building.setRenter(newRenter);
 		assertEquals("", newRenter, building.getRenter());
 
 	}
