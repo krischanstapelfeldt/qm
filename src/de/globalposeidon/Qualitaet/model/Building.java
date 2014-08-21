@@ -73,8 +73,8 @@ public class Building {
 	@Override
 	public String toString() {
 		String output = "";
+		output += " Rented by " + this.renter;
 		for (int i = 0; i < entrances.size(); i++) {
-			output += " Rented by " + this.renter;
 			output += "\n\tEntrance " + i + " " + getEntrance(i);
 		}
 		return output;
