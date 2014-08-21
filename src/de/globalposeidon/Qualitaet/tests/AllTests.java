@@ -10,10 +10,10 @@ public class AllTests extends TestSuite {
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.BuildingTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.EntranceTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.MeterTest.class);
-		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.PersonTest.class);
-		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.ReadingTest.class);
-		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.RenterTest.class);
-		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.TenantTest.class);
+//		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.PersonTest.class);
+//		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.ReadingTest.class);
+//		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.RenterTest.class);
+//		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.TenantTest.class);
 		return mySuite;
 	}
 }
