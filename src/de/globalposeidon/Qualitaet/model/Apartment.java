@@ -18,7 +18,8 @@ public class Apartment {
 //================================================================================
 	// empty apartment not allowed, so no Building()
 	public Apartment() {
-		meters = new ArrayList<Meter>();
+		this.meters = new ArrayList<Meter>();
+		this.tenants = new ArrayList<Tenant>();
 	}
 	
 	public Apartment(Meter initialMeter) {

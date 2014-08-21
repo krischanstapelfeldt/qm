@@ -3,6 +3,7 @@ package de.globalposeidon.Qualitaet;
 import java.awt.EventQueue;
 
 import de.globalposeidon.Qualitaet.gui.MainWindow;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 
 public class Launcher {
 
@@ -12,6 +13,7 @@ public class Launcher {
 				try {
 					MainWindow window = new MainWindow();
 					window.setVisible(true);
+					DataContainer test = new DataContainer();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
