@@ -3,16 +3,15 @@ package de.globalposeidon.Qualitaet.gui;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import de.globalposeidon.Qualitaet.Strings;
+import de.globalposeidon.Qualitaet.model.DBWorker;
 
 public class MainMenuBar extends JMenuBar{
 	private static final long serialVersionUID = 3409407521701819128L;
@@ -65,7 +64,7 @@ public class MainMenuBar extends JMenuBar{
 		JMenu dev = new JMenu("Developer");
 		add(dev);
 		
-		JMenuItem jenkins = new JMenuItem("open Jenkins");
+		JMenuItem jenkins = new JMenuItem(Strings.openJenkins);
 		jenkins.addActionListener(new ActionListener() {
 			
 			@Override
@@ -75,7 +74,7 @@ public class MainMenuBar extends JMenuBar{
 		});
 		dev.add(jenkins);
 		
-		JMenuItem mantis = new JMenuItem("open Mantis");
+		JMenuItem mantis = new JMenuItem(Strings.openMantis);
 		mantis.addActionListener(new ActionListener() {
 			
 			@Override
@@ -85,7 +84,7 @@ public class MainMenuBar extends JMenuBar{
 		});
 		dev.add(mantis);
 		
-		JMenuItem testlink = new JMenuItem("open Testlink");
+		JMenuItem testlink = new JMenuItem(Strings.openTestlink);
 		testlink.addActionListener(new ActionListener() {
 			
 			@Override
@@ -94,6 +93,16 @@ public class MainMenuBar extends JMenuBar{
 			}
 		});
 		dev.add(testlink);
+		
+		JMenuItem databaseTest = new JMenuItem("start database test");
+		databaseTest.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new DBWorker("Testtest");
+			}
+		});
+		dev.add(databaseTest);
 			
 		JMenu help = new JMenu(Strings.help);
 		add(help);

@@ -15,7 +15,7 @@ public class Strings {
 	public static String building = "building";
 	public static String cancel = "cancel";
 	public static String close = "close";
-	public static String delWSpace = "delete";
+	public static String delWSpace = "delete ";
 	public static String details = "details";
 	public static String edit = "Edit";
 	public static String email = "email";
@@ -27,6 +27,7 @@ public class Strings {
 	public static String help = "Help";
 	public static String houseNo = "House no.";
 	public static String meter = "meter";
+	public static String openWSpace = "open ";
 	public static String phone = "phone";
 	public static String reading = "reading";
 	public static String rended = "rented";
@@ -62,6 +63,9 @@ public class Strings {
 	public static String meterID = meter+" ID";
 	public static String meterReadingValue = meter +" "+ reading +" "+ value;
 	public static String meterSearch = meter+" search";
+	public static String openJenkins = openWSpace + "Jenkins";
+	public static String openMantis = openWSpace + "Mantis";
+	public static String openTestlink = openWSpace + "Testlink";
 	public static String readingValue = reading + " " +value;
 	public static String renterDetails = renter + " " +details;
 	public static String sortByRentedUnrented = "sort by "+rended+"/"+unrented;
