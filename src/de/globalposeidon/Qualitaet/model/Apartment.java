@@ -16,16 +16,15 @@ public class Apartment {
 //================================================================================
 // constructor
 //================================================================================
-	// empty apartment not allowed, so no Building()
+
 	public Apartment() {
 		this.meters = new ArrayList<Meter>();
 		this.tenants = new ArrayList<Tenant>();
 	}
 	
 	public Apartment(Meter initialMeter) {
-		meters = new ArrayList<Meter>();
+		this();
 		meters.add(initialMeter);
-		this.tenants = new ArrayList<Tenant>();
 	}
 	
 	public Apartment(Meter initialMeter, Tenant initialTenant) {
@@ -54,7 +53,7 @@ public class Apartment {
 	public void removeMeter(int index) {
 		this.meters.remove(index);
 	}
-	
+
 	public boolean addTenant(Tenant tentant) {
 		if(this.tenants.size() < 5) { //max 4 tenants for each apartment
 			this.tenants.add(tentant);
@@ -84,24 +83,6 @@ public class Apartment {
 			output += "\n\t\t\t with Tenant: " + getTenant(i);
 		}
 		return output;
-	}
-	
-	
-	
-//================================================================================
-// TODO: REMOVE OLD TEST STUFF
-//================================================================================
-	public boolean add() {
-		return true;
-	}
-
-	public boolean delete() {
-		return true;
-	}
-
-	public int[] list(int id) {
-		int[] i = null;
-		return i;
 	}
 
 }

@@ -16,19 +16,19 @@ public class Entrance {
 //================================================================================
 // constructor
 //================================================================================
-	// empty entrance not allowed, so no Entrance()
+
 	public Entrance() {
 		this.apartments = new ArrayList<Apartment>();
+		this.meters = new ArrayList<Meter>();
 	}
 	
 	public Entrance(Apartment initialApartment) {
-		this.apartments = new ArrayList<Apartment>();
+		this();
 		this.addApartment(initialApartment);
 	}
 	
 	public Entrance(Apartment initialApartment, Meter initialMeter) {
 		this(initialApartment);
-		this.meters = new ArrayList<Meter>();
 		this.addMeter(initialMeter);
 	}
 	
@@ -105,22 +105,4 @@ public class Entrance {
 		return output;
 	}
 	
-	
-	
-	
-//================================================================================
-// TODO: REMOVE OLD TEST STUFF
-//================================================================================
-	public boolean add() {
-		return true;
-	}
-
-	public boolean delete() {
-		return true;
-	}
-
-	public int[] list(int id) {
-		int[] i = null;
-		return i;
-	}
 }
