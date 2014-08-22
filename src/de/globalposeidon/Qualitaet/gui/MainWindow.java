@@ -51,13 +51,10 @@ public class MainWindow extends JFrame{
 		// MenuBar
 		setJMenuBar(new MainMenuBar(this));
 		
-		// Set Layout in the frame
-		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
-		
 		// Initial splitpanes
 		
 		JSplitPane splitPane = new JSplitPane();
-		getContentPane().add(splitPane);
+		add(splitPane);
 		
 		// Initial left splitpane
 		JPanel leftPanel = new JPanel();
@@ -134,10 +131,8 @@ public class MainWindow extends JFrame{
 		
 		// popup-menu for tree
 		addPopup(tree, new MainPopupMenu());
-		
-		
-		leftPanel.setLayout(glLeftPanel);
-			
+	
+		leftPanel.setLayout(glLeftPanel);		
 		
 		// Initial right splitpane
 		JPanel rightPanel = new JPanel();
@@ -156,8 +151,6 @@ public class MainWindow extends JFrame{
 		
 		JButton btnSave = new JButton(Strings.save);
 		JButton btnCancel = new JButton(Strings.cancel);
-		
-		
 		
 		//Initial Radiobuttons
 		JLabel lblSort = new JLabel(Strings.sortByRentedUnrented);

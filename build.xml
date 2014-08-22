@@ -5,19 +5,17 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="qm">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="C:/Program Files/eclipse/"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
     
 	<property name="emma.output.dir" value="coverage" />
-	<property name="emma.dir" value="C:/Program Files (x86)/Jenkins/plugins/emma/WEB-INF" />
 	<property name="src.dir" value="src"/>
 	<property name="bin.dir" value="bin/"/>
 	<property name="instrumented.dir" value="inst/"/>
 	<path id="emma.lib">
-		<fileset dir="${emma.dir}" includes="lib/*.jar"/>
+		<fileset dir="lib/" includes="*.jar"/>
 	</path>
               	
     <path id="JUnit 4.libraryclasspath">
@@ -56,6 +54,7 @@
             <classpath refid="qm.classpath"/>
         </javac>
     </target>
+
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
     <target name="AllTests">
         <mkdir dir="${junit.output.dir}"/>
