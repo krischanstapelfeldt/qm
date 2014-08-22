@@ -69,7 +69,7 @@ public class Meter {
 
 	public void setLastRead(Date lastRead) {
 		// only can be set forward
-		if(lastRead.before(this.lastRead)) {
+		if(!lastRead.before(this.lastRead)) {
 			this.lastRead = lastRead;
 		}
 	}
@@ -89,9 +89,7 @@ public class Meter {
 		return (ID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
 	}
 	
-//================================================================================
 // TODO: REMOVE OLD TEST STUFF
-//================================================================================
 	public boolean add() {
 		return true;
 	}
