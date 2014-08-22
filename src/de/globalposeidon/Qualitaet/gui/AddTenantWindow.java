@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
-public class AddTenant extends JFrame {
+public class AddTenantWindow extends JFrame {
 
 	private static final long serialVersionUID = 7393374690213796358L;
 	// private JPanel content;
@@ -28,7 +28,7 @@ public class AddTenant extends JFrame {
 	private JTextField tfZip;
 	private JTextField tfTown;
 
-	public AddTenant() {
+	public AddTenantWindow() {
 		super(Strings.addTenant);
 		setSize(550, 400);
 

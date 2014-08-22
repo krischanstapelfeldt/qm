@@ -7,6 +7,8 @@ import java.awt.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -66,8 +68,33 @@ public class MainWindow extends JFrame{
 		// Initial Buttons
 				
 		JButton btnAddRenter = new JButton(Strings.addRenter);
+// TODO: Write AddRenterWindow
+//		btnAddRenter.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				new AddRenterWindow(parent);
+//			}
+//		});
 		JButton btnAddApartment = new JButton(Strings.addAppartment);
+		btnAddApartment.addActionListener(new ActionListener() {
+// TODO: CRASH in AddApartmentWindow	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Component component = (Component) e.getSource();
+				JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+				new AddApartmentWindow(null);
+			}
+		});			
 		JButton btnAddBuilding = new JButton(Strings.addBuilding);
+// TODO: Write AddBuildingWindow
+//		btnAddBuilding.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				new AddBuildingWindow(null);
+//			}
+//		});	
 		
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);

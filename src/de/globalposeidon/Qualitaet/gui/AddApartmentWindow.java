@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
-public class AddApartment extends JFrame {
+public class AddApartmentWindow extends JFrame {
 
 	// private JPanel content;
 	private JTextField tfApartment;
@@ -29,9 +29,9 @@ public class AddApartment extends JFrame {
 
 	// Create the frame.
 
-	public AddApartment() {
+	public AddApartmentWindow(JFrame parent) {
 		super(Strings.addAppartment);
-		setSize(550, 350);
+//		setSize(550, 350);
 
 		JPanel tfPanel = new JPanel();
 		setContentPane(tfPanel);
@@ -242,5 +242,11 @@ public class AddApartment extends JFrame {
 
 		// Set same button size
 		layout.linkSize(SwingConstants.HORIZONTAL, btnSave, btnCancel);
+		
+		// layout
+		this.pack();
+		this.setLocationRelativeTo(parent);
+		this.setResizable(false);
+		this.setVisible(true);
 	}
 }
