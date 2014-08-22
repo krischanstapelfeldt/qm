@@ -24,6 +24,13 @@ public class DBWorker {
 			statement.setQueryTimeout(5);
 
 			createStructures();
+			ResultSet rs;
+			rs = getTable(DBTable.APARTMENT);
+			rs = getTable(DBTable.BUILDING);
+			rs = getTable(DBTable.ENTRANCE);
+			rs = getTable(DBTable.METER);
+			rs = getTable(DBTable.PERSON);
+			rs = getTable(DBTable.READING);
 			
 /*			ResultSet rs = statement.executeQuery("select * from person");
 			while (rs.next()) {
@@ -72,5 +79,32 @@ public class DBWorker {
 		statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Reading` "
 				+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
 				+ "`id_meter` INTEGER NOT NULL,`date` TEXT,`value` INTEGER,`id_readingInfo` INTEGER NOT NULL,`id_meterReader` INTEGER NOT NULL);");
+	}
+
+	public ResultSet getTable(DBTable table) throws SQLException{
+		ResultSet rs;
+		switch(table){
+			case APARTMENT:
+				rs = statement.executeQuery("SELECT * FROM Apartment");
+				break;
+			case BUILDING:
+				rs = statement.executeQuery("SELECT * FROM Building");
+				break;
+			case ENTRANCE:
+				rs = statement.executeQuery("SELECT * FROM Entrance");
+				break;
+			case METER:
+				rs = statement.executeQuery("SELECT * FROM Meter");
+				break;
+			case PERSON:
+				rs = statement.executeQuery("SELECT * FROM Person");
+				break;
+			case READING:
+				rs = statement.executeQuery("SELECT * FROM Reading");
+				break;
+			default:
+				rs = null;
+		}
+		return rs;
 	}
 }

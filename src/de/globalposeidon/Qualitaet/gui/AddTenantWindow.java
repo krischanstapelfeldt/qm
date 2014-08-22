@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
-public class AddTenantWindow extends JFrame {
+public class AddTenantWindow extends JDialog {
 
 	private static final long serialVersionUID = 7393374690213796358L;
 	// private JPanel content;
@@ -29,7 +29,7 @@ public class AddTenantWindow extends JFrame {
 	private JTextField tfTown;
 
 	public AddTenantWindow() {
-		super(Strings.addTenant);
+		setTitle(Strings.addTenant);
 		setSize(550, 400);
 
 		JPanel tfPanel = new JPanel();
@@ -68,7 +68,7 @@ public class AddTenantWindow extends JFrame {
 		JLabel lblTown = new JLabel(Strings.town);
 		JLabel lblAdress = new JLabel(Strings.adressDetails);
 
-		Font f = getFont().deriveFont(Font.ITALIC);
+		Font f = lblTenant.getFont().deriveFont(Font.BOLD);
 		lblTenant.setFont(f);
 		lblAdress.setFont(f);
 

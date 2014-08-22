@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.*;
 
-public class AddApartmentWindow extends JFrame {
+public class AddApartmentWindow extends JDialog {
 
 	// private JPanel content;
 	private JTextField tfApartment;
@@ -30,7 +30,7 @@ public class AddApartmentWindow extends JFrame {
 	// Create the frame.
 
 	public AddApartmentWindow(JFrame parent) {
-		super(Strings.addAppartment);
+		setTitle(Strings.addAppartment);
 //		setSize(550, 350);
 
 		JPanel tfPanel = new JPanel();
@@ -64,7 +64,7 @@ public class AddApartmentWindow extends JFrame {
 		JLabel lblReadingVal = new JLabel(Strings.readingValue);
 		JLabel lblMeterDet = new JLabel(Strings.meterDetails);
 
-		Font f = getFont().deriveFont(Font.ITALIC);
+		Font f = lblRenter.getFont().deriveFont(Font.BOLD);
 		lblRenter.setFont(f);
 		lblMeterDet.setFont(f);
 
