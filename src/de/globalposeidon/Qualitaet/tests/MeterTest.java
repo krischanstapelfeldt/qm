@@ -27,7 +27,7 @@ public class MeterTest extends TestCase {
 		meterID = (int) new Date().getTime();
 		type = Metertype.GAS;
 		currentValue = 0;
-		yearValue = 9999;
+		yearValue = 0;
 		lastRead = new Date();
 		meter = new Meter(meterID, type);
 	}
@@ -45,7 +45,7 @@ public class MeterTest extends TestCase {
 	@Test
 	public void testPositiveCreateMeter() {
 
-		assertEquals("", null, meter);
+		assertEquals("", (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead).toString(), meter.toString());
 
 	}
 
