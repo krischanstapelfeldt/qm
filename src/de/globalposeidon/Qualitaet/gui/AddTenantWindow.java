@@ -6,17 +6,17 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
-import javax.swing.text.AttributeSet.FontAttribute;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.globalposeidon.Qualitaet.Strings;
-import de.globalposeidon.Qualitaet.model.*;
 
 public class AddTenantWindow extends JDialog {
 
 	private static final long serialVersionUID = 7393374690213796358L;
+	final Logger logger = LoggerFactory.getLogger(AddTenantWindow.class);
+	
 	// private JPanel content;
 	private JTextField tfBuildingName;
 	private JTextField tfFirstname;
@@ -29,6 +29,7 @@ public class AddTenantWindow extends JDialog {
 	private JTextField tfTown;
 
 	public AddTenantWindow() {
+		logger.debug("Add tenant window opened");
 		setTitle(Strings.addTenant);
 		setSize(550, 400);
 

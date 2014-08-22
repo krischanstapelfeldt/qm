@@ -137,7 +137,7 @@ public class Meter implements TreeNode{
 		return true;
 	}
 	@Override
-	public Enumeration children() {
+	public Enumeration<?> children() {
 		return null;
 	}
 

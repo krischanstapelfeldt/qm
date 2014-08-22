@@ -54,7 +54,7 @@ public class MainMenuBar extends JMenuBar{
 		JMenu edit = new JMenu(Strings.edit);
 		add(edit);
 		
-		JMenuItem apartment = new JMenuItem(Strings.addAppartment);
+		JMenuItem apartment = new JMenuItem(Strings.addApartment);
 		edit.add(apartment);
 		
 		JMenuItem building = new JMenuItem(Strings.addBuilding);

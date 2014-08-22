@@ -9,14 +9,17 @@ import javax.swing.GroupLayout.SequentialGroup;
 
 
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.globalposeidon.Qualitaet.Strings;
-import de.globalposeidon.Qualitaet.model.*;
 
 public class AddApartmentWindow extends JDialog {
+	private static final long serialVersionUID = 5817993189340085967L;
 
+	final Logger logger = LoggerFactory.getLogger(AddApartmentWindow.class);
+	
 	// private JPanel content;
 	private JTextField tfApartment;
 	private JTextField tfFirstname;
@@ -30,9 +33,10 @@ public class AddApartmentWindow extends JDialog {
 	// Create the frame.
 
 	public AddApartmentWindow(JFrame parent) {
-		setTitle(Strings.addAppartment);
+		logger.debug("Add apartment window opened");
+		setTitle(Strings.addApartment);
 //		setSize(550, 350);
-
+		
 		JPanel tfPanel = new JPanel();
 		setContentPane(tfPanel);
 
@@ -54,7 +58,7 @@ public class AddApartmentWindow extends JDialog {
 
 
 		// Initial Labels
-		JLabel lblApartment = new JLabel(Strings.appartmentName);
+		JLabel lblApartment = new JLabel(Strings.apartmentName);
 		JLabel lblRenter = new JLabel(Strings.renterDetails);
 		JLabel lblFirstname = new JLabel(Strings.firstname);
 		JLabel lblSurname = new JLabel(Strings.surname);

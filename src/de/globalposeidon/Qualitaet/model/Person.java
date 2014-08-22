@@ -1,7 +1,5 @@
 package de.globalposeidon.Qualitaet.model;
 
-import java.util.ArrayList;
-
 public class Person {
 	
 	private int ID;

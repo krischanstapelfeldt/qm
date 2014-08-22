@@ -115,7 +115,7 @@ public class Building implements TreeNode{
 	}
 
 	@Override
-	public Enumeration children() {
+	public Enumeration<Entrance> children() {
 		return Collections.enumeration(entrances);
 	}
 	

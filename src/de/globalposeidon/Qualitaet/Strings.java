@@ -11,7 +11,7 @@ public class Strings {
 	public static String about = "about";
 	public static String addWSpace = "add ";
 	public static String adress = "adress";
-	public static String appartment = "appartment";
+	public static String apartment = "apartment";
 	public static String building = "building";
 	public static String cancel = "cancel";
 	public static String close = "close";
@@ -46,15 +46,15 @@ public class Strings {
 	
 	
 	// advanced terms
-	public static String addAppartment = addWSpace+appartment;
+	public static String addApartment = addWSpace+apartment;
 	public static String addBuilding = addWSpace+building;
 	public static String addEntrance = addWSpace+entrance;
 	public static String addRenter = addWSpace+renter;
 	public static String addTenant = addWSpace+tenant;
 	public static String adressDetails = adress + " " + details;
-	public static String appartmentName = appartment+" "+"name";
+	public static String apartmentName = apartment+" "+"name";
 	public static String buildingName = building+" name";
-	public static String delAppartment = delWSpace+appartment;
+	public static String delAppartment = delWSpace+apartment;
 	public static String delBuilding = delWSpace+building;
 	public static String delEntrance = delWSpace+entrance;
 	public static String delRenter = delWSpace+renter;

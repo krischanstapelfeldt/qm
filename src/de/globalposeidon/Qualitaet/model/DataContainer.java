@@ -1,10 +1,8 @@
 package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.UUID;
 
 import javax.swing.tree.TreeNode;
@@ -59,7 +57,7 @@ public class DataContainer implements TreeNode {
 	}
 
 	@Override
-	public Enumeration children() {
+	public Enumeration<Building> children() {
 		return Collections.enumeration(buildings);
 	}
 }

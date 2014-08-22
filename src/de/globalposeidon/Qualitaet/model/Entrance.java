@@ -144,7 +144,7 @@ public class Entrance implements TreeNode{
 	}
 
 	@Override
-	public Enumeration children() {
+	public Enumeration<Apartment> children() {
 		return Collections.enumeration(apartments);
 	}
 	

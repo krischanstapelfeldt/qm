@@ -124,7 +124,7 @@ public class Apartment implements TreeNode{
 	}
 
 	@Override
-	public Enumeration children() {
+	public Enumeration<Meter> children() {
 		return Collections.enumeration(meters);
 	}
 

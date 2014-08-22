@@ -36,7 +36,7 @@ public class MainWindow extends JFrame{
 		} catch (final Exception e) {
 		}
 		initialize();
-		logger.info("Startup ok");
+		logger.info("Main Window - Startup ok");
 	}
 
 	
@@ -80,9 +80,8 @@ public class MainWindow extends JFrame{
 //				new AddRenterWindow(parent);
 //			}
 //		});
-		JButton btnAddApartment = new JButton(Strings.addAppartment);
-		btnAddApartment.addActionListener(new ActionListener() {
-// TODO: CRASH in AddApartmentWindow	
+		JButton btnAddApartment = new JButton(Strings.addApartment);
+		btnAddApartment.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Component component = (Component) e.getSource();
