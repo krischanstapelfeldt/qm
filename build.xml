@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- WARNING: Eclipse auto-generated file.
-              Any modifications will be overwritten.
-              To include a user specific buildfile here, simply create one in the same
-              directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="qm">
+<project basedir="." default="build" name="qm">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="C:/Program Files/eclipse/"/>
     <property name="junit.output.dir" value="junit"/>
@@ -11,14 +7,17 @@
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
     
+    <!-- EMMA start -->
 	<property name="emma.output.dir" value="coverage" />
 	<property name="emma.dir" value="C:/Program Files (x86)/Jenkins/plugins/emma/WEB-INF" />
 	<property name="src.dir" value="src"/>
 	<property name="bin.dir" value="bin/"/>
 	<property name="instrumented.dir" value="inst/"/>
 	<path id="emma.lib">
-		<fileset dir="${emma.dir}" includes="lib/*.jar"/>
+	    <pathelement location="${emma.dir}/lib/emma.jar" />
+	    <pathelement location="${emma.dir}/lib/emma_ant.jar" />
 	</path>
+    <!-- EMMA end  -->
               	
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="lib/junit-4.11.jar"/>
@@ -65,7 +64,8 @@
             <classpath refid="qm.classpath"/>
         </junit>
     </target>
-              	
+
+    <!-- EMMA start -->
     <target name="emmareport">
         <mkdir dir="${emma.output.dir}"/>
         <mkdir dir="${instrumented.dir}"/>
@@ -85,6 +85,7 @@
 			
 		</emma>
     </target>
+    <!-- EMMA end -->
               	
               	 
               	
