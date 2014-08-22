@@ -12,14 +12,12 @@
     <property name="source" value="1.7"/>
     
 	<property name="emma.output.dir" value="coverage" />
-	<property name="emma.dir" value="C:/Program Files (x86)/Jenkins/plugins/emma" />
+	<property name="emma.dir" value="C:/Program Files (x86)/Jenkins/plugins/emma/WEB-INF" />
 	<property name="src.dir" value="src"/>
 	<property name="bin.dir" value="bin/"/>
 	<property name="instrumented.dir" value="inst/"/>
 	<path id="emma.lib">
-		<fileset dir="${emma.dir}">
-			<include name="*.jar"/>
-		</fileset>
+		<fileset dir="${emma.dir}" includes="lib/*.jar"/>
 	</path>
               	
     <path id="JUnit 4.libraryclasspath">
