@@ -1,7 +1,5 @@
 package de.globalposeidon.Qualitaet.tests;
 
-import java.util.ArrayList;
-
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -9,19 +7,27 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
+import de.globalposeidon.Qualitaet.model.Building;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
 public class ApartmentTest extends TestCase {
 
+	DataContainer dataContainer;
+	Building building;
+	Entrance entrance;
 	Apartment apartment;
 	Meter initialMeter;
 	Tenant initialTenant;
 
 	@Before
 	public void setUp() throws Exception {
-		apartment = new Apartment(initialMeter);
+		dataContainer = new DataContainer();
+		building = new Building(dataContainer);
+		entrance = new Entrance(building);
+		apartment = new Apartment(initialMeter, entrance);
 	}
 
 	@After
@@ -39,7 +45,7 @@ public class ApartmentTest extends TestCase {
 	public void testPositiveCreateApartment() {
 
 		assertEquals("", null, apartment);
-		assertEquals("", null, new Apartment(initialMeter,initialTenant));
+		assertEquals("", null, new Apartment(initialMeter,initialTenant,entrance));
 
 	}
 

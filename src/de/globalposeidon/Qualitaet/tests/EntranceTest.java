@@ -1,7 +1,6 @@
 package de.globalposeidon.Qualitaet.tests;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import junit.framework.TestCase;
 
@@ -14,7 +13,6 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
-import de.globalposeidon.Qualitaet.model.Person;
 
 public class EntranceTest extends TestCase {
 

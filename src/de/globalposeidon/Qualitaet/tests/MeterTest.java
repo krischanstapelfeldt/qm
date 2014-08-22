@@ -1,7 +1,5 @@
 package de.globalposeidon.Qualitaet.tests;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import junit.framework.TestCase;
@@ -10,11 +8,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.globalposeidon.Qualitaet.model.Apartment;
+import de.globalposeidon.Qualitaet.model.Building;
+import de.globalposeidon.Qualitaet.model.DataContainer;
+import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
 
 public class MeterTest extends TestCase {
-
+	
+	DataContainer dataContainer;
+	Building building;
+	Entrance entrance;
+	Apartment apartment;
 	Meter meter;
 	int meterID;
 	Metertype type;
@@ -24,12 +30,16 @@ public class MeterTest extends TestCase {
 
 	@Before
 	public void setUp() throws Exception {
+		dataContainer = new DataContainer();
+		building = new Building(dataContainer);
+		entrance = new Entrance(building);
+		apartment = new Apartment(entrance);
 		meterID = (int) new Date().getTime();
 		type = Metertype.GAS;
 		currentValue = 0;
 		yearValue = 0;
 		lastRead = new Date();
-		meter = new Meter(meterID, type);
+		meter = new Meter(meterID, type, apartment);
 	}
 
 	@After
