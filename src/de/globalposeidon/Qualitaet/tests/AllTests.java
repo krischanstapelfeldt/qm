@@ -5,7 +5,7 @@ import junit.framework.TestSuite;
 
 public class AllTests extends TestSuite {
 	public static Test suite() {
-		TestSuite mySuite = new TestSuite("Global Poseidon TestSuite");
+		TestSuite mySuite = new TestSuite("GlobalPoseidonTestSuite");
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.ApartmentTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.BuildingTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.EntranceTest.class);
