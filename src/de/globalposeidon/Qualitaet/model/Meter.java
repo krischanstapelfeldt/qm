@@ -1,6 +1,9 @@
 package de.globalposeidon.Qualitaet.model;
 
 import java.util.Date;
+import java.util.Enumeration;
+
+import javax.swing.tree.TreeNode;
 
 /* abgedeckte Anforderungen
  * A2 - Zaehler unterstuetzen verschieden Typen
@@ -9,8 +12,9 @@ import java.util.Date;
  * A8 - Zaehlerwert und Datum laufen vorwaerts
  */
 
-public class Meter {
+public class Meter implements TreeNode{
 	
+	final private Apartment apartment;
 	private int ID;
 	final Metertype type;
 	int currentValue;
@@ -23,7 +27,8 @@ public class Meter {
 	// empty meter not allowed, so no Meter()
 
 	// structure with initial building
-	public Meter(int meterID, Metertype type) {
+	public Meter(int meterID, Metertype type, Apartment apartment) {
+		this.apartment = apartment;
 		this.ID = meterID;
 		this.type = type;
 		this.currentValue = 0;
@@ -105,6 +110,35 @@ public class Meter {
 
 	public boolean read(int newValue, Date readingDate) {
 		return true;
+	}
+	@Override
+	public TreeNode getChildAt(int childIndex) {
+		return null;
+	}
+	@Override
+	public int getChildCount() {
+		return 0;
+	}
+	@Override
+	public TreeNode getParent() {
+		return apartment;
+	}
+	@Override
+	public int getIndex(TreeNode node) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean getAllowsChildren() {
+		return false;
+	}
+	@Override
+	public boolean isLeaf() {
+		return true;
+	}
+	@Override
+	public Enumeration children() {
+		return null;
 	}
 
 }

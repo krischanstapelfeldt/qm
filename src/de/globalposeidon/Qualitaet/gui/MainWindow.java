@@ -22,12 +22,13 @@ import de.globalposeidon.Qualitaet.model.*;
 public class MainWindow extends JFrame{
 	private static final long serialVersionUID = 8601779252949758710L;
 	final Logger logger = LoggerFactory.getLogger(MainWindow.class);
-
+	final DataContainer model;
 	
 	 // Create the application.
 	
-	public MainWindow() {
+	public MainWindow(DataContainer model) {
 		super(Strings.globalposeidon);
+		this.model = model;
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
@@ -62,8 +63,11 @@ public class MainWindow extends JFrame{
 		JPanel leftPanel = new JPanel();
 		splitPane.setLeftComponent(leftPanel);
 		
+		// Treemodel with model
+		MainTreeModel treeModel = new MainTreeModel(model);
+		
 		// Initial Tree
-		JTree tree = new JTree();
+		JTree tree = new JTree(treeModel);
 		
 		// Initial Buttons
 				

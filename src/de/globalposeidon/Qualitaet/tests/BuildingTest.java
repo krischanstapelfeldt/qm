@@ -10,11 +10,13 @@ import org.junit.Test;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
 import de.globalposeidon.Qualitaet.model.Building;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 public class BuildingTest extends TestCase {
 
+	DataContainer dataContainer;
 	Renter renter;
 	Entrance initialEntrance;
 	ArrayList<Entrance> entrances;
@@ -22,8 +24,9 @@ public class BuildingTest extends TestCase {
 
 	@Before
 	public void setUp() throws Exception {
+		dataContainer = new DataContainer();
 		renter = new Renter();
-		building = new Building(renter, initialEntrance);
+		building = new Building(renter, initialEntrance, dataContainer);
 		entrances = new ArrayList<Entrance>();
 		entrances.add(initialEntrance);
 	}

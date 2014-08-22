@@ -1,14 +1,19 @@
 package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+
+import javax.swing.tree.TreeNode;
 
 /* abgedeckte Anforderungen
  * A16 - Einfuegen eines Einganges
  */
 
-public class Building {
+public class Building implements TreeNode{
 	
-	private int ID;
+	final private int ID;
+	final private DataContainer dc;
 	
 	private Renter renter;
 	private ArrayList<Entrance> entrances;
@@ -17,12 +22,14 @@ public class Building {
 // constructor
 //================================================================================
 
-	public Building() {
+	public Building(DataContainer dc) {
 		entrances = new ArrayList<Entrance>(); 
+		ID = ((int) (Math.random()*10000));
+		this.dc = dc;
 	}
 	
-	public Building(Renter renter, Entrance initialEntrance) {
-		this();
+	public Building(Renter renter, Entrance initialEntrance, DataContainer dc) {
+		this(dc);
 		this.addEntrance(initialEntrance);
 		this.renter = renter; 
 	}
@@ -32,10 +39,6 @@ public class Building {
 //================================================================================
 	public int getID() {
 		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
 	}
 	
 	public Renter getRenter() {
@@ -63,6 +66,11 @@ public class Building {
 		return entrances.get(index);
 	}
 	
+	public int getEntrancesCnt(){
+		return entrances.size();
+	}
+
+	
 //================================================================================
 // other stuff...
 //================================================================================
@@ -72,12 +80,43 @@ public class Building {
 	
 	@Override
 	public String toString() {
-		String output = "";
-		output += " Rented by " + this.renter;
-		for (int i = 0; i < entrances.size(); i++) {
-			output += "\n\tEntrance " + i + " " + getEntrance(i);
-		}
-		return output;
+		return "Building "+getID();
+	}
+
+	@Override
+	public TreeNode getChildAt(int childIndex) {
+		return entrances.get(childIndex);
+	}
+
+	@Override
+	public int getChildCount() {
+		return entrances.size();
+	}
+
+	@Override
+	public TreeNode getParent() {
+		return dc;
+	}
+
+	@Override
+	public int getIndex(TreeNode node) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean getAllowsChildren() {
+		return true;
+	}
+
+	@Override
+	public boolean isLeaf() {
+		return false;
+	}
+
+	@Override
+	public Enumeration children() {
+		return Collections.enumeration(entrances);
 	}
 	
 }

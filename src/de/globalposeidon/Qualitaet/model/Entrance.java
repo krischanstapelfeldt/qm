@@ -1,12 +1,18 @@
 package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+
+import javax.swing.tree.TreeNode;
 
 /* abgedeckte Anforderungen
  * A17 - Einfuegen einer Wohnung
  */
 
-public class Entrance {
+public class Entrance implements TreeNode{
+	
+	final private Building building;
 	
 	private int ID;
 	
@@ -17,18 +23,19 @@ public class Entrance {
 // constructor
 //================================================================================
 
-	public Entrance() {
+	public Entrance(Building building) {
+		this.building = building;
 		this.apartments = new ArrayList<Apartment>();
 		this.meters = new ArrayList<Meter>();
 	}
 	
-	public Entrance(Apartment initialApartment) {
-		this();
+	public Entrance(Apartment initialApartment, Building building) {
+		this(building);
 		this.addApartment(initialApartment);
 	}
 	
-	public Entrance(Apartment initialApartment, Meter initialMeter) {
-		this(initialApartment);
+	public Entrance(Apartment initialApartment, Meter initialMeter, Building building) {
+		this(initialApartment, building);
 		this.addMeter(initialMeter);
 	}
 	
@@ -103,6 +110,42 @@ public class Entrance {
 			output += "\n\t\tApartment " + i + " " + getApartment(i);
 		}
 		return output;
+	}
+
+	@Override
+	public TreeNode getChildAt(int childIndex) {
+		return apartments.get(childIndex);
+	}
+
+	@Override
+	public int getChildCount() {
+		return apartments.size();
+	}
+
+	@Override
+	public TreeNode getParent() {
+		return building;
+	}
+
+	@Override
+	public int getIndex(TreeNode node) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean getAllowsChildren() {
+		return true;
+	}
+
+	@Override
+	public boolean isLeaf() {
+		return false;
+	}
+
+	@Override
+	public Enumeration children() {
+		return Collections.enumeration(apartments);
 	}
 	
 }

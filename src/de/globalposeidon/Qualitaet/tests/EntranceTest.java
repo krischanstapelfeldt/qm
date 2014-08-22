@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
+import de.globalposeidon.Qualitaet.model.Building;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Person;
@@ -18,6 +20,8 @@ public class EntranceTest extends TestCase {
 
 	Entrance entranceWithApartment;
 	Entrance entranceWithApartmentAndMeter;
+	DataContainer dataContainer;
+	Building building;
 	Apartment initialApartment;
 	Meter initialMeter;
 	ArrayList<Meter> meters;
@@ -25,9 +29,11 @@ public class EntranceTest extends TestCase {
 
 	@Before
 	public void setUp() throws Exception {
+		dataContainer = new DataContainer();
+		building = new Building(dataContainer);
 		meters = new ArrayList<Meter>();
 		apartments = new ArrayList<Apartment>();
-		entranceWithApartment = new Entrance(initialApartment);
+		entranceWithApartment = new Entrance(initialApartment,building);
 	}
 
 	@After
@@ -45,7 +51,7 @@ public class EntranceTest extends TestCase {
 	public void testPositiveCreateEntrance() {
 
 		assertEquals("", null, entranceWithApartment);
-		assertEquals("", null, entranceWithApartmentAndMeter = new Entrance(initialApartment,initialMeter));
+		assertEquals("", null, entranceWithApartmentAndMeter = new Entrance(initialApartment,initialMeter,building));
 
 	}
 
