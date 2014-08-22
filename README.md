@@ -1,5 +1,4 @@
 qm
 ==
 
-Grundlagen des Qualitätsmanagements
- HAAAALLLLLO TEST!
+Grundlagen des Qualitaetsmanagements. 

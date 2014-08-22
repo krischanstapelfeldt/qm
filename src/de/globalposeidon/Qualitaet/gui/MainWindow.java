@@ -46,7 +46,7 @@ public class MainWindow extends JFrame{
 		JSeparator seperatorVertical = new JSeparator();
 	
 		// MenuBar
-		setJMenuBar(new MainMenuBar());
+		setJMenuBar(new MainMenuBar(this));
 		
 		// Set Layout in the frame
 		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));

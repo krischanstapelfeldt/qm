@@ -3,8 +3,6 @@
 
 #Klassen
 
-- BuildingStructure
-	- 1..n Building
 - Building
 	- 1 renter
 	- 1...n entrance 
@@ -43,28 +41,7 @@
  
 #Funktionen
 
-##Enumerationsoperationen
-
-- listBuilding()
-- listApartment(int buildingID)
-- listEntrance(int apartmentID)
-- listMeter(int entranceID)
-
-##Datenmanipulation
-
-*Hinzufügen*
-
-- addBuilding()
-- addApartment()
-- addEntrance()
-- addMeter()
-
-*Löschen*
-
-- deleteBuilding()
-- deleteApartment()
-- deleteEntrance()
-- deleteMeter()
+siehe Klassendiagramm
 
 
 ##Geschäftslogik

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -15,7 +16,7 @@ import de.globalposeidon.Qualitaet.model.DBWorker;
 
 public class MainMenuBar extends JMenuBar{
 	private static final long serialVersionUID = 3409407521701819128L;
-
+	
 	private void openWebpage(URI uri) {
 	    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
 	    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
@@ -35,7 +36,8 @@ public class MainMenuBar extends JMenuBar{
 		}
 	}
 	
-	public MainMenuBar(){		
+	public MainMenuBar(final JFrame parent){
+		
 		JMenu file = new JMenu(Strings.file);
 		add(file);
 		
@@ -118,9 +120,23 @@ public class MainMenuBar extends JMenuBar{
 		add(help);
 		
 		JMenuItem about = new JMenuItem(Strings.about);
+		about.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new AboutWindow(parent);
+			}
+		});
 		help.add(about);
 		
 		JMenuItem faq = new JMenuItem(Strings.faq);
+		faq.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new FAQWindow(parent);
+			}
+		});
 		help.add(faq);
 	}
 }
