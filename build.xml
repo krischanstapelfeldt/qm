@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build" name="qm">
+<project basedir="." default="build-project" name="qm">
     <property environment="env"/>
   
     <property name="debuglevel" value="source,lines,vars"/>
@@ -7,9 +7,10 @@
     <property name="source" value="1.7"/>
 	<property name="src.dir" value="src"/>
 	<property name="bin.dir" value="bin/"/>
-    
+    <property name="lib.dir" value="lib/"/>
+	
 	<property name="emma.output.dir" value="reports/emma" />
-	<property name="emma.dir" value="lib/emma/" />
+	<property name="emma.dir" value="${lib.dir}emma/" />
 	<property name="instrumented.dir" value="reports/emma/inst/"/>
 	<path id="emma.lib">
 		    <pathelement location="${emma.dir}/emma.jar" />
@@ -56,12 +57,12 @@
 	
     <path id="qm.classpath">
         <pathelement location="bin"/>
-        <pathelement location="lib/logback/logback-classic-1.0.13.jar"/>
-        <pathelement location="lib/logback/logback-core-1.0.13.jar"/>
-        <pathelement location="lib/logback/slf4j-api-1.7.5.jar"/>
-        <pathelement location="lib/sqlite/sqlite-jdbc-3.7.2.jar"/>
-        <pathelement location="lib/junit/junit-4.11.jar"/>
-        <pathelement location="lib/junit/hamcrest-core-1.3.jar"/>
+        <pathelement location="${lib.dir}logback/logback-classic-1.0.13.jar"/>
+        <pathelement location="${lib.dir}logback/logback-core-1.0.13.jar"/>
+        <pathelement location="${lib.dir}logback/slf4j-api-1.7.5.jar"/>
+        <pathelement location="${lib.dir}sqlite/sqlite-jdbc-3.7.2.jar"/>
+        <pathelement location="${lib.dir}junit/junit-4.11.jar"/>
+        <pathelement location="${lib.dir}junit/hamcrest-core-1.3.jar"/>
     </path>
 	
     <target name="init">
@@ -76,6 +77,8 @@
 	
     <target name="clean">
         <delete dir="bin"/>
+    	<delete dir="junit"/>
+    	<delete dir="reports"/>
     </target>
     
     <target depends="init" name="build-project">
@@ -99,10 +102,10 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/logback/logback-classic-1.0.13.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/logback/logback-core-1.0.13.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/logback/slf4j-api-1.7.5.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/sqlite/sqlite-jdbc-3.7.2.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${lib.dir}logback/logback-classic-1.0.13.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${lib.dir}logback/logback-core-1.0.13.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${lib.dir}logback/slf4j-api-1.7.5.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${lib.dir}sqlite/sqlite-jdbc-3.7.2.jar"/>
         </jar>
     </target>
 </project>
