@@ -89,9 +89,7 @@ public class Meter {
 		return (ID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
 	}
 	
-//================================================================================
 // TODO: REMOVE OLD TEST STUFF
-//================================================================================
 	public boolean add() {
 		return true;
 	}

@@ -16,13 +16,13 @@ public class Building {
 //================================================================================
 // constructor
 //================================================================================
-	// empty building not allowed, so no Building()
+
 	public Building() {
 		entrances = new ArrayList<Entrance>(); 
 	}
 	
 	public Building(Renter renter, Entrance initialEntrance) {
-		entrances = new ArrayList<Entrance>();
+		this();
 		this.addEntrance(initialEntrance);
 		this.renter = renter; 
 	}
@@ -80,23 +80,4 @@ public class Building {
 		return output;
 	}
 	
-	
-	
-//================================================================================
-// TODO: REMOVE OLD TEST STUFF
-//================================================================================
-
-	public boolean add() {
-		return true;
-	}
-
-	public boolean delete() {
-		return true;
-	}
-
-	public int[] list() {
-		int[] i = null;
-		return i;
-	}
-
 }
