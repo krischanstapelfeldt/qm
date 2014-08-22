@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- WARNING: Eclipse auto-generated file.
-              Any modifications will be overwritten.
-              To include a user specific buildfile here, simply create one in the same
-              directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="qm">
+<project basedir="." default="build" name="qm">
     <property environment="env"/>
-    <property name="junit.output.dir" value="junit"/>
+  
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    
-	<property name="emma.output.dir" value="coverage" />
 	<property name="src.dir" value="src"/>
 	<property name="bin.dir" value="bin/"/>
-	<property name="instrumented.dir" value="inst/"/>
+    
+	<property name="emma.output.dir" value="reports/emma" />
+	<property name="emma.dir" value="lib/emma/" />
+	<property name="instrumented.dir" value="reports/emma/inst/"/>
 	<path id="emma.lib">
-		<fileset dir="lib/" includes="*.jar"/>
+		    <pathelement location="${emma.dir}/emma.jar" />
+		    <pathelement location="${emma.dir}/emma_ant.jar" />
 	</path>
-              	
-    <path id="JUnit 4.libraryclasspath">
-        <pathelement location="lib/junit-4.11.jar"/>
-        <pathelement location="lib/hamcrest-core-1.3.jar"/>
-    </path>
+    <!-- JUnit -->          	
+	<property name="junit.output.dir" value="reports/junit"/>
+	<target name="AllTests">
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="de.globalposeidon.Qualitaet.tests.AllTests" todir="${junit.output.dir}"/>
+	            <classpath refid="qm.classpath"/>
+	        </junit>
+	    </target>   
+
+	<target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+
+	<!-- EMMA -->
+    <target name="emmareport">
+        <mkdir dir="${emma.output.dir}"/>
+        <mkdir dir="${instrumented.dir}"/>
+        <taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+		<emma enabled="true">
+		    <instr instrpath="${bin.dir}" destdir="${instrumented.dir}" metadatafile="${emma.output.dir}/metadata.emma" merge="true">
+		        <filter excludes="au.com.jenisys.view.*"/>
+		    </instr>
+		    <report sourcepath="${src.dir}" >
+		        <fileset dir="${emma.output.dir}" >
+		            <include name="*.emma" />
+		        </fileset>
+		        <xml outfile="${emma.output.dir}/coverage.xml" depth="method"/>
+		    </report>
+		</emma>
+    </target>
+	
+	
     <path id="qm.classpath">
         <pathelement location="bin"/>
-        <path refid="JUnit 4.libraryclasspath"/>
-        <pathelement location="lib/logback-classic-1.0.13.jar"/>
-        <pathelement location="lib/logback-core-1.0.13.jar"/>
-        <pathelement location="lib/slf4j-api-1.7.5.jar"/>
-        <pathelement location="lib/sqlite-jdbc-3.7.2.jar"/>
-        <pathelement location="lib/junit-4.11.jar"/>
-        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="lib/logback/logback-classic-1.0.13.jar"/>
+        <pathelement location="lib/logback/logback-core-1.0.13.jar"/>
+        <pathelement location="lib/logback/slf4j-api-1.7.5.jar"/>
+        <pathelement location="lib/sqlite/sqlite-jdbc-3.7.2.jar"/>
+        <pathelement location="lib/junit/junit-4.11.jar"/>
+        <pathelement location="lib/junit/hamcrest-core-1.3.jar"/>
     </path>
+	
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
@@ -41,12 +73,11 @@
             </fileset>
         </copy>
     </target>
+	
     <target name="clean">
         <delete dir="bin"/>
     </target>
-    <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects"/>
+    
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
@@ -54,52 +85,12 @@
             <classpath refid="qm.classpath"/>
         </javac>
     </target>
-
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="AllTests">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="de.globalposeidon.Qualitaet.tests.AllTests" todir="${junit.output.dir}"/>
-            <classpath refid="qm.classpath"/>
-        </junit>
-    </target>
-              	
-    <target name="emmareport">
-        <mkdir dir="${emma.output.dir}"/>
-        <mkdir dir="${instrumented.dir}"/>
-        <taskdef resource="emma_ant.properties" classpathref="emma.lib" />
-		<emma enabled="true">
-		    <instr instrpath="${bin.dir}" destdir="${instrumented.dir}" metadatafile="${emma.output.dir}/metadata.emma" merge="true">
-		        <filter excludes="au.com.jenisys.view.*"/>
-		    </instr>
-			
-		    <report sourcepath="${src.dir}" >
-		        <fileset dir="${emma.output.dir}" >
-		            <include name="*.emma" />
-		        </fileset>
-
-		        <xml outfile="${emma.output.dir}/coverage.xml" depth="method"/>
-		    </report>
-			
-		</emma>
-    </target>
-              	
-              	 
-              	
+	
     <target name="Launcher">
         <java classname="de.globalposeidon.Qualitaet.Launcher" failonerror="true" fork="yes">
             <classpath refid="qm.classpath"/>
         </java>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
-    </target>
+    </target>	
 
     <target name="create_run_jar">
         <jar destfile="bin/jar/globalposeidon.jar" filesetmanifest="mergewithoutmain">
@@ -108,12 +99,10 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="bin"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/logback-classic-1.0.13.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/logback-core-1.0.13.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/slf4j-api-1.7.5.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/sqlite-jdbc-3.7.2.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/junit-4.11.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="lib/hamcrest-core-1.3.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/logback/logback-classic-1.0.13.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/logback/logback-core-1.0.13.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/logback/slf4j-api-1.7.5.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/sqlite/sqlite-jdbc-3.7.2.jar"/>
         </jar>
     </target>
 </project>
