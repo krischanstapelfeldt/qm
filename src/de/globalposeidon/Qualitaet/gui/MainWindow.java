@@ -84,8 +84,8 @@ public class MainWindow extends JFrame{
 		btnAddApartment.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Component component = (Component) e.getSource();
-				JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+//				Component component = (Component) e.getSource();
+//				JFrame frame = (JFrame) SwingUtilities.getRoot(component);
 				new AddApartmentWindow(null);
 			}
 		});			
