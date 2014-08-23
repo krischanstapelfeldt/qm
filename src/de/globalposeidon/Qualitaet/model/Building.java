@@ -13,7 +13,7 @@ import javax.swing.tree.TreeNode;
 public class Building implements TreeNode{
 	
 	final private int ID;
-	final private DataContainer dc;
+	final private DataContainer dc; // parent node
 	
 	private Renter renter;
 	private ArrayList<Entrance> entrances;
@@ -83,6 +83,9 @@ public class Building implements TreeNode{
 		return "Building "+getID();
 	}
 
+//================================================================================
+// TreeNode Interface
+//================================================================================	
 	@Override
 	public TreeNode getChildAt(int childIndex) {
 		return entrances.get(childIndex);

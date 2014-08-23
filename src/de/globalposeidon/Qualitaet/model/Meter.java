@@ -14,8 +14,9 @@ import javax.swing.tree.TreeNode;
 
 public class Meter implements TreeNode{
 	
-	final private Apartment apartment;
 	private int ID;
+	final private Apartment apartment; // parent node
+	
 	final Metertype type;
 	int currentValue;
 	int yearValue; // wert zum 01.01 eines Jahres
@@ -94,23 +95,9 @@ public class Meter implements TreeNode{
 		return (ID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
 	}
 	
-// TODO: REMOVE OLD TEST STUFF
-	public boolean add() {
-		return true;
-	}
-
-	public boolean delete() {
-		return true;
-	}
-
-	public int[] list(int id) {
-		int[] i = null;
-		return i;
-	}
-
-	public boolean read(int newValue, Date readingDate) {
-		return true;
-	}
+//================================================================================
+// TreeNode Interface
+//================================================================================
 	@Override
 	public TreeNode getChildAt(int childIndex) {
 		return null;

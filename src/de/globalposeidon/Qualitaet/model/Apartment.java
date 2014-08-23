@@ -13,8 +13,7 @@ import javax.swing.tree.TreeNode;
 public class Apartment implements TreeNode{
 	
 	private int ID;
-
-	final private Entrance entrance;
+	final private Entrance entrance; // parent node
 	
 	private ArrayList<Meter> meters;
 	private ArrayList<Tenant> tenants;
@@ -27,6 +26,7 @@ public class Apartment implements TreeNode{
 		this.entrance = entrance;
 		this.meters = new ArrayList<Meter>();
 		this.tenants = new ArrayList<Tenant>();
+		ID = ((int) (Math.random()*10000));
 	}
 	
 	public Apartment(Meter initialMeter, Entrance entrance) {
@@ -85,13 +85,15 @@ public class Apartment implements TreeNode{
 
 	@Override
 	public String toString() {
-		String output = "";
-		for (int i = 0; i < tenants.size(); i++) {
-			output += "\n\t\t\t with Tenant: " + getTenant(i);
-		}
+		String output = "Apartment " + getID();
+//		for (int i = 0; i < tenants.size(); i++) {
+//			output += "\n\t\t\t with Tenant: " + getTenant(i);
+//		}
 		return output;
 	}
-
+//================================================================================
+// TreeNode Interface
+//================================================================================
 	@Override
 	public TreeNode getChildAt(int childIndex) {
 		return meters.get(childIndex);

@@ -16,7 +16,7 @@ public class AboutWindow extends JDialog {
 		this.setTitle("about");
 		// add text
 		JTextArea textArea = new JTextArea("Gebäudeverwaltung\n"
-				+ "von Felske, Lauber, Stapelfeld, Suhl\n"
+				+ "von Felske, Lauber, Stapelfeldt, Suhl\n"
 				+ "für Grundlagen QM | Sommersemester 14");
 		this.getContentPane().add(textArea);
 		// layout

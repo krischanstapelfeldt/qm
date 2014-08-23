@@ -26,6 +26,9 @@ public class DataContainer implements TreeNode {
 		return uuid.toString();
 	}
 
+//================================================================================
+// TreeNode Interface
+//================================================================================		
 	@Override
 	public TreeNode getChildAt(int childIndex) {
 		return buildings.get(childIndex);

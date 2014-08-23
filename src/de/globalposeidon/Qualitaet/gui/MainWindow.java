@@ -52,7 +52,6 @@ public class MainWindow extends JFrame{
 		setJMenuBar(new MainMenuBar(this));
 		
 		// Initial splitpanes
-		
 		JSplitPane splitPane = new JSplitPane();
 		add(splitPane);
 		
@@ -66,8 +65,7 @@ public class MainWindow extends JFrame{
 		// Initial Tree
 		JTree tree = new JTree(treeModel);
 		
-		// Initial Buttons
-				
+		// Initial Buttons		
 		JButton btnAddRenter = new JButton(Strings.addRenter);
 // TODO: Write AddRenterWindow
 //		btnAddRenter.addActionListener(new ActionListener() {
@@ -139,7 +137,6 @@ public class MainWindow extends JFrame{
 		splitPane.setRightComponent(rightPanel);
 		
 		// Set new panel at the bottom part of the right splitpane
-		
 		JPanel BottomRightPanel = new JPanel();
 				
 		JLabel lblMeterId = new JLabel(Strings.meterID);
@@ -247,7 +244,6 @@ public class MainWindow extends JFrame{
 		JScrollPane scrollPane = new JScrollPane();
 		
 		// Set Layout at the Top part of the right splitpane
-		
 		GroupLayout glTopRightPanel = new GroupLayout(rightPanel);
 		glTopRightPanel.setHorizontalGroup(
 			glTopRightPanel.createParallelGroup(Alignment.LEADING)
@@ -264,8 +260,7 @@ public class MainWindow extends JFrame{
 					.addGap(20))
 		);
 		
-		// Initial JTable
-		
+		// Initial JTable	
 		JTable table = new JTable();
 		scrollPane.setViewportView(table);
 		rightPanel.setLayout(glTopRightPanel);
@@ -276,7 +271,6 @@ public class MainWindow extends JFrame{
 	}
 	
 	// Necessary to open the popup-menu
-	
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {

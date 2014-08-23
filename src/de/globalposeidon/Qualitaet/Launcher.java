@@ -35,6 +35,15 @@ public class Launcher {
 		e.addApartment(a);
 		Meter m = new Meter(1, Metertype.POWER, a);
 		a.addMeter(m);
+
+		Building b2 = new Building(dc);
+		dc.addBuilding(b2);
+		Entrance e2 = new Entrance(b);
+		b2.addEntrance(e2);
+		Apartment a2 = new Apartment(e);
+		e2.addApartment(a2);
+		Meter m2 = new Meter(2, Metertype.POWER, a2);
+		a2.addMeter(m2);
 		return dc;
 	}
 
