@@ -105,8 +105,8 @@
 						at java.lang.Class.forName(Class.java:190)
 					</error>
 			-->
-			<classpath refid="qm.classpath" />
-			<!-- <classpath refid="qm.classpath.instrumented" /> -->
+			<!-- <classpath refid="qm.classpath" /> -->
+			<classpath refid="qm.classpath.instrumented" />
 			<jvmarg value="-Demma.coverage.out.file=bin/coverage.emma" />
 			<jvmarg value="-Demma.coverage.out.merge=true" />
 		</junit>
