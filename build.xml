@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build-project" name="Global Poseidon" xmlns:jacoco="antlib:org.jacoco.ant">
+<project basedir="." default="build-project" name="Global Poseidon" xmlns:jacoco="antlib:org.jacoco.ant" xmlns:cs="antlib:com.puppycrawl.tools.checkstyle">
 	<property environment="env" />
-
 	<property name="debuglevel" value="source,lines,vars" />
 	<property name="target" value="1.7" />
 	<property name="source" value="1.7" />
 	<property name="src.dir" value="src" />
 	<property name="lib.dir" value="lib" />
 	<property name="bin.dir" value="bin" />
+	<property name="reports.dir" value="reports" />
 	<property name="release-bin.dir" value="${bin.dir}/release" />
 	<property name="jacoco.dir" value="${lib.dir}/jacoco" />
 	<property name="jacoco.instr.dir" location="${bin.dir}/instr" />
 	<property name="jacoco.exec.file" location="${bin.dir}/jacoco.exec" />
-	<property name="junit.output.dir" value="reports/junit" />
+	<property name="junit.output.dir" value="${reports.dir}/junit" />
+	<property name="checkstyle.output.dir" value="${reports.dir}/checkstyle" />
+
+	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+		<classpath path="lib/jacoco/jacocoant.jar" />
+	</taskdef>
+	<taskdef uri="antlib:com.puppycrawl.tools.checkstyle" resource="checkstyletask.properties">
+		<classpath path="lib/checkstyle/checkstyle-5.7-all.jar" />
+	</taskdef>
 
 	<path id="qm.classpath">
 		<pathelement location="${release-bin.dir}" />
@@ -25,7 +33,7 @@
 		<path refid="qm.lib" />
 		<path refid="qm.lib.junit" />
 	</path>
-	
+
 	<path id="qm.lib">
 		<pathelement location="${lib.dir}/logback/logback-classic-1.0.13.jar" />
 		<pathelement location="${lib.dir}/logback/logback-core-1.0.13.jar" />
@@ -39,11 +47,8 @@
 	</path>
 
 
-	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-		<classpath path="lib/jacoco/jacocoant.jar" />
-	</taskdef>
-
 	<target name="clean" description="Removes existing compile output and reports">
+		<delete dir="docs/javadoc" />
 		<delete dir="coverage" />
 		<delete dir="jar" />
 		<delete dir="inst" />
@@ -52,96 +57,116 @@
 		<delete dir="reports" />
 	</target>
 
-	<target name="init" description="Creates output directories and copies static assets">
-		<mkdir dir="bin" />
-		<mkdir dir="bin/release" />
-		<copy includeemptydirs="false" todir="bin/release">
-			<fileset dir="src">
-				<exclude name="**/*.launch" />
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
-		<mkdir dir="${jacoco.instr.dir}" />
-		<copy includeemptydirs="false" todir="${jacoco.instr.dir}">
-			<fileset dir="src">
-				<exclude name="**/*.launch" />
-				<exclude name="**/*.java" />
-			</fileset>
-		</copy>
+	<target name="checkstyle" depends="clean,init" description="Generates a report of code convention violations.">
+		<cs:checkstyle config="lib/checkstyle/checkstyle-config.xml" failureProperty="checkstyle.failure" failOnViolation="false">
+			<formatter type="xml" tofile="${checkstyle.output.dir}/checkstyle-report.xml" />
+			<fileset dir="src" includes="**/*.java" />
+		</cs:checkstyle>
+<!--		<xslt in="reports/checkstyle/checkstyle-report.xml" out="reports/checkstyle/index.html" style="lib/checkstyle/checkstyle-frames.xsl" />-->
 	</target>
+	
+	<target name="javadoc" description="Creates JavaDocs" depends="clean">
+		<javadoc classpathref="qm.classpath" packagenames="de.globalposeidon.*" sourcepath="src" defaultexcludes="yes" destdir="docs/javadoc" author="true" version="true" use="true" windowtitle="Global Poseidon - JavaDoc">
+			<doctitle>
+				<![CDATA[<h1>Global Poseidon - JavaDoc</h1>]]></doctitle>
+		<bottom>
+			<![CDATA[<i>Team Global Poseidon - Jens Felske, Sebastian Lauber, Krischan Stapelfeldt, Timm Suhl</i>]]></bottom>
+	<tag name="todo" scope="all" description="To do:" />
+	<tag name="TODO" scope="all" description="To do:" />
+</javadoc>
+</target>
 
-	<target depends="init" name="build-project" description="Compiles the project to bin/release">
-		<echo message="${ant.project.name}: ${ant.file}" />
-		<javac debug="true" debuglevel="${debuglevel}" destdir="${release-bin.dir}" includeantruntime="false" source="${source}" target="${target}" failonerror="true">
-			<src path="src" />
-			<classpath refid="qm.classpath" />
-		</javac>
-	</target>
+<target name="init" description="Creates output directories and copies static assets">
+<mkdir dir="${bin.dir}" />
+<mkdir dir="${release-bin.dir}" />
+<copy includeemptydirs="false" todir="${release-bin.dir}">
+	<fileset dir="${src.dir}">
+		<exclude name="**/*.launch" />
+		<exclude name="**/*.java" />
+	</fileset>
+</copy>
+<mkdir dir="${jacoco.instr.dir}" />
+<copy includeemptydirs="false" todir="${jacoco.instr.dir}">
+	<fileset dir="src">
+		<exclude name="**/*.launch" />
+		<exclude name="**/*.java" />
+	</fileset>
+</copy>
+<mkdir dir="${checkstyle.output.dir}" />
+</target>
 
-	<target name="instrument" depends="build-project" description="Generates instrumented binaries for EMMA in bin/instrumented">
-		<jacoco:instrument destdir="${jacoco.instr.dir}">
-			<fileset dir="${release-bin.dir}" includes="**/*.class" />
-		</jacoco:instrument>
-	</target>
+<target name="build-project" depends="init" description="Compiles the project to bin/release">
+<echo message="${ant.project.name}: ${ant.file}" />
+<javac debug="true" debuglevel="${debuglevel}" destdir="${release-bin.dir}" includeantruntime="false" source="${source}" target="${target}" failonerror="true">
+	<src path="src" />
+	<classpath refid="qm.classpath" />
+</javac>
+</target>
 
-	<target name="AllTests" description="Runs the complete testsuite" depends="instrument">
-		<mkdir dir="${junit.output.dir}" />
-		<jacoco:coverage destfile="${jacoco.exec.file}">
-			<junit fork="yes" printsummary="yes" forkmode="once">
-				<formatter type="xml" />
-				<test name="de.globalposeidon.Qualitaet.tests.AllTests" todir="${junit.output.dir}" />
-				<classpath refid="qm.classpath.instrumented" />
-			</junit>
-		</jacoco:coverage>
-	</target>
+<target name="instrument" depends="build-project" description="Generates instrumented binaries for EMMA in bin/instrumented">
+<jacoco:instrument destdir="${jacoco.instr.dir}">
+	<fileset dir="${release-bin.dir}" includes="**/*.class" />
+</jacoco:instrument>
+</target>
 
-	<target name="junitreport" depends="AllTests" description="Generates a report from JUnit output">
-		<junitreport todir="${junit.output.dir}">
-			<fileset dir="${junit.output.dir}">
-				<include name="TEST-*.xml" />
-			</fileset>
-			<report format="frames" todir="${junit.output.dir}" />
-		</junitreport>
-	</target>
+<target name="AllTests" description="Runs the complete testsuite" depends="instrument">
+<mkdir dir="${junit.output.dir}" />
+<jacoco:coverage destfile="${jacoco.exec.file}">
+	<junit fork="yes" printsummary="yes" forkmode="once">
+		<formatter type="xml" />
+		<test name="de.globalposeidon.Qualitaet.tests.AllTests" todir="${junit.output.dir}" />
+		<classpath refid="qm.classpath.instrumented" />
+	</junit>
+</jacoco:coverage>
+</target>
 
-	<target name="jacocoreport" depends="AllTests">
-		<jacoco:report>
-			<executiondata>
-				<file file="${jacoco.exec.file}" />
-			</executiondata>
-			<structure name="${ant.project.name}">
-				<classfiles>
-					<fileset dir="bin/release" />
-				</classfiles>
-				<sourcefiles encoding="UTF-8">
-					<fileset dir="src" />
-				</sourcefiles>
-			</structure>
+<target name="junitreport" depends="AllTests" description="Generates a report from JUnit output">
+<junitreport todir="${junit.output.dir}">
+	<fileset dir="${junit.output.dir}">
+		<include name="TEST-*.xml" />
+	</fileset>
+	<report format="frames" todir="${junit.output.dir}" />
+</junitreport>
+</target>
 
-			<html destdir="reports/jacoco" />
-		</jacoco:report>
-
-	</target>
-
-	<target name="Launcher" depends="clean, init, build-project">
-		<java classname="de.globalposeidon.Qualitaet.Launcher" failonerror="true" fork="yes">
-			<classpath refid="qm.classpath" />
-		</java>
-	</target>
-
-	<target name="create_run_jar" depends="clean, init, build-project">
-		<jar destfile="bin/jar/globalposeidon.jar" filesetmanifest="mergewithoutmain">
-			<manifest>
-				<attribute name="Main-Class" value="de.globalposeidon.Qualitaet.Launcher" />
-				<attribute name="Class-Path" value="." />
-			</manifest>
+<target name="jacocoreport" depends="AllTests">
+<jacoco:report>
+	<executiondata>
+		<file file="${jacoco.exec.file}" />
+	</executiondata>
+	<structure name="${ant.project.name}">
+		<classfiles>
 			<fileset dir="bin/release" />
-			<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/logback-classic-1.0.13.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/logback-core-1.0.13.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/slf4j-api-1.7.5.jar" />
-			<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/sqlite/sqlite-jdbc-3.7.2.jar" />
-		</jar>
-	</target>
+		</classfiles>
+		<sourcefiles encoding="UTF-8">
+			<fileset dir="src" />
+		</sourcefiles>
+	</structure>
 
-	<target name="jenkins" depends="clean,init,build-project,instrument,junitreport,jacocoreport,create_run_jar" />
+	<html destdir="reports/jacoco" />
+</jacoco:report>
+
+</target>
+
+<target name="Launcher" depends="clean, init, build-project">
+<java classname="de.globalposeidon.Qualitaet.Launcher" failonerror="true" fork="yes">
+	<classpath refid="qm.classpath" />
+</java>
+</target>
+
+<target name="create_run_jar" depends="clean, init, build-project">
+<jar destfile="bin/jar/globalposeidon.jar" filesetmanifest="mergewithoutmain">
+	<manifest>
+		<attribute name="Main-Class" value="de.globalposeidon.Qualitaet.Launcher" />
+		<attribute name="Class-Path" value="." />
+	</manifest>
+	<fileset dir="bin/release" />
+	<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/logback-classic-1.0.13.jar" />
+	<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/logback-core-1.0.13.jar" />
+	<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/slf4j-api-1.7.5.jar" />
+	<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/sqlite/sqlite-jdbc-3.7.2.jar" />
+</jar>
+</target>
+
+<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,instrument,junitreport,jacocoreport,create_run_jar" />
 </project>
