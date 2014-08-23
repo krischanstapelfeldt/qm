@@ -81,7 +81,7 @@ public class MainMenuBar extends JMenuBar{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				openWebpage("http://stapelfeldt.selfhost.eu:8080/job/Global%20Poseidon/ws/junit/index.html");
+				openWebpage("http://stapelfeldt.selfhost.eu:8080/job/Global%20Poseidon/ws/reports/junit/index.html");
 			}
 		});
 		dev.add(jUnitJenkins);
