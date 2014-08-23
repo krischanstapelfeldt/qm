@@ -12,7 +12,11 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Tenant;
-
+/**
+ * This class contains the tests for the apartment class
+ * @author Krischan Stapelfeldt
+ *
+ */
 public class ApartmentTest extends TestCase {
 
 	DataContainer dataContainer;
@@ -21,7 +25,9 @@ public class ApartmentTest extends TestCase {
 	Apartment apartment;
 	Meter initialMeter;
 	Tenant initialTenant;
-
+	/**
+	 * Ramps the necessary objects up (dataContainer, building, entrance, apartment)
+	 */
 	@Before
 	public void setUp() throws Exception {
 		dataContainer = new DataContainer();
@@ -35,11 +41,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveCreateApartment()
-	 * 
-	 * @result create two new apartments. one with specific data, one with empty
-	 *         data. insert into database.
-	 * @author ks
+	 * create two new apartments. one with specific data, one with empty data. insert into database.
 	 */
 	@Test
 	public void testPositiveCreateApartment() {
@@ -50,10 +52,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveAddMeter()
-	 * 
-	 * @result add meter to selected apartment. insert into database.
-	 * @author ks
+	 * add meter to selected apartment. insert into database.
 	 */
 	@Test
 	public void testPositiveAddMeter() {
@@ -63,10 +62,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetMeter()
-	 * 
-	 * @result get meter from selected apartment. load from database.
-	 * @author ks
+	 * get meter from selected apartment. load from database.
 	 */
 	@Test
 	public void testPositiveGetMeter() {
@@ -76,10 +72,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveAddTenant()
-	 * 
-	 * @result add tenant to selected apartment. insert into database.
-	 * @author ks
+	 * add tenant to selected apartment. insert into database.
 	 */
 	@Test
 	public void testPositiveAddTenant() {
@@ -89,10 +82,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetTenant()
-	 * 
-	 * @result get tenant from selected apartment. load from database.
-	 * @author ks
+	 * get tenant from selected apartment. load from database.
 	 */
 	@Test
 	public void testPositiveGetTenant() {
@@ -102,10 +92,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveApartmentIsEmpty()
-	 * 
-	 * @result get boolean if apartment is empty. load from database.
-	 * @author ks
+	 * get boolean if apartment is empty. load from database.
 	 */
 	@Test
 	public void testPositiveApartmentIsEmpty() {
@@ -115,10 +102,7 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetApartment()
-	 * 
-	 * @result get apartment with all tenants. load from database.
-	 * @author ks
+	 * get apartment with all tenants. load from database.
 	 */
 	@Test
 	public void testPositiveGetApartment() {

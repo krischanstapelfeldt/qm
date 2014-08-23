@@ -2,4 +2,4 @@
 **/*.log
 /*.log
 /reports/
-/docs/javadoc/
+/docs/

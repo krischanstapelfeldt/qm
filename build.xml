@@ -11,9 +11,11 @@
 	<property name="release-bin.dir" value="${bin.dir}/release" />
 	<property name="jacoco.dir" value="${lib.dir}/jacoco" />
 	<property name="jacoco.instr.dir" location="${bin.dir}/instr" />
+	<property name="jacoco.report.dir" location="${reports.dir}/jacoco" />
 	<property name="jacoco.exec.file" location="${bin.dir}/jacoco.exec" />
 	<property name="junit.output.dir" value="${reports.dir}/junit" />
 	<property name="checkstyle.output.dir" value="${reports.dir}/checkstyle" />
+	<property name="checkstyle.dir" value="${lib.dir}/checkstyle" />
 
 	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
 		<classpath path="lib/jacoco/jacocoant.jar" />
@@ -52,15 +54,15 @@
 		<delete dir="coverage" />
 		<delete dir="jar" />
 		<delete dir="inst" />
-		<delete dir="bin" />
+		<delete dir="${bin.dir}" />
 		<delete dir="junit" />
-		<delete dir="reports" />
+		<delete dir="${reports.dir}" />
 	</target>
 
 	<target name="checkstyle" depends="clean,init" description="Generates a report of code convention violations.">
-		<cs:checkstyle config="lib/checkstyle/checkstyle-config.xml" failureProperty="checkstyle.failure" failOnViolation="false">
+		<cs:checkstyle config="${checkstyle.dir}/checkstyle-config.xml" failureProperty="checkstyle.failure" failOnViolation="false">
 			<formatter type="xml" tofile="${checkstyle.output.dir}/checkstyle-report.xml" />
-			<fileset dir="src" includes="**/*.java" />
+			<fileset dir="${src.dir}" includes="**/*.java" />
 		</cs:checkstyle>
 <!--		<xslt in="reports/checkstyle/checkstyle-report.xml" out="reports/checkstyle/index.html" style="lib/checkstyle/checkstyle-frames.xsl" />-->
 	</target>
@@ -98,18 +100,18 @@
 <target name="build-project" depends="init" description="Compiles the project to bin/release">
 <echo message="${ant.project.name}: ${ant.file}" />
 <javac debug="true" debuglevel="${debuglevel}" destdir="${release-bin.dir}" includeantruntime="false" source="${source}" target="${target}" failonerror="true">
-	<src path="src" />
+	<src path="${src.dir}" />
 	<classpath refid="qm.classpath" />
 </javac>
 </target>
 
-<target name="instrument" depends="build-project" description="Generates instrumented binaries for EMMA in bin/instrumented">
+<target name="emma-instrument" depends="build-project" description="Generates instrumented binaries for EMMA in bin/instrumented">
 <jacoco:instrument destdir="${jacoco.instr.dir}">
 	<fileset dir="${release-bin.dir}" includes="**/*.class" />
 </jacoco:instrument>
 </target>
 
-<target name="AllTests" description="Runs the complete testsuite" depends="instrument">
+<target name="AllTests" description="Runs the complete testsuite" depends="emma-instrument">
 <mkdir dir="${junit.output.dir}" />
 <jacoco:coverage destfile="${jacoco.exec.file}">
 	<junit fork="yes" printsummary="yes" forkmode="once">
@@ -143,7 +145,7 @@
 		</sourcefiles>
 	</structure>
 
-	<html destdir="reports/jacoco" />
+	<html destdir="${jacoco.report.dir}" />
 </jacoco:report>
 
 </target>
@@ -168,5 +170,5 @@
 </jar>
 </target>
 
-<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,instrument,junitreport,jacocoreport,create_run_jar" />
+<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,emma-instrument,junitreport,jacocoreport,create_run_jar" />
 </project>

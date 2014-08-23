@@ -10,9 +10,15 @@ import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.MeterReader;
 import de.globalposeidon.Qualitaet.model.Reading;
 import de.globalposeidon.Qualitaet.model.ReadingInfo;
-
+/**
+ * This class contains the tests for the reading class
+ * @author Krischan Stapelfeldt
+ *
+ */
 public class ReadingTest extends TestCase {
-
+	/**
+	 * No ramp up necessary 
+	 */
 	@Before
 	public void setUp() throws Exception {
 	}
@@ -22,10 +28,7 @@ public class ReadingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetReading()
-	 * 
-	 * @result create new reading. insert into database.
-	 * @author ks
+	 * create new reading. insert into database.
 	 */
 	@Test
 	public void testPositiveSetReading() {
@@ -40,10 +43,7 @@ public class ReadingTest extends TestCase {
 	//TODO: new method - getReading(Integer id)
 	
 //	/**
-//	 * testPositiveGetReading()
-//	 * 
-//	 * @result get reading by id. load from database.
-//	 * @author ks
+//	 * get reading by id. load from database.
 //	 */
 //	@Test
 //	public void testPositiveGetReading() {

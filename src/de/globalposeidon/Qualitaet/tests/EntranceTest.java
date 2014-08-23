@@ -13,7 +13,11 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
-
+/**
+ * This class contains the tests for the entrance class
+ * @author Krischan Stapelfeldt
+ *
+ */
 public class EntranceTest extends TestCase {
 
 	Entrance entranceWithApartment;
@@ -25,6 +29,9 @@ public class EntranceTest extends TestCase {
 	ArrayList<Meter> meters;
 	ArrayList<Apartment> apartments;
 
+	/**
+	 * Ramps the necessary objects up (dataContainer, building, meters, entrance, apartment)
+	 */
 	@Before
 	public void setUp() throws Exception {
 		dataContainer = new DataContainer();
@@ -39,11 +46,8 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveCreateEntrance()
-	 * 
-	 * @result create two new entrances. one with specific data, one with empty
+	 * create two new entrances. one with specific data, one with empty
 	 *         data. insert into database.
-	 * @author ks
 	 */
 	@Test
 	public void testPositiveCreateEntrance() {
@@ -54,10 +58,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveAddMeter()
-	 * 
-	 * @result add meter to selected ArrayList. insert into database.
-	 * @author ks
+	 * add meter to selected ArrayList. insert into database.
 	 */
 	@Test
 	public void testPositiveAddMeter() {
@@ -67,10 +68,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetMeter()
-	 * 
-	 * @result get meter from selected ArrayList. load from database.
-	 * @author ks
+	 * get meter from selected ArrayList. load from database.
 	 */
 	@Test
 	public void testPositiveGetMeter() {
@@ -79,10 +77,7 @@ public class EntranceTest extends TestCase {
 
 	}
 	/**
-	 * testPositiveRemoveMeter()
-	 * 
-	 * @result remove meter from selected ArrayList. delete from database.
-	 * @author ks
+	 * remove meter from selected ArrayList. delete from database.
 	 */
 	@Test
 	public void testPositiveRemoveMeter() {
@@ -92,10 +87,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveAddApartment()
-	 * 
-	 * @result add apartment to selected ArrayList. insert into database.
-	 * @author ks
+	 * add apartment to selected ArrayList. insert into database.
 	 */
 	@Test
 	public void testPositiveAddApartment() {
@@ -105,10 +97,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetApartment()
-	 * 
-	 * @result get apartment from selected ArrayList. load from database.
-	 * @author ks
+	 * get apartment from selected ArrayList. load from database.
 	 */
 	@Test
 	public void testPositiveGetApartment() {
@@ -118,10 +107,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveRemoveApartment()
-	 * 
-	 * @result remove apartment from selected ArrayList. delete from database.
-	 * @author ks
+	 * remove apartment from selected ArrayList. delete from database.
 	 */
 	@Test
 	public void testPositiveRemoveApartment() {
@@ -131,10 +117,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetEmptyApartments()
-	 * 
-	 * @result get empty apartments from selected ArrayList. load from database.
-	 * @author ks
+	 * get empty apartments from selected ArrayList. load from database.
 	 */
 	@Test
 	public void testPositiveGetEmptyApartments() {
@@ -147,10 +130,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetRentedApartments()
-	 * 
-	 * @result get rented apartments from selected ArrayList. load from database.
-	 * @author ks
+	 * get rented apartments from selected ArrayList. load from database.
 	 */
 	@Test
 	public void testPositiveGetRentedApartments() {
@@ -163,10 +143,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveEntranceIsEmpty()
-	 * 
-	 * @result get boolean if entrance is empty. load from database.
-	 * @author ks
+	 * get boolean if entrance is empty. load from database.
 	 */
 	@Test
 	public void testPositiveEntranceIsEmpty() {
@@ -176,10 +153,7 @@ public class EntranceTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetEntrance()
-	 * 
-	 * @result get entrance with all apartments. load from database.
-	 * @author ks
+	 * get entrance with all apartments. load from database.
 	 */
 	@Test
 	public void testPositiveGetEntrance() {

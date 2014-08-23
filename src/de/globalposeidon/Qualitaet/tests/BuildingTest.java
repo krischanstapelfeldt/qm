@@ -12,7 +12,11 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Renter;
-
+/**
+ * This class contains the tests for the building class
+ * @author Krischan Stapelfeldt
+ *
+ */
 public class BuildingTest extends TestCase {
 
 	DataContainer dataContainer;
@@ -21,6 +25,9 @@ public class BuildingTest extends TestCase {
 	ArrayList<Entrance> entrances;
 	Building building;
 
+	/**
+	 * Ramps the necessary objects up (dataContainer, renter, building, entrance)
+	 */
 	@Before
 	public void setUp() throws Exception {
 		dataContainer = new DataContainer();
@@ -35,10 +42,7 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveCreateBuilding()
-	 * 
-	 * @result create a new building with specific data. insert into database.
-	 * @author ks
+	 * create a new building with specific data. insert into database.
 	 */
 	@Test
 	public void testPositiveCreateBuilding() {
@@ -48,10 +52,7 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetRenter()
-	 * 
-	 * @result get renter from selected building. load from database.
-	 * @author ks
+	 * get renter from selected building. load from database.
 	 */
 	@Test
 	public void testPositiveGetRenter() {
@@ -61,10 +62,7 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveReplaceRenter()
-	 * 
-	 * @result replace renter with a new renter. insert into database.
-	 * @author ks
+	 * replace renter with a new renter. insert into database.
 	 */
 	@Test
 	public void testPositiveReplaceRenter() {
@@ -75,10 +73,7 @@ public class BuildingTest extends TestCase {
 
 	}
 	/**
-	 * testPositiveAddEntrance()
-	 * 
-	 * @result add entrance to selected building. insert into database.
-	 * @author ks
+	 * add entrance to selected building. insert into database.
 	 */
 	@Test
 	public void testPositiveAddEntrance() {
@@ -88,10 +83,7 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetEntrance()
-	 * 
-	 * @result get entrance from selected ArrayList. load from database.
-	 * @author ks
+	 * get entrance from selected ArrayList. load from database.
 	 */
 	@Test
 	public void testPositiveGetEntrance() {
@@ -101,10 +93,7 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveRemoveEntrance()
-	 * 
-	 * @result remove entrance from selected ArrayList. delete from database.
-	 * @author ks
+	 * remove entrance from selected ArrayList. delete from database.
 	 */
 	@Test
 	public void testPositiveRemoveEntrance() {
@@ -114,10 +103,7 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveBuildingIsEmpty()
-	 * 
-	 * @result get empty buildings from selected ArrayList. load from database.
-	 * @author ks
+	 * get empty buildings from selected ArrayList. load from database.
 	 */
 	@Test
 	public void testPositiveBuildingIsEmpty() {
@@ -127,16 +113,11 @@ public class BuildingTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetBuilding()
-	 * 
-	 * @result get building with all entrances. load from database.
-	 * @author ks
+	 * get building with all entrances. load from database.
 	 */
 	@Test
 	public void testPositiveGetBuilding() {
-
 		assertEquals("", null, building.toString());
-
 	}
 
 }

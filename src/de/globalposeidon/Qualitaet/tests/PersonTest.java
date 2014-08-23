@@ -9,7 +9,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.globalposeidon.Qualitaet.model.Person;
-
+/**
+ * This class contains the tests for the person class
+ * @author Krischan Stapelfeldt
+ *
+ */
 public class PersonTest extends TestCase {
 
 	Person person;
@@ -19,6 +23,9 @@ public class PersonTest extends TestCase {
 	String phone;
 	String email;
 
+	/**
+	 * Ramps the necessary objects up (name, surname, phone, email, person object)
+	 */
 	@Before
 	public void setUp() throws Exception {
 
@@ -36,11 +43,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveCreatePerson()
-	 * 
-	 * @result create two new persons. one with specific data, one with empty
-	 *         data. insert into database.
-	 * @author ks
+	 * create two new persons. one with specific data, one with empty data. insert into database.
 	 */
 	@Test
 	public void testPositiveCreatePerson() {
@@ -51,10 +54,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetName()
-	 * 
-	 * @result get name from selected persons. load from database.
-	 * @author ks
+	 * get name from selected persons. load from database.
 	 */
 	@Test
 	public void testPositiveGetName() {
@@ -64,10 +64,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetName()
-	 * 
-	 * @result set name for selected person. insert into database.
-	 * @author ks
+	 * set name for selected person. insert into database.
 	 */
 	@Test
 	public void testPositiveSetName() {
@@ -77,10 +74,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetSurname()
-	 * 
-	 * @result get surname from selected persons. load from database.
-	 * @author ks
+	 * get surname from selected persons. load from database.
 	 */
 	@Test
 	public void testPositiveGetSurname() {
@@ -90,10 +84,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetSurname()
-	 * 
-	 * @result set surname for selected person. insert into database.
-	 * @author ks
+	 * set surname for selected person. insert into database.
 	 */
 	@Test
 	public void testPositiveSetSurname() {
@@ -103,10 +94,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetPhone()
-	 * 
-	 * @result get phone from selected persons. load from database.
-	 * @author ks
+	 * get phone from selected persons. load from database.
 	 */
 	@Test
 	public void testPositiveGetPhone() {
@@ -116,10 +104,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetPhone()
-	 * 
-	 * @result set phone for selected person. insert into database.
-	 * @author ks
+	 * set phone for selected person. insert into database.
 	 */
 	@Test
 	public void testPositiveSetPhone() {
@@ -129,10 +114,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetEmail()
-	 * 
-	 * @result get email from selected persons. load from database.
-	 * @author ks
+	 * get email from selected persons. load from database.
 	 */
 	@Test
 	public void testPositiveGetEmail() {
@@ -142,10 +124,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetEmail()
-	 * 
-	 * @result set email for selected person. insert into database.
-	 * @author ks
+	 * set email for selected person. insert into database.
 	 */
 	@Test
 	public void testPositiveSetEmail() {
@@ -155,10 +134,7 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetPerson()
-	 * 
-	 * @result get person with data from database.
-	 * @author ks
+	 * get person with data from database.
 	 */
 	@Test
 	public void testPositiveGetPerson() {

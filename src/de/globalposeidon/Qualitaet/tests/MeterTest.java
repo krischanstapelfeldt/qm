@@ -1,4 +1,4 @@
-package de.globalposeidon.Qualitaet.tests;
+	package de.globalposeidon.Qualitaet.tests;
 
 import java.util.Date;
 
@@ -14,7 +14,11 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
-
+/**
+ * This class contains the tests for the meter class
+ * @author Krischan Stapelfeldt
+ *
+ */
 public class MeterTest extends TestCase {
 	
 	DataContainer dataContainer;
@@ -28,6 +32,10 @@ public class MeterTest extends TestCase {
 	int yearValue;
 	Date lastRead;
 
+	
+	/**
+	 * Ramps the necessary objects up (dataContainer, building, meters, entrance, apartment)
+	 */
 	@Before
 	public void setUp() throws Exception {
 		dataContainer = new DataContainer();
@@ -47,10 +55,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveCreateMeter()
-	 * 
-	 * @result create new meter with specific data. insert into database.
-	 * @author ks
+	 * create new meter with specific data. insert into database.
 	 */
 	@Test
 	public void testPositiveCreateMeter() {
@@ -60,10 +65,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetMeterID()
-	 * 
-	 * @result get ID from selected meter. load from database.
-	 * @author ks
+	 * get ID from selected meter. load from database.
 	 */
 	@Test
 	public void testPositiveGetMeterID() {
@@ -73,10 +75,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetType()
-	 * 
-	 * @result get type from selected meter. load from database.
-	 * @author ks
+	 * get type from selected meter. load from database.
 	 */
 	@Test
 	public void testPositiveGetType() {
@@ -85,10 +84,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetCurrentValue()
-	 * 
-	 * @result get current value from selected meter. load from database.
-	 * @author ks
+	 * get current value from selected meter. load from database.
 	 */
 	@Test
 	public void testPositiveGetCurrentValue() {
@@ -98,10 +94,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetCurrentValue()
-	 * 
-	 * @result set current value for selected meter. insert into database.
-	 * @author ks
+	 * set current value for selected meter. insert into database.
 	 */
 	@Test
 	public void testPositiveSetCurrentValue() {
@@ -111,10 +104,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetYearValue()
-	 * 
-	 * @result get year value from selected meter. load from database.
-	 * @author ks
+	 * get year value from selected meter. load from database.
 	 */
 	@Test
 	public void testPositiveGetYearValue() {
@@ -124,10 +114,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetYearYalue()
-	 * 
-	 * @result set year value for selected meter. insert into database.
-	 * @author ks
+	 * set year value for selected meter. insert into database.
 	 */
 	@Test
 	public void testPositiveSetYearYalue() {
@@ -137,10 +124,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetLastRead()
-	 * 
-	 * @result get last reading from selected meter. load from database.
-	 * @author ks
+	 * get last reading from selected meter. load from database.
 	 */
 	@Test
 	public void testPositiveGetLastRead() {
@@ -150,10 +134,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveSetLastRead()
-	 * 
-	 * @result set last reading for selected meter. insert into database.
-	 * @author ks
+	 * set last reading for selected meter. insert into database.
 	 */
 	@Test
 	public void testPositiveSetLastRead() {
@@ -166,10 +147,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveMakeReading()
-	 * 
-	 * @result 
-	 * @author ks
+	 * TODO BESCHREIBEN!!!
 	 */
 	@Test
 	public void testPositiveMakeReading() {
@@ -179,10 +157,7 @@ public class MeterTest extends TestCase {
 	}
 
 	/**
-	 * testPositiveGetMeter()
-	 * 
-	 * @result get meter with data from database.
-	 * @author ks
+	 * get meter with data from database.
 	 */
 	@Test
 	public void testPositiveGetMeter() {
