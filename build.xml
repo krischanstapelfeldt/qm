@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="build-project" name="Global Poseidon" xmlns:jacoco="antlib:org.jacoco.ant" xmlns:cs="antlib:com.puppycrawl.tools.checkstyle">
+<project basedir="." default="build-project" name="Global Poseidon" xmlns:fb="antlib:edu.umd.cs.findbugs.anttask.FindBugsTask" xmlns:jacoco="antlib:org.jacoco.ant" xmlns:cs="antlib:com.puppycrawl.tools.checkstyle">
 	<property environment="env" />
 	<property name="debuglevel" value="source,lines,vars" />
 	<property name="target" value="1.7" />
@@ -16,13 +16,18 @@
 	<property name="junit.output.dir" value="${reports.dir}/junit" />
 	<property name="checkstyle.output.dir" value="${reports.dir}/checkstyle" />
 	<property name="checkstyle.dir" value="${lib.dir}/checkstyle" />
+	<property name="findbugs.jar" value="${lib.dir}/findbugs/lib/findbugs-ant.jar" />
+	<property name="findbugs.output.dir" value="${reports.dir}/findbugs" />
 
 	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
 		<classpath path="lib/jacoco/jacocoant.jar" />
 	</taskdef>
+
 	<taskdef uri="antlib:com.puppycrawl.tools.checkstyle" resource="checkstyletask.properties">
 		<classpath path="lib/checkstyle/checkstyle-5.7-all.jar" />
 	</taskdef>
+
+	<taskdef uri="antlib:edu.umd.cs.findbugs.anttask.FindBugsTask" name="findbugs" classname='edu.umd.cs.findbugs.anttask.FindBugsTask' classpath='${findbugs.jar}' />
 
 	<path id="qm.classpath">
 		<pathelement location="${release-bin.dir}" />
@@ -48,7 +53,6 @@
 		<pathelement location="${lib.dir}/junit/hamcrest-core-1.3.jar" />
 	</path>
 
-
 	<target name="clean" description="Removes existing compile output and reports">
 		<delete dir="docs/javadoc" />
 		<delete dir="coverage" />
@@ -64,9 +68,8 @@
 			<formatter type="xml" tofile="${checkstyle.output.dir}/checkstyle-report.xml" />
 			<fileset dir="${src.dir}" includes="**/*.java" />
 		</cs:checkstyle>
-<!--		<xslt in="reports/checkstyle/checkstyle-report.xml" out="reports/checkstyle/index.html" style="lib/checkstyle/checkstyle-frames.xsl" />-->
 	</target>
-	
+
 	<target name="javadoc" description="Creates JavaDocs" depends="clean">
 		<javadoc classpathref="qm.classpath" packagenames="de.globalposeidon.*" sourcepath="src" defaultexcludes="yes" destdir="docs/javadoc" author="true" version="true" use="true" windowtitle="Global Poseidon - JavaDoc">
 			<doctitle>
@@ -95,6 +98,7 @@
 	</fileset>
 </copy>
 <mkdir dir="${checkstyle.output.dir}" />
+<mkdir dir="${findbugs.output.dir}" />
 </target>
 
 <target name="build-project" depends="init" description="Compiles the project to bin/release">
@@ -104,7 +108,13 @@
 	<classpath refid="qm.classpath" />
 </javac>
 </target>
-
+<target name="findbugs" depends="clean,init,build-project">
+<fb:findbugs output='html' home='${lib.dir}/findbugs' outputFile='${findbugs.output.dir}/index.html'>
+	<sourcePath path="${src.dir}" />
+	<class location='${release-bin.dir}' />
+	<auxClasspath refid="qm.classpath" />
+</fb:findbugs>
+</target>
 <target name="emma-instrument" depends="build-project" description="Generates instrumented binaries for EMMA in bin/instrumented">
 <jacoco:instrument destdir="${jacoco.instr.dir}">
 	<fileset dir="${release-bin.dir}" includes="**/*.class" />
@@ -170,5 +180,5 @@
 </jar>
 </target>
 
-<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,emma-instrument,junitreport,jacocoreport,create_run_jar" />
+<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,findbugs,emma-instrument,junitreport,jacocoreport,create_run_jar" />
 </project>
