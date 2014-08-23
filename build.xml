@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build-project" name="Global Poseidon" xmlns:jacoco="antlib:org.jacoco.ant" xmlns:cs="antlib:com.puppycrawl.tools.checkstyle">
 	<property environment="env" />
-
 	<property name="debuglevel" value="source,lines,vars" />
 	<property name="target" value="1.7" />
 	<property name="source" value="1.7" />
 	<property name="src.dir" value="src" />
 	<property name="lib.dir" value="lib" />
 	<property name="bin.dir" value="bin" />
+	<property name="reports.dir" value="reports" />
 	<property name="release-bin.dir" value="${bin.dir}/release" />
 	<property name="jacoco.dir" value="${lib.dir}/jacoco" />
 	<property name="jacoco.instr.dir" location="${bin.dir}/instr" />
 	<property name="jacoco.exec.file" location="${bin.dir}/jacoco.exec" />
-	<property name="junit.output.dir" value="reports/junit" />
+	<property name="junit.output.dir" value="${reports.dir}/junit" />
+	<property name="checkstyle.output.dir" value="${reports.dir}/checkstyle" />
 
 	<taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
 		<classpath path="lib/jacoco/jacocoant.jar" />
 	</taskdef>
-
-	<taskdef resource="checkstyletask.properties" classpath="/lib/checkstyle/checkstyle-5.7-all.jar" />
+	<taskdef uri="antlib:com.puppycrawl.tools.checkstyle" resource="checkstyletask.properties">
+		<classpath path="lib/checkstyle/checkstyle-5.7-all.jar" />
+	</taskdef>
 
 	<path id="qm.classpath">
 		<pathelement location="${release-bin.dir}" />
@@ -55,28 +57,30 @@
 		<delete dir="reports" />
 	</target>
 
-	<target name="checkstyle" description="Generates a report of code convention violations.">
-		<checkstyle config="docs/sun_checks.xml" failureProperty="checkstyle.failure" failOnViolation="false">
-			<formatter type="xml" tofile="reports/checkstyle/checkstyle_report.xml" />
+	<target name="checkstyle" depends="clean,init" description="Generates a report of code convention violations.">
+		<cs:checkstyle config="lib/checkstyle/checkstyle-config.xml" failureProperty="checkstyle.failure" failOnViolation="false">
+			<formatter type="xml" tofile="${checkstyle.output.dir}/checkstyle-report.xml" />
 			<fileset dir="src" includes="**/*.java" />
-		</checkstyle>
-		<style in="reports/checkstyle/checkstyle_report.xml" out="reports/checkstyle/index.html" style="checkstyle.xsl" />
+		</cs:checkstyle>
+<!--		<xslt in="reports/checkstyle/checkstyle-report.xml" out="reports/checkstyle/index.html" style="lib/checkstyle/checkstyle-frames.xsl" />-->
 	</target>
+	
 	<target name="javadoc" description="Creates JavaDocs" depends="clean">
-		<javadoc classpathref="qm.classpath" packagenames="de.globalposeidon.*" sourcepath="src" excludepackagenames="de.globalposeidon.Qualitaet.tests.*" defaultexcludes="yes" destdir="docs/javadoc" author="true" version="true" use="true" windowtitle="Global Poseidon - JavaDoc">
+		<javadoc classpathref="qm.classpath" packagenames="de.globalposeidon.*" sourcepath="src" defaultexcludes="yes" destdir="docs/javadoc" author="true" version="true" use="true" windowtitle="Global Poseidon - JavaDoc">
 			<doctitle>
 				<![CDATA[<h1>Global Poseidon - JavaDoc</h1>]]></doctitle>
 		<bottom>
 			<![CDATA[<i>Team Global Poseidon - Jens Felske, Sebastian Lauber, Krischan Stapelfeldt, Timm Suhl</i>]]></bottom>
 	<tag name="todo" scope="all" description="To do:" />
+	<tag name="TODO" scope="all" description="To do:" />
 </javadoc>
 </target>
 
 <target name="init" description="Creates output directories and copies static assets">
-<mkdir dir="bin" />
-<mkdir dir="bin/release" />
-<copy includeemptydirs="false" todir="bin/release">
-	<fileset dir="src">
+<mkdir dir="${bin.dir}" />
+<mkdir dir="${release-bin.dir}" />
+<copy includeemptydirs="false" todir="${release-bin.dir}">
+	<fileset dir="${src.dir}">
 		<exclude name="**/*.launch" />
 		<exclude name="**/*.java" />
 	</fileset>
@@ -88,6 +92,7 @@
 		<exclude name="**/*.java" />
 	</fileset>
 </copy>
+<mkdir dir="${checkstyle.output.dir}" />
 </target>
 
 <target name="build-project" depends="init" description="Compiles the project to bin/release">
@@ -163,5 +168,5 @@
 </jar>
 </target>
 
-<target name="jenkins" depends="clean,javadoc,init,build-project,instrument,junitreport,jacocoreport,create_run_jar" />
+<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,instrument,junitreport,jacocoreport,create_run_jar" />
 </project>
