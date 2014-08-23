@@ -65,6 +65,7 @@ public class Strings {
 	public static String meterSearch = meter+" search";
 	public static String openJenkins = openWSpace + "Jenkins";
 	public static String openJUnitJenkins = openWSpace + "JUnit report on Jenkins";
+	public static String openJaCoCoJenkins = openWSpace + "JaCoCo report on Jenkins";
 	public static String openMantis = openWSpace + "Mantis";
 	public static String openTestlink = openWSpace + "Testlink";
 	public static String readingValue = reading + " " +value;

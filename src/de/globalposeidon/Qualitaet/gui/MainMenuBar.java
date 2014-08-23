@@ -86,6 +86,16 @@ public class MainMenuBar extends JMenuBar{
 		});
 		dev.add(jUnitJenkins);
 		
+		JMenuItem jaCoCoJenkins = new JMenuItem(Strings.openJaCoCoJenkins);
+		jaCoCoJenkins.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openWebpage("http://stapelfeldt.selfhost.eu:8080/job/Global%20Poseidon/ws/reports/jacoco/index.html");
+			}
+		});
+		dev.add(jaCoCoJenkins);
+		
 		JMenuItem mantis = new JMenuItem(Strings.openMantis);
 		mantis.addActionListener(new ActionListener() {
 			

@@ -45,6 +45,7 @@
 
 	<target name="clean" description="Removes existing compile output and reports">
 		<delete dir="coverage" />
+		<delete dir="jar" />
 		<delete dir="inst" />
 		<delete dir="bin" />
 		<delete dir="junit" />
@@ -108,12 +109,12 @@
 			<executiondata>
 				<file file="${jacoco.exec.file}" />
 			</executiondata>
-			<structure name="${ant.project.name}">
+			<structure name="Example">
 				<classfiles>
-					<fileset dir="${jacoco.instr.dir}" />
+					<fileset dir="bin/release" />
 				</classfiles>
 				<sourcefiles encoding="UTF-8">
-					<fileset dir="${src.dir}" />
+					<fileset dir="src" />
 				</sourcefiles>
 			</structure>
 
