@@ -67,24 +67,7 @@ public class MainWindow extends JFrame{
 		// Initial Tree
 		JTree tree = new JTree(treeModel);
 		
-		// Initial Buttons		
-		JButton btnAddRenter = new JButton(Strings.addRenter);
-// TODO: Write AddRenterWindow. CURRENTLY USED AD RELOAD
-		btnAddRenter.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		JButton btnAddApartment = new JButton(Strings.addApartment);
-		btnAddApartment.addActionListener(new ActionListener() {	
-			@Override
-			public void actionPerformed(ActionEvent e) {
-//				Component component = (Component) e.getSource();
-//				JFrame frame = (JFrame) SwingUtilities.getRoot(component);
-				new AddApartmentWindow(null);
-			}
-		});			
+		// buttons			
 		JButton btnAddBuilding = new JButton(Strings.addBuilding);
 		btnAddBuilding.addActionListener(new ActionListener() {
 			@Override
@@ -98,7 +81,51 @@ public class MainWindow extends JFrame{
 				});
 			}
 		});	
-		
+// TODO: add entrance button to main window	
+		JButton addEntranceBtn = new JButton(Strings.addEntrance);
+		addEntranceBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AddEntranceWindow addEntrance = new AddEntranceWindow(model);
+				addEntrance.addWindowListener(new WindowAdapter() {
+				    @Override
+				    public void windowClosed(WindowEvent e) {
+				    	treeModel.reload();
+				    }
+				});
+			}
+		});	
+// TODO: adapt apartment window just like AddEntranceWindow
+		JButton btnAddApartment = new JButton(Strings.addApartment);
+		btnAddApartment.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AddApartmentWindow addApartment = new AddApartmentWindow(null);
+				addApartment.addWindowListener(new WindowAdapter() {
+				    @Override
+				    public void windowClosed(WindowEvent e) {
+				    	treeModel.reload();
+				    }
+				});
+			}
+		});	
+// TODO: write AddMeterWindow with dropdown for apartments OR entrance. maybe switch with radio button?
+// TODO: add meter button to main window
+	JButton addMeterBtn = new JButton(Strings.addRenter);
+	addMeterBtn.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+				}
+			});
+// TODO: write AddRenterWindow with dropdown for apartments			
+		JButton btnAddRenter = new JButton(Strings.addRenter);
+		btnAddRenter.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);
 		glLeftPanel.setHorizontalGroup(

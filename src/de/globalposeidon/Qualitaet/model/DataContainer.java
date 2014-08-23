@@ -21,6 +21,17 @@ public class DataContainer implements TreeNode {
 		buildings.add(building);
 	}
 	
+	public Building getBuilding(int index) {
+		return buildings.get(index);
+	}
+	
+	public int getBuildingCount() {
+		return buildings.size();
+	}
+	
+	public int getBuildingID(int index) {
+		return buildings.get(index).getID();
+	}
 	
 	public String toString(){
 		return uuid.toString();
