@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,21 +62,20 @@ public class MainWindow extends JFrame{
 		splitPane.setLeftComponent(leftPanel);
 		
 		// Treemodel with model
-		MainTreeModel treeModel = new MainTreeModel(model);
+		final MainTreeModel treeModel = new MainTreeModel(model);
 		
 		// Initial Tree
 		JTree tree = new JTree(treeModel);
 		
 		// Initial Buttons		
 		JButton btnAddRenter = new JButton(Strings.addRenter);
-// TODO: Write AddRenterWindow
-//		btnAddRenter.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				new AddRenterWindow(parent);
-//			}
-//		});
+// TODO: Write AddRenterWindow. CURRENTLY USED AD RELOAD
+		btnAddRenter.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 		JButton btnAddApartment = new JButton(Strings.addApartment);
 		btnAddApartment.addActionListener(new ActionListener() {	
 			@Override
@@ -85,14 +86,18 @@ public class MainWindow extends JFrame{
 			}
 		});			
 		JButton btnAddBuilding = new JButton(Strings.addBuilding);
-// TODO: Write AddBuildingWindow
-//		btnAddBuilding.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				new AddBuildingWindow(null);
-//			}
-//		});	
+		btnAddBuilding.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AddBuildingWindow addBuilding = new AddBuildingWindow(model);
+				addBuilding.addWindowListener(new WindowAdapter() {
+				    @Override
+				    public void windowClosed(WindowEvent e) {
+				    	treeModel.reload();
+				    }
+				});
+			}
+		});	
 		
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);

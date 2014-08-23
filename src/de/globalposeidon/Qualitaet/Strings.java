@@ -32,6 +32,7 @@ public class Strings {
 	public static String reading = "reading";
 	public static String rended = "rented";
 	public static String renter = "renter";
+	public static String ok = "OK";
 	public static String save = "save";
 	public static String street = "street";
 	public static String surname = "surname";
