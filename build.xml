@@ -115,13 +115,13 @@
 	<auxClasspath refid="qm.classpath" />
 </fb:findbugs>
 </target>
-<target name="emma-instrument" depends="build-project" description="Generates instrumented binaries for EMMA in bin/instrumented">
+<target name="jacoco-instrument" depends="build-project" description="Generates instrumented binaries for JaCoCo in bin/instrumented">
 <jacoco:instrument destdir="${jacoco.instr.dir}">
 	<fileset dir="${release-bin.dir}" includes="**/*.class" />
 </jacoco:instrument>
 </target>
 
-<target name="AllTests" description="Runs the complete testsuite" depends="emma-instrument">
+<target name="AllTests" description="Runs the complete testsuite" depends="jacoco-instrument">
 <mkdir dir="${junit.output.dir}" />
 <jacoco:coverage destfile="${jacoco.exec.file}">
 	<junit fork="yes" printsummary="yes" forkmode="once">
@@ -180,5 +180,5 @@
 </jar>
 </target>
 
-<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,findbugs,emma-instrument,junitreport,jacocoreport,create_run_jar" />
+<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,findbugs,jacoco-instrument,junitreport,jacocoreport,create_run_jar" />
 </project>
