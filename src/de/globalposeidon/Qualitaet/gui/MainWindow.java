@@ -6,6 +6,7 @@ import java.awt.*;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.tree.TreeSelectionModel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,7 +46,7 @@ public class MainWindow extends JFrame{
 	 // Initialize the contents of the frame.
 	
 	private void initialize() {
-		setSize(800,600);
+		setSize(1000,600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JSeparator seperatorVertical = new JSeparator();
@@ -64,8 +65,9 @@ public class MainWindow extends JFrame{
 		// Treemodel with model
 		final MainTreeModel treeModel = new MainTreeModel(model);
 		
-		// Initial Tree
+		// tree with single selction mode
 		JTree tree = new JTree(treeModel);
+		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		
 		// buttons			
 		JButton btnAddBuilding = new JButton(Strings.addBuilding);
@@ -82,50 +84,65 @@ public class MainWindow extends JFrame{
 			}
 		});	
 // TODO: add entrance button to main window	
-		JButton addEntranceBtn = new JButton(Strings.addEntrance);
-		addEntranceBtn.addActionListener(new ActionListener() {
+// TODO: add selectedBuilding method
+		JButton btnAddEntrance = new JButton(Strings.addEntrance);
+		btnAddEntrance.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AddEntranceWindow addEntrance = new AddEntranceWindow(model);
-				addEntrance.addWindowListener(new WindowAdapter() {
-				    @Override
-				    public void windowClosed(WindowEvent e) {
-				    	treeModel.reload();
-				    }
-				});
+//				AddEntranceWindow addEntrance = new AddEntranceWindow(selectedBuilding());
+//				addEntrance.addWindowListener(new WindowAdapter() {
+//				    @Override
+//				    public void windowClosed(WindowEvent e) {
+//				    	treeModel.reload();
+//				    }
+//				});
 			}
 		});	
 // TODO: adapt apartment window just like AddEntranceWindow
+// TODO: add selectedEntrance method
 		JButton btnAddApartment = new JButton(Strings.addApartment);
 		btnAddApartment.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AddApartmentWindow addApartment = new AddApartmentWindow(null);
-				addApartment.addWindowListener(new WindowAdapter() {
-				    @Override
-				    public void windowClosed(WindowEvent e) {
-				    	treeModel.reload();
-				    }
-				});
+//				AddEntranceWindow addEntrance = new AddEntranceWindow(selectedEntrance());
+//				addEntrance.addWindowListener(new WindowAdapter() {
+//				    @Override
+//				    public void windowClosed(WindowEvent e) {
+//				    	treeModel.reload();
+//				    }
+//				});
 			}
 		});	
-// TODO: write AddMeterWindow with dropdown for apartments OR entrance. maybe switch with radio button?
 // TODO: add meter button to main window
-	JButton addMeterBtn = new JButton(Strings.addRenter);
-	addMeterBtn.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-
-				}
-			});
+// TODO: add selectedApartment method		
+		JButton addMeterBtn = new JButton(Strings.addRenter);
+		addMeterBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+//				AddMeterWindow addMeter = new AddMeterWindow(selectedApartment()());
+//				addMeter.addWindowListener(new WindowAdapter() {
+//			    	@Override
+//			    	public void windowClosed(WindowEvent e) {
+//			    		treeModel.reload();
+//			   		}
+//				});
+		}
+	});	
 // TODO: write AddRenterWindow with dropdown for apartments			
 		JButton btnAddRenter = new JButton(Strings.addRenter);
 		btnAddRenter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+//				AddRenterWindow addRenter = new AddRenterWindow(selectedApartment());
+//				addRenter.addWindowListener(new WindowAdapter() {
+//				    @Override
+//				    public void windowClosed(WindowEvent e) {
+//				    	treeModel.reload();
+//				    }
+//				});
 			}
-		});
+		});	
+		
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);
 		glLeftPanel.setHorizontalGroup(
