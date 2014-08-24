@@ -52,6 +52,7 @@ public class Strings {
 	public static String addEntrance = addWSpace+entrance;
 	public static String addRenter = addWSpace+renter;
 	public static String addTenant = addWSpace+tenant;
+	public static String addMeter = addWSpace+meter;
 	public static String adressDetails = adress + " " + details;
 	public static String apartmentName = apartment+" "+"name";
 	public static String buildingName = building+" name";

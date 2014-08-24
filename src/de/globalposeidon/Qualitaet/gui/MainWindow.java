@@ -115,8 +115,8 @@ public class MainWindow extends JFrame{
 		});	
 // TODO: add meter button to main window
 // TODO: add selectedApartment method		
-		JButton addMeterBtn = new JButton(Strings.addRenter);
-		addMeterBtn.addActionListener(new ActionListener() {
+		JButton btnAddMeter = new JButton(Strings.addMeter);
+		btnAddMeter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 //				AddMeterWindow addMeter = new AddMeterWindow(selectedApartment()());
@@ -143,6 +143,8 @@ public class MainWindow extends JFrame{
 			}
 		});	
 		
+		
+		
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);
 		glLeftPanel.setHorizontalGroup(
@@ -153,24 +155,27 @@ public class MainWindow extends JFrame{
 					.addContainerGap()
 					.addGroup(glLeftPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(Alignment.TRAILING, glLeftPanel.createSequentialGroup()
-							.addGap(10)
-							.addComponent(btnAddRenter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(glLeftPanel.createSequentialGroup()
-							.addGap(10)
 							.addGroup(glLeftPanel.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnAddRenter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-							.addContainerGap())))
+								.addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addContainerGap())))
 		);
+		
 		glLeftPanel.setVerticalGroup(
 				glLeftPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(glLeftPanel.createSequentialGroup()
 					.addComponent(tree, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-					.addPreferredGap(ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnAddBuilding)
 					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnAddEntrance)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnAddApartment)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnAddMeter)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnAddRenter)
 					.addContainerGap())
