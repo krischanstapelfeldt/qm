@@ -117,12 +117,14 @@ public class Entrance implements TreeNode{
 //================================================================================		
 	@Override
 	public TreeNode getChildAt(int childIndex) {
-		return apartments.get(childIndex);
+		System.out.println("get child at");
+		return apartments.size() > childIndex ? apartments.get(childIndex) : meters.get(childIndex-apartments.size());
 	}
 
 	@Override
 	public int getChildCount() {
-		return apartments.size();
+		System.out.println("get count");
+		return apartments.size() + meters.size();
 	}
 
 	@Override
