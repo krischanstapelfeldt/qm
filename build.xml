@@ -110,11 +110,12 @@
 </javac>
 </target>
 <target name="findbugs" depends="clean,init,build-project">
-<fb:findbugs output='html' home='${lib.dir}/findbugs' outputFile='${findbugs.output.dir}/index.html'>
+<fb:findbugs output='xml' home='${lib.dir}/findbugs' outputFile='${findbugs.output.dir}/findbugs.xml'>
 	<sourcePath path="${src.dir}" />
 	<class location='${release-bin.dir}' />
 	<auxClasspath refid="qm.classpath" />
 </fb:findbugs>
+	<xslt style="${lib.dir}/findbugs/fancy.xsl" in="${findbugs.output.dir}/findbugs.xml" out="${findbugs.output.dir}/index.html"/>
 </target>
 <target name="jacoco-instrument" depends="build-project" description="Generates instrumented binaries for JaCoCo in bin/instrumented">
 <jacoco:instrument destdir="${jacoco.instr.dir}">
@@ -134,7 +135,7 @@
 </jacoco:coverage>
 </target>
 -->
-	
+
 <target name="AllTests" description="Runs the complete testsuite" depends="jacoco-instrument">
 <mkdir dir="${junit.output.dir}" />
 <jacoco:coverage destfile="${jacoco.exec.file}">
@@ -142,13 +143,13 @@
 		<formatter type="xml" />
 		<classpath refid="qm.classpath.instrumented" />
 
-	    <batchtest todir="${junit.output.dir}">
-	        <fileset dir="${release-bin.dir}">
-	            <include name="**/*Test*.class"/>
-	            <exclude name="**/AllTests.class"/>
-	        </fileset>
-	    </batchtest>
-			
+		<batchtest todir="${junit.output.dir}">
+			<fileset dir="${release-bin.dir}">
+				<include name="**/*Test*.class" />
+				<exclude name="**/AllTests.class" />
+			</fileset>
+		</batchtest>
+
 	</junit>
 </jacoco:coverage>
 </target>
