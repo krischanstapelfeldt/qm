@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import de.globalposeidon.Qualitaet.Strings;
-import de.globalposeidon.Qualitaet.model.Apartment;
-import de.globalposeidon.Qualitaet.model.Tenant;
+import de.globalposeidon.Qualitaet.model.Building;
+import de.globalposeidon.Qualitaet.model.Renter;
 
-public class AddTenantWindow extends JDialog {
+public class AddRenterWindow extends JDialog {
 
 	private static final long serialVersionUID = 7393374690213796358L;
 	
@@ -20,13 +20,13 @@ public class AddTenantWindow extends JDialog {
 	private JTextField tfTel;
 	private JTextField tfEmail;
 
-	public AddTenantWindow(final Apartment apartment) {
+	public AddRenterWindow(final Building building) {
 			
-		this.setTitle("add tenant");
+		this.setTitle("add renter");
 		
 		//ui components
 		JPanel contentPnl = new JPanel(new FlowLayout());
-		JLabel descriptionLbl = new JLabel("This will add a new tenant to the apartment with ID: " + apartment.getID());
+		JLabel descriptionLbl = new JLabel("This will add a new renter to the building with ID: " + building.getID());
 		contentPnl.add(descriptionLbl);
 		contentPnl.add(this.tfFirstname);
 		contentPnl.add(this.tfSurname);
@@ -38,7 +38,7 @@ public class AddTenantWindow extends JDialog {
 		saveBtn.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				addTenant(apartment);
+				addRenter(building);
 			}
 		});	
 		JButton cancelBtn = new JButton(Strings.cancel);
@@ -64,8 +64,8 @@ public class AddTenantWindow extends JDialog {
 			this.setVisible(true);	
 	}
 		
-	private void addTenant(Apartment apartment) {
-		apartment.addTenant(new Tenant(this.tfFirstname.getText(), this.tfSurname.getText(), this.tfTel.getText(), this.tfEmail.getText()));
+	private void addRenter(Building building) {
+		building.setRenter(new Renter(this.tfFirstname.getText(), this.tfSurname.getText(), this.tfTel.getText(), this.tfEmail.getText()));
 		dispose();
 	}
 }
