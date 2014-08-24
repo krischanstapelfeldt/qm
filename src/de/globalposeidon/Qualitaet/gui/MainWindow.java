@@ -128,7 +128,6 @@ public class MainWindow extends JFrame{
 //				});
 		}
 	});	
-// TODO: write AddRenterWindow with dropdown for apartments			
 		JButton btnAddRenter = new JButton(Strings.addRenter);
 		btnAddRenter.addActionListener(new ActionListener() {
 			@Override

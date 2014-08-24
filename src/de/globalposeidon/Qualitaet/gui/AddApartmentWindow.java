@@ -6,17 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout.ParallelGroup;
-import javax.swing.GroupLayout.SequentialGroup;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
-import de.globalposeidon.Qualitaet.model.Building;
-import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 
 public class AddApartmentWindow extends JDialog {

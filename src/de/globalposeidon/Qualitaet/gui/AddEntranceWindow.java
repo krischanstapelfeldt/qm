@@ -6,14 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Building;
-import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 /**
  * AddEntrance shows the user a window to either add a entrance to the currently selected building with "OK" or to cancel the request with "Cancel"

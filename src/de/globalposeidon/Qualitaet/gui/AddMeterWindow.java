@@ -12,11 +12,9 @@ import javax.swing.JPanel;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
-import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
-import de.globalposeidon.Qualitaet.model.Tenant;
 
 public class AddMeterWindow extends JDialog {
 	
