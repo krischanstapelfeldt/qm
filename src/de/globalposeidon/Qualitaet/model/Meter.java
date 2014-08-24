@@ -15,6 +15,7 @@ import javax.swing.tree.TreeNode;
 public class Meter implements TreeNode{
 	
 	private int ID;
+	final private Entrance entrance; // parent node
 	final private Apartment apartment; // parent node
 	
 	final Metertype type;
@@ -26,16 +27,27 @@ public class Meter implements TreeNode{
 // constructors
 //================================================================================
 	// empty meter not allowed, so no Meter()
-
-	// structure with initial building
-	public Meter(int meterID, Metertype type, Apartment apartment) {
-		this.apartment = apartment;
+	
+	public Meter(int meterID, Metertype type, Entrance entrance) {
+		this.entrance = entrance;
+		this.apartment = null;
 		this.ID = meterID;
 		this.type = type;
 		this.currentValue = 0;
 		this.yearValue = 0;
 		this.lastRead = new Date();
 	}
+	
+	public Meter(int meterID, Metertype type, Apartment apartment) {
+		this.apartment = apartment;
+		this.entrance = null;
+		this.ID = meterID;
+		this.type = type;
+		this.currentValue = 0;
+		this.yearValue = 0;
+		this.lastRead = new Date();
+	}
+	
 //================================================================================
 // access private variables
 //================================================================================
@@ -108,7 +120,7 @@ public class Meter implements TreeNode{
 	}
 	@Override
 	public TreeNode getParent() {
-		return apartment;
+		return this.entrance != null ? this.entrance : this.apartment;
 	}
 	@Override
 	public int getIndex(TreeNode node) {

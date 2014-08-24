@@ -75,7 +75,7 @@ public class AddMeterWindow extends JDialog {
 	
 	private void addMeter(Entrance entrance) {
 		System.out.println("try to add meter to entrance...");
-//		entrance.addMeter(new Meter(001, Metertype.GAS, entrance));
+		entrance.addMeter(new Meter(001, Metertype.GAS, entrance));
 		dispose();
 	}
 	
