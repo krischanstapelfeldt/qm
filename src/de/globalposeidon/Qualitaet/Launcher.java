@@ -12,7 +12,7 @@ import de.globalposeidon.Qualitaet.model.Metertype;
 
 public class Launcher {
 
-	public static void main(String[] args) {
+	public final static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -24,8 +24,8 @@ public class Launcher {
 			}
 		});
 	}
-	
-	public static DataContainer createRandomModel(){
+
+	public static DataContainer createRandomModel() {
 		DataContainer dc = new DataContainer();
 		Building b = new Building(dc);
 		dc.addBuilding(b);

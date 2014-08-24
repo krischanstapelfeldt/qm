@@ -2,14 +2,18 @@ package de.globalposeidon.Qualitaet.tests;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+
 /**
  * This class contains the complete TestSuite for Global Poseidon with JUnit
+ * 
  * @author Krischan Stapelfeldt
  *
  */
 public class AllTests extends TestSuite {
 	/**
-	 * Sets up the TestSuite "GlobalPoseidonTestSuite" with the corresponding Tests
+	 * Sets up the TestSuite "GlobalPoseidonTestSuite" with the corresponding
+	 * Tests
+	 * 
 	 * @return TestSuite "GlobalPoseidonTestSuite"
 	 */
 	public static Test suite() {

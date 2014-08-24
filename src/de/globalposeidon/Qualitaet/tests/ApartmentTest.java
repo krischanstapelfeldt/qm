@@ -12,8 +12,10 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Tenant;
+
 /**
  * This class contains the tests for the apartment class
+ * 
  * @author Krischan Stapelfeldt
  *
  */
@@ -25,8 +27,10 @@ public class ApartmentTest extends TestCase {
 	Apartment apartment;
 	Meter initialMeter;
 	Tenant initialTenant;
+
 	/**
-	 * Ramps the necessary objects up (dataContainer, building, entrance, apartment)
+	 * Ramps the necessary objects up (dataContainer, building, entrance,
+	 * apartment)
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -41,13 +45,15 @@ public class ApartmentTest extends TestCase {
 	}
 
 	/**
-	 * create two new apartments. one with specific data, one with empty data. insert into database.
+	 * create two new apartments. one with specific data, one with empty data.
+	 * insert into database.
 	 */
 	@Test
 	public void testPositiveCreateApartment() {
 
 		assertEquals("", null, apartment);
-		assertEquals("", null, new Apartment(initialMeter,initialTenant,entrance));
+		assertEquals("", null, new Apartment(initialMeter, initialTenant,
+				entrance));
 
 	}
 
@@ -86,7 +92,7 @@ public class ApartmentTest extends TestCase {
 	 */
 	@Test
 	public void testPositiveGetTenant() {
-		
+
 		assertEquals("", initialTenant, apartment.getTenant(0));
 
 	}

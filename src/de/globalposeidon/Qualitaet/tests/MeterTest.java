@@ -1,4 +1,4 @@
-	package de.globalposeidon.Qualitaet.tests;
+package de.globalposeidon.Qualitaet.tests;
 
 import java.util.Date;
 
@@ -14,13 +14,15 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
+
 /**
  * This class contains the tests for the meter class
+ * 
  * @author Krischan Stapelfeldt
  *
  */
 public class MeterTest extends TestCase {
-	
+
 	DataContainer dataContainer;
 	Building building;
 	Entrance entrance;
@@ -32,9 +34,9 @@ public class MeterTest extends TestCase {
 	int yearValue;
 	Date lastRead;
 
-	
 	/**
-	 * Ramps the necessary objects up (dataContainer, building, meters, entrance, apartment)
+	 * Ramps the necessary objects up (dataContainer, building, meters,
+	 * entrance, apartment)
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -60,7 +62,8 @@ public class MeterTest extends TestCase {
 	@Test
 	public void testPositiveCreateMeter() {
 
-		assertEquals("", (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead).toString(), meter.toString());
+		assertEquals("", (meterID + " " + type + " " + currentValue + " "
+				+ yearValue + " " + lastRead).toString(), meter.toString());
 
 	}
 
@@ -79,7 +82,7 @@ public class MeterTest extends TestCase {
 	 */
 	@Test
 	public void testPositiveGetType() {
-//		assertEquals("", type, meter.getType());
+		// assertEquals("", type, meter.getType());
 
 	}
 
@@ -139,8 +142,10 @@ public class MeterTest extends TestCase {
 	@Test
 	public void testPositiveSetLastRead() {
 		Date newDate = new Date();
-		newDate.setTime(meter.getLastRead().getTime() + 1 * 24 * 60 * 60 * 1000); //add one day
-		
+		newDate.setTime(meter.getLastRead().getTime() + 1 * 24 * 60 * 60 * 1000); // add
+																					// one
+																					// day
+
 		meter.setLastRead(newDate);
 		assertEquals("", newDate, meter.getLastRead());
 
@@ -153,7 +158,7 @@ public class MeterTest extends TestCase {
 	public void testPositiveMakeReading() {
 
 		// TODO: implement testPositiveMakeReading()
-		
+
 	}
 
 	/**
@@ -162,8 +167,8 @@ public class MeterTest extends TestCase {
 	@Test
 	public void testPositiveGetMeter() {
 
-		assertEquals("", meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead,
-				meter.toString());
+		assertEquals("", meterID + " " + type + " " + currentValue + " "
+				+ yearValue + " " + lastRead, meter.toString());
 
 	}
 

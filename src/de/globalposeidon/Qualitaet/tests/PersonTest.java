@@ -9,8 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.globalposeidon.Qualitaet.model.Person;
+
 /**
  * This class contains the tests for the person class
+ * 
  * @author Krischan Stapelfeldt
  *
  */
@@ -24,7 +26,8 @@ public class PersonTest extends TestCase {
 	String email;
 
 	/**
-	 * Ramps the necessary objects up (name, surname, phone, email, person object)
+	 * Ramps the necessary objects up (name, surname, phone, email, person
+	 * object)
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -43,7 +46,8 @@ public class PersonTest extends TestCase {
 	}
 
 	/**
-	 * create two new persons. one with specific data, one with empty data. insert into database.
+	 * create two new persons. one with specific data, one with empty data.
+	 * insert into database.
 	 */
 	@Test
 	public void testPositiveCreatePerson() {

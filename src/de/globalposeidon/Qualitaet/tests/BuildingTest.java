@@ -12,8 +12,10 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Renter;
+
 /**
  * This class contains the tests for the building class
+ * 
  * @author Krischan Stapelfeldt
  *
  */
@@ -26,7 +28,8 @@ public class BuildingTest extends TestCase {
 	Building building;
 
 	/**
-	 * Ramps the necessary objects up (dataContainer, renter, building, entrance)
+	 * Ramps the necessary objects up (dataContainer, renter, building,
+	 * entrance)
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -56,7 +59,7 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public void testPositiveGetRenter() {
-		
+
 		assertEquals("", renter, building.getRenter());
 
 	}
@@ -72,6 +75,7 @@ public class BuildingTest extends TestCase {
 		assertEquals("", newRenter, building.getRenter());
 
 	}
+
 	/**
 	 * add entrance to selected building. insert into database.
 	 */
@@ -87,7 +91,7 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public void testPositiveGetEntrance() {
-		
+
 		assertEquals("", initialEntrance, building.getEntrance(0));
 
 	}
@@ -97,7 +101,7 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public void testPositiveRemoveEntrance() {
-		
+
 		assertEquals("", true, building.removeEntrance(0));
 
 	}
