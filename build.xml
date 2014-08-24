@@ -145,6 +145,7 @@
 	    <batchtest todir="${junit.output.dir}">
 	        <fileset dir="${release-bin.dir}">
 	            <include name="**/*Test*.class"/>
+	            <exclude name="**/AllTests.class"/>
 	        </fileset>
 	    </batchtest>
 			
