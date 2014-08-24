@@ -9,6 +9,7 @@
 	<property name="bin.dir" value="bin" />
 	<property name="reports.dir" value="reports" />
 	<property name="release-bin.dir" value="${bin.dir}/release" />
+	<property name="jar-bin.dir" value="${bin.dir}/jar" />
 	<property name="jacoco.dir" value="${lib.dir}/jacoco" />
 	<property name="jacoco.instr.dir" location="${bin.dir}/instr" />
 	<property name="jacoco.report.dir" location="${reports.dir}/jacoco" />
@@ -167,7 +168,7 @@
 </target>
 
 <target name="create_run_jar" depends="clean, init, build-project">
-<jar destfile="bin/jar/globalposeidon.jar" filesetmanifest="mergewithoutmain">
+<jar destfile="${jar-bin.dir}/globalposeidon.jar" filesetmanifest="mergewithoutmain">
 	<manifest>
 		<attribute name="Main-Class" value="de.globalposeidon.Qualitaet.Launcher" />
 		<attribute name="Class-Path" value="." />
@@ -178,6 +179,7 @@
 	<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/logback/slf4j-api-1.7.5.jar" />
 	<zipfileset excludes="META-INF/*.SF" src="${lib.dir}/sqlite/sqlite-jdbc-3.7.2.jar" />
 </jar>
+<touch file="${jar-bin.dir}/.jarcomplete" />
 </target>
 
 <target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,findbugs,jacoco-instrument,junitreport,jacocoreport,create_run_jar" />
