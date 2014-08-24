@@ -31,7 +31,7 @@ public class AddMeterWindow extends JDialog {
 		// get object type
 		//TODO: Test if working
 		final boolean isEntrance = (obj instanceof Entrance);
-		
+		System.out.println(isEntrance);
 		//ui components
 		JPanel contentPnl = new JPanel(new FlowLayout());
 		JLabel descriptionLbl = isEntrance	? new JLabel("This will add a new meter to an entrance")
@@ -74,11 +74,13 @@ public class AddMeterWindow extends JDialog {
 	}
 	
 	private void addMeter(Entrance entrance) {
-//		entrance.addMeter(new Meter());
+		System.out.println("try to add meter to entrance...");
+//		entrance.addMeter(new Meter(001, Metertype.GAS, entrance));
 		dispose();
 	}
 	
 	private void addMeter(Apartment apartment) {
+		System.out.println("try to add meter to apartment...");
 		apartment.addMeter(new Meter(001, Metertype.GAS, apartment));
 		dispose();
 	}

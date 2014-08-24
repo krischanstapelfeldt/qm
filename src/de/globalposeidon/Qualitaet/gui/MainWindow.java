@@ -181,7 +181,13 @@ public class MainWindow extends JFrame{
 		btnAddMeter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AddMeterWindow addMeter = new AddMeterWindow(selectedApartment());
+				AddMeterWindow addMeter;
+				if(selectedApartment() != null) {
+					 addMeter = new AddMeterWindow(selectedApartment());
+				} else {
+					addMeter = new AddMeterWindow(selectedEntrance());
+				}
+				
 				addMeter.addWindowListener(new WindowAdapter() {
 			    	@Override
 			    	public void windowClosed(WindowEvent e) {

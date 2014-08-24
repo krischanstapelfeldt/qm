@@ -55,11 +55,11 @@ public class Entrance implements TreeNode{
 	}
 	
 	public void addMeter(Meter var) {
-		meters.add(var);
+		this.meters.add(var);
 	}
 	
 	public void removeMeter(int index) { 
-		meters.remove(index);
+		this.meters.remove(index);
 	}
 	
 	public Apartment getApartment(int index) { 
