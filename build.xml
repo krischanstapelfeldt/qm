@@ -126,9 +126,9 @@
 <mkdir dir="${junit.output.dir}" />
 <jacoco:coverage destfile="${jacoco.exec.file}">
 	<junit fork="yes" printsummary="yes" forkmode="once">
+		<classpath refid="qm.classpath.instrumented" />
 		<formatter type="xml" />
 		<test name="de.globalposeidon.Qualitaet.tests.AllTests" todir="${junit.output.dir}" />
-		<classpath refid="qm.classpath.instrumented" />
 	</junit>
 </jacoco:coverage>
 </target>
