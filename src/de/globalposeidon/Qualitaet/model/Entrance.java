@@ -147,8 +147,11 @@ public class Entrance implements TreeNode{
 	}
 
 	@Override
-	public Enumeration<Apartment> children() {
-		return Collections.enumeration(apartments);
+	public Enumeration<TreeNode> children() {
+		ArrayList<TreeNode> children = new ArrayList<TreeNode>();
+		children.addAll(apartments);
+		children.addAll(meters);
+		return Collections.enumeration(children);
 	}
 	
 }
