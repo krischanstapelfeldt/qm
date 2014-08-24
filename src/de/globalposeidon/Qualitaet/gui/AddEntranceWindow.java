@@ -14,7 +14,7 @@ import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.Entrance;
 /**
- * AddEntrance shows the user a window to either add a entrance to the currently selected building with "OK" or to cancel the request with "Cancel"
+ * AddEntranceWindow shows the user a window to either add a entrance to the currently selected building with "OK" or to cancel the request with "Cancel"
  * @author Hadschii
  *
  */

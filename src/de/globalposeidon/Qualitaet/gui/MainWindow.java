@@ -6,6 +6,10 @@ import java.awt.*;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 import java.awt.event.ActionEvent;
@@ -65,9 +69,19 @@ public class MainWindow extends JFrame{
 		// Treemodel with model
 		final MainTreeModel treeModel = new MainTreeModel(model);
 		
-		// tree with single selction mode
-		JTree tree = new JTree(treeModel);
+		// tree with single selcetion mode
+		final JTree tree = new JTree(treeModel);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		tree.addTreeSelectionListener(new TreeSelectionListener() {
+		    public void valueChanged(TreeSelectionEvent e) {
+		        TreeNode node = (TreeNode)tree.getLastSelectedPathComponent();
+		    /* if nothing is selected */ 
+		        if (node == null) return;
+		    /* React to the node selection. */
+		        if (node instanceof Building) System.out.println("selected a building with ID:" + ((Building) node).getID());
+		        if (node instanceof Apartment) System.out.println("selected a apartment");
+		    }
+		});
 		
 		// buttons			
 		JButton btnAddBuilding = new JButton(Strings.addBuilding);
@@ -83,7 +97,6 @@ public class MainWindow extends JFrame{
 				});
 			}
 		});	
-// TODO: add entrance button to main window	
 // TODO: add selectedBuilding method
 		JButton btnAddEntrance = new JButton(Strings.addEntrance);
 		btnAddEntrance.addActionListener(new ActionListener() {
@@ -113,7 +126,6 @@ public class MainWindow extends JFrame{
 //				});
 			}
 		});	
-// TODO: add meter button to main window
 // TODO: add selectedApartment method		
 		JButton btnAddMeter = new JButton(Strings.addMeter);
 		btnAddMeter.addActionListener(new ActionListener() {
@@ -340,5 +352,10 @@ public class MainWindow extends JFrame{
 				popup.show(e.getComponent(), e.getX(), e.getY());
 			}
 		});
+	}
+	
+	private Building selectedBuilding() {
+		
+		return null;
 	}
 }

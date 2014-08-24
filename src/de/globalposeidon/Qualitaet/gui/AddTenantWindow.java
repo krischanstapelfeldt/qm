@@ -9,7 +9,11 @@ import javax.swing.*;
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
 import de.globalposeidon.Qualitaet.model.Tenant;
-
+/**
+ * AddTenantWindow shows the user a window to either add a tenant to the currently selected apartment with "OK" or to cancel the request with "Cancel"
+ * @author Hadschii
+ *
+ */
 public class AddTenantWindow extends JDialog {
 
 	private static final long serialVersionUID = 7393374690213796358L;
