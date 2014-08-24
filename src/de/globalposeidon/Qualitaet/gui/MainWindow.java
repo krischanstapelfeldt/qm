@@ -50,7 +50,7 @@ public class MainWindow extends JFrame{
 	}
 
 	
-	 // Initialize the contents of the frame.
+	 // Initialize the contents of the frame
 	
 	private void initialize() {
 		setSize(1000,600);
