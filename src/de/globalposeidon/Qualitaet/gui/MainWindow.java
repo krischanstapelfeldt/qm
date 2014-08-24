@@ -62,7 +62,7 @@ public class MainWindow extends JFrame{
 		setJMenuBar(new MainMenuBar(this));
 		
 		// Initial splitpanes
-		JSplitPane splitPane = new JSplitPane();
+		final JSplitPane splitPane = new JSplitPane();
 		add(splitPane);
 		
 		// Initial left splitpane
@@ -84,7 +84,7 @@ public class MainWindow extends JFrame{
     	btnAddApartment.setEnabled(false);
     	btnAddMeter.setEnabled(false);
     	btnAddTenant.setEnabled(false);
-    	
+ // TODO: make classes for right side panel  	
 		// tree with single selection mode
 		final JTree tree = new JTree(treeModel);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
@@ -111,6 +111,9 @@ public class MainWindow extends JFrame{
 		        	btnAddApartment.setEnabled(false);
 		        	btnAddMeter.setEnabled(false);
 		        	btnAddTenant.setEnabled(false);
+		        	
+		        	// set right panel
+		        	splitPane.setRightComponent(new BuildingPanel(selectedBuilding()));
 		        }
 		        else if (node instanceof Entrance) {
 		        	System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
@@ -355,9 +358,7 @@ public class MainWindow extends JFrame{
 			);
 		
 		BottomRightPanel.setLayout(glBottomRightPanel);
-		
-		
-		
+			
 		// Initial Scrollpane
 		JScrollPane scrollPane = new JScrollPane();
 		
