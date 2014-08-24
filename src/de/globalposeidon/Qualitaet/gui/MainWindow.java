@@ -8,7 +8,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -27,9 +26,13 @@ import de.globalposeidon.Qualitaet.model.*;
 
 
 public class MainWindow extends JFrame{
+	
 	private static final long serialVersionUID = 8601779252949758710L;
 	final Logger logger = LoggerFactory.getLogger(MainWindow.class);
 	final DataContainer model;
+	private Building currentBuilding;
+	private Entrance currentEntrance;
+	private Apartment currentApartment;
 	
 	 // Create the application.
 	
@@ -69,22 +72,76 @@ public class MainWindow extends JFrame{
 		// Treemodel with model
 		final MainTreeModel treeModel = new MainTreeModel(model);
 		
-		// tree with single selcetion mode
+		// declare buttons
+		final JButton btnAddBuilding = new JButton(Strings.addBuilding);
+		final JButton btnAddEntrance = new JButton(Strings.addEntrance);
+		final JButton btnAddApartment = new JButton(Strings.addApartment);
+		final JButton btnAddMeter = new JButton(Strings.addMeter);
+		final JButton btnAddTenant = new JButton(Strings.addTenant);
+		
+		// set buttons disabled to make them depending on node selection
+    	btnAddEntrance.setEnabled(false);
+    	btnAddApartment.setEnabled(false);
+    	btnAddMeter.setEnabled(false);
+    	btnAddTenant.setEnabled(false);
+    	
+		// tree with single selection mode
 		final JTree tree = new JTree(treeModel);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 		    public void valueChanged(TreeSelectionEvent e) {
 		        TreeNode node = (TreeNode)tree.getLastSelectedPathComponent();
 		    /* if nothing is selected */ 
-		        if (node == null) return;
+		        if (node == null) {
+		        	btnAddEntrance.setEnabled(false);
+		        	btnAddApartment.setEnabled(false);
+		        	btnAddMeter.setEnabled(false);
+		        	btnAddTenant.setEnabled(false);
+		        	return;
+		        }
 		    /* React to the node selection. */
-		        if (node instanceof Building) System.out.println("selected a building with ID:" + ((Building) node).getID());
-		        if (node instanceof Apartment) System.out.println("selected a apartment");
+		        if (node instanceof Building) {
+		        	System.out.println("selected a building with ID:" + ((Building) node).getID());
+		        	setCurrentBuilding((Building) node);
+		        	// in case of switched building, set rest null
+		        	setCurrentEntrance(null); 
+		        	setCurrentApartment(null);
+		        	// also set other buttons enabled/disabled
+		        	btnAddEntrance.setEnabled(true);
+		        	btnAddApartment.setEnabled(false);
+		        	btnAddMeter.setEnabled(false);
+		        	btnAddTenant.setEnabled(false);
+		        }
+		        else if (node instanceof Entrance) {
+		        	System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
+		        	setCurrentEntrance((Entrance) node); 
+		        	// in case of switched building, set rest null
+		        	setCurrentApartment(null);
+		        	// also set other buttons enabled/disabled
+		        	btnAddEntrance.setEnabled(true);
+		        	btnAddApartment.setEnabled(true);
+		        	btnAddMeter.setEnabled(true);
+		        	btnAddTenant.setEnabled(false);
+		        }
+		        else if (node instanceof Apartment) {
+		        	System.out.println("selected an apartment with ID: " + ((Apartment) node).getID());
+		        	setCurrentApartment((Apartment) node);
+		        	// also set other buttons enabled/disabled
+		        	btnAddEntrance.setEnabled(true);
+		        	btnAddApartment.setEnabled(true);
+		        	btnAddMeter.setEnabled(true);
+		        	btnAddTenant.setEnabled(true);
+		        }
+		        else {
+		        	btnAddEntrance.setEnabled(false);
+		        	btnAddApartment.setEnabled(false);
+		        	btnAddMeter.setEnabled(false);
+		        	btnAddTenant.setEnabled(false);
+		        }
 		    }
 		});
 		
-		// buttons			
-		JButton btnAddBuilding = new JButton(Strings.addBuilding);
+		// button listener		
 		btnAddBuilding.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -97,64 +154,54 @@ public class MainWindow extends JFrame{
 				});
 			}
 		});	
-// TODO: add selectedBuilding method
-		JButton btnAddEntrance = new JButton(Strings.addEntrance);
 		btnAddEntrance.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				AddEntranceWindow addEntrance = new AddEntranceWindow(selectedBuilding());
-//				addEntrance.addWindowListener(new WindowAdapter() {
-//				    @Override
-//				    public void windowClosed(WindowEvent e) {
-//				    	treeModel.reload();
-//				    }
-//				});
+				AddEntranceWindow addEntrance = new AddEntranceWindow(selectedBuilding());
+				addEntrance.addWindowListener(new WindowAdapter() {
+				    @Override
+				    public void windowClosed(WindowEvent e) {
+				    	treeModel.reload();
+				    }
+				});
 			}
 		});	
-// TODO: adapt apartment window just like AddEntranceWindow
-// TODO: add selectedEntrance method
-		JButton btnAddApartment = new JButton(Strings.addApartment);
 		btnAddApartment.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				AddEntranceWindow addEntrance = new AddEntranceWindow(selectedEntrance());
-//				addEntrance.addWindowListener(new WindowAdapter() {
-//				    @Override
-//				    public void windowClosed(WindowEvent e) {
-//				    	treeModel.reload();
-//				    }
-//				});
+				AddApartmentWindow addApartment = new AddApartmentWindow(selectedEntrance());
+				addApartment.addWindowListener(new WindowAdapter() {
+				    @Override
+				    public void windowClosed(WindowEvent e) {
+				    	treeModel.reload();
+				    }
+				});
 			}
 		});	
-// TODO: add selectedApartment method		
-		JButton btnAddMeter = new JButton(Strings.addMeter);
 		btnAddMeter.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				AddMeterWindow addMeter = new AddMeterWindow(selectedApartment()());
-//				addMeter.addWindowListener(new WindowAdapter() {
-//			    	@Override
-//			    	public void windowClosed(WindowEvent e) {
-//			    		treeModel.reload();
-//			   		}
-//				});
-		}
-	});	
-		JButton btnAddRenter = new JButton(Strings.addRenter);
-		btnAddRenter.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-//				AddRenterWindow addRenter = new AddRenterWindow(selectedApartment());
-//				addRenter.addWindowListener(new WindowAdapter() {
-//				    @Override
-//				    public void windowClosed(WindowEvent e) {
-//				    	treeModel.reload();
-//				    }
-//				});
+				AddMeterWindow addMeter = new AddMeterWindow(selectedApartment());
+				addMeter.addWindowListener(new WindowAdapter() {
+			    	@Override
+			    	public void windowClosed(WindowEvent e) {
+			    		treeModel.reload();
+			   		}
+				});
 			}
 		});	
-		
-		
+		btnAddTenant.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AddTenantWindow addTenant = new AddTenantWindow(selectedApartment());
+				addTenant.addWindowListener(new WindowAdapter() {
+				    @Override
+				    public void windowClosed(WindowEvent e) {
+				    	treeModel.reload();
+				    }
+				});
+			}
+		});	
 		
 		// Set Grouplayout in the leftsplit
 		GroupLayout glLeftPanel = new GroupLayout(leftPanel);
@@ -167,7 +214,7 @@ public class MainWindow extends JFrame{
 					.addGroup(glLeftPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(Alignment.TRAILING, glLeftPanel.createSequentialGroup()
 							.addGroup(glLeftPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnAddRenter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -188,7 +235,7 @@ public class MainWindow extends JFrame{
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnAddMeter)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnAddRenter)
+					.addComponent(btnAddTenant)
 					.addContainerGap())
 		);
 		
@@ -354,8 +401,33 @@ public class MainWindow extends JFrame{
 		});
 	}
 	
+	private void setCurrentBuilding(Building building) {
+		
+		this.currentBuilding = building;
+	}
+
 	private Building selectedBuilding() {
 		
-		return null;
+		return this.currentBuilding;
+	}
+	
+	private void setCurrentEntrance(Entrance entrance) {
+		
+		this.currentEntrance = entrance;
+	}
+
+	private Entrance selectedEntrance() {
+		
+		return this.currentEntrance;
+	}
+	
+	private void setCurrentApartment(Apartment apartment) {
+		
+		this.currentApartment = apartment;
+	}
+
+	private Apartment selectedApartment() {
+		
+		return this.currentApartment;
 	}
 }

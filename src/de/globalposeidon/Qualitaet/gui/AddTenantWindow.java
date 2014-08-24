@@ -31,6 +31,10 @@ public class AddTenantWindow extends JDialog {
 		//ui components
 		JPanel contentPnl = new JPanel(new FlowLayout());
 		JLabel descriptionLbl = new JLabel("This will add a new tenant to the apartment with ID: " + apartment.getID());
+		this.tfFirstname = new JTextField("Firstname");
+		this.tfSurname = new JTextField("Surname");
+		this.tfTel = new JTextField("Phone");
+		this.tfEmail = new JTextField("Mail");
 		contentPnl.add(descriptionLbl);
 		contentPnl.add(this.tfFirstname);
 		contentPnl.add(this.tfSurname);
