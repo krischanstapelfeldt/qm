@@ -53,7 +53,7 @@ public class MainWindow extends JFrame {
 	// Create the application.
 
 	public MainWindow(final DataContainer model) {
-		super(Strings.globalposeidon);
+		super(Strings.GLOBALPOSEIDON);
 		this.model = model;
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -90,11 +90,11 @@ public class MainWindow extends JFrame {
 		final MainTreeModel treeModel = new MainTreeModel(model);
 
 		// declare buttons
-		final JButton btnAddBuilding = new JButton(Strings.addBuilding);
-		final JButton btnAddEntrance = new JButton(Strings.addEntrance);
-		final JButton btnAddApartment = new JButton(Strings.addApartment);
-		final JButton btnAddMeter = new JButton(Strings.addMeter);
-		final JButton btnAddTenant = new JButton(Strings.addTenant);
+		final JButton btnAddBuilding = new JButton(Strings.ADDBUILDING);
+		final JButton btnAddEntrance = new JButton(Strings.ADDENTRANCE);
+		final JButton btnAddApartment = new JButton(Strings.ADDAPARTMENT);
+		final JButton btnAddMeter = new JButton(Strings.ADDMETER);
+		final JButton btnAddTenant = new JButton(Strings.ADDTENANT);
 
 		// set buttons disabled to make them depending on node selection
 		btnAddEntrance.setEnabled(false);
@@ -319,20 +319,20 @@ public class MainWindow extends JFrame {
 		// Set new panel at the bottom part of the right splitpane
 		final JPanel pnlBottomRight = new JPanel();
 
-		final JLabel lblMeterId = new JLabel(Strings.meterID);
+		final JLabel lblMeterId = new JLabel(Strings.METERID);
 
 		final JTextField tfMeterId = new JTextField();
 		tfMeterId.setPreferredSize(new Dimension(100, 20));
 
-		final JLabel lblMeterSearch = new JLabel(Strings.meterSearch);
+		final JLabel lblMeterSearch = new JLabel(Strings.METERSEARCH);
 
-		final JButton btnSave = new JButton(Strings.save);
-		final JButton btnCancel = new JButton(Strings.cancel);
+		final JButton btnSave = new JButton(Strings.SAVE);
+		final JButton btnCancel = new JButton(Strings.CANCEL);
 
 		// Initial Radiobuttons
-		final JLabel lblSort = new JLabel(Strings.sortByRentedUnrented);
-		final JRadioButton rdRented = new JRadioButton(Strings.rended);
-		final JRadioButton rdUnrented = new JRadioButton(Strings.unrented);
+		final JLabel lblSort = new JLabel(Strings.SORTBYUNRENTED);
+		final JRadioButton rdRented = new JRadioButton(Strings.RENTED);
+		final JRadioButton rdUnrented = new JRadioButton(Strings.UNRENTED);
 
 		// Group Radiobuttons
 		final ButtonGroup rdGroup = new ButtonGroup();
@@ -344,8 +344,8 @@ public class MainWindow extends JFrame {
 		seperatorVertical.setOrientation(SwingConstants.VERTICAL);
 
 		// Set Components to fill the Meter Details
-		final JLabel lblDesReadingVal = new JLabel(Strings.meterReadingValue);
-		final JLabel lblReadingVal = new JLabel(Strings.readingValue);
+		final JLabel lblDesReadingVal = new JLabel(Strings.METERREADINGVALUE);
+		final JLabel lblReadingVal = new JLabel(Strings.READINGVALUE);
 		final JTextField tfReadingVal = new JTextField();
 		tfReadingVal.setPreferredSize(new Dimension(100, 20));
 

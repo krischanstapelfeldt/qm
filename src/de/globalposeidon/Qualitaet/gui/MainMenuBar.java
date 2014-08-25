@@ -45,10 +45,10 @@ public class MainMenuBar extends JMenuBar {
 
 	public MainMenuBar(final JFrame parent) {
 
-		final JMenu file = new JMenu(Strings.file);
+		final JMenu file = new JMenu(Strings.FILE);
 		add(file);
 
-		final JMenuItem close = new JMenuItem(Strings.close);
+		final JMenuItem close = new JMenuItem(Strings.CLOSE);
 		close.addActionListener(new ActionListener() {
 			// TODO replace force exit
 			@Override
@@ -58,22 +58,22 @@ public class MainMenuBar extends JMenuBar {
 		});
 		file.add(close);
 
-		final JMenu edit = new JMenu(Strings.edit);
+		final JMenu edit = new JMenu(Strings.EDIT);
 		add(edit);
 
-		final JMenuItem apartment = new JMenuItem(Strings.addApartment);
+		final JMenuItem apartment = new JMenuItem(Strings.ADDAPARTMENT);
 		edit.add(apartment);
 
-		final JMenuItem building = new JMenuItem(Strings.addBuilding);
+		final JMenuItem building = new JMenuItem(Strings.ADDBUILDING);
 		edit.add(building);
 
-		final JMenuItem renter = new JMenuItem(Strings.addRenter);
+		final JMenuItem renter = new JMenuItem(Strings.ADDRENTER);
 		edit.add(renter);
 
 		final JMenu dev = new JMenu("Developer");
 		add(dev);
 
-		final JMenuItem jenkins = new JMenuItem(Strings.openJenkins);
+		final JMenuItem jenkins = new JMenuItem(Strings.OPENJENKINS);
 		jenkins.addActionListener(new ActionListener() {
 
 			@Override
@@ -83,7 +83,7 @@ public class MainMenuBar extends JMenuBar {
 		});
 		dev.add(jenkins);
 
-		final JMenuItem jUnitJenkins = new JMenuItem(Strings.openJUnitJenkins);
+		final JMenuItem jUnitJenkins = new JMenuItem(Strings.OPENJUNITJENKINS);
 		jUnitJenkins.addActionListener(new ActionListener() {
 
 			@Override
@@ -94,7 +94,7 @@ public class MainMenuBar extends JMenuBar {
 		});
 		dev.add(jUnitJenkins);
 
-		final JMenuItem jaCoCoJenkins = new JMenuItem(Strings.openJaCoCoJenkins);
+		final JMenuItem jaCoCoJenkins = new JMenuItem(Strings.OPENJACOCOJENKINS);
 		jaCoCoJenkins.addActionListener(new ActionListener() {
 
 			@Override
@@ -105,7 +105,7 @@ public class MainMenuBar extends JMenuBar {
 		});
 		dev.add(jaCoCoJenkins);
 
-		final JMenuItem mantis = new JMenuItem(Strings.openMantis);
+		final JMenuItem mantis = new JMenuItem(Strings.OPENMANTIS);
 		mantis.addActionListener(new ActionListener() {
 
 			@Override
@@ -115,7 +115,7 @@ public class MainMenuBar extends JMenuBar {
 		});
 		dev.add(mantis);
 
-		final JMenuItem testlink = new JMenuItem(Strings.openTestlink);
+		final JMenuItem testlink = new JMenuItem(Strings.OPENTESTLINK);
 		testlink.addActionListener(new ActionListener() {
 
 			@Override
@@ -135,10 +135,10 @@ public class MainMenuBar extends JMenuBar {
 		});
 		dev.add(databaseTest);
 
-		final JMenu help = new JMenu(Strings.help);
+		final JMenu help = new JMenu(Strings.HELP);
 		add(help);
 
-		final JMenuItem about = new JMenuItem(Strings.about);
+		final JMenuItem about = new JMenuItem(Strings.ABOUT);
 		about.addActionListener(new ActionListener() {
 
 			@Override
@@ -148,7 +148,7 @@ public class MainMenuBar extends JMenuBar {
 		});
 		help.add(about);
 
-		final JMenuItem faq = new JMenuItem(Strings.faq);
+		final JMenuItem faq = new JMenuItem(Strings.FAQ);
 		faq.addActionListener(new ActionListener() {
 
 			@Override

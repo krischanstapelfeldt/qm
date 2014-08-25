@@ -44,7 +44,7 @@ public class AddMeterWindow extends JDialog {
 		contentPnl.add(descriptionLbl);
 
 		final JPanel buttonPnl = new JPanel(new FlowLayout());
-		final JButton saveBtn = new JButton(Strings.ok);
+		final JButton saveBtn = new JButton(Strings.OK);
 		saveBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
@@ -55,7 +55,7 @@ public class AddMeterWindow extends JDialog {
 				}
 			}
 		});
-		final JButton cancelBtn = new JButton(Strings.cancel);
+		final JButton cancelBtn = new JButton(Strings.CANCEL);
 		cancelBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
