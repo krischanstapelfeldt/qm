@@ -22,7 +22,7 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
  *
  */
 public class AddBuildingWindow extends JDialog {
-// TODO: TF for renter
+
 	private static final long serialVersionUID = 4298418116709775705L;
 
 	public AddBuildingWindow(final DataContainer model) {

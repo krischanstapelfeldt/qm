@@ -134,8 +134,8 @@ public class MainWindow extends JFrame {
 					btnAddTenant.setEnabled(false);
 
 					// set right panel
-//					splitPane.setRightComponent(new BuildingPanel(
-//							selectedBuilding()));
+					splitPane.setRightComponent(new BuildingPanel(
+							selectedBuilding()));
 				} else if (node instanceof Entrance) {
 					System.out.println("selected an entrance with ID:"
 							+ ((Entrance) node).getID());
