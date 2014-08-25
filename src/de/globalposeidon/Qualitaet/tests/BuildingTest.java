@@ -14,25 +14,27 @@ import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
- * This class contains the tests for the building class
- * 
+ * This class contains the tests for the building class.
+ *
  * @author Krischan Stapelfeldt
  *
  */
 public class BuildingTest extends TestCase {
 
-	DataContainer dataContainer;
-	Renter renter;
-	Entrance initialEntrance;
-	ArrayList<Entrance> entrances;
-	Building building;
+	private DataContainer dataContainer;
+	private Renter renter;
+	private Entrance initialEntrance;
+	private ArrayList<Entrance> entrances;
+	private Building building;
 
+	@Override
+	@Before
 	/**
 	 * Ramps the necessary objects up (dataContainer, renter, building,
-	 * entrance)
+	 * entrance).
+	 * @throws Throws an exception, when catching fire.
 	 */
-	@Before
-	public void setUp() throws Exception {
+	public final void setUp() throws Exception {
 		dataContainer = new DataContainer();
 		renter = new Renter();
 		building = new Building(renter, initialEntrance, dataContainer);
@@ -40,6 +42,7 @@ public class BuildingTest extends TestCase {
 		entrances.add(initialEntrance);
 	}
 
+	@Override
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -48,7 +51,7 @@ public class BuildingTest extends TestCase {
 	 * create a new building with specific data. insert into database.
 	 */
 	@Test
-	public void testPositiveCreateBuilding() {
+	public final void testPositiveCreateBuilding() {
 
 		assertEquals("", true, building);
 
@@ -58,7 +61,7 @@ public class BuildingTest extends TestCase {
 	 * get renter from selected building. load from database.
 	 */
 	@Test
-	public void testPositiveGetRenter() {
+	public final void testPositiveGetRenter() {
 
 		assertEquals("", renter, building.getRenter());
 
@@ -68,9 +71,9 @@ public class BuildingTest extends TestCase {
 	 * replace renter with a new renter. insert into database.
 	 */
 	@Test
-	public void testPositiveReplaceRenter() {
+	public final void testPositiveReplaceRenter() {
 
-		Renter newRenter = new Renter();
+		final Renter newRenter = new Renter();
 		building.setRenter(newRenter);
 		assertEquals("", newRenter, building.getRenter());
 
@@ -80,7 +83,7 @@ public class BuildingTest extends TestCase {
 	 * add entrance to selected building. insert into database.
 	 */
 	@Test
-	public void testPositiveAddEntrance() {
+	public final void testPositiveAddEntrance() {
 		building.addEntrance(initialEntrance);
 		assertEquals("", initialEntrance, building.getEntrance(0));
 
@@ -90,7 +93,7 @@ public class BuildingTest extends TestCase {
 	 * get entrance from selected ArrayList. load from database.
 	 */
 	@Test
-	public void testPositiveGetEntrance() {
+	public final void testPositiveGetEntrance() {
 
 		assertEquals("", initialEntrance, building.getEntrance(0));
 
@@ -100,7 +103,7 @@ public class BuildingTest extends TestCase {
 	 * remove entrance from selected ArrayList. delete from database.
 	 */
 	@Test
-	public void testPositiveRemoveEntrance() {
+	public final void testPositiveRemoveEntrance() {
 
 		assertEquals("", true, building.removeEntrance(0));
 
@@ -110,7 +113,7 @@ public class BuildingTest extends TestCase {
 	 * get empty buildings from selected ArrayList. load from database.
 	 */
 	@Test
-	public void testPositiveBuildingIsEmpty() {
+	public final void testPositiveBuildingIsEmpty() {
 
 		assertEquals("", true, building.buildingIsEmpty());
 
@@ -120,7 +123,7 @@ public class BuildingTest extends TestCase {
 	 * get building with all entrances. load from database.
 	 */
 	@Test
-	public void testPositiveGetBuilding() {
+	public final void testPositiveGetBuilding() {
 		assertEquals("", null, building.toString());
 	}
 

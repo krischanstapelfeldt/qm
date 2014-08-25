@@ -10,150 +10,154 @@ import javax.swing.tree.TreeNode;
  * A17 - Einfuegen einer Wohnung
  */
 
-public class Entrance implements TreeNode{
-	
-	private int ID;
-	final private Building building; // parent node
-	
-	private ArrayList<Meter> meters; //can be 0
-	private ArrayList<Apartment> apartments;
-	
-//================================================================================
-// constructor
-//================================================================================
+public class Entrance implements TreeNode {
 
-	public Entrance(Building building) {
+	private int ID;
+	private final Building building; // parent node
+
+	private final ArrayList<Meter> meters; // can be 0
+	private final ArrayList<Apartment> apartments;
+
+	// ================================================================================
+	// constructor
+	// ================================================================================
+
+	public Entrance(final Building building) {
 		this.building = building;
-		this.apartments = new ArrayList<Apartment>();
-		this.meters = new ArrayList<Meter>();
-		ID = ((int) (Math.random()*10000));
+		apartments = new ArrayList<Apartment>();
+		meters = new ArrayList<Meter>();
+		ID = ((int) (Math.random() * 10000));
 	}
-	
-	public Entrance(Apartment initialApartment, Building building) {
+
+	public Entrance(final Apartment initialApartment, final Building building) {
 		this(building);
-		this.addApartment(initialApartment);
+		addApartment(initialApartment);
 	}
-	
-	public Entrance(Apartment initialApartment, Meter initialMeter, Building building) {
+
+	public Entrance(final Apartment initialApartment, final Meter initialMeter,
+			final Building building) {
 		this(initialApartment, building);
-		this.addMeter(initialMeter);
+		addMeter(initialMeter);
 	}
-	
-//================================================================================
-// access private variables
-//================================================================================
-	public int getID() {
+
+	// ================================================================================
+	// access private variables
+	// ================================================================================
+	public final int getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public final void setID(final int iD) {
 		ID = iD;
 	}
-	
-	public Meter getMeter(int index) { 
+
+	public final Meter getMeter(final int index) {
 		return meters.get(index);
 	}
-	
-	public void addMeter(Meter var) {
-		this.meters.add(var);
+
+	public final void addMeter(final Meter var) {
+		meters.add(var);
 	}
-	
-	public void removeMeter(int index) { 
-		this.meters.remove(index);
+
+	public final void removeMeter(final int index) {
+		meters.remove(index);
 	}
-	
-	public Apartment getApartment(int index) { 
+
+	public final Apartment getApartment(final int index) {
 		return apartments.get(index);
 	}
-	
-	public void addApartment(Apartment val) {
-		this.apartments.add(val);
+
+	public final void addApartment(final Apartment val) {
+		apartments.add(val);
 	}
-	
-	public boolean removeApartment(int index) {
-		if(apartments.get(index).apartmentIsEmpty()) {
-			this.apartments.remove(index);
+
+	public final boolean removeApartment(final int index) {
+		if (apartments.get(index).apartmentIsEmpty()) {
+			apartments.remove(index);
 			return true;
 		}
 		return false;
 	}
-//================================================================================
-// other stuff...
-//================================================================================
-	public ArrayList<Apartment> getEmptyApartments() {
-		ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
-		for (int i = 0; i < this.apartments.size(); ++i) {
-			if (!this.apartments.get(i).apartmentIsEmpty())
-				tmpList.add(this.apartments.get(i));
+
+	// ================================================================================
+	// other stuff...
+	// ================================================================================
+	public final ArrayList<Apartment> getEmptyApartments() {
+		final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+		for (int i = 0; i < apartments.size(); ++i) {
+			if (!apartments.get(i).apartmentIsEmpty()) {
+				tmpList.add(apartments.get(i));
+			}
 		}
 		return tmpList;
 	}
-	
-	public ArrayList<Apartment> getRentedApartments() {
-		ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
-		for (int i = 0; i < this.apartments.size(); ++i) {
-			if (this.apartments.get(i).apartmentIsEmpty())
-				tmpList.add(this.apartments.get(i));
+
+	public final ArrayList<Apartment> getRentedApartments() {
+		final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+		for (int i = 0; i < apartments.size(); ++i) {
+			if (apartments.get(i).apartmentIsEmpty()) {
+				tmpList.add(apartments.get(i));
+			}
 		}
 		return tmpList;
 	}
-	
-	public boolean entranceIsEmpty() {
-		return this.apartments.size() != 0 ? true : false;
+
+	public final boolean entranceIsEmpty() {
+		return apartments.size() != 0 ? true : false;
 	}
-	
-	
+
 	@Override
-	public String toString() {
-		String output = "Entrance " + getID();
-//		for (int i = 0; i < apartments.size(); i++) {
-//			output += "\n\t\tApartment " + i + " " + getApartment(i);
-//		}
+	public final String toString() {
+		final String output = "Entrance " + getID();
+		// for (int i = 0; i < apartments.size(); i++) {
+		// output += "\n\t\tApartment " + i + " " + getApartment(i);
+		// }
 		return output;
 	}
 
-//================================================================================
-// TreeNode Interface
-//================================================================================		
+	// ================================================================================
+	// TreeNode Interface
+	// ================================================================================
 	@Override
-	public TreeNode getChildAt(int childIndex) {
+	public final TreeNode getChildAt(final int childIndex) {
 		System.out.println("get child at");
-		return apartments.size() > childIndex ? apartments.get(childIndex) : meters.get(childIndex-apartments.size());
+		return apartments.size() > childIndex ? apartments.get(childIndex)
+				: meters.get(childIndex - apartments.size());
 	}
 
 	@Override
-	public int getChildCount() {
+	public final int getChildCount() {
 		System.out.println("get count");
 		return apartments.size() + meters.size();
 	}
 
 	@Override
-	public TreeNode getParent() {
+	public final TreeNode getParent() {
 		return building;
 	}
 
 	@Override
-	public int getIndex(TreeNode node) {
+	public final int getIndex(final TreeNode node) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public boolean getAllowsChildren() {
+	public final boolean getAllowsChildren() {
 		return true;
 	}
 
 	@Override
-	public boolean isLeaf() {
+	public final boolean isLeaf() {
 		return false;
 	}
 
 	@Override
-	public Enumeration<TreeNode> children() {
-		ArrayList<TreeNode> children = new ArrayList<TreeNode>();
+	public final Enumeration<TreeNode> children() {
+		final ArrayList<TreeNode> children = new ArrayList<TreeNode>();
 		children.addAll(apartments);
 		children.addAll(meters);
 		return Collections.enumeration(children);
 	}
-	
+
 }

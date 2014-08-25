@@ -1,69 +1,78 @@
 package de.globalposeidon.Qualitaet.model;
 
 public class Person {
-	
+
 	private int ID;
-	
-	String name;
-	String surname;
-	String phone;
-	String email;
-	
-//================================================================================
-// constructor
-//================================================================================
+
+	private String name;
+	private String surname;
+	private String phone;
+	private String email;
+
+	// ================================================================================
+	// constructor
+	// ================================================================================
 	public Person() {
 		// some standard value for empty person
 		this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
 	}
-	
-	public Person(String name, String surname, String phone, String email) {
+
+	public Person(final String name, final String surname, final String phone,
+			final String email) {
 		this.name = name;
 		this.surname = surname;
 		this.phone = phone;
 		this.email = email;
 	}
-//================================================================================
-// getter setter
-//================================================================================
-	public int getID() {
+
+	// ================================================================================
+	// getter setter
+	// ================================================================================
+	public final int getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public final void setID(final int iD) {
 		ID = iD;
 	}
-	
-	public String getName() {
+
+	public final String getName() {
 		return name;
 	}
-	public void setName(String name) {
+
+	public final void setName(final String name) {
 		this.name = name;
 	}
-	public String getSurname() {
+
+	public final String getSurname() {
 		return surname;
 	}
-	public void setSurname(String surname) {
+
+	public final void setSurname(final String surname) {
 		this.surname = surname;
 	}
-	public String getPhone() {
+
+	public final String getPhone() {
 		return phone;
 	}
-	public void setPhone(String phone) {
+
+	public final void setPhone(final String phone) {
 		this.phone = phone;
 	}
-	public String getEmail() {
+
+	public final String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+
+	public final void setEmail(final String email) {
 		this.email = email;
 	}
 
-//================================================================================
-// other stuff, dont know nice name
-//================================================================================
+	// ================================================================================
+	// other stuff, dont know nice name
+	// ================================================================================
 	@Override
-	public String toString() {
+	public final String toString() {
 		return (surname + ", " + name + " " + phone + " " + email);
 	}
 }

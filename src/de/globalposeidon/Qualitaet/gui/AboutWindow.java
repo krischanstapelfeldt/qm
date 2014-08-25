@@ -7,23 +7,23 @@ import javax.swing.JTextArea;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class AboutWindow extends JDialog {
 	private static final long serialVersionUID = 6372879078251123070L;
-	final Logger logger = LoggerFactory.getLogger(AboutWindow.class);
-	public AboutWindow (JFrame parent) {
+	private final Logger logger = LoggerFactory.getLogger(AboutWindow.class);
+
+	public AboutWindow(JFrame parent) {
 		logger.debug("About window opened");
-		this.setTitle("about");
+		setTitle("about");
 		// add text
-		JTextArea textArea = new JTextArea("Gebäudeverwaltung\n"
+		final JTextArea textArea = new JTextArea("Gebäudeverwaltung\n"
 				+ "von Felske, Lauber, Stapelfeldt, Suhl\n"
 				+ "für Grundlagen QM | Sommersemester 14");
-		this.getContentPane().add(textArea);
+		getContentPane().add(textArea);
 		// layout
-		this.pack();
-		this.setLocationRelativeTo(parent);
-		this.setResizable(false);
-		this.setVisible(true);
+		pack();
+		setLocationRelativeTo(parent);
+		setResizable(false);
+		setVisible(true);
 	}
 
 }

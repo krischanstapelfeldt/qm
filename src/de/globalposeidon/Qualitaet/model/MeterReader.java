@@ -5,7 +5,5 @@ package de.globalposeidon.Qualitaet.model;
  */
 
 public enum MeterReader {
-	JANITOR,
-	RENTER,
-	ENERGYPROVIDER
+	JANITOR, RENTER, ENERGYPROVIDER
 }

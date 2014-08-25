@@ -12,13 +12,15 @@ import de.globalposeidon.Qualitaet.model.Metertype;
 
 public class Launcher {
 
-	public final static void main(String[] args) {
+	public static final void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
-					MainWindow window = new MainWindow(createRandomModel());
+					final MainWindow window = new MainWindow(
+							createRandomModel());
 					window.setVisible(true);
-				} catch (Exception e) {
+				} catch (final Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -26,23 +28,23 @@ public class Launcher {
 	}
 
 	public static DataContainer createRandomModel() {
-		DataContainer dc = new DataContainer();
-		Building b = new Building(dc);
+		final DataContainer dc = new DataContainer();
+		final Building b = new Building(dc);
 		dc.addBuilding(b);
-		Entrance e = new Entrance(b);
+		final Entrance e = new Entrance(b);
 		b.addEntrance(e);
-		Apartment a = new Apartment(e);
+		final Apartment a = new Apartment(e);
 		e.addApartment(a);
-		Meter m = new Meter(1, Metertype.POWER, a);
+		final Meter m = new Meter(1, Metertype.POWER, a);
 		a.addMeter(m);
 
-		Building b2 = new Building(dc);
+		final Building b2 = new Building(dc);
 		dc.addBuilding(b2);
-		Entrance e2 = new Entrance(b);
+		final Entrance e2 = new Entrance(b);
 		b2.addEntrance(e2);
-		Apartment a2 = new Apartment(e);
+		final Apartment a2 = new Apartment(e);
 		e2.addApartment(a2);
-		Meter m2 = new Meter(2, Metertype.POWER, a2);
+		final Meter m2 = new Meter(2, Metertype.POWER, a2);
 		a2.addMeter(m2);
 		return dc;
 	}

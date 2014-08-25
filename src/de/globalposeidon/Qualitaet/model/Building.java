@@ -10,116 +10,115 @@ import javax.swing.tree.TreeNode;
  * A16 - Einfuegen eines Einganges
  */
 
-public class Building implements TreeNode{
-	
-	final private int ID;
-	final private DataContainer dc; // parent node
-	
-	private Renter renter;
-	private ArrayList<Entrance> entrances;
-	
-//================================================================================
-// constructor
-//================================================================================
+public class Building implements TreeNode {
 
-	public Building(DataContainer dc) {
-		entrances = new ArrayList<Entrance>(); 
-		ID = ((int) (Math.random()*10000));
+	private final int ID;
+	private final DataContainer dc; // parent node
+
+	private Renter renter;
+	private final ArrayList<Entrance> entrances;
+
+	// ================================================================================
+	// constructor
+	// ================================================================================
+
+	public Building(final DataContainer dc) {
+		entrances = new ArrayList<Entrance>();
+		ID = ((int) (Math.random() * 10000));
 		this.dc = dc;
 	}
-	
-	public Building(Renter renter, Entrance initialEntrance, DataContainer dc) {
+
+	public Building(final Renter renter, final Entrance initialEntrance, final DataContainer dc) {
 		this(dc);
-		this.addEntrance(initialEntrance);
-		this.renter = renter; 
+		addEntrance(initialEntrance);
+		this.renter = renter;
 	}
-	
-//================================================================================
-// access private variables
-//================================================================================
-	public int getID() {
+
+	// ================================================================================
+	// access private variables
+	// ================================================================================
+	public final int getID() {
 		return ID;
 	}
-	
-	public Renter getRenter() {
+
+	public final Renter getRenter() {
 		return renter;
 	}
 
-	public void setRenter(Renter renter) {
+	public final void setRenter(final Renter renter) {
 		this.renter = renter;
 	}
-	
-	public void addEntrance(Entrance entrance) {
+
+	public final void addEntrance(final Entrance entrance) {
 		entrances.add(entrance);
 	}
 
-	public boolean removeEntrance(int index) { 
-		//entrance has to be empty
+	public final boolean removeEntrance(final int index) {
+		// entrance has to be empty
 		if (entrances.get(index).entranceIsEmpty()) {
 			entrances.remove(index);
 			return true;
 		}
 		return false;
 	}
-	
-	public Entrance getEntrance(int index) {
+
+	public final Entrance getEntrance(final int index) {
 		return entrances.get(index);
 	}
-	
-	public int getEntrancesCount(){
+
+	public final int getEntrancesCount() {
 		return entrances.size();
 	}
 
-	
-//================================================================================
-// other stuff...
-//================================================================================
-	public boolean buildingIsEmpty() {
-		return this.entrances.size() != 0 ? true : false;
-	}
-	
-	@Override
-	public String toString() {
-		return "Building "+getID();
+	// ================================================================================
+	// other stuff...
+	// ================================================================================
+	public final boolean buildingIsEmpty() {
+		return entrances.size() != 0 ? true : false;
 	}
 
-//================================================================================
-// TreeNode Interface
-//================================================================================	
 	@Override
-	public TreeNode getChildAt(int childIndex) {
+	public final String toString() {
+		return "Building " + getID();
+	}
+
+	// ================================================================================
+	// TreeNode Interface
+	// ================================================================================
+	@Override
+	public final TreeNode getChildAt(final int childIndex) {
 		return entrances.get(childIndex);
 	}
 
 	@Override
-	public int getChildCount() {
+	public final int getChildCount() {
 		return entrances.size();
 	}
 
 	@Override
-	public TreeNode getParent() {
+	public final TreeNode getParent() {
 		return dc;
 	}
 
 	@Override
-	public int getIndex(TreeNode node) {
+	public final int getIndex(final TreeNode node) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public boolean getAllowsChildren() {
+	public final boolean getAllowsChildren() {
 		return true;
 	}
 
 	@Override
-	public boolean isLeaf() {
+	public final boolean isLeaf() {
 		return false;
 	}
 
 	@Override
-	public Enumeration<Entrance> children() {
+	public final Enumeration<Entrance> children() {
 		return Collections.enumeration(entrances);
 	}
-	
+
 }

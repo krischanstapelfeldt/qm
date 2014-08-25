@@ -11,8 +11,7 @@ public class DBWorker {
 	Connection connection = null;
 	Statement statement;
 	final String database;
-	
-	
+
 	// Constructor generates necessary strucutures in given database
 	public DBWorker(String database) {
 		this.database = database;
@@ -31,36 +30,38 @@ public class DBWorker {
 			rs = getTable(DBTable.METER);
 			rs = getTable(DBTable.PERSON);
 			rs = getTable(DBTable.READING);
-			
-/*			ResultSet rs = statement.executeQuery("select * from person");
-			while (rs.next()) {
-				// read the result set
-				System.out.println("name = " + rs.getString("name"));
-				System.out.println("id = " + rs.getInt("id"));
-			} */
+
+			/*
+			 * ResultSet rs = statement.executeQuery("select * from person");
+			 * while (rs.next()) { // read the result set
+			 * System.out.println("name = " + rs.getString("name"));
+			 * System.out.println("id = " + rs.getInt("id")); }
+			 */
 			finalize();
-		} catch (SQLException e) {
+		} catch (final SQLException e) {
 			// if the error message is "out of memory",
 			// it probably means no database file is found
 			e.printStackTrace();
 			System.err.println(e.getMessage());
-		} catch (ClassNotFoundException e) {
+		} catch (final ClassNotFoundException e) {
 			// if ClassNotFound occurs, the library is not included
 			// in the classpath
 			System.err.println(e.getMessage());
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	@Override
 	protected void finalize() throws Exception {
-		if (connection != null)
+		if (connection != null) {
 			connection.close();
-		System.out.println("\nCreated schema in DB file "+database+".db");
+		}
+		System.out.println("\nCreated schema in DB file " + database + ".db");
 	}
-	
-	private void createStructures() throws SQLException{
+
+	private void createStructures() throws SQLException {
 		statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Apartment` "
 				+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
 				+ "`id_entrance` INTEGER NOT NULL);");
@@ -70,40 +71,43 @@ public class DBWorker {
 		statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Entrance` "
 				+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
 				+ "`id_building` INTEGER NOT NULL);");
-		statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Meter` "
-				+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-				+ "`lastRead` TEXT,`value` INTEGER NOT NULL,`valueFirst` INTEGER,`id_meterType` INTEGER NOT NULL);");
-		statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Person` "
-				+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-				+ "`name` TEXT,`surname` TEXT,`phone` TEXT,`mail` TEXT,`id_apartment` INTEGER);");
-		statement.executeUpdate("CREATE TABLE IF NOT EXISTS `Reading` "
-				+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
-				+ "`id_meter` INTEGER NOT NULL,`date` TEXT,`value` INTEGER,`id_readingInfo` INTEGER NOT NULL,`id_meterReader` INTEGER NOT NULL);");
+		statement
+				.executeUpdate("CREATE TABLE IF NOT EXISTS `Meter` "
+						+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+						+ "`lastRead` TEXT,`value` INTEGER NOT NULL,`valueFirst` INTEGER,`id_meterType` INTEGER NOT NULL);");
+		statement
+				.executeUpdate("CREATE TABLE IF NOT EXISTS `Person` "
+						+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+						+ "`name` TEXT,`surname` TEXT,`phone` TEXT,`mail` TEXT,`id_apartment` INTEGER);");
+		statement
+				.executeUpdate("CREATE TABLE IF NOT EXISTS `Reading` "
+						+ "(`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"
+						+ "`id_meter` INTEGER NOT NULL,`date` TEXT,`value` INTEGER,`id_readingInfo` INTEGER NOT NULL,`id_meterReader` INTEGER NOT NULL);");
 	}
 
-	public ResultSet getTable(DBTable table) throws SQLException{
+	public ResultSet getTable(DBTable table) throws SQLException {
 		ResultSet rs;
-		switch(table){
-			case APARTMENT:
-				rs = statement.executeQuery("SELECT * FROM Apartment");
-				break;
-			case BUILDING:
-				rs = statement.executeQuery("SELECT * FROM Building");
-				break;
-			case ENTRANCE:
-				rs = statement.executeQuery("SELECT * FROM Entrance");
-				break;
-			case METER:
-				rs = statement.executeQuery("SELECT * FROM Meter");
-				break;
-			case PERSON:
-				rs = statement.executeQuery("SELECT * FROM Person");
-				break;
-			case READING:
-				rs = statement.executeQuery("SELECT * FROM Reading");
-				break;
-			default:
-				rs = null;
+		switch (table) {
+		case APARTMENT:
+			rs = statement.executeQuery("SELECT * FROM Apartment");
+			break;
+		case BUILDING:
+			rs = statement.executeQuery("SELECT * FROM Building");
+			break;
+		case ENTRANCE:
+			rs = statement.executeQuery("SELECT * FROM Entrance");
+			break;
+		case METER:
+			rs = statement.executeQuery("SELECT * FROM Meter");
+			break;
+		case PERSON:
+			rs = statement.executeQuery("SELECT * FROM Person");
+			break;
+		case READING:
+			rs = statement.executeQuery("SELECT * FROM Reading");
+			break;
+		default:
+			rs = null;
 		}
 		return rs;
 	}

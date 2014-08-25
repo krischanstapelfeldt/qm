@@ -12,18 +12,23 @@ import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
  * This class contains the tests for the renter class
- * 
+ *
  * @author Krischan Stapelfeldt
  *
  */
 public class RenterTest extends TestCase {
-	/**
-	 * No ramp up necessary
-	 */
+	@Override
 	@Before
+	/**
+	 * No ramp up necessary.
+	 * 
+	 * @throws Might
+	 *             throw an exception. Unlikely, there is no method body.
+	 */
 	public void setUp() throws Exception {
 	}
 
+	@Override
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -33,14 +38,14 @@ public class RenterTest extends TestCase {
 	 * insert into database.
 	 */
 	@Test
-	public void testPositiveCreateRenter() {
+	public final void testPositiveCreateRenter() {
 
-		Timestamp tstamp = new Timestamp(System.currentTimeMillis());
+		final Timestamp tstamp = new Timestamp(System.currentTimeMillis());
 
-		String name = "Mustermann" + tstamp;
-		String surname = "Max";
-		String phone = "01234/5678912";
-		String email = "max@mustermann.de";
+		final String name = "Mustermann" + tstamp;
+		final String surname = "Max";
+		final String phone = "01234/5678912";
+		final String email = "max@mustermann.de";
 		assertEquals("", null, new Renter(name, surname, phone, email));
 
 		assertEquals("", null, new Renter());

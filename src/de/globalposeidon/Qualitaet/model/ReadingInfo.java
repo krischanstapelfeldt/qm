@@ -5,6 +5,5 @@ package de.globalposeidon.Qualitaet.model;
  */
 
 public enum ReadingInfo {
-	READING,
-	ESTIMATION
+	READING, ESTIMATION
 }

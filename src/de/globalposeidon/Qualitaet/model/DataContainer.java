@@ -8,70 +8,71 @@ import java.util.UUID;
 import javax.swing.tree.TreeNode;
 
 public class DataContainer implements TreeNode {
-	
-	private UUID uuid;
-	private ArrayList<Building> buildings;
 
-	public DataContainer(){
+	private final UUID uuid;
+	private final ArrayList<Building> buildings;
+
+	public DataContainer() {
 		buildings = new ArrayList<>(1);
 		uuid = UUID.randomUUID();
 	}
-	
-	public void addBuilding(Building building){
+
+	public final void addBuilding(final Building building) {
 		buildings.add(building);
 	}
-	
-	public Building getBuilding(int index) {
+
+	public final Building getBuilding(final int index) {
 		return buildings.get(index);
 	}
-	
-	public int getBuildingCount() {
+
+	public final int getBuildingCount() {
 		return buildings.size();
 	}
-	
-	public int getBuildingID(int index) {
+
+	public final int getBuildingID(final int index) {
 		return buildings.get(index).getID();
 	}
-	
-	public String toString(){
+
+	@Override
+	public final String toString() {
 		return uuid.toString();
 	}
 
-//================================================================================
-// TreeNode Interface
-//================================================================================		
+	// ================================================================================
+	// TreeNode Interface
+	// ================================================================================
 	@Override
-	public TreeNode getChildAt(int childIndex) {
+	public final TreeNode getChildAt(final int childIndex) {
 		return buildings.get(childIndex);
 	}
 
 	@Override
-	public int getChildCount() {
+	public final int getChildCount() {
 		return buildings.size();
 	}
 
 	@Override
-	public TreeNode getParent() {
+	public final TreeNode getParent() {
 		return null;
 	}
 
 	@Override
-	public int getIndex(TreeNode node) {
+	public final int getIndex(final TreeNode node) {
 		return 0;
 	}
 
 	@Override
-	public boolean getAllowsChildren() {
+	public final boolean getAllowsChildren() {
 		return true;
 	}
 
 	@Override
-	public boolean isLeaf() {
+	public final boolean isLeaf() {
 		return false;
 	}
 
 	@Override
-	public Enumeration<Building> children() {
+	public final Enumeration<Building> children() {
 		return Collections.enumeration(buildings);
 	}
 }

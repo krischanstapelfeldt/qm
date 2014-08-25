@@ -1,17 +1,17 @@
 package de.globalposeidon.Qualitaet.model;
 
 public class Renter extends Person {
-	
-//================================================================================
-// constructor
-//================================================================================
+
+	// ================================================================================
+	// constructor
+	// ================================================================================
 	public Renter() {
 		// some standard value for empty person
 		super();
 	}
-	
-	public Renter(String name, String surname, String phone, String email) {
+
+	public Renter(final String name, final String surname, final String phone, final String email) {
 		super(name, surname, phone, email);
-	}	
+	}
 
 }

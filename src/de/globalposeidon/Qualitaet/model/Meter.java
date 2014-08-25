@@ -12,131 +12,142 @@ import javax.swing.tree.TreeNode;
  * A8 - Zaehlerwert und Datum laufen vorwaerts
  */
 
-public class Meter implements TreeNode{
-	
-	private int ID;
-	final private Entrance entrance; // parent node
-	final private Apartment apartment; // parent node
-	
-	final Metertype type;
-	int currentValue;
-	int yearValue; // wert zum 01.01 eines Jahres
-	Date lastRead; // letzter ablesewert
+public class Meter implements TreeNode {
 
-//================================================================================
-// constructors
-//================================================================================
+	private int ID;
+	private final Entrance entrance; // parent node
+	private final Apartment apartment; // parent node
+
+	private final Metertype type;
+	private int currentValue;
+	private int yearValue; // wert zum 01.01 eines Jahres
+	private Date lastRead; // letzter ablesewert
+
+	// ================================================================================
+	// constructors
+	// ================================================================================
 	// empty meter not allowed, so no Meter()
-	
-	public Meter(int meterID, Metertype type, Entrance entrance) {
+
+	public Meter(final int meterID, final Metertype type, final Entrance entrance) {
 		this.entrance = entrance;
-		this.apartment = null;
-		this.ID = meterID;
+		apartment = null;
+		ID = meterID;
 		this.type = type;
-		this.currentValue = 0;
-		this.yearValue = 0;
-		this.lastRead = new Date();
+		currentValue = 0;
+		yearValue = 0;
+		lastRead = new Date();
 	}
-	
-	public Meter(int meterID, Metertype type, Apartment apartment) {
+
+	public Meter(final int meterID, final Metertype type, final Apartment apartment) {
 		this.apartment = apartment;
-		this.entrance = null;
-		this.ID = meterID;
+		entrance = null;
+		ID = meterID;
 		this.type = type;
-		this.currentValue = 0;
-		this.yearValue = 0;
-		this.lastRead = new Date();
+		currentValue = 0;
+		yearValue = 0;
+		lastRead = new Date();
 	}
-	
-//================================================================================
-// access private variables
-//================================================================================
-	public int getID() {
+
+	// ================================================================================
+	// access private variables
+	// ================================================================================
+	public final int getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public final void setID(final int iD) {
 		ID = iD;
 	}
 
-	public int getCurrentValue() {
+	public final int getCurrentValue() {
 		return currentValue;
 	}
 
-	public void setCurrentValue(int currentValue) {
+	public final void setCurrentValue(final int currentValue) {
 		// only can be set forward
 		if (currentValue > this.currentValue) {
-			this.currentValue = currentValue; 
+			this.currentValue = currentValue;
 		}
 	}
 
-	public int getYearValue() {
+	public final int getYearValue() {
 		return yearValue;
 	}
 
-	public void setYearValue(int yearValue) {
+	public final void setYearValue(final int yearValue) {
 		// only can be set forward
 		if (yearValue > this.yearValue) {
 			this.yearValue = yearValue;
 		}
 	}
 
-	public Date getLastRead() {
+	public final Date getLastRead() {
 		return lastRead;
 	}
 
-	public void setLastRead(Date lastRead) {
+	public final void setLastRead(final Date lastRead) {
 		// only can be set forward
-		if(!lastRead.before(this.lastRead)) {
+		if (!lastRead.before(this.lastRead)) {
 			this.lastRead = lastRead;
 		}
 	}
-	
-	public Metertype getType() {
-		return this.type;
+
+	public final Metertype getType() {
+		return type;
 	}
-//================================================================================
-// other stuff, dont know nice name
-//================================================================================
-	public Reading makeReading() {
+
+	public final int getValue() {
+		return currentValue;
+	}
+
+	// ================================================================================
+	// other stuff, dont know nice name
+	// ================================================================================
+	public final Reading makeReading() {
 		return new Reading(this, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
 	}
-	
+
 	@Override
-	public String toString() {
+	public final String toString() {
 		return (ID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
 	}
-	
-//================================================================================
-// TreeNode Interface
-//================================================================================
+
+	// ================================================================================
+	// TreeNode Interface
+	// ================================================================================
 	@Override
-	public TreeNode getChildAt(int childIndex) {
+	public final TreeNode getChildAt(int childIndex) {
 		return null;
 	}
+
 	@Override
-	public int getChildCount() {
+	public final int getChildCount() {
 		return 0;
 	}
+
 	@Override
-	public TreeNode getParent() {
-		return this.entrance != null ? this.entrance : this.apartment;
+	public final TreeNode getParent() {
+		return entrance != null ? entrance : apartment;
 	}
+
 	@Override
-	public int getIndex(TreeNode node) {
+	public final int getIndex(final TreeNode node) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 	@Override
-	public boolean getAllowsChildren() {
+	public final boolean getAllowsChildren() {
 		return false;
 	}
+
 	@Override
-	public boolean isLeaf() {
+	public final boolean isLeaf() {
 		return true;
 	}
+
 	@Override
-	public Enumeration<?> children() {
+	public final Enumeration<?> children() {
 		return null;
 	}
 

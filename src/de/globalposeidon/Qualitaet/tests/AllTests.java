@@ -4,20 +4,20 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 /**
- * This class contains the complete TestSuite for Global Poseidon with JUnit
- * 
+ * This class contains the complete TestSuite for Global Poseidon with JUnit.
+ *
  * @author Krischan Stapelfeldt
  *
  */
 public class AllTests extends TestSuite {
 	/**
 	 * Sets up the TestSuite "GlobalPoseidonTestSuite" with the corresponding
-	 * Tests
-	 * 
+	 * Tests.
+	 *
 	 * @return TestSuite "GlobalPoseidonTestSuite"
 	 */
 	public static Test suite() {
-		TestSuite mySuite = new TestSuite("GlobalPoseidonTestSuite");
+		final TestSuite mySuite = new TestSuite("GlobalPoseidonTestSuite");
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.ApartmentTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.BuildingTest.class);
 		mySuite.addTestSuite(de.globalposeidon.Qualitaet.tests.EntranceTest.class);

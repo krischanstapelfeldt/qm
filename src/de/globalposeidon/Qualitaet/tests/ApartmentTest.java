@@ -14,32 +14,35 @@ import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
- * This class contains the tests for the apartment class
- * 
+ * This class contains the tests for the apartment class.
+ *
  * @author Krischan Stapelfeldt
  *
  */
 public class ApartmentTest extends TestCase {
 
-	DataContainer dataContainer;
-	Building building;
-	Entrance entrance;
-	Apartment apartment;
-	Meter initialMeter;
-	Tenant initialTenant;
+	private DataContainer dataContainer;
+	private Building building;
+	private Entrance entrance;
+	private Apartment apartment;
+	private Meter initialMeter;
+	private Tenant initialTenant;
 
+	@Override
+	@Before
 	/**
 	 * Ramps the necessary objects up (dataContainer, building, entrance,
-	 * apartment)
+	 * apartment).
+	 * @throws Throws an exception, when it explodes.
 	 */
-	@Before
-	public void setUp() throws Exception {
+	public final void setUp() throws Exception {
 		dataContainer = new DataContainer();
 		building = new Building(dataContainer);
 		entrance = new Entrance(building);
 		apartment = new Apartment(initialMeter, entrance);
 	}
 
+	@Override
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -49,7 +52,7 @@ public class ApartmentTest extends TestCase {
 	 * insert into database.
 	 */
 	@Test
-	public void testPositiveCreateApartment() {
+	public final void testPositiveCreateApartment() {
 
 		assertEquals("", null, apartment);
 		assertEquals("", null, new Apartment(initialMeter, initialTenant,
@@ -61,7 +64,7 @@ public class ApartmentTest extends TestCase {
 	 * add meter to selected apartment. insert into database.
 	 */
 	@Test
-	public void testPositiveAddMeter() {
+	public final void testPositiveAddMeter() {
 		apartment.addMeter(initialMeter);
 		assertEquals("", initialMeter, apartment.getMeter(0));
 
@@ -71,7 +74,7 @@ public class ApartmentTest extends TestCase {
 	 * get meter from selected apartment. load from database.
 	 */
 	@Test
-	public void testPositiveGetMeter() {
+	public final void testPositiveGetMeter() {
 
 		assertEquals("", initialMeter, apartment.getMeter(0));
 
@@ -81,7 +84,7 @@ public class ApartmentTest extends TestCase {
 	 * add tenant to selected apartment. insert into database.
 	 */
 	@Test
-	public void testPositiveAddTenant() {
+	public final void testPositiveAddTenant() {
 
 		assertEquals("", true, apartment.addTenant(initialTenant));
 
@@ -91,7 +94,7 @@ public class ApartmentTest extends TestCase {
 	 * get tenant from selected apartment. load from database.
 	 */
 	@Test
-	public void testPositiveGetTenant() {
+	public final void testPositiveGetTenant() {
 
 		assertEquals("", initialTenant, apartment.getTenant(0));
 
@@ -101,7 +104,7 @@ public class ApartmentTest extends TestCase {
 	 * get boolean if apartment is empty. load from database.
 	 */
 	@Test
-	public void testPositiveApartmentIsEmpty() {
+	public final void testPositiveApartmentIsEmpty() {
 
 		assertEquals("", true, apartment.apartmentIsEmpty());
 
@@ -111,7 +114,7 @@ public class ApartmentTest extends TestCase {
 	 * get apartment with all tenants. load from database.
 	 */
 	@Test
-	public void testPositiveGetApartment() {
+	public final void testPositiveGetApartment() {
 
 		assertEquals("", "", apartment.toString());
 

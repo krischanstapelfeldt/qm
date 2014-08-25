@@ -11,28 +11,30 @@ import org.junit.Test;
 import de.globalposeidon.Qualitaet.model.Person;
 
 /**
- * This class contains the tests for the person class
- * 
+ * This class contains the tests for the person class.
+ *
  * @author Krischan Stapelfeldt
  *
  */
 public class PersonTest extends TestCase {
 
-	Person person;
-	Person personEmpty;
-	String name;
-	String surname;
-	String phone;
-	String email;
+	private Person person;
+	private Person personEmpty;
+	private String name;
+	private String surname;
+	private String phone;
+	private String email;
 
+	@Override
+	@Before
 	/**
 	 * Ramps the necessary objects up (name, surname, phone, email, person
 	 * object)
+	 * @throws Throws an exception, when setup fails
 	 */
-	@Before
-	public void setUp() throws Exception {
+	public final void setUp() throws Exception {
 
-		Timestamp tstamp = new Timestamp(System.currentTimeMillis());
+		final Timestamp tstamp = new Timestamp(System.currentTimeMillis());
 
 		name = "Mustermann" + tstamp;
 		surname = "Max";
@@ -41,6 +43,7 @@ public class PersonTest extends TestCase {
 		person = new Person(name, surname, phone, email);
 	}
 
+	@Override
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -50,7 +53,7 @@ public class PersonTest extends TestCase {
 	 * insert into database.
 	 */
 	@Test
-	public void testPositiveCreatePerson() {
+	public final void testPositiveCreatePerson() {
 
 		assertEquals("", true, person);
 		assertEquals("", true, personEmpty = new Person());
@@ -61,7 +64,7 @@ public class PersonTest extends TestCase {
 	 * get name from selected persons. load from database.
 	 */
 	@Test
-	public void testPositiveGetName() {
+	public final void testPositiveGetName() {
 
 		assertEquals("", name, person.getName());
 
@@ -71,7 +74,7 @@ public class PersonTest extends TestCase {
 	 * set name for selected person. insert into database.
 	 */
 	@Test
-	public void testPositiveSetName() {
+	public final void testPositiveSetName() {
 		person.setName(person.getName() + "Addon");
 		assertEquals("", name + "Addon", person.getName());
 
@@ -81,7 +84,7 @@ public class PersonTest extends TestCase {
 	 * get surname from selected persons. load from database.
 	 */
 	@Test
-	public void testPositiveGetSurname() {
+	public final void testPositiveGetSurname() {
 
 		assertEquals("", surname, person.getSurname());
 
@@ -91,7 +94,7 @@ public class PersonTest extends TestCase {
 	 * set surname for selected person. insert into database.
 	 */
 	@Test
-	public void testPositiveSetSurname() {
+	public final void testPositiveSetSurname() {
 		person.setSurname(person.getSurname() + "Addon");
 		assertEquals("", surname + "Addon", person.getSurname());
 
@@ -101,7 +104,7 @@ public class PersonTest extends TestCase {
 	 * get phone from selected persons. load from database.
 	 */
 	@Test
-	public void testPositiveGetPhone() {
+	public final void testPositiveGetPhone() {
 
 		assertEquals("", phone, person.getPhone());
 
@@ -111,7 +114,7 @@ public class PersonTest extends TestCase {
 	 * set phone for selected person. insert into database.
 	 */
 	@Test
-	public void testPositiveSetPhone() {
+	public final void testPositiveSetPhone() {
 		person.setPhone(person.getPhone() + "000000001");
 		assertEquals("", phone + "000000001", person.getPhone());
 
@@ -121,7 +124,7 @@ public class PersonTest extends TestCase {
 	 * get email from selected persons. load from database.
 	 */
 	@Test
-	public void testPositiveGetEmail() {
+	public final void testPositiveGetEmail() {
 
 		assertEquals("", email, person.getEmail());
 
@@ -131,7 +134,7 @@ public class PersonTest extends TestCase {
 	 * set email for selected person. insert into database.
 	 */
 	@Test
-	public void testPositiveSetEmail() {
+	public final void testPositiveSetEmail() {
 		person.setEmail(person.getEmail() + "000000001");
 		assertEquals("", email + "000000001", person.getEmail());
 
@@ -141,7 +144,7 @@ public class PersonTest extends TestCase {
 	 * get person with data from database.
 	 */
 	@Test
-	public void testPositiveGetPerson() {
+	public final void testPositiveGetPerson() {
 
 		assertEquals("", surname + ", " + name + " " + phone + " " + email,
 				person.toString());

@@ -10,123 +10,126 @@ import javax.swing.tree.TreeNode;
  * A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
  */
 
-public class Apartment implements TreeNode{
-	
-	private int ID;
-	final private Entrance entrance; // parent node
-	
-	private ArrayList<Meter> meters;
-	private ArrayList<Tenant> tenants;
-	
-//================================================================================
-// constructor
-//================================================================================
+public class Apartment implements TreeNode {
 
-	public Apartment(Entrance entrance){
+	private int ID;
+	private final Entrance entrance; // parent node
+
+	private final ArrayList<Meter> meters;
+	private final ArrayList<Tenant> tenants;
+
+	// ================================================================================
+	// constructor
+	// ================================================================================
+
+	public Apartment(final Entrance entrance) {
 		this.entrance = entrance;
-		this.meters = new ArrayList<Meter>();
-		this.tenants = new ArrayList<Tenant>();
-		ID = ((int) (Math.random()*10000));
+		meters = new ArrayList<Meter>();
+		tenants = new ArrayList<Tenant>();
+		ID = ((int) (Math.random() * 10000));
 	}
-	
-	public Apartment(Meter initialMeter, Entrance entrance) {
+
+	public Apartment(final Meter initialMeter, final Entrance entrance) {
 		this(entrance);
 		meters.add(initialMeter);
 	}
-	
-	public Apartment(Meter initialMeter, Tenant initialTenant,Entrance entrance) {
-		this(initialMeter,entrance);
-		this.tenants.add(initialTenant);
+
+	public Apartment(final Meter initialMeter, final Tenant initialTenant, final Entrance entrance) {
+		this(initialMeter, entrance);
+		tenants.add(initialTenant);
 	}
-	
-//================================================================================
-// access private variables
-//================================================================================
+
+	// ================================================================================
+	// access private variables
+	// ================================================================================
 	public int getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public final void setID(int iD) {
 		ID = iD;
 	}
-	
-	public void addMeter(Meter meter) {
-		this.meters.add(meter);
-	}
-	
-	public Meter getMeter(int index) {
-		return this.meters.get(index);
-	}
-	public void removeMeter(int index) {
-		this.meters.remove(index);
+
+	public final void addMeter(final Meter meter) {
+		meters.add(meter);
 	}
 
-	public boolean addTenant(Tenant tentant) {
-		if(this.tenants.size() < 5) { //max 4 tenants for each apartment
-			this.tenants.add(tentant);
+	public final Meter getMeter(final int index) {
+		return meters.get(index);
+	}
+
+	public final void removeMeter(final int index) {
+		meters.remove(index);
+	}
+
+	public final boolean addTenant(final Tenant tentant) {
+		if (tenants.size() < 5) { // max 4 tenants for each apartment
+			tenants.add(tentant);
 			return true;
 		}
 		return false;
 	}
-	
-	public Tenant getTenant(int index) {
-		return this.tenants.get(index);
+
+	public final Tenant getTenant(final int index) {
+		return tenants.get(index);
 	}
-	
-	public void removeTenant(int index) {
-		this.tenants.remove(index);
+
+	public final void removeTenant(final int index) {
+		tenants.remove(index);
 	}
-//================================================================================
-// other stuff...
-//================================================================================
-	public boolean apartmentIsEmpty() {
-		return this.meters.size() != 0 ? true : false;
+
+	// ================================================================================
+	// other stuff...
+	// ================================================================================
+	public final boolean apartmentIsEmpty() {
+		return meters.size() != 0 ? true : false;
 	}
 
 	@Override
-	public String toString() {
-		String output = "Apartment " + getID();
-//		for (int i = 0; i < tenants.size(); i++) {
-//			output += "\n\t\t\t with Tenant: " + getTenant(i);
-//		}
+	public final String toString() {
+		final String output = "Apartment " + getID();
+		// for (int i = 0; i < tenants.size(); i++) {
+		// output += "\n\t\t\t with Tenant: " + getTenant(i);
+		// }
 		return output;
 	}
-//================================================================================
-// TreeNode Interface
-//================================================================================
+
+	// ================================================================================
+	// TreeNode Interface
+	// ================================================================================
 	@Override
-	public TreeNode getChildAt(int childIndex) {
+	public final TreeNode getChildAt(final int childIndex) {
 		return meters.get(childIndex);
 	}
 
 	@Override
-	public int getChildCount() {
+	public final int getChildCount() {
 		return meters.size();
 	}
 
 	@Override
-	public TreeNode getParent() {
+	public final TreeNode getParent() {
 		return entrance;
 	}
 
 	@Override
-	public int getIndex(TreeNode node) {
+	public final int getIndex(final TreeNode node) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public boolean getAllowsChildren() {
+	public final boolean getAllowsChildren() {
 		return true;
 	}
 
 	@Override
-	public boolean isLeaf() {
+	public final boolean isLeaf() {
 		return false;
 	}
 
 	@Override
-	public Enumeration<Meter> children() {
+	public final Enumeration<Meter> children() {
 		return Collections.enumeration(meters);
 	}
 

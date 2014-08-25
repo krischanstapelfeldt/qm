@@ -3,28 +3,28 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.Date;
 
 public class Reading {
-	
+
 	private int ID;
-	
-	Meter meter;
-	MeterReader reader;
-	ReadingInfo info;
-	Date readingDate;
-	int readingValue;
-	
-	public Reading(Meter meter, MeterReader reader, ReadingInfo info) {
+
+	private Meter meter;
+	private MeterReader reader;
+	private ReadingInfo info;
+	private Date readingDate;
+	private int readingValue;
+
+	public Reading(final Meter meter, final MeterReader reader, final ReadingInfo info) {
 		readingDate = new Date();
 		this.meter = meter;
 		this.reader = reader;
 		this.info = info;
-		readingValue = meter.currentValue;
+		readingValue = meter.getCurrentValue();
 	}
-	
-	public int getID() {
+
+	public final int getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public final void setID(final int iD) {
 		ID = iD;
 	}
 }

@@ -13,18 +13,23 @@ import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 /**
  * This class contains the tests for the reading class
- * 
+ *
  * @author Krischan Stapelfeldt
  *
  */
 public class ReadingTest extends TestCase {
-	/**
-	 * No ramp up necessary
-	 */
+	@Override
 	@Before
+	/**
+	 * No ramp up necessary.
+	 * 
+	 * @throws Might
+	 *             throw an exception. Unlikely, there is no method body.
+	 */
 	public void setUp() throws Exception {
 	}
 
+	@Override
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -33,11 +38,11 @@ public class ReadingTest extends TestCase {
 	 * create new reading. insert into database.
 	 */
 	@Test
-	public void testPositiveSetReading() {
+	public final void testPositiveSetReading() {
 
-		Meter meter = null;
-		MeterReader reader = null;
-		ReadingInfo info = null;
+		final Meter meter = null;
+		final MeterReader reader = null;
+		final ReadingInfo info = null;
 		assertEquals("", null, new Reading(meter, reader, info));
 
 	}
