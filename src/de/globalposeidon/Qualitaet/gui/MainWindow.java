@@ -99,7 +99,12 @@ public class MainWindow extends JFrame {
 		// Set new panel at the bottom part of the right splitpane
 		final JPanel pnlBottomRight = new JPanel();
 
-
+		// Set contentPanel
+		final JPanel cntPanel = new JPanel();
+		
+		// declare BorderLayout at contentPanel
+		cntPanel.setLayout(new BorderLayout());
+		
 		// declare GroupLayout at leftpanel
 		final GroupLayout glLeftPanel = new GroupLayout(leftPanel);
 
@@ -385,22 +390,12 @@ public class MainWindow extends JFrame {
 		pnlBottomRight.setLayout(glBottomRightPanel);
 
 		
-
-		final JPanel cntPanel = new JPanel();
-		
-		
-		cntPanel.setBackground(Color.CYAN);
-		cntPanel.setLayout(new BorderLayout());
-		 
 		// order Layout at the Top part of the right splitpane
 		
 		glTopRightPanel.setHorizontalGroup(glTopRightPanel
 				.createParallelGroup(Alignment.LEADING)
 				.addComponent(pnlBottomRight, GroupLayout.PREFERRED_SIZE,
 						GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				// .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE,
-				// GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-
 				.addComponent(cntPanel, GroupLayout.DEFAULT_SIZE,
 						GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 
@@ -409,12 +404,8 @@ public class MainWindow extends JFrame {
 		glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(
 				Alignment.LEADING).addGroup(
 				glTopRightPanel.createSequentialGroup()
-
 				 .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE,
 				 GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-				// .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE,
-				// GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-
 						.addComponent(pnlBottomRight,
 								GroupLayout.PREFERRED_SIZE,
 								GroupLayout.DEFAULT_SIZE,
@@ -426,11 +417,9 @@ public class MainWindow extends JFrame {
 		
 
 		
-		
 		// popup-menu for tree
 		addPopup(tree, new MainPopupMenu());
 
-		
 		
 		// TODO: make classes for right side panel
 		// tree with single selection mode
@@ -494,11 +483,7 @@ public class MainWindow extends JFrame {
 					
 					// set right panel
 					cntPanel.add(new ApartmentPanel(selectedApartment()));
-//				} else {
-//					btnAddEntrance.setEnabled(false);
-//					btnAddApartment.setEnabled(false);
-//					btnAddMeter.setEnabled(false);
-//					btnAddTenant.setEnabled(false);
+
 				}
 				else if (node instanceof Meter) {
 					System.out.println("selected an Meter with ID: "
