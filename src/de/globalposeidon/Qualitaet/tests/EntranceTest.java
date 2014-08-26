@@ -13,6 +13,7 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
  * This class contains the tests for the entrance class.
@@ -26,6 +27,7 @@ public class EntranceTest extends TestCase {
 	private Entrance entranceWithApartmentAndMeter;
 	private DataContainer dataContainer;
 	private Building building;
+	private Entrance entrance;
 	private Apartment initialApartment;
 	private Meter initialMeter;
 	private ArrayList<Meter> meters;
@@ -43,9 +45,12 @@ public class EntranceTest extends TestCase {
 	public final void setUp() throws Exception {
 		dataContainer = new DataContainer();
 		building = new Building(dataContainer);
+		entrance = new Entrance(building);
+		
 		meters = new ArrayList<Meter>();
 		apartments = new ArrayList<Apartment>();
 		entranceWithApartment = new Entrance(initialApartment, building);
+		
 	}
 
 	@Override

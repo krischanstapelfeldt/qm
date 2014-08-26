@@ -23,8 +23,8 @@ public class BuildingTest extends TestCase {
 
 	private DataContainer dataContainer;
 	private Renter renter;
-	private Entrance initialEntrance;
-	private ArrayList<Entrance> entrances;
+	private Entrance entrance;
+//	private ArrayList<Entrance> entrances;
 	private Building building;
 
 	@Override
@@ -37,9 +37,10 @@ public class BuildingTest extends TestCase {
 	public final void setUp() throws Exception {
 		dataContainer = new DataContainer();
 		renter = new Renter();
-		building = new Building(renter, initialEntrance, dataContainer);
-		entrances = new ArrayList<Entrance>();
-		entrances.add(initialEntrance);
+		building = new Building(dataContainer);
+		entrance = new Entrance(building);
+//		entrances = new ArrayList<Entrance>();
+//		entrances.add(initialEntrance);
 	}
 
 	@Override
@@ -52,17 +53,28 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveCreateBuilding() {
-
-		assertEquals("", true, building);
+		
+		assertNotNull(building);
+	}
+	
+	/**
+	 * set renter to building
+	 */
+	@Test
+	public final void testPositiveSetRenter() {
+		
+		building.setRenter(renter);
+		assertEquals("", renter, building.getRenter());
 
 	}
-
+	
 	/**
 	 * get renter from selected building. load from database.
 	 */
 	@Test
 	public final void testPositiveGetRenter() {
 
+		building.setRenter(renter);
 		assertEquals("", renter, building.getRenter());
 
 	}
@@ -84,8 +96,9 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveAddEntrance() {
-		building.addEntrance(initialEntrance);
-		assertEquals("", initialEntrance, building.getEntrance(0));
+		
+		building.addEntrance(entrance);
+		assertEquals("", entrance, building.getEntrance(0));
 
 	}
 
@@ -95,7 +108,8 @@ public class BuildingTest extends TestCase {
 	@Test
 	public final void testPositiveGetEntrance() {
 
-		assertEquals("", initialEntrance, building.getEntrance(0));
+		building.addEntrance(entrance);
+		assertEquals("", entrance, building.getEntrance(0));
 
 	}
 
@@ -104,8 +118,9 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveRemoveEntrance() {
-
-		assertEquals("", true, building.removeEntrance(0));
+		
+		building.addEntrance(entrance);
+		assertEquals("", entrance, building.removeEntrance(0));
 
 	}
 
@@ -114,7 +129,7 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveBuildingIsEmpty() {
-
+		
 		assertEquals("", true, building.buildingIsEmpty());
 
 	}

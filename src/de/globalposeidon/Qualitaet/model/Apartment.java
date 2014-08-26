@@ -49,17 +49,20 @@ public class Apartment implements TreeNode {
 	public final void setID(int iD) {
 		ID = iD;
 	}
-
+	
 	public final void addMeter(final Meter meter) {
 		meters.add(meter);
 	}
 
 	public final Meter getMeter(final int index) {
-		return meters.get(index);
+		if(index >= 0 && index < meters.size()) {
+			return meters.get(index);
+		}
+		return null;
 	}
 
-	public final void removeMeter(final int index) {
-		meters.remove(index);
+	public final Meter removeMeter(final int index) {
+		return meters.remove(index);
 	}
 
 	public final boolean addTenant(final Tenant tentant) {
@@ -71,18 +74,21 @@ public class Apartment implements TreeNode {
 	}
 
 	public final Tenant getTenant(final int index) {
-		return tenants.get(index);
+		if(index >= 0 && index < tenants.size()) {
+			return tenants.get(index);
+		}
+		return null;
 	}
 
-	public final void removeTenant(final int index) {
-		tenants.remove(index);
+	public final Tenant removeTenant(final int index) {
+		return tenants.remove(index);
 	}
 
 	// ================================================================================
 	// other stuff...
 	// ================================================================================
 	public final boolean apartmentIsEmpty() {
-		return meters.size() != 0 ? true : false;
+		return meters.size() == 0 ? true : false;
 	}
 
 	@Override

@@ -52,31 +52,36 @@ public class Entrance implements TreeNode {
 	}
 
 	public final Meter getMeter(final int index) {
-		return meters.get(index);
+		if(index >= 0 && index < meters.size()) {
+			return meters.get(index);
+		}
+		return null;
 	}
 
 	public final void addMeter(final Meter var) {
 		meters.add(var);
 	}
 
-	public final void removeMeter(final int index) {
-		meters.remove(index);
+	public final Meter removeMeter(final int index) {
+		return meters.remove(index);
 	}
 
 	public final Apartment getApartment(final int index) {
-		return apartments.get(index);
+		if(index >= 0 && index < apartments.size()) {
+			return apartments.get(index);
+		}
+		return null;
 	}
 
 	public final void addApartment(final Apartment val) {
 		apartments.add(val);
 	}
 
-	public final boolean removeApartment(final int index) {
-		if (apartments.get(index).apartmentIsEmpty()) {
-			apartments.remove(index);
-			return true;
+	public final Apartment removeApartment(final int index) {
+		if (getApartment(index).apartmentIsEmpty()) {
+			return apartments.remove(index);
 		}
-		return false;
+		return null;
 	}
 
 	// ================================================================================
@@ -103,7 +108,7 @@ public class Entrance implements TreeNode {
 	}
 
 	public final boolean entranceIsEmpty() {
-		return apartments.size() != 0 ? true : false;
+		return apartments.size() == 0 ? true : false;
 	}
 
 	@Override

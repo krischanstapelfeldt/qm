@@ -53,17 +53,18 @@ public class Building implements TreeNode {
 		entrances.add(entrance);
 	}
 
-	public final boolean removeEntrance(final int index) {
-		// entrance has to be empty
-		if (entrances.get(index).entranceIsEmpty()) {
-			entrances.remove(index);
-			return true;
+	public final Entrance removeEntrance(final int index) {
+		if (getEntrance(index).entranceIsEmpty()) {
+			return entrances.remove(index);
 		}
-		return false;
+		return null;
 	}
 
 	public final Entrance getEntrance(final int index) {
-		return entrances.get(index);
+		if(index >= 0 && index < entrances.size()) {
+			return entrances.get(index);
+		}
+		return null;
 	}
 
 	public final int getEntrancesCount() {
@@ -74,7 +75,7 @@ public class Building implements TreeNode {
 	// other stuff...
 	// ================================================================================
 	public final boolean buildingIsEmpty() {
-		return entrances.size() != 0 ? true : false;
+		return entrances.size() == 0 ? true : false;
 	}
 
 	@Override
