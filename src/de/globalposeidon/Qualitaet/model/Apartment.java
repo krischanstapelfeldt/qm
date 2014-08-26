@@ -9,7 +9,11 @@ import javax.swing.tree.TreeNode;
 /* abgedeckte Anforderungen
  * A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
  */
-
+/**
+ * apartment model.
+ * @author Timm
+ *
+ */
 public class Apartment implements TreeNode {
 
 	private int ID;
@@ -49,13 +53,13 @@ public class Apartment implements TreeNode {
 	public final void setID(int iD) {
 		ID = iD;
 	}
-	
+
 	public final void addMeter(final Meter meter) {
 		meters.add(meter);
 	}
 
 	public final Meter getMeter(final int index) {
-		if(index >= 0 && index < meters.size()) {
+		if (index >= 0 && index < meters.size()) {
 			return meters.get(index);
 		}
 		return null;
@@ -64,9 +68,9 @@ public class Apartment implements TreeNode {
 	public final Meter removeMeter(final int index) {
 		return meters.remove(index);
 	}
-
+	private final int maxTenants = 4;
 	public final boolean addTenant(final Tenant tentant) {
-		if (tenants.size() < 5) { // max 4 tenants for each apartment
+		if (tenants.size() < maxTenants + 1) { // max 4 tenants for each apartment
 			tenants.add(tentant);
 			return true;
 		}
@@ -74,7 +78,7 @@ public class Apartment implements TreeNode {
 	}
 
 	public final Tenant getTenant(final int index) {
-		if(index >= 0 && index < tenants.size()) {
+		if (index >= 0 && index < tenants.size()) {
 			return tenants.get(index);
 		}
 		return null;
@@ -88,7 +92,7 @@ public class Apartment implements TreeNode {
 	// other stuff...
 	// ================================================================================
 	public final boolean apartmentIsEmpty() {
-		return meters.size() == 0 ? true : false;
+		return meters.size() == 0;
 	}
 
 	@Override

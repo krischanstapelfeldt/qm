@@ -5,13 +5,11 @@ import java.util.Enumeration;
 
 import javax.swing.tree.TreeNode;
 
-/* abgedeckte Anforderungen
- * A2 - Zaehler unterstuetzen verschieden Typen
- * A3 - Zaehler sind eindeutig zu identifizieren -> meterID
- * A5 - Zaehler haben eine Ablesewert ->currentValue/yearValue
- * A8 - Zaehlerwert und Datum laufen vorwaerts
+/**
+ * meter model.
+ * @author Timm
+ *
  */
-
 public class Meter implements TreeNode {
 
 	private int ID;
@@ -116,7 +114,7 @@ public class Meter implements TreeNode {
 	// TreeNode Interface
 	// ================================================================================
 	@Override
-	public final TreeNode getChildAt(int childIndex) {
+	public final TreeNode getChildAt(final int childIndex) {
 		return null;
 	}
 

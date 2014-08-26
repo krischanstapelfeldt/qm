@@ -6,10 +6,11 @@ import java.util.Enumeration;
 
 import javax.swing.tree.TreeNode;
 
-/* abgedeckte Anforderungen
- * A16 - Einfuegen eines Einganges
+/**
+ * building model.
+ * @author Timm
+ *
  */
-
 public class Building implements TreeNode {
 
 	private final int ID;
@@ -18,9 +19,9 @@ public class Building implements TreeNode {
 	private Renter renter;
 	private final ArrayList<Entrance> entrances;
 
-	// ================================================================================
-	// constructor
-	// ================================================================================
+// ================================================================================
+// constructor
+// ================================================================================
 
 	public Building(final DataContainer dc) {
 		entrances = new ArrayList<Entrance>();
@@ -61,7 +62,7 @@ public class Building implements TreeNode {
 	}
 
 	public final Entrance getEntrance(final int index) {
-		if(index >= 0 && index < entrances.size()) {
+		if (index >= 0 && index < entrances.size()) {
 			return entrances.get(index);
 		}
 		return null;
@@ -75,7 +76,7 @@ public class Building implements TreeNode {
 	// other stuff...
 	// ================================================================================
 	public final boolean buildingIsEmpty() {
-		return entrances.size() == 0 ? true : false;
+		return entrances.size() == 0;
 	}
 
 	@Override

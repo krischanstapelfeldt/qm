@@ -6,10 +6,11 @@ import java.util.Enumeration;
 
 import javax.swing.tree.TreeNode;
 
-/* abgedeckte Anforderungen
- * A17 - Einfuegen einer Wohnung
+/**
+ * entrance model.
+ * @author Timm
+ *
  */
-
 public class Entrance implements TreeNode {
 
 	private int ID;
@@ -52,7 +53,7 @@ public class Entrance implements TreeNode {
 	}
 
 	public final Meter getMeter(final int index) {
-		if(index >= 0 && index < meters.size()) {
+		if (index >= 0 && index < meters.size()) {
 			return meters.get(index);
 		}
 		return null;
@@ -67,7 +68,7 @@ public class Entrance implements TreeNode {
 	}
 
 	public final Apartment getApartment(final int index) {
-		if(index >= 0 && index < apartments.size()) {
+		if (index >= 0 && index < apartments.size()) {
 			return apartments.get(index);
 		}
 		return null;
@@ -108,7 +109,7 @@ public class Entrance implements TreeNode {
 	}
 
 	public final boolean entranceIsEmpty() {
-		return apartments.size() == 0 ? true : false;
+		return apartments.size() == 0;
 	}
 
 	@Override

@@ -1,9 +1,12 @@
 package de.globalposeidon.Qualitaet.model;
 
-/* abgedeckte Anforderungen
- * A2 - Verschiede Zaehlertypen
+/**
+ * metertype enum.
+ * @author Timm
+ *
  */
-
 public enum Metertype {
-	POWER, GAS, WATER
+	POWER,
+	GAS,
+	WATER
 }
