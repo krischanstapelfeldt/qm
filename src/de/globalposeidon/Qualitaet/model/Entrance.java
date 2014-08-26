@@ -83,8 +83,10 @@ public class Entrance implements TreeNode {
 	}
 
 	public final Apartment removeApartment(final int index) {
-		if (getApartment(index).apartmentIsEmpty()) {
-			return apartments.remove(index);
+		if (index >= 0 && index < apartments.size()) {
+			if (getApartment(index).apartmentIsEmpty()) {
+				return apartments.remove(index);
+			}
 		}
 		return null;
 	}

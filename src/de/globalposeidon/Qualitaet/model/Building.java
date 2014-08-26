@@ -55,8 +55,10 @@ public class Building implements TreeNode {
 	}
 
 	public final Entrance removeEntrance(final int index) {
-		if (getEntrance(index).entranceIsEmpty()) {
-			return entrances.remove(index);
+		if (index >= 0 && index < entrances.size()) {
+			if (getEntrance(index).entranceIsEmpty()) {
+				return entrances.remove(index);
+			}
 		}
 		return null;
 	}

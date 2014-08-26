@@ -112,15 +112,35 @@ public class BuildingTest extends TestCase {
 		assertEquals("", entrance, building.getEntrance(0));
 
 	}
+	
+	/**
+	 * get entrance from selected ArrayList. load from database.
+	 */
+	@Test
+	public final void testNegativeGetEntrance() {
+
+		assertEquals("", null, building.getEntrance(0));
+
+	}
 
 	/**
 	 * remove entrance from selected ArrayList. delete from database.
 	 */
 	@Test
 	public final void testPositiveRemoveEntrance() {
-		
+
 		building.addEntrance(entrance);
 		assertEquals("", entrance, building.removeEntrance(0));
+
+	}
+
+	/**
+	 * remove entrance from selected ArrayList. delete from database.
+	 */
+	@Test
+	public final void testNegativeRemoveEntrance() {
+
+		assertEquals("", null, building.removeEntrance(0));
 
 	}
 
@@ -129,17 +149,18 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveBuildingIsEmpty() {
-		
+
 		assertEquals("", true, building.buildingIsEmpty());
 
 	}
 
 	/**
-	 * get building with all entrances. load from database.
+	 * get empty buildings from selected ArrayList. load from database.
 	 */
 	@Test
-	public final void testPositiveGetBuilding() {
-		assertEquals("", null, building.toString());
-	}
+	public final void testEntranceCount() {
 
+		assertEquals("", 0, building.entranceCount());
+
+	}
 }
