@@ -6,10 +6,11 @@ import java.util.Enumeration;
 
 import javax.swing.tree.TreeNode;
 
-/* abgedeckte Anforderungen
- * A16 - Einfuegen eines Einganges
+/**
+ * building model.
+ * @author Timm
+ *
  */
-
 public class Building implements TreeNode {
 
 	private final int ID;
@@ -18,9 +19,9 @@ public class Building implements TreeNode {
 	private Renter renter;
 	private final ArrayList<Entrance> entrances;
 
-	// ================================================================================
-	// constructor
-	// ================================================================================
+// ================================================================================
+// constructor
+// ================================================================================
 
 	public Building(final DataContainer dc) {
 		entrances = new ArrayList<Entrance>();
@@ -28,11 +29,11 @@ public class Building implements TreeNode {
 		this.dc = dc;
 	}
 
-	public Building(final Renter renter, final Entrance initialEntrance, final DataContainer dc) {
-		this(dc);
-		addEntrance(initialEntrance);
-		this.renter = renter;
-	}
+//	public Building(final Renter renter, final Entrance initialEntrance, final DataContainer dc) {
+//		this(dc);
+//		addEntrance(initialEntrance);
+//		this.renter = renter;
+//	}
 
 	// ================================================================================
 	// access private variables
@@ -53,20 +54,23 @@ public class Building implements TreeNode {
 		entrances.add(entrance);
 	}
 
-	public final boolean removeEntrance(final int index) {
-		// entrance has to be empty
-		if (entrances.get(index).entranceIsEmpty()) {
-			entrances.remove(index);
-			return true;
+	public final Entrance removeEntrance(final int index) {
+		if (index >= 0 && index < entrances.size()) {
+			if (getEntrance(index).entranceIsEmpty()) {
+				return entrances.remove(index);
+			}
 		}
-		return false;
+		return null;
 	}
 
 	public final Entrance getEntrance(final int index) {
-		return entrances.get(index);
+		if (index >= 0 && index < entrances.size()) {
+			return entrances.get(index);
+		}
+		return null;
 	}
 
-	public final int getEntrancesCount() {
+	public final int entranceCount() {
 		return entrances.size();
 	}
 
@@ -74,7 +78,7 @@ public class Building implements TreeNode {
 	// other stuff...
 	// ================================================================================
 	public final boolean buildingIsEmpty() {
-		return entrances.size() != 0 ? true : false;
+		return entrances.size() == 0;
 	}
 
 	@Override

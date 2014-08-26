@@ -1,5 +1,10 @@
 package de.globalposeidon.Qualitaet.model;
 
+/**
+ * person model.
+ * @author Timm
+ *
+ */
 public class Person {
 
 	private int ID;
@@ -17,8 +22,7 @@ public class Person {
 		this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
 	}
 
-	public Person(final String name, final String surname, final String phone,
-			final String email) {
+	public Person(final String name, final String surname, final String phone,final String email) {
 		this.name = name;
 		this.surname = surname;
 		this.phone = phone;

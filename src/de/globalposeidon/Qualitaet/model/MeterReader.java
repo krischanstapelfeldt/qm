@@ -1,9 +1,12 @@
 package de.globalposeidon.Qualitaet.model;
 
-/* abgedeckte Anforderungen
- * A10 - AbleserInformationen angeben
+/**
+ * meterreader enum.
+ * @author Timm
+ *
  */
-
 public enum MeterReader {
-	JANITOR, RENTER, ENERGYPROVIDER
+	JANITOR,
+	RENTER,
+	ENERGYPROVIDER
 }

@@ -1,9 +1,11 @@
 package de.globalposeidon.Qualitaet.model;
 
-/* abgedeckte Anforderungen
- * A9 - Weitere Ableseinformationen
- */
 
+/** readinginfo enum.
+ * @author Timm
+ *
+ */
 public enum ReadingInfo {
-	READING, ESTIMATION
+	READING, 
+	ESTIMATION
 }

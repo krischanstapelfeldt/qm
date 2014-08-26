@@ -30,7 +30,7 @@ public class BuildingPanel extends JPanel {
 		final JLabel lblBuilding = new JLabel("Building " 
 				+ building.getID());
 		final JLabel lblEntranceCount = new JLabel("|Entrances: "
-				+ building.getEntrancesCount());
+				+ building.entranceCount());
 		final JLabel lblRenter = new JLabel("|Renter: "
 				+ building.getRenter());
 		pnlHeader.add(lblBuilding);

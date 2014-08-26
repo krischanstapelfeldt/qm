@@ -6,7 +6,11 @@ import java.util.Enumeration;
 import java.util.UUID;
 
 import javax.swing.tree.TreeNode;
-
+/**
+ * datacontainer model.
+ * @author Timm
+ *
+ */
 public class DataContainer implements TreeNode {
 
 	private final UUID uuid;

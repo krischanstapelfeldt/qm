@@ -2,6 +2,11 @@ package de.globalposeidon.Qualitaet.model;
 
 import java.util.Date;
 
+/**
+ * reading model.
+ * @author Timm
+ *
+ */
 public class Reading {
 
 	private int ID;

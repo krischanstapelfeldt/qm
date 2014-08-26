@@ -25,8 +25,8 @@ public class ApartmentTest extends TestCase {
 	private Building building;
 	private Entrance entrance;
 	private Apartment apartment;
-	private Meter initialMeter;
-	private Tenant initialTenant;
+	private Meter meter;
+	private Tenant tenant;
 
 	@Override
 	@Before
@@ -39,7 +39,8 @@ public class ApartmentTest extends TestCase {
 		dataContainer = new DataContainer();
 		building = new Building(dataContainer);
 		entrance = new Entrance(building);
-		apartment = new Apartment(initialMeter, entrance);
+		apartment = new Apartment(entrance);
+		
 	}
 
 	@Override
@@ -54,10 +55,16 @@ public class ApartmentTest extends TestCase {
 	@Test
 	public final void testPositiveCreateApartment() {
 
-		assertEquals("", null, apartment);
-		assertEquals("", null, new Apartment(initialMeter, initialTenant,
-				entrance));
+		assertNotNull(apartment);
+	}
 
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testGetID() {
+
+		assertNotNull((Integer) apartment.getID());
 	}
 
 	/**
@@ -65,8 +72,8 @@ public class ApartmentTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveAddMeter() {
-		apartment.addMeter(initialMeter);
-		assertEquals("", initialMeter, apartment.getMeter(0));
+		apartment.addMeter(meter);
+		assertEquals("", meter, apartment.getMeter(0));
 
 	}
 
@@ -76,8 +83,45 @@ public class ApartmentTest extends TestCase {
 	@Test
 	public final void testPositiveGetMeter() {
 
-		assertEquals("", initialMeter, apartment.getMeter(0));
+		apartment.addMeter(meter);
+		assertEquals("", meter, apartment.getMeter(0));
+	}
 
+	/**
+	 * get meter from selected apartment. load from database.
+	 */
+	@Test
+	public final void testNegativeGetMeter() {
+
+		assertEquals("", null, apartment.getMeter(0));
+	}
+
+	/**
+	 * bla..
+	 */
+	@Test
+	public final void testPositiveRemoveMeter() {
+
+		apartment.addMeter(meter);
+		assertEquals("", meter, apartment.removeMeter(0));
+	}
+
+	/**
+	 * remove meter from selected ArrayList. delete from database.
+	 */
+	@Test
+	public final void testNegativeRemoveMeter() {
+
+		assertEquals("", null, apartment.removeMeter(0));
+	}
+
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testMeterCount() {
+
+		assertEquals("", 0, apartment.meterCount());
 	}
 
 	/**
@@ -86,8 +130,20 @@ public class ApartmentTest extends TestCase {
 	@Test
 	public final void testPositiveAddTenant() {
 
-		assertEquals("", true, apartment.addTenant(initialTenant));
+		assertEquals("", true, apartment.addTenant(tenant));
+	}
 
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testNegativeAddTenant() {
+
+		apartment.addTenant(new Tenant());
+		apartment.addTenant(new Tenant());
+		apartment.addTenant(new Tenant());
+		apartment.addTenant(new Tenant());
+		assertEquals("", false, apartment.addTenant(tenant));
 	}
 
 	/**
@@ -96,8 +152,45 @@ public class ApartmentTest extends TestCase {
 	@Test
 	public final void testPositiveGetTenant() {
 
-		assertEquals("", initialTenant, apartment.getTenant(0));
+		apartment.addTenant(tenant);
+		assertEquals("", tenant, apartment.getTenant(0));
+	}
 
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testNegativeGetTenant() {
+
+		assertEquals("", null, apartment.getTenant(0));
+	}
+
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testPositiveRemoveTenant() {
+
+		apartment.addTenant(tenant);
+		assertEquals("", tenant, apartment.removeTenant(0));
+	}
+
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testNegativeRemoveTenant() {
+
+		assertEquals("", null, apartment.removeTenant(0));
+	}
+
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testTenantCount() {
+
+		assertEquals("", 0, apartment.tenantCount());
 	}
 
 	/**
@@ -107,17 +200,16 @@ public class ApartmentTest extends TestCase {
 	public final void testPositiveApartmentIsEmpty() {
 
 		assertEquals("", true, apartment.apartmentIsEmpty());
-
 	}
 
 	/**
-	 * get apartment with all tenants. load from database.
+	 * get boolean if apartment is empty. load from database.
 	 */
 	@Test
-	public final void testPositiveGetApartment() {
+	public final void testNegativeApartmentIsEmpty() {
 
-		assertEquals("", "", apartment.toString());
-
+		apartment.addTenant(tenant);
+		assertEquals("", false, apartment.apartmentIsEmpty());
 	}
 
 }

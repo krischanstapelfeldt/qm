@@ -9,7 +9,11 @@ import javax.swing.tree.TreeNode;
 /* abgedeckte Anforderungen
  * A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
  */
-
+/**
+ * apartment model.
+ * @author Timm
+ *
+ */
 public class Apartment implements TreeNode {
 
 	private int ID;
@@ -29,15 +33,15 @@ public class Apartment implements TreeNode {
 		ID = ((int) (Math.random() * 10000));
 	}
 
-	public Apartment(final Meter initialMeter, final Entrance entrance) {
-		this(entrance);
-		meters.add(initialMeter);
-	}
-
-	public Apartment(final Meter initialMeter, final Tenant initialTenant, final Entrance entrance) {
-		this(initialMeter, entrance);
-		tenants.add(initialTenant);
-	}
+//	public Apartment(final Meter initialMeter, final Entrance entrance) {
+//		this(entrance);
+//		meters.add(initialMeter);
+//	}
+//
+//	public Apartment(final Meter initialMeter, final Tenant initialTenant, final Entrance entrance) {
+//		this(initialMeter, entrance);
+//		tenants.add(initialTenant);
+//	}
 
 	// ================================================================================
 	// access private variables
@@ -55,15 +59,27 @@ public class Apartment implements TreeNode {
 	}
 
 	public final Meter getMeter(final int index) {
-		return meters.get(index);
+		if (index >= 0 && index < meters.size()) {
+			return meters.get(index);
+		}
+		return null;
 	}
 
-	public final void removeMeter(final int index) {
-		meters.remove(index);
+	public final Meter removeMeter(final int index) {
+		if (index >= 0 && index < meters.size()) {
+			return meters.remove(index);
+		}
+		return null;
 	}
 
+
+	public final int meterCount() {
+		return meters.size();
+	}
+
+	private final int maxTenants = 4;
 	public final boolean addTenant(final Tenant tentant) {
-		if (tenants.size() < 5) { // max 4 tenants for each apartment
+		if (tenants.size() < maxTenants) { // max 4 tenants for each apartment
 			tenants.add(tentant);
 			return true;
 		}
@@ -71,18 +87,27 @@ public class Apartment implements TreeNode {
 	}
 
 	public final Tenant getTenant(final int index) {
-		return tenants.get(index);
+		if (index >= 0 && index < tenants.size()) {
+			return tenants.get(index);
+		}
+		return null;
 	}
 
-	public final void removeTenant(final int index) {
-		tenants.remove(index);
+	public final Tenant removeTenant(final int index) {
+		if (index >= 0 && index < tenants.size()) {
+			return tenants.remove(index);
+		}
+		return null;
 	}
 
+	public final int tenantCount() {
+		return tenants.size();
+	}
 	// ================================================================================
 	// other stuff...
 	// ================================================================================
 	public final boolean apartmentIsEmpty() {
-		return meters.size() != 0 ? true : false;
+		return tenants.size() == 0;
 	}
 
 	@Override
