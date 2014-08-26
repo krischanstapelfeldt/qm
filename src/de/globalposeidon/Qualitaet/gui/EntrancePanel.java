@@ -13,9 +13,6 @@ import de.globalposeidon.Qualitaet.model.Entrance;
 
 public class EntrancePanel extends JPanel {
 
-   /**
-	 *
-	 */
    private static final long serialVersionUID = -93700516008712524L;
 
    public EntrancePanel(final Entrance entrance) {

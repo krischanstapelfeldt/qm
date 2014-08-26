@@ -7,17 +7,15 @@ import java.util.Enumeration;
 import javax.swing.tree.TreeNode;
 
 /*
- * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung
- * wohnen.
+ * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
  */
 /**
  * apartment model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Apartment implements TreeNode {
 
-   private int ID;
+   private int id;
    private final Entrance entrance; // parent node
 
    private final ArrayList<Meter> meters;
@@ -31,7 +29,7 @@ public class Apartment implements TreeNode {
       this.entrance = entrance;
       meters = new ArrayList<Meter>();
       tenants = new ArrayList<Tenant>();
-      ID = ((int) (Math.random() * 10000));
+      id = ((int) (Math.random() * 10000));
    }
 
    // public Apartment(final Meter initialMeter, final Entrance entrance) {
@@ -48,12 +46,12 @@ public class Apartment implements TreeNode {
    // ================================================================================
    // access private variables
    // ================================================================================
-   public int getID() {
-      return ID;
+   public final int getID() {
+      return id;
    }
 
-   public final void setID(int iD) {
-      ID = iD;
+   public final void setID(final int iD) {
+      id = iD;
    }
 
    public final void addMeter(final Meter meter) {

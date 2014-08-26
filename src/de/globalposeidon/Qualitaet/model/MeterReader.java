@@ -2,8 +2,7 @@ package de.globalposeidon.Qualitaet.model;
 
 /**
  * meterreader enum.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public enum MeterReader {
    JANITOR, RENTER, ENERGYPROVIDER

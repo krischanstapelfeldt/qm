@@ -8,12 +8,12 @@ import java.sql.Statement;
 
 public class DBWorker {
 
-   Connection connection = null;
-   Statement statement;
-   final String database;
+   private Connection connection = null;
+   private Statement statement;
+   private final String database;
 
    // Constructor generates necessary strucutures in given database
-   public DBWorker(String database) {
+   public DBWorker(final String database) {
       this.database = database;
       try {
          Class.forName("org.sqlite.JDBC");
@@ -31,10 +31,8 @@ public class DBWorker {
          rs = getTable(DBTable.READING);
 
          /*
-          * ResultSet rs = statement.executeQuery("select * from person"); while
-          * (rs.next()) { // read the result set System.out.println("name = " +
-          * rs.getString("name")); System.out.println("id = " +
-          * rs.getInt("id")); }
+          * ResultSet rs = statement.executeQuery("select * from person"); while (rs.next()) { // read the result set
+          * System.out.println("name = " + rs.getString("name")); System.out.println("id = " + rs.getInt("id")); }
           */
          finalize();
       } catch (final SQLException e) {
@@ -53,7 +51,7 @@ public class DBWorker {
    }
 
    @Override
-   protected void finalize() throws Exception {
+   protected final void finalize() throws Exception {
       if (connection != null) {
          connection.close();
       }
@@ -77,7 +75,7 @@ public class DBWorker {
                   + "`id_meter` INTEGER NOT NULL,`date` TEXT,`value` INTEGER,`id_readingInfo` INTEGER NOT NULL,`id_meterReader` INTEGER NOT NULL);");
    }
 
-   public ResultSet getTable(DBTable table) throws SQLException {
+   public final ResultSet getTable(final DBTable table) throws SQLException {
       ResultSet rs;
       switch (table) {
       case APARTMENT:

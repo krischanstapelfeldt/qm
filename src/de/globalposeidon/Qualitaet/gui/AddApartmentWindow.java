@@ -15,9 +15,8 @@ import de.globalposeidon.Qualitaet.model.Apartment;
 import de.globalposeidon.Qualitaet.model.Entrance;
 
 /**
- * AddApartmentWindow shows the user a window to either add a apartment to the
- * currently selected entrance with "OK" or to cancel the request with "Cancel"
- *
+ * AddApartmentWindow shows the user a window to either add a apartment to the currently selected entrance with "OK" or to cancel the
+ * request with "Cancel".
  * @author Timm Suhl
  */
 public class AddApartmentWindow extends JDialog {

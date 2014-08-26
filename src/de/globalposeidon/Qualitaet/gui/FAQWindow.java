@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 public class FAQWindow extends JDialog {
    private static final long serialVersionUID = -7412097759123813493L;
-   final Logger logger = LoggerFactory.getLogger(FAQWindow.class);
+   private final Logger logger = LoggerFactory.getLogger(FAQWindow.class);
 
    public FAQWindow(final JFrame parent) {
       logger.debug("Add FAQ window opened");

@@ -2,11 +2,17 @@ package de.globalposeidon.Qualitaet;
 
 /**
  * String class for central string management.
- *
  * @author Sebastian Lauber
  */
 
 public final class Strings {
+   /**
+    * prevents calls from subclass.
+    */
+   protected Strings() {
+      throw new UnsupportedOperationException();
+   }
+
    // basic terms
    public static final String ABOUT = "about";
    public static final String ADDWSPACE = "add ";

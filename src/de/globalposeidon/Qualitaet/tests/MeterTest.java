@@ -17,7 +17,6 @@ import de.globalposeidon.Qualitaet.model.Metertype;
 
 /**
  * This class contains the tests for the meter class.
- *
  * @author Krischan Stapelfeldt
  */
 public class MeterTest extends TestCase {

@@ -2,12 +2,11 @@ package de.globalposeidon.Qualitaet.model;
 
 /**
  * person model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Person {
 
-   private int ID;
+   private int id;
 
    private String name;
    private String surname;
@@ -33,11 +32,11 @@ public class Person {
    // getter setter
    // ================================================================================
    public final int getID() {
-      return ID;
+      return id;
    }
 
    public final void setID(final int iD) {
-      ID = iD;
+      id = iD;
    }
 
    public final String getName() {

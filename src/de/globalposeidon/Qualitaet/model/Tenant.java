@@ -2,8 +2,7 @@ package de.globalposeidon.Qualitaet.model;
 
 /**
  * tenant model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Tenant extends Person {
 

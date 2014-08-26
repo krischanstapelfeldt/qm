@@ -12,13 +12,11 @@ import de.globalposeidon.Qualitaet.model.Person;
 
 /**
  * This class contains the tests for the person class.
- *
  * @author Krischan Stapelfeldt
  */
 public class PersonTest extends TestCase {
 
    private Person person;
-   private Person personEmpty;
    private String name;
    private String surname;
    private String phone;
@@ -48,14 +46,14 @@ public class PersonTest extends TestCase {
    }
 
    /**
-    * create two new persons. one with specific data, one with empty data.
-    * insert into database.
+    * create two new persons. one with specific data, one with empty data. insert into database.
     */
    @Test
    public final void testPositiveCreatePerson() {
 
+      Person personEmpty = new Person();
       assertEquals("", true, person);
-      assertEquals("", true, personEmpty = new Person());
+      assertEquals("", true, personEmpty);
 
    }
 

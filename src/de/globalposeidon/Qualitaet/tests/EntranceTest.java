@@ -17,7 +17,6 @@ import de.globalposeidon.Qualitaet.model.Metertype;
 
 /**
  * This class contains the tests for the entrance class.
- *
  * @author Krischan Stapelfeldt
  */
 public class EntranceTest extends TestCase {
@@ -52,8 +51,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * create two new entrances. one with specific data, one with empty data.
-    * insert into database.
+    * create two new entrances. one with specific data, one with empty data. insert into database.
     */
    @Test
    public final void testPositiveCreateEntrance() {

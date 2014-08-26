@@ -16,9 +16,8 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
- * AddRenterWindow shows the user a window to either add a renter to the
- * currently selected building with "OK" or to cancel the request with "Cancel"
- *
+ * AddRenterWindow shows the user a window to either add a renter to the currently selected building with "OK" or to cancel the request with
+ * "Cancel".
  * @author Timm Suhl
  */
 public class AddRenterWindow extends JDialog {

@@ -13,9 +13,6 @@ import de.globalposeidon.Qualitaet.model.Meter;
 
 public class MeterPanel extends JPanel {
 
-   /**
-	 *
-	 */
    private static final long serialVersionUID = 5663133647111763942L;
 
    public MeterPanel(final Meter meter) {

@@ -12,8 +12,7 @@ import de.globalposeidon.Qualitaet.model.Reading;
 import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 /**
- * This class contains the tests for the reading class
- *
+ * This class contains the tests for the reading class.
  * @author Krischan Stapelfeldt
  */
 public class ReadingTest extends TestCase {

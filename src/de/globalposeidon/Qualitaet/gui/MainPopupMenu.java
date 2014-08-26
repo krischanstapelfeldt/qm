@@ -7,8 +7,7 @@ import javax.swing.JSeparator;
 import de.globalposeidon.Qualitaet.Strings;
 
 /**
- * This class contains the popup menu
- * 
+ * This class contains the popup menu.
  * @author Sebastian Lauber
  */
 

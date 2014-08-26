@@ -11,8 +11,7 @@ import org.junit.Test;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
- * This class contains the tests for the renter class
- *
+ * This class contains the tests for the renter class.
  * @author Krischan Stapelfeldt
  */
 public class RenterTest extends TestCase {
@@ -33,8 +32,7 @@ public class RenterTest extends TestCase {
    }
 
    /**
-    * create two new renter. one with specific data, one with empty data. insert
-    * into database.
+    * create two new renter. one with specific data, one with empty data. insert into database.
     */
    @Test
    public final void testPositiveCreateRenter() {

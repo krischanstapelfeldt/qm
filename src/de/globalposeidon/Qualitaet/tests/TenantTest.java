@@ -10,8 +10,7 @@ import org.junit.Before;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
- * This class contains the tests for the tenant class
- *
+ * This class contains the tests for the tenant class.
  * @author Krischan Stapelfeldt
  */
 public class TenantTest extends TestCase {
@@ -33,8 +32,7 @@ public class TenantTest extends TestCase {
    }
 
    /**
-    * create two new tenants. one with specific data, one with empty data.
-    * insert into database.
+    * create two new tenants. one with specific data, one with empty data. insert into database.
     */
    public final void testPositiveCreateTenant() {
 

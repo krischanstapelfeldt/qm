@@ -8,12 +8,11 @@ import javax.swing.tree.TreeNode;
 
 /**
  * entrance model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Entrance implements TreeNode {
 
-   private int ID;
+   private int id;
    private final Building building; // parent node
 
    private final ArrayList<Meter> meters; // can be 0
@@ -27,7 +26,7 @@ public class Entrance implements TreeNode {
       this.building = building;
       apartments = new ArrayList<Apartment>();
       meters = new ArrayList<Meter>();
-      ID = ((int) (Math.random() * 10000));
+      id = ((int) (Math.random() * 10000));
    }
 
    // public Entrance(final Apartment initialApartment, final Building
@@ -47,11 +46,11 @@ public class Entrance implements TreeNode {
    // access private variables
    // ================================================================================
    public final int getID() {
-      return ID;
+      return id;
    }
 
    public final void setID(final int iD) {
-      ID = iD;
+      id = iD;
    }
 
    public final Meter getMeter(final int index) {

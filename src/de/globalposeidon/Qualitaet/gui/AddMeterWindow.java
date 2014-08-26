@@ -17,10 +17,8 @@ import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
 
 /**
- * AddMeterWindow shows the user a window to either add a meter to the currently
- * selected entrance OR apartment with "OK" or to cancel the request with
- * "Cancel"
- *
+ * AddMeterWindow shows the user a window to either add a meter to the currently selected entrance OR apartment with "OK" or to cancel the
+ * request with "Cancel".
  * @author Timm Suhl
  */
 public class AddMeterWindow extends JDialog {

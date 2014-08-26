@@ -21,35 +21,33 @@ import de.globalposeidon.Qualitaet.Strings;
 
 public class FunctionPanel extends JPanel {
 
-   /**
-	 * 
-	 */
    private static final long serialVersionUID = 5869251984510316018L;
    // declare Labels
-   JLabel lblMeterId = new JLabel(Strings.METERID);
-   JLabel lblMeterSearch = new JLabel(Strings.METERSEARCH);
-   JLabel lblReadVal = new JLabel(Strings.READINGVALUE);
-   JLabel lblReadPers = new JLabel(Strings.READINGPERSON);
-   JLabel lblSort = new JLabel("Sort");
-   JLabel lblMakeReading = new JLabel(Strings.MAKEREADING);
+   private JLabel lblMeterId = new JLabel(Strings.METERID);
+   private JLabel lblMeterSearch = new JLabel(Strings.METERSEARCH);
+   private JLabel lblReadVal = new JLabel(Strings.READINGVALUE);
+   private JLabel lblReadPers = new JLabel(Strings.READINGPERSON);
+   private JLabel lblSort = new JLabel("Sort");
+   private JLabel lblMakeReading = new JLabel(Strings.MAKEREADING);
 
    // declare TextField
 
-   final JTextField tfMeterId = new JTextField();
-   final JTextField tfReadingVal = new JTextField();
-   final JTextField tfPerson = new JTextField();
+   private final JTextField tfMeterId = new JTextField();
+   private final JTextField tfReadingVal = new JTextField();
+   private final JTextField tfPerson = new JTextField();
 
    // declare Buttons
-   final JButton btnSave = new JButton(Strings.SAVE);
-   final JButton btnSearch = new JButton(Strings.SEARCH);
+   private final JButton btnSave = new JButton(Strings.SAVE);
+   private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED);
-   final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED);
-   final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED);
+   private final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED);
+   private final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED);
+   private final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED);
 
    // declare ButtonGroup
-   final ButtonGroup rdGroup = new ButtonGroup();
+   // TODO
+   private final ButtonGroup rdGroup = new ButtonGroup();
 
    // add radiobuttons to a group
    // rdGroup.add(rdbtnUnsorted);
@@ -57,126 +55,126 @@ public class FunctionPanel extends JPanel {
    // rdGroup.add(rdbtnUnRented);
 
    // declare Separator
-   final JSeparator separatorLeft = new JSeparator();
-   final JSeparator separatorRight = new JSeparator();
+   private final JSeparator separatorLeft = new JSeparator();
+   private final JSeparator separatorRight = new JSeparator();
 
    // create Panel
    public FunctionPanel() {
       GridBagLayout gridBagLayout = new GridBagLayout();
       setLayout(gridBagLayout);
 
-      GridBagConstraints gbc_lblMeterSearch = new GridBagConstraints();
-      gbc_lblMeterSearch.insets = new Insets(0, 0, 5, 5);
-      gbc_lblMeterSearch.gridx = 1;
-      gbc_lblMeterSearch.gridy = 1;
-      add(lblMeterSearch, gbc_lblMeterSearch);
+      GridBagConstraints gbcLblMeterSearch = new GridBagConstraints();
+      gbcLblMeterSearch.insets = new Insets(0, 0, 5, 5);
+      gbcLblMeterSearch.gridx = 1;
+      gbcLblMeterSearch.gridy = 1;
+      add(lblMeterSearch, gbcLblMeterSearch);
 
-      GridBagConstraints gbc_lblMeterId = new GridBagConstraints();
-      gbc_lblMeterId.anchor = GridBagConstraints.WEST;
-      gbc_lblMeterId.insets = new Insets(0, 0, 5, 5);
-      gbc_lblMeterId.gridx = 0;
-      gbc_lblMeterId.gridy = 2;
-      add(lblMeterId, gbc_lblMeterId);
+      GridBagConstraints gbcLblMeterId = new GridBagConstraints();
+      gbcLblMeterId.anchor = GridBagConstraints.WEST;
+      gbcLblMeterId.insets = new Insets(0, 0, 5, 5);
+      gbcLblMeterId.gridx = 0;
+      gbcLblMeterId.gridy = 2;
+      add(lblMeterId, gbcLblMeterId);
 
-      GridBagConstraints gbc_lblMakeReading = new GridBagConstraints();
-      gbc_lblMakeReading.insets = new Insets(0, 0, 5, 5);
-      gbc_lblMakeReading.gridx = 6;
-      gbc_lblMakeReading.gridy = 1;
-      add(lblMakeReading, gbc_lblMakeReading);
+      GridBagConstraints gbcLblMakeReading = new GridBagConstraints();
+      gbcLblMakeReading.insets = new Insets(0, 0, 5, 5);
+      gbcLblMakeReading.gridx = 6;
+      gbcLblMakeReading.gridy = 1;
+      add(lblMakeReading, gbcLblMakeReading);
 
-      GridBagConstraints gbc_lblReadVal = new GridBagConstraints();
-      gbc_lblReadVal.insets = new Insets(0, 0, 5, 0);
-      gbc_lblReadVal.gridx = 5;
-      gbc_lblReadVal.gridy = 2;
-      add(lblReadVal, gbc_lblReadVal);
+      GridBagConstraints gbcLblReadVal = new GridBagConstraints();
+      gbcLblReadVal.insets = new Insets(0, 0, 5, 0);
+      gbcLblReadVal.gridx = 5;
+      gbcLblReadVal.gridy = 2;
+      add(lblReadVal, gbcLblReadVal);
 
-      GridBagConstraints gbc_lblReadPers = new GridBagConstraints();
-      gbc_lblReadPers.insets = new Insets(0, 0, 5, 5);
-      gbc_lblReadPers.anchor = GridBagConstraints.EAST;
-      gbc_lblReadPers.gridx = 5;
-      gbc_lblReadPers.gridy = 3;
-      add(lblReadPers, gbc_lblReadPers);
+      GridBagConstraints gbcLblReadPers = new GridBagConstraints();
+      gbcLblReadPers.insets = new Insets(0, 0, 5, 5);
+      gbcLblReadPers.anchor = GridBagConstraints.EAST;
+      gbcLblReadPers.gridx = 5;
+      gbcLblReadPers.gridy = 3;
+      add(lblReadPers, gbcLblReadPers);
 
-      GridBagConstraints gbc_tfMeterId = new GridBagConstraints();
-      gbc_tfMeterId.insets = new Insets(0, 0, 5, 5);
-      gbc_tfMeterId.anchor = GridBagConstraints.WEST;
-      gbc_tfMeterId.gridx = 1;
-      gbc_tfMeterId.gridy = 2;
-      add(tfMeterId, gbc_tfMeterId);
+      GridBagConstraints gbcTfMeterId = new GridBagConstraints();
+      gbcTfMeterId.insets = new Insets(0, 0, 5, 5);
+      gbcTfMeterId.anchor = GridBagConstraints.WEST;
+      gbcTfMeterId.gridx = 1;
+      gbcTfMeterId.gridy = 2;
+      add(tfMeterId, gbcTfMeterId);
       tfMeterId.setColumns(10);
 
       separatorLeft.setOrientation(SwingConstants.VERTICAL);
       separatorLeft.setForeground(Color.DARK_GRAY);
-      GridBagConstraints gbc_separatorLeft = new GridBagConstraints();
-      gbc_separatorLeft.fill = GridBagConstraints.VERTICAL;
-      gbc_separatorLeft.gridheight = 6;
-      gbc_separatorLeft.insets = new Insets(0, 0, 0, 5);
-      gbc_separatorLeft.gridx = 3;
-      gbc_separatorLeft.gridy = 0;
-      add(separatorLeft, gbc_separatorLeft);
+      GridBagConstraints gbcSeparatorLeft = new GridBagConstraints();
+      gbcSeparatorLeft.fill = GridBagConstraints.VERTICAL;
+      gbcSeparatorLeft.gridheight = 6;
+      gbcSeparatorLeft.insets = new Insets(0, 0, 0, 5);
+      gbcSeparatorLeft.gridx = 3;
+      gbcSeparatorLeft.gridy = 0;
+      add(separatorLeft, gbcSeparatorLeft);
 
-      GridBagConstraints gbc_lblSort = new GridBagConstraints();
+      GridBagConstraints gbcLblSort = new GridBagConstraints();
       // gbc_lblSort.anchor = GridBagConstraints.EAST;
-      gbc_lblSort.insets = new Insets(0, 0, 5, 5);
-      gbc_lblSort.gridx = 10;
-      gbc_lblSort.gridy = 1;
-      add(lblSort, gbc_lblSort);
+      gbcLblSort.insets = new Insets(0, 0, 5, 5);
+      gbcLblSort.gridx = 10;
+      gbcLblSort.gridy = 1;
+      add(lblSort, gbcLblSort);
 
-      GridBagConstraints gbc_tfReadingVal = new GridBagConstraints();
-      gbc_tfReadingVal.insets = new Insets(0, 0, 5, 5);
-      gbc_tfReadingVal.fill = GridBagConstraints.HORIZONTAL;
-      gbc_tfReadingVal.gridx = 6;
-      gbc_tfReadingVal.gridy = 2;
-      add(tfReadingVal, gbc_tfReadingVal);
+      GridBagConstraints gbcTfReadingVal = new GridBagConstraints();
+      gbcTfReadingVal.insets = new Insets(0, 0, 5, 5);
+      gbcTfReadingVal.fill = GridBagConstraints.HORIZONTAL;
+      gbcTfReadingVal.gridx = 6;
+      gbcTfReadingVal.gridy = 2;
+      add(tfReadingVal, gbcTfReadingVal);
       tfReadingVal.setColumns(10);
 
-      GridBagConstraints gbc_tfPerson = new GridBagConstraints();
-      gbc_tfPerson.insets = new Insets(0, 0, 5, 5);
-      gbc_tfPerson.fill = GridBagConstraints.HORIZONTAL;
-      gbc_tfPerson.gridx = 6;
-      gbc_tfPerson.gridy = 3;
-      add(tfPerson, gbc_tfPerson);
+      GridBagConstraints gbcTfPerson = new GridBagConstraints();
+      gbcTfPerson.insets = new Insets(0, 0, 5, 5);
+      gbcTfPerson.fill = GridBagConstraints.HORIZONTAL;
+      gbcTfPerson.gridx = 6;
+      gbcTfPerson.gridy = 3;
+      add(tfPerson, gbcTfPerson);
       tfPerson.setColumns(10);
 
       separatorRight.setOrientation(SwingConstants.VERTICAL);
       separatorRight.setForeground(Color.DARK_GRAY);
-      GridBagConstraints gbc_separatorRight = new GridBagConstraints();
-      gbc_separatorRight.fill = GridBagConstraints.VERTICAL;
-      gbc_separatorRight.gridheight = 6;
-      gbc_separatorRight.insets = new Insets(0, 0, 0, 5);
-      gbc_separatorRight.gridx = 8;
-      gbc_separatorRight.gridy = 0;
-      add(separatorRight, gbc_separatorRight);
+      GridBagConstraints gbcSeparatorRight = new GridBagConstraints();
+      gbcSeparatorRight.fill = GridBagConstraints.VERTICAL;
+      gbcSeparatorRight.gridheight = 6;
+      gbcSeparatorRight.insets = new Insets(0, 0, 0, 5);
+      gbcSeparatorRight.gridx = 8;
+      gbcSeparatorRight.gridy = 0;
+      add(separatorRight, gbcSeparatorRight);
 
-      GridBagConstraints gbc_rdbtnUnsorted = new GridBagConstraints();
-      gbc_rdbtnUnsorted.insets = new Insets(0, 0, 5, 0);
-      gbc_rdbtnUnsorted.gridx = 10;
-      gbc_rdbtnUnsorted.gridy = 2;
-      add(rdbtnUnsorted, gbc_rdbtnUnsorted);
+      GridBagConstraints gbcRdbtnUnsorted = new GridBagConstraints();
+      gbcRdbtnUnsorted.insets = new Insets(0, 0, 5, 0);
+      gbcRdbtnUnsorted.gridx = 10;
+      gbcRdbtnUnsorted.gridy = 2;
+      add(rdbtnUnsorted, gbcRdbtnUnsorted);
 
-      GridBagConstraints gbc_rdbtnRented = new GridBagConstraints();
-      gbc_rdbtnRented.insets = new Insets(0, 0, 5, 0);
-      gbc_rdbtnRented.gridx = 10;
-      gbc_rdbtnRented.gridy = 3;
-      add(rdbtnRented, gbc_rdbtnRented);
+      GridBagConstraints gbcRdbtnRented = new GridBagConstraints();
+      gbcRdbtnRented.insets = new Insets(0, 0, 5, 0);
+      gbcRdbtnRented.gridx = 10;
+      gbcRdbtnRented.gridy = 3;
+      add(rdbtnRented, gbcRdbtnRented);
 
-      GridBagConstraints gbc_rdbtnUnrented = new GridBagConstraints();
-      gbc_rdbtnUnrented.insets = new Insets(0, 0, 5, 0);
-      gbc_rdbtnUnrented.gridx = 10;
-      gbc_rdbtnUnrented.gridy = 4;
-      add(rdbtnUnrented, gbc_rdbtnUnrented);
+      GridBagConstraints gbcRdbtnUnrented = new GridBagConstraints();
+      gbcRdbtnUnrented.insets = new Insets(0, 0, 5, 0);
+      gbcRdbtnUnrented.gridx = 10;
+      gbcRdbtnUnrented.gridy = 4;
+      add(rdbtnUnrented, gbcRdbtnUnrented);
 
-      GridBagConstraints gbc_btnSave = new GridBagConstraints();
-      gbc_btnSave.insets = new Insets(0, 0, 0, 5);
-      gbc_btnSave.gridx = 6;
-      gbc_btnSave.gridy = 5;
-      add(btnSave, gbc_btnSave);
+      GridBagConstraints gbcBtnSave = new GridBagConstraints();
+      gbcBtnSave.insets = new Insets(0, 0, 0, 5);
+      gbcBtnSave.gridx = 6;
+      gbcBtnSave.gridy = 5;
+      add(btnSave, gbcBtnSave);
 
-      GridBagConstraints gbc_btnSearch = new GridBagConstraints();
-      gbc_btnSearch.insets = new Insets(0, 0, 0, 5);
-      gbc_btnSearch.gridx = 1;
-      gbc_btnSearch.gridy = 5;
-      add(btnSearch, gbc_btnSearch);
+      GridBagConstraints gbcBtnSearch = new GridBagConstraints();
+      gbcBtnSearch.insets = new Insets(0, 0, 0, 5);
+      gbcBtnSearch.gridx = 1;
+      gbcBtnSearch.gridy = 5;
+      add(btnSearch, gbcBtnSearch);
 
    }
 

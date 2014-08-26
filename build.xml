@@ -123,19 +123,6 @@
 </jacoco:instrument>
 </target>
 
-<!--
-<target name="AllTests" description="Runs the complete testsuite" depends="jacoco-instrument">
-<mkdir dir="${junit.output.dir}" />
-<jacoco:coverage destfile="${jacoco.exec.file}">
-	<junit fork="yes" printsummary="yes" forkmode="once">
-		<classpath refid="qm.classpath.instrumented" />
-		<formatter type="xml" />
-		<test name="de.globalposeidon.Qualitaet.tests.AllTests" todir="${junit.output.dir}" />
-	</junit>
-</jacoco:coverage>
-</target>
--->
-
 <target name="AllTests" description="Runs the complete testsuite" depends="jacoco-instrument">
 <mkdir dir="${junit.output.dir}" />
 <jacoco:coverage destfile="${jacoco.exec.file}">

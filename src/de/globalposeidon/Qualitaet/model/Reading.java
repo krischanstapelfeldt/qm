@@ -4,12 +4,31 @@ import java.util.Date;
 
 /**
  * reading model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Reading {
 
-   private int ID;
+   private int id;
+
+   public final Meter getMeter() {
+      return meter;
+   }
+
+   public final MeterReader getReader() {
+      return reader;
+   }
+
+   public final ReadingInfo getInfo() {
+      return info;
+   }
+
+   public final Date getReadingDate() {
+      return readingDate;
+   }
+
+   public final int getReadingValue() {
+      return readingValue;
+   }
 
    private final Meter meter;
    private final MeterReader reader;
@@ -26,10 +45,10 @@ public class Reading {
    }
 
    public final int getID() {
-      return ID;
+      return id;
    }
 
    public final void setID(final int iD) {
-      ID = iD;
+      id = iD;
    }
 }

@@ -13,7 +13,6 @@ import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
  * This class contains the tests for the building class.
- *
  * @author Krischan Stapelfeldt
  */
 public class BuildingTest extends TestCase {

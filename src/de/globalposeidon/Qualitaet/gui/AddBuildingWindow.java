@@ -15,9 +15,7 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 
 /**
- * AddBuildingWindow shows the user a window to either add a building with "OK"
- * or to cancel the request with "Cancel"
- *
+ * AddBuildingWindow shows the user a window to either add a building with "OK" or to cancel the request with "Cancel".
  * @author Timm Suhl
  */
 public class AddBuildingWindow extends JDialog {

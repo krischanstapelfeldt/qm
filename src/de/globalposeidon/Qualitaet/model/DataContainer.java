@@ -9,8 +9,7 @@ import javax.swing.tree.TreeNode;
 
 /**
  * datacontainer model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class DataContainer implements TreeNode {
 

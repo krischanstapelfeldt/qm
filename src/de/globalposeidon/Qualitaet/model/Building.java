@@ -8,12 +8,11 @@ import javax.swing.tree.TreeNode;
 
 /**
  * building model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Building implements TreeNode {
 
-   private final int ID;
+   private final int id;
    private final DataContainer dc; // parent node
 
    private Renter renter;
@@ -25,7 +24,7 @@ public class Building implements TreeNode {
 
    public Building(final DataContainer dc) {
       entrances = new ArrayList<Entrance>();
-      ID = ((int) (Math.random() * 10000));
+      id = ((int) (Math.random() * 10000));
       this.dc = dc;
    }
 
@@ -40,7 +39,7 @@ public class Building implements TreeNode {
    // access private variables
    // ================================================================================
    public final int getID() {
-      return ID;
+      return id;
    }
 
    public final Renter getRenter() {

@@ -15,8 +15,7 @@ import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.DBWorker;
 
 /**
- * This class contains the main menu
- * 
+ * This class contains the main menu.
  * @author Sebastian Lauber
  */
 

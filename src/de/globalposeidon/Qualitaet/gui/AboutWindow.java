@@ -11,7 +11,7 @@ public class AboutWindow extends JDialog {
    private static final long serialVersionUID = 6372879078251123070L;
    private final Logger logger = LoggerFactory.getLogger(AboutWindow.class);
 
-   public AboutWindow(JFrame parent) {
+   public AboutWindow(final JFrame parent) {
       logger.debug("About window opened");
       setTitle("about");
       // add text

@@ -2,8 +2,7 @@ package de.globalposeidon.Qualitaet.model;
 
 /**
  * renter model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Renter extends Person {
 

@@ -15,7 +15,6 @@ import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
  * This class contains the tests for the apartment class.
- *
  * @author Krischan Stapelfeldt
  */
 public class ApartmentTest extends TestCase {
@@ -48,8 +47,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * create two new apartments. one with specific data, one with empty data.
-    * insert into database.
+    * create two new apartments. one with specific data, one with empty data. insert into database.
     */
    @Test
    public final void testPositiveCreateApartment() {

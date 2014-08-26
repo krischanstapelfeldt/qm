@@ -7,12 +7,11 @@ import javax.swing.tree.TreeNode;
 
 /**
  * meter model.
- * 
- * @author Timm
+ * @author Timm Suhl
  */
 public class Meter implements TreeNode {
 
-   private int ID;
+   private int id;
    private final Entrance entrance; // parent node
    private final Apartment apartment; // parent node
 
@@ -29,7 +28,7 @@ public class Meter implements TreeNode {
    public Meter(final int meterID, final Metertype type, final Entrance entrance) {
       this.entrance = entrance;
       apartment = null;
-      ID = meterID;
+      id = meterID;
       this.type = type;
       currentValue = 0;
       yearValue = 0;
@@ -39,7 +38,7 @@ public class Meter implements TreeNode {
    public Meter(final int meterID, final Metertype type, final Apartment apartment) {
       this.apartment = apartment;
       entrance = null;
-      ID = meterID;
+      id = meterID;
       this.type = type;
       currentValue = 0;
       yearValue = 0;
@@ -50,11 +49,11 @@ public class Meter implements TreeNode {
    // access private variables
    // ================================================================================
    public final int getID() {
-      return ID;
+      return id;
    }
 
    public final void setID(final int iD) {
-      ID = iD;
+      id = iD;
    }
 
    public final int getCurrentValue() {
@@ -107,7 +106,7 @@ public class Meter implements TreeNode {
 
    @Override
    public final String toString() {
-      return (ID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
+      return (id + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);
    }
 
    // ================================================================================

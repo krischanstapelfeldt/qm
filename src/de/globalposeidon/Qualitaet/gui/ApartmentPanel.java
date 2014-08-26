@@ -13,9 +13,6 @@ import de.globalposeidon.Qualitaet.model.Apartment;
 
 public class ApartmentPanel extends JPanel {
 
-   /**
-	 *
-	 */
    private static final long serialVersionUID = 8794147005620814516L;
 
    public ApartmentPanel(final Apartment apartment) {

@@ -10,9 +10,25 @@ import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
 
-public class Launcher {
+/**
+ * This class launches the GUI and datamodel.
+ * @author Sebastian Lauber
+ */
 
-   public static final void main(String[] args) {
+public class Launcher {
+   /**
+    * prevents calls from subclass.
+    */
+   protected Launcher() {
+      throw new UnsupportedOperationException();
+   }
+
+   /**
+    * Mainmethod, fires up everything.
+    * @param args
+    *           No args specified
+    */
+   public static final void main(final String[] args) {
       EventQueue.invokeLater(new Runnable() {
          @Override
          public void run() {
@@ -26,6 +42,10 @@ public class Launcher {
       });
    }
 
+   /**
+    * Creates a new demomodel for the application.
+    * @return Prefilled DataContainer
+    */
    public static DataContainer createRandomModel() {
       final DataContainer dc = new DataContainer();
       final Building b = new Building(dc);
