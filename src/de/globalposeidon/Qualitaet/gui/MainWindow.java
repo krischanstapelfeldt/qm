@@ -99,22 +99,21 @@ public class MainWindow extends JFrame {
 		// Set new panel at the bottom part of the right splitpane
 		final JPanel pnlBottomRight = new JPanel();
 
+		// Set FunktionalPanel
+		JPanel pnlFunction = new JPanel();
+		
 		// Set contentPanel
 		final JPanel cntPanel = new JPanel();
-		
+
 		// declare BorderLayout at contentPanel
 		cntPanel.setLayout(new BorderLayout());
-		
+
 		// declare GroupLayout at leftpanel
 		final GroupLayout glLeftPanel = new GroupLayout(leftPanel);
 
 		// declare GroupLayout at rightpanel
 		final GroupLayout glBottomRightPanel = new GroupLayout(pnlBottomRight);
 		final GroupLayout glTopRightPanel = new GroupLayout(rightPanel);
-
-		// declare seperator
-		final JSeparator seperatorVertical = new JSeparator();
-		seperatorVertical.setOrientation(SwingConstants.VERTICAL);
 
 		// Treemodel with model
 		final MainTreeModel treeModel = new MainTreeModel(model);
@@ -126,28 +125,8 @@ public class MainWindow extends JFrame {
 		final JButton btnAddApartment = new JButton(Strings.ADDAPARTMENT);
 		final JButton btnAddMeter = new JButton(Strings.ADDMETER);
 		final JButton btnAddTenant = new JButton(Strings.ADDTENANT);
-		final JButton btnSave = new JButton(Strings.SAVE);
-		final JButton btnCancel = new JButton(Strings.CANCEL);
+		final JButton btnDelete = new JButton(Strings.DELWSPACE);
 
-		// declare labels
-		final JLabel lblMeterId = new JLabel(Strings.METERID);
-		final JLabel lblMeterSearch = new JLabel(Strings.METERSEARCH);
-		final JLabel lblSort = new JLabel(Strings.SORTBYUNRENTED);
-		final JLabel lblDesReadingVal = new JLabel(Strings.METERREADINGVALUE);
-		final JLabel lblReadingVal = new JLabel(Strings.READINGVALUE);
-
-		// declare textfields
-		final JTextField tfReadingVal = new JTextField();
-		tfReadingVal.setPreferredSize(new Dimension(100, 20));
-		final JTextField tfMeterId = new JTextField();
-		tfMeterId.setPreferredSize(new Dimension(100, 20));
-
-		// declare radiobuttons
-		final JRadioButton rdRented = new JRadioButton(Strings.RENTED);
-		final JRadioButton rdUnrented = new JRadioButton(Strings.UNRENTED);
-
-		// declare buttongroup
-		final ButtonGroup rdGroup = new ButtonGroup();
 
 		// set buttons disabled to make them depending on node selection
 		btnAddEntrance.setEnabled(false);
@@ -155,9 +134,8 @@ public class MainWindow extends JFrame {
 		btnAddMeter.setEnabled(false);
 		btnAddTenant.setEnabled(false);
 
-		// add radiobuttons to a group
-		rdGroup.add(rdRented);
-		rdGroup.add(rdUnrented);
+		// add FunctionPanel on BottomRightPanel
+		pnlFunction.add(new FunctionPanel());
 
 		// order Grouplayout in the leftsplit
 		glLeftPanel
@@ -208,6 +186,11 @@ public class MainWindow extends JFrame {
 																								btnAddEntrance,
 																								GroupLayout.DEFAULT_SIZE,
 																								GroupLayout.DEFAULT_SIZE,
+																								Short.MAX_VALUE)
+																						.addComponent(
+																								btnDelete,
+																								GroupLayout.DEFAULT_SIZE,
+																								GroupLayout.DEFAULT_SIZE,
 																								Short.MAX_VALUE))
 																		.addContainerGap()))));
 
@@ -226,172 +209,37 @@ public class MainWindow extends JFrame {
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(btnAddMeter)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(btnAddTenant).addContainerGap()));
+						.addComponent(btnAddTenant)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(btnDelete).addContainerGap()));
 
 		leftPanel.setLayout(glLeftPanel);
 
-		// order Layout at the bottom part of the right splitpane
-		glBottomRightPanel
-				.setHorizontalGroup(glBottomRightPanel
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(
-								glBottomRightPanel
-										.createSequentialGroup()
-										.addGroup(
-												glBottomRightPanel
-														.createParallelGroup(
-																Alignment.TRAILING,
-																false)
-														.addGroup(
-																glBottomRightPanel
-																		.createSequentialGroup()
-																		.addContainerGap(
-																				GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addComponent(
-																				btnSave))
-														.addGroup(
-																Alignment.LEADING,
-																glBottomRightPanel
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				glBottomRightPanel
-																						.createParallelGroup(
-																								Alignment.LEADING)
-																						.addComponent(
-																								lblMeterSearch)
-																						.addGroup(
-																								glBottomRightPanel
-																										.createSequentialGroup()
-																										.addComponent(
-																												lblMeterId)
-																										.addPreferredGap(
-																												ComponentPlacement.RELATED)
-																										.addComponent(
-																												tfMeterId,
-																												GroupLayout.PREFERRED_SIZE,
-																												GroupLayout.DEFAULT_SIZE,
-																												GroupLayout.PREFERRED_SIZE)))))
-										.addGap(25)
-										.addGroup(
-												glBottomRightPanel
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addGroup(
-																glBottomRightPanel
-																		.createSequentialGroup()
-																		.addGroup(
-																				glBottomRightPanel
-																						.createParallelGroup(
-																								Alignment.TRAILING)
-																						.addComponent(
-																								lblDesReadingVal,
-																								Alignment.LEADING)
-																						.addGroup(
-																								glBottomRightPanel
-																										.createSequentialGroup()
-																										.addComponent(
-																												lblReadingVal)
-																										.addPreferredGap(
-																												ComponentPlacement.RELATED)
-																										.addComponent(
-																												tfReadingVal,
-																												GroupLayout.PREFERRED_SIZE,
-																												GroupLayout.DEFAULT_SIZE,
-																												GroupLayout.PREFERRED_SIZE)))
-																		.addGap(20)
-																		.addComponent(
-																				seperatorVertical,
-																				GroupLayout.PREFERRED_SIZE,
-																				GroupLayout.DEFAULT_SIZE,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addGap(25)
-																		.addGroup(
-																				glBottomRightPanel
-																						.createParallelGroup(
-																								Alignment.LEADING)
-																						.addComponent(
-																								rdUnrented)
-																						.addComponent(
-																								rdRented)
-																						.addComponent(
-																								lblSort)))
-														.addComponent(btnCancel))
-										.addContainerGap()));
+		// SET BOTTOM PANEL
+
+
+
+		glBottomRightPanel.setHorizontalGroup(glBottomRightPanel
+				.createParallelGroup(Alignment.LEADING).addComponent(pnlFunction,
+						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+						Short.MAX_VALUE)
+
+		);
 
 		glBottomRightPanel
-				.setVerticalGroup(glBottomRightPanel
-						.createParallelGroup(Alignment.TRAILING)
-						.addGroup(
-								glBottomRightPanel
-										.createSequentialGroup()
-										.addContainerGap(25, Short.MAX_VALUE)
-										.addGroup(
-												glBottomRightPanel
-														.createParallelGroup(
-																Alignment.LEADING)
-														.addComponent(
-																seperatorVertical,
-																GroupLayout.PREFERRED_SIZE,
-																90,
-																GroupLayout.PREFERRED_SIZE)
-														.addGroup(
-																glBottomRightPanel
-																		.createSequentialGroup()
-																		.addComponent(
-																				lblSort)
-																		.addGap(20)
-																		.addComponent(
-																				rdRented)
-																		.addPreferredGap(
-																				ComponentPlacement.UNRELATED)
-																		.addComponent(
-																				rdUnrented))
-														.addGroup(
-																glBottomRightPanel
-																		.createSequentialGroup()
-																		.addGroup(
-																				glBottomRightPanel
-																						.createParallelGroup(
-																								Alignment.BASELINE)
-																						.addComponent(
-																								lblMeterSearch)
-																						.addComponent(
-																								lblDesReadingVal))
-																		.addGap(20)
-																		.addGroup(
-																				glBottomRightPanel
-																						.createParallelGroup(
-																								Alignment.BASELINE)
-																						.addComponent(
-																								lblMeterId)
-																						.addComponent(
-																								tfMeterId,
-																								GroupLayout.PREFERRED_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								tfReadingVal,
-																								GroupLayout.PREFERRED_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								lblReadingVal))))
-										.addPreferredGap(
-												ComponentPlacement.RELATED)
-										.addGroup(
-												glBottomRightPanel
-														.createParallelGroup(
-																Alignment.BASELINE)
-														.addComponent(btnSave)
-														.addComponent(btnCancel))));
+				.setVerticalGroup(glBottomRightPanel.createParallelGroup(
+						Alignment.LEADING).addGroup(
+						glBottomRightPanel
+								.createSequentialGroup()
+
+								.addComponent(pnlFunction, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE).addGap(20)));
 
 		pnlBottomRight.setLayout(glBottomRightPanel);
 
-		
 		// order Layout at the Top part of the right splitpane
-		
+
 		glTopRightPanel.setHorizontalGroup(glTopRightPanel
 				.createParallelGroup(Alignment.LEADING)
 				.addComponent(pnlBottomRight, GroupLayout.PREFERRED_SIZE,
@@ -403,24 +251,21 @@ public class MainWindow extends JFrame {
 
 		glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(
 				Alignment.LEADING).addGroup(
-				glTopRightPanel.createSequentialGroup()
-				 .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE,
-				 GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+				glTopRightPanel
+						.createSequentialGroup()
+						.addComponent(cntPanel, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addComponent(pnlBottomRight,
 								GroupLayout.PREFERRED_SIZE,
 								GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE).addGap(20)));
 
-	
 		rightPanel.setLayout(glTopRightPanel);
-	
-		
 
-		
+
 		// popup-menu for tree
 		addPopup(tree, new MainPopupMenu());
 
-		
 		// TODO: make classes for right side panel
 		// tree with single selection mode
 		tree.getSelectionModel().setSelectionMode(
@@ -437,7 +282,7 @@ public class MainWindow extends JFrame {
 					btnAddMeter.setEnabled(false);
 					btnAddTenant.setEnabled(false);
 					return;
-					
+
 				}
 				/* React to the node selection. */
 				if (node instanceof Building) {
@@ -467,10 +312,10 @@ public class MainWindow extends JFrame {
 					btnAddApartment.setEnabled(true);
 					btnAddMeter.setEnabled(true);
 					btnAddTenant.setEnabled(false);
-					
+
 					// set right panel
 					cntPanel.add(new EntrancePanel(selectedEntrance()));
-					
+
 				} else if (node instanceof Apartment) {
 					System.out.println("selected an apartment with ID: "
 							+ ((Apartment) node).getID());
@@ -480,12 +325,11 @@ public class MainWindow extends JFrame {
 					btnAddApartment.setEnabled(true);
 					btnAddMeter.setEnabled(true);
 					btnAddTenant.setEnabled(true);
-					
+
 					// set right panel
 					cntPanel.add(new ApartmentPanel(selectedApartment()));
 
-				}
-				else if (node instanceof Meter) {
+				} else if (node instanceof Meter) {
 					System.out.println("selected an Meter with ID: "
 							+ ((Meter) node).getID());
 					setCurrentMeter((Meter) node);
@@ -494,7 +338,7 @@ public class MainWindow extends JFrame {
 					btnAddApartment.setEnabled(true);
 					btnAddMeter.setEnabled(true);
 					btnAddTenant.setEnabled(true);
-					
+
 					// set right panel
 					cntPanel.add(new MeterPanel(selectedMeter()));
 				} else {
@@ -502,10 +346,9 @@ public class MainWindow extends JFrame {
 					btnAddApartment.setEnabled(false);
 					btnAddMeter.setEnabled(false);
 					btnAddTenant.setEnabled(false);
-					
-					
+
 				}
-				
+
 			}
 		});
 
@@ -635,15 +478,15 @@ public class MainWindow extends JFrame {
 
 		return currentApartment;
 	}
-	
-	
+
 	private void setCurrentMeter(final Meter meter) {
 
 		currentMeter = meter;
 	}
+
 	private Meter selectedMeter() {
 
 		return currentMeter;
 	}
-	
+
 }

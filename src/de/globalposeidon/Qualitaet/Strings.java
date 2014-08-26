@@ -42,7 +42,12 @@ public final class Strings {
 	public static final String UNRENTED = "unrented";
 	public static final String VALUE = "value";
 	public static final String ZIP = "ZIP Code";
+	public static final String SEARCH = "search";
+	public static final String MAKEREADING = "make reading";
+	public static final String READINGPERSON = "reading person";
+	public static final String UNSORTED = "unsorted";
 
+	
 	// advanced terms
 	public static final String ADDAPARTMENT = ADDWSPACE + APARTMENT;
 	public static final String ADDBUILDING = ADDWSPACE + BUILDING;
@@ -75,5 +80,7 @@ public final class Strings {
 	public static final String SORTBYUNRENTED = "sort by " + RENTED + "/"
 			+ UNRENTED;
 	public static final String TENANTDETAILS = TENANT + " " + DETAILS;
+
+
 
 }
