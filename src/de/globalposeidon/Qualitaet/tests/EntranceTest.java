@@ -13,6 +13,7 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.Metertype;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
@@ -28,8 +29,8 @@ public class EntranceTest extends TestCase {
 	private DataContainer dataContainer;
 	private Building building;
 	private Entrance entrance;
-	private Apartment initialApartment;
-	private Meter initialMeter;
+	private Apartment apartment;
+	private Meter meter;
 	private ArrayList<Meter> meters;
 	private ArrayList<Apartment> apartments;
 
@@ -46,10 +47,12 @@ public class EntranceTest extends TestCase {
 		dataContainer = new DataContainer();
 		building = new Building(dataContainer);
 		entrance = new Entrance(building);
+		apartment = new Apartment(entrance);
+		meter = new Meter(001, Metertype.GAS, entrance);
 		
 		meters = new ArrayList<Meter>();
 		apartments = new ArrayList<Apartment>();
-		entranceWithApartment = new Entrance(initialApartment, building);
+		entranceWithApartment = new Entrance(apartment, building);
 		
 	}
 
@@ -64,10 +67,13 @@ public class EntranceTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveCreateEntrance() {
-
-		assertEquals("", null, entranceWithApartment);
-		assertEquals("", null, entranceWithApartmentAndMeter = new Entrance(
-				initialApartment, initialMeter, building));
+		
+		assertNotNull(entrance);
+// TODO: One with specific data
+//		assertNotNull();
+//		assertEquals("", null, entranceWithApartment);
+//		assertEquals("", null, entranceWithApartmentAndMeter = new Entrance(
+//				initialApartment, initialMeter, building));
 
 	}
 
@@ -76,8 +82,10 @@ public class EntranceTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveAddMeter() {
-
-		assertEquals("", null, meters.add(initialMeter));
+		
+		entrance.addMeter(meter);
+		assertEquals("", meter, entrance.getMeter(0));
+//		assertEquals("", null, meters.add(initialMeter));
 
 	}
 
@@ -86,8 +94,9 @@ public class EntranceTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveGetMeter() {
-
-		assertEquals("", initialMeter, meters.get(0));
+		
+		entrance.addMeter(meter);
+		assertEquals("", meter, entrance.getMeter(0));
 
 	}
 
@@ -96,8 +105,9 @@ public class EntranceTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveRemoveMeter() {
-
-		assertEquals("", null, meters.remove(0));
+		
+		entrance.addMeter(meter);
+		assertEquals("", meter, entrance.removeMeter(0));
 
 	}
 
@@ -107,7 +117,8 @@ public class EntranceTest extends TestCase {
 	@Test
 	public final void testPositiveAddApartment() {
 
-		assertEquals("", null, apartments.add(initialApartment));
+		entrance.addApartment(apartment);
+		assertEquals("", apartment, entrance.getApartment(0));
 
 	}
 
@@ -116,9 +127,9 @@ public class EntranceTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveGetApartment() {
-
-		assertEquals("", initialApartment, meters.get(0));
-
+		
+		entrance.addApartment(apartment);
+		assertEquals("", apartment, entrance.getApartment(0));
 	}
 
 	/**
@@ -126,8 +137,9 @@ public class EntranceTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveRemoveApartment() {
-
-		assertEquals("", true, apartments.remove(0));
+		
+		entrance.addApartment(apartment);
+		assertEquals("", apartment, entrance.removeApartment(0));
 
 	}
 
@@ -165,7 +177,7 @@ public class EntranceTest extends TestCase {
 	@Test
 	public final void testPositiveEntranceIsEmpty() {
 
-		assertEquals("", true, entranceWithApartmentAndMeter.entranceIsEmpty());
+		assertEquals("", true, entrance.entranceIsEmpty());
 
 	}
 
@@ -175,7 +187,7 @@ public class EntranceTest extends TestCase {
 	@Test
 	public final void testPositiveGetEntrance() {
 
-		assertEquals("", "", entranceWithApartmentAndMeter.toString());
+		assertEquals("", "", entrance.toString());
 
 	}
 
