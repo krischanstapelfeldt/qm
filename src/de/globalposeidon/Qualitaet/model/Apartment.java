@@ -29,15 +29,15 @@ public class Apartment implements TreeNode {
 		ID = ((int) (Math.random() * 10000));
 	}
 
-	public Apartment(final Meter initialMeter, final Entrance entrance) {
-		this(entrance);
-		meters.add(initialMeter);
-	}
-
-	public Apartment(final Meter initialMeter, final Tenant initialTenant, final Entrance entrance) {
-		this(initialMeter, entrance);
-		tenants.add(initialTenant);
-	}
+//	public Apartment(final Meter initialMeter, final Entrance entrance) {
+//		this(entrance);
+//		meters.add(initialMeter);
+//	}
+//
+//	public Apartment(final Meter initialMeter, final Tenant initialTenant, final Entrance entrance) {
+//		this(initialMeter, entrance);
+//		tenants.add(initialTenant);
+//	}
 
 	// ================================================================================
 	// access private variables

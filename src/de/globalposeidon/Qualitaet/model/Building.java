@@ -28,11 +28,11 @@ public class Building implements TreeNode {
 		this.dc = dc;
 	}
 
-	public Building(final Renter renter, final Entrance initialEntrance, final DataContainer dc) {
-		this(dc);
-		addEntrance(initialEntrance);
-		this.renter = renter;
-	}
+//	public Building(final Renter renter, final Entrance initialEntrance, final DataContainer dc) {
+//		this(dc);
+//		addEntrance(initialEntrance);
+//		this.renter = renter;
+//	}
 
 	// ================================================================================
 	// access private variables

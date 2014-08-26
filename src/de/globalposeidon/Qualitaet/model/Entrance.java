@@ -29,16 +29,16 @@ public class Entrance implements TreeNode {
 		ID = ((int) (Math.random() * 10000));
 	}
 
-	public Entrance(final Apartment initialApartment, final Building building) {
-		this(building);
-		addApartment(initialApartment);
-	}
-
-	public Entrance(final Apartment initialApartment, final Meter initialMeter,
-			final Building building) {
-		this(initialApartment, building);
-		addMeter(initialMeter);
-	}
+//	public Entrance(final Apartment initialApartment, final Building building) {
+//		this(building);
+//		addApartment(initialApartment);
+//	}
+//
+//	public Entrance(final Apartment initialApartment, final Meter initialMeter,
+//			final Building building) {
+//		this(initialApartment, building);
+//		addMeter(initialMeter);
+//	}
 
 	// ================================================================================
 	// access private variables

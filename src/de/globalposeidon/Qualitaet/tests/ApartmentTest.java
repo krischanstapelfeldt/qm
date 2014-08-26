@@ -39,7 +39,7 @@ public class ApartmentTest extends TestCase {
 		dataContainer = new DataContainer();
 		building = new Building(dataContainer);
 		entrance = new Entrance(building);
-		apartment = new Apartment(initialMeter, entrance);
+		apartment = new Apartment(entrance);
 	}
 
 	@Override
@@ -55,8 +55,8 @@ public class ApartmentTest extends TestCase {
 	public final void testPositiveCreateApartment() {
 
 		assertEquals("", null, apartment);
-		assertEquals("", null, new Apartment(initialMeter, initialTenant,
-				entrance));
+//		assertEquals("", null, new Apartment(initialMeter, initialTenant,
+//				entrance));
 
 	}
 
