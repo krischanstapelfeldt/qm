@@ -17,199 +17,198 @@ import de.globalposeidon.Qualitaet.model.Tenant;
  * This class contains the tests for the apartment class.
  *
  * @author Krischan Stapelfeldt
- *
  */
 public class ApartmentTest extends TestCase {
 
-	private DataContainer dataContainer;
-	private Building building;
-	private Entrance entrance;
-	private Apartment apartment;
-	private Meter meter;
-	private Tenant tenant;
+   private DataContainer dataContainer;
+   private Building building;
+   private Entrance entrance;
+   private Apartment apartment;
+   private Meter meter;
+   private Tenant tenant;
 
-	@Override
-	@Before
-	/**
-	 * Ramps the necessary objects up (dataContainer, building, entrance,
-	 * apartment).
-	 * @throws Throws an exception, when it explodes.
-	 */
-	public final void setUp() throws Exception {
-		dataContainer = new DataContainer();
-		building = new Building(dataContainer);
-		entrance = new Entrance(building);
-		apartment = new Apartment(entrance);
-		
-	}
+   @Override
+   @Before
+   /**
+    * Ramps the necessary objects up (dataContainer, building, entrance,
+    * apartment).
+    * @throws Throws an exception, when it explodes.
+    */
+   public final void setUp() throws Exception {
+      dataContainer = new DataContainer();
+      building = new Building(dataContainer);
+      entrance = new Entrance(building);
+      apartment = new Apartment(entrance);
 
-	@Override
-	@After
-	public void tearDown() throws Exception {
-	}
+   }
 
-	/**
-	 * create two new apartments. one with specific data, one with empty data.
-	 * insert into database.
-	 */
-	@Test
-	public final void testPositiveCreateApartment() {
+   @Override
+   @After
+   public void tearDown() throws Exception {
+   }
 
-		assertNotNull(apartment);
-	}
+   /**
+    * create two new apartments. one with specific data, one with empty data.
+    * insert into database.
+    */
+   @Test
+   public final void testPositiveCreateApartment() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testGetID() {
+      assertNotNull(apartment);
+   }
 
-		assertNotNull((Integer) apartment.getID());
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetID() {
 
-	/**
-	 * add meter to selected apartment. insert into database.
-	 */
-	@Test
-	public final void testPositiveAddMeter() {
-		apartment.addMeter(meter);
-		assertEquals("", meter, apartment.getMeter(0));
+      assertNotNull(apartment.getID());
+   }
 
-	}
+   /**
+    * add meter to selected apartment. insert into database.
+    */
+   @Test
+   public final void testPositiveAddMeter() {
+      apartment.addMeter(meter);
+      assertEquals("", meter, apartment.getMeter(0));
 
-	/**
-	 * get meter from selected apartment. load from database.
-	 */
-	@Test
-	public final void testPositiveGetMeter() {
+   }
 
-		apartment.addMeter(meter);
-		assertEquals("", meter, apartment.getMeter(0));
-	}
+   /**
+    * get meter from selected apartment. load from database.
+    */
+   @Test
+   public final void testPositiveGetMeter() {
 
-	/**
-	 * get meter from selected apartment. load from database.
-	 */
-	@Test
-	public final void testNegativeGetMeter() {
+      apartment.addMeter(meter);
+      assertEquals("", meter, apartment.getMeter(0));
+   }
 
-		assertEquals("", null, apartment.getMeter(0));
-	}
+   /**
+    * get meter from selected apartment. load from database.
+    */
+   @Test
+   public final void testNegativeGetMeter() {
 
-	/**
-	 * bla..
-	 */
-	@Test
-	public final void testPositiveRemoveMeter() {
+      assertEquals("", null, apartment.getMeter(0));
+   }
 
-		apartment.addMeter(meter);
-		assertEquals("", meter, apartment.removeMeter(0));
-	}
+   /**
+    * bla..
+    */
+   @Test
+   public final void testPositiveRemoveMeter() {
 
-	/**
-	 * remove meter from selected ArrayList. delete from database.
-	 */
-	@Test
-	public final void testNegativeRemoveMeter() {
+      apartment.addMeter(meter);
+      assertEquals("", meter, apartment.removeMeter(0));
+   }
 
-		assertEquals("", null, apartment.removeMeter(0));
-	}
+   /**
+    * remove meter from selected ArrayList. delete from database.
+    */
+   @Test
+   public final void testNegativeRemoveMeter() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testMeterCount() {
+      assertEquals("", null, apartment.removeMeter(0));
+   }
 
-		assertEquals("", 0, apartment.meterCount());
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testMeterCount() {
 
-	/**
-	 * add tenant to selected apartment. insert into database.
-	 */
-	@Test
-	public final void testPositiveAddTenant() {
+      assertEquals("", 0, apartment.meterCount());
+   }
 
-		assertEquals("", true, apartment.addTenant(tenant));
-	}
+   /**
+    * add tenant to selected apartment. insert into database.
+    */
+   @Test
+   public final void testPositiveAddTenant() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testNegativeAddTenant() {
+      assertEquals("", true, apartment.addTenant(tenant));
+   }
 
-		apartment.addTenant(new Tenant());
-		apartment.addTenant(new Tenant());
-		apartment.addTenant(new Tenant());
-		apartment.addTenant(new Tenant());
-		assertEquals("", false, apartment.addTenant(tenant));
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testNegativeAddTenant() {
 
-	/**
-	 * get tenant from selected apartment. load from database.
-	 */
-	@Test
-	public final void testPositiveGetTenant() {
+      apartment.addTenant(new Tenant());
+      apartment.addTenant(new Tenant());
+      apartment.addTenant(new Tenant());
+      apartment.addTenant(new Tenant());
+      assertEquals("", false, apartment.addTenant(tenant));
+   }
 
-		apartment.addTenant(tenant);
-		assertEquals("", tenant, apartment.getTenant(0));
-	}
+   /**
+    * get tenant from selected apartment. load from database.
+    */
+   @Test
+   public final void testPositiveGetTenant() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testNegativeGetTenant() {
+      apartment.addTenant(tenant);
+      assertEquals("", tenant, apartment.getTenant(0));
+   }
 
-		assertEquals("", null, apartment.getTenant(0));
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testNegativeGetTenant() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testPositiveRemoveTenant() {
+      assertEquals("", null, apartment.getTenant(0));
+   }
 
-		apartment.addTenant(tenant);
-		assertEquals("", tenant, apartment.removeTenant(0));
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testPositiveRemoveTenant() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testNegativeRemoveTenant() {
+      apartment.addTenant(tenant);
+      assertEquals("", tenant, apartment.removeTenant(0));
+   }
 
-		assertEquals("", null, apartment.removeTenant(0));
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testNegativeRemoveTenant() {
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testTenantCount() {
+      assertEquals("", null, apartment.removeTenant(0));
+   }
 
-		assertEquals("", 0, apartment.tenantCount());
-	}
+   /**
+    * bla.
+    */
+   @Test
+   public final void testTenantCount() {
 
-	/**
-	 * get boolean if apartment is empty. load from database.
-	 */
-	@Test
-	public final void testPositiveApartmentIsEmpty() {
+      assertEquals("", 0, apartment.tenantCount());
+   }
 
-		assertEquals("", true, apartment.apartmentIsEmpty());
-	}
+   /**
+    * get boolean if apartment is empty. load from database.
+    */
+   @Test
+   public final void testPositiveApartmentIsEmpty() {
 
-	/**
-	 * get boolean if apartment is empty. load from database.
-	 */
-	@Test
-	public final void testNegativeApartmentIsEmpty() {
+      assertEquals("", true, apartment.apartmentIsEmpty());
+   }
 
-		apartment.addTenant(tenant);
-		assertEquals("", false, apartment.apartmentIsEmpty());
-	}
+   /**
+    * get boolean if apartment is empty. load from database.
+    */
+   @Test
+   public final void testNegativeApartmentIsEmpty() {
+
+      apartment.addTenant(tenant);
+      assertEquals("", false, apartment.apartmentIsEmpty());
+   }
 
 }

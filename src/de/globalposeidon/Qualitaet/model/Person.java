@@ -2,81 +2,81 @@ package de.globalposeidon.Qualitaet.model;
 
 /**
  * person model.
+ * 
  * @author Timm
- *
  */
 public class Person {
 
-	private int ID;
+   private int ID;
 
-	private String name;
-	private String surname;
-	private String phone;
-	private String email;
+   private String name;
+   private String surname;
+   private String phone;
+   private String email;
 
-	// ================================================================================
-	// constructor
-	// ================================================================================
-	public Person() {
-		// some standard value for empty person
-		this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
-	}
+   // ================================================================================
+   // constructor
+   // ================================================================================
+   public Person() {
+      // some standard value for empty person
+      this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
+   }
 
-	public Person(final String name, final String surname, final String phone,final String email) {
-		this.name = name;
-		this.surname = surname;
-		this.phone = phone;
-		this.email = email;
-	}
+   public Person(final String name, final String surname, final String phone, final String email) {
+      this.name = name;
+      this.surname = surname;
+      this.phone = phone;
+      this.email = email;
+   }
 
-	// ================================================================================
-	// getter setter
-	// ================================================================================
-	public final int getID() {
-		return ID;
-	}
+   // ================================================================================
+   // getter setter
+   // ================================================================================
+   public final int getID() {
+      return ID;
+   }
 
-	public final void setID(final int iD) {
-		ID = iD;
-	}
+   public final void setID(final int iD) {
+      ID = iD;
+   }
 
-	public final String getName() {
-		return name;
-	}
+   public final String getName() {
+      return name;
+   }
 
-	public final void setName(final String name) {
-		this.name = name;
-	}
+   public final void setName(final String name) {
+      this.name = name;
+   }
 
-	public final String getSurname() {
-		return surname;
-	}
+   public final String getSurname() {
+      return surname;
+   }
 
-	public final void setSurname(final String surname) {
-		this.surname = surname;
-	}
+   public final void setSurname(final String surname) {
+      this.surname = surname;
+   }
 
-	public final String getPhone() {
-		return phone;
-	}
+   public final String getPhone() {
+      return phone;
+   }
 
-	public final void setPhone(final String phone) {
-		this.phone = phone;
-	}
+   public final void setPhone(final String phone) {
+      this.phone = phone;
+   }
 
-	public final String getEmail() {
-		return email;
-	}
+   public final String getEmail() {
+      return email;
+   }
 
-	public final void setEmail(final String email) {
-		this.email = email;
-	}
+   public final void setEmail(final String email) {
+      this.email = email;
+   }
 
-	// ================================================================================
-	// other stuff, dont know nice name
-	// ================================================================================
-	@Override
-	public final String toString() {
-		return (surname + ", " + name + " " + phone + " " + email);
-	}
+   // ================================================================================
+   // other stuff, dont know nice name
+   // ================================================================================
+   @Override
+   public final String toString() {
+      return (surname + ", " + name + " " + phone + " " + email);
+   }
 }

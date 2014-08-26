@@ -19,162 +19,159 @@ import de.globalposeidon.Qualitaet.model.Metertype;
  * This class contains the tests for the meter class.
  *
  * @author Krischan Stapelfeldt
- *
  */
 public class MeterTest extends TestCase {
 
-	private DataContainer dataContainer;
-	private Building building;
-	private Entrance entrance;
-	private Apartment apartment;
-	private Meter meter;
-	private int meterID;
-	private Metertype type;
-	private int currentValue;
-	private int yearValue;
-	private Date lastRead;
+   private DataContainer dataContainer;
+   private Building building;
+   private Entrance entrance;
+   private Apartment apartment;
+   private Meter meter;
+   private int meterID;
+   private Metertype type;
+   private int currentValue;
+   private int yearValue;
+   private Date lastRead;
 
-	@Override
-	@Before
-	/**
-	 * Ramps the necessary objects up (dataContainer, building, meters,
-	 * entrance, apartment).
-	 * 
-	 * @throws Exception
-	 *             thrown, when setup crashes
-	 */
-	public final void setUp() throws Exception {
-		dataContainer = new DataContainer();
-		building = new Building(dataContainer);
-		entrance = new Entrance(building);
-		apartment = new Apartment(entrance);
-		meterID = (int) new Date().getTime();
-		type = Metertype.GAS;
-		currentValue = 0;
-		yearValue = 0;
-		lastRead = new Date();
-		meter = new Meter(meterID, type, apartment);
-	}
+   @Override
+   @Before
+   /**
+    * Ramps the necessary objects up (dataContainer, building, meters,
+    * entrance, apartment).
+    *
+    * @throws Exception
+    *             thrown, when setup crashes
+    */
+   public final void setUp() throws Exception {
+      dataContainer = new DataContainer();
+      building = new Building(dataContainer);
+      entrance = new Entrance(building);
+      apartment = new Apartment(entrance);
+      meterID = (int) new Date().getTime();
+      type = Metertype.GAS;
+      currentValue = 0;
+      yearValue = 0;
+      lastRead = new Date();
+      meter = new Meter(meterID, type, apartment);
+   }
 
-	@Override
-	@After
-	public void tearDown() throws Exception {
-	}
+   @Override
+   @After
+   public void tearDown() throws Exception {
+   }
 
-	/**
-	 * create new meter with specific data. insert into database.
-	 */
-	@Test
-	public final void testPositiveCreateMeter() {
+   /**
+    * create new meter with specific data. insert into database.
+    */
+   @Test
+   public final void testPositiveCreateMeter() {
 
-		assertEquals("", (meterID + " " + type + " " + currentValue + " "
-				+ yearValue + " " + lastRead).toString(), meter.toString());
+      assertEquals("", (meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead).toString(), meter.toString());
 
-	}
+   }
 
-	/**
-	 * get ID from selected meter. load from database.
-	 */
-	@Test
-	public final void testPositiveGetMeterID() {
+   /**
+    * get ID from selected meter. load from database.
+    */
+   @Test
+   public final void testPositiveGetMeterID() {
 
-		assertEquals("", meterID, meter.getID());
+      assertEquals("", meterID, meter.getID());
 
-	}
+   }
 
-	/**
-	 * get type from selected meter. load from database.
-	 */
-	@Test
-	public void testPositiveGetType() {
-		// assertEquals("", type, meter.getType());
+   /**
+    * get type from selected meter. load from database.
+    */
+   @Test
+   public void testPositiveGetType() {
+      // assertEquals("", type, meter.getType());
 
-	}
+   }
 
-	/**
-	 * get current value from selected meter. load from database.
-	 */
-	@Test
-	public final void testPositiveGetCurrentValue() {
+   /**
+    * get current value from selected meter. load from database.
+    */
+   @Test
+   public final void testPositiveGetCurrentValue() {
 
-		assertEquals("", currentValue, meter.getCurrentValue());
+      assertEquals("", currentValue, meter.getCurrentValue());
 
-	}
+   }
 
-	/**
-	 * set current value for selected meter. insert into database.
-	 */
-	@Test
-	public final void testPositiveSetCurrentValue() {
-		meter.setCurrentValue(meter.getCurrentValue() + 555);
-		assertEquals("", currentValue + 555, meter.getCurrentValue());
+   /**
+    * set current value for selected meter. insert into database.
+    */
+   @Test
+   public final void testPositiveSetCurrentValue() {
+      meter.setCurrentValue(meter.getCurrentValue() + 555);
+      assertEquals("", currentValue + 555, meter.getCurrentValue());
 
-	}
+   }
 
-	/**
-	 * get year value from selected meter. load from database.
-	 */
-	@Test
-	public final void testPositiveGetYearValue() {
+   /**
+    * get year value from selected meter. load from database.
+    */
+   @Test
+   public final void testPositiveGetYearValue() {
 
-		assertEquals("", yearValue, meter.getYearValue());
+      assertEquals("", yearValue, meter.getYearValue());
 
-	}
+   }
 
-	/**
-	 * set year value for selected meter. insert into database.
-	 */
-	@Test
-	public final void testPositiveSetYearYalue() {
-		meter.setYearValue(meter.getYearValue() + 111);
-		assertEquals("", yearValue + 111, meter.getYearValue());
+   /**
+    * set year value for selected meter. insert into database.
+    */
+   @Test
+   public final void testPositiveSetYearYalue() {
+      meter.setYearValue(meter.getYearValue() + 111);
+      assertEquals("", yearValue + 111, meter.getYearValue());
 
-	}
+   }
 
-	/**
-	 * get last reading from selected meter. load from database.
-	 */
-	@Test
-	public final void testPositiveGetLastRead() {
+   /**
+    * get last reading from selected meter. load from database.
+    */
+   @Test
+   public final void testPositiveGetLastRead() {
 
-		assertEquals("", lastRead, meter.getLastRead());
+      assertEquals("", lastRead, meter.getLastRead());
 
-	}
+   }
 
-	/**
-	 * set last reading for selected meter. insert into database.
-	 */
-	@Test
-	public final void testPositiveSetLastRead() {
-		final Date newDate = new Date();
-		newDate.setTime(meter.getLastRead().getTime() + 1 * 24 * 60 * 60 * 1000); // add
-		// one
-		// day
+   /**
+    * set last reading for selected meter. insert into database.
+    */
+   @Test
+   public final void testPositiveSetLastRead() {
+      final Date newDate = new Date();
+      newDate.setTime(meter.getLastRead().getTime() + 1 * 24 * 60 * 60 * 1000); // add
+      // one
+      // day
 
-		meter.setLastRead(newDate);
-		assertEquals("", newDate, meter.getLastRead());
+      meter.setLastRead(newDate);
+      assertEquals("", newDate, meter.getLastRead());
 
-	}
+   }
 
-	/**
-	 * TODO BESCHREIBEN!!!
-	 */
-	@Test
-	public void testPositiveMakeReading() {
+   /**
+    * TODO BESCHREIBEN!!!
+    */
+   @Test
+   public void testPositiveMakeReading() {
 
-		// TODO: implement testPositiveMakeReading()
+      // TODO: implement testPositiveMakeReading()
 
-	}
+   }
 
-	/**
-	 * get meter with data from database.
-	 */
-	@Test
-	public final void testPositiveGetMeter() {
+   /**
+    * get meter with data from database.
+    */
+   @Test
+   public final void testPositiveGetMeter() {
 
-		assertEquals("", meterID + " " + type + " " + currentValue + " "
-				+ yearValue + " " + lastRead, meter.toString());
+      assertEquals("", meterID + " " + type + " " + currentValue + " " + yearValue + " " + lastRead, meter.toString());
 
-	}
+   }
 
 }
