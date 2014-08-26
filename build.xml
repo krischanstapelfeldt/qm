@@ -115,7 +115,7 @@
 	<class location='${release-bin.dir}' />
 	<auxClasspath refid="qm.classpath" />
 </fb:findbugs>
-<xslt style="${lib.dir}/findbugs/fancy.xsl" in="${findbugs.output.dir}/findbugs.xml" out="${findbugs.output.dir}/index.html" />
+	<xslt style="${lib.dir}/findbugs/fancy.xsl" in="${findbugs.output.dir}/findbugs.xml" out="${findbugs.output.dir}/index.html"/>
 </target>
 <target name="jacoco-instrument" depends="build-project" description="Generates instrumented binaries for JaCoCo in bin/instrumented">
 <jacoco:instrument destdir="${jacoco.instr.dir}">
@@ -170,9 +170,7 @@
 	</executiondata>
 	<structure name="${ant.project.name}">
 		<classfiles>
-			<fileset dir="bin/release">
-				<exclude name="**/*Test*.class" />
-			</fileset>
+			<fileset dir="bin/release" />
 		</classfiles>
 		<sourcefiles encoding="UTF-8">
 			<fileset dir="src" />
