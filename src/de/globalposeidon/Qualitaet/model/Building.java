@@ -68,7 +68,7 @@ public class Building implements TreeNode {
 		return null;
 	}
 
-	public final int getEntrancesCount() {
+	public final int entranceCount() {
 		return entrances.size();
 	}
 

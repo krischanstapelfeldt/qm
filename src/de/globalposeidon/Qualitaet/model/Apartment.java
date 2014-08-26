@@ -68,6 +68,12 @@ public class Apartment implements TreeNode {
 	public final Meter removeMeter(final int index) {
 		return meters.remove(index);
 	}
+
+
+	public final int meterCount() {
+		return meters.size();
+	}
+
 	private final int maxTenants = 4;
 	public final boolean addTenant(final Tenant tentant) {
 		if (tenants.size() < maxTenants + 1) { // max 4 tenants for each apartment
@@ -88,6 +94,9 @@ public class Apartment implements TreeNode {
 		return tenants.remove(index);
 	}
 
+	public final int tenantCount() {
+		return tenants.size();
+	}
 	// ================================================================================
 	// other stuff...
 	// ================================================================================

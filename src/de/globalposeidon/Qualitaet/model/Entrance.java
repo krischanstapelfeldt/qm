@@ -67,6 +67,10 @@ public class Entrance implements TreeNode {
 		return meters.remove(index);
 	}
 
+	public final int meterCount() {
+		return meters.size();
+	}
+
 	public final Apartment getApartment(final int index) {
 		if (index >= 0 && index < apartments.size()) {
 			return apartments.get(index);
@@ -85,6 +89,9 @@ public class Entrance implements TreeNode {
 		return null;
 	}
 
+	public final int apartmentCount() {
+		return apartments.size();
+	}
 	// ================================================================================
 	// other stuff...
 	// ================================================================================
