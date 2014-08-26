@@ -12,41 +12,40 @@ import de.globalposeidon.Qualitaet.model.Metertype;
 
 public class Launcher {
 
-	public static final void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					final MainWindow window = new MainWindow(
-							createRandomModel());
-					window.setVisible(true);
-				} catch (final Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+   public static final void main(String[] args) {
+      EventQueue.invokeLater(new Runnable() {
+         @Override
+         public void run() {
+            try {
+               final MainWindow window = new MainWindow(createRandomModel());
+               window.setVisible(true);
+            } catch (final Exception e) {
+               e.printStackTrace();
+            }
+         }
+      });
+   }
 
-	public static DataContainer createRandomModel() {
-		final DataContainer dc = new DataContainer();
-		final Building b = new Building(dc);
-		dc.addBuilding(b);
-		final Entrance e = new Entrance(b);
-		b.addEntrance(e);
-		final Apartment a = new Apartment(e);
-		e.addApartment(a);
-		final Meter m = new Meter(1, Metertype.POWER, a);
-		a.addMeter(m);
+   public static DataContainer createRandomModel() {
+      final DataContainer dc = new DataContainer();
+      final Building b = new Building(dc);
+      dc.addBuilding(b);
+      final Entrance e = new Entrance(b);
+      b.addEntrance(e);
+      final Apartment a = new Apartment(e);
+      e.addApartment(a);
+      final Meter m = new Meter(1, Metertype.POWER, a);
+      a.addMeter(m);
 
-		final Building b2 = new Building(dc);
-		dc.addBuilding(b2);
-		final Entrance e2 = new Entrance(b);
-		b2.addEntrance(e2);
-		final Apartment a2 = new Apartment(e);
-		e2.addApartment(a2);
-		final Meter m2 = new Meter(2, Metertype.POWER, a2);
-		a2.addMeter(m2);
-		return dc;
-	}
+      final Building b2 = new Building(dc);
+      dc.addBuilding(b2);
+      final Entrance e2 = new Entrance(b);
+      b2.addEntrance(e2);
+      final Apartment a2 = new Apartment(e);
+      e2.addApartment(a2);
+      final Meter m2 = new Meter(2, Metertype.POWER, a2);
+      a2.addMeter(m2);
+      return dc;
+   }
 
 }

@@ -1,11 +1,10 @@
 package de.globalposeidon.Qualitaet.model;
 
-
-/** readinginfo enum.
+/**
+ * readinginfo enum.
+ * 
  * @author Timm
- *
  */
 public enum ReadingInfo {
-	READING, 
-	ESTIMATION
+   READING, ESTIMATION
 }

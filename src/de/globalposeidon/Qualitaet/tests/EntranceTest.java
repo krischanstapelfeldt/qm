@@ -14,233 +14,231 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
-import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
  * This class contains the tests for the entrance class.
  *
  * @author Krischan Stapelfeldt
- *
  */
 public class EntranceTest extends TestCase {
 
-	private DataContainer dataContainer;
-	private Building building;
-	private Entrance entrance;
-	private Apartment apartment;
-	private Meter meter;
+   private DataContainer dataContainer;
+   private Building building;
+   private Entrance entrance;
+   private Apartment apartment;
+   private Meter meter;
 
-	@Override
-	@Before
-	/**
-	 * Ramps the necessary objects up (dataContainer, building, meters,
-	 * entrance, apartment)
-	 *
-	 * @throws Throws
-	 *             an exception, when catching fire
-	 */
-	public final void setUp() throws Exception {
-		dataContainer = new DataContainer();
-		building = new Building(dataContainer);
-		entrance = new Entrance(building);
-		apartment = new Apartment(entrance);
-		meter = new Meter(001, Metertype.GAS, entrance);
+   @Override
+   @Before
+   /**
+    * Ramps the necessary objects up (dataContainer, building, meters,
+    * entrance, apartment)
+    *
+    * @throws Throws
+    *             an exception, when catching fire
+    */
+   public final void setUp() throws Exception {
+      dataContainer = new DataContainer();
+      building = new Building(dataContainer);
+      entrance = new Entrance(building);
+      apartment = new Apartment(entrance);
+      meter = new Meter(001, Metertype.GAS, entrance);
 
-	}
+   }
 
-	@Override
-	@After
-	public void tearDown() throws Exception {
-	}
+   @Override
+   @After
+   public void tearDown() throws Exception {
+   }
 
-	/**
-	 * create two new entrances. one with specific data, one with empty data.
-	 * insert into database.
-	 */
-	@Test
-	public final void testPositiveCreateEntrance() {
+   /**
+    * create two new entrances. one with specific data, one with empty data.
+    * insert into database.
+    */
+   @Test
+   public final void testPositiveCreateEntrance() {
 
-		assertNotNull(entrance);
-	}
+      assertNotNull(entrance);
+   }
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testGetID() {
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetID() {
 
-		assertNotNull((Integer) entrance.getID());
-	}
+      assertNotNull(entrance.getID());
+   }
 
-	/**
-	 * add meter to selected ArrayList. insert into database.
-	 */
-	@Test
-	public final void testPositiveAddMeter() {
+   /**
+    * add meter to selected ArrayList. insert into database.
+    */
+   @Test
+   public final void testPositiveAddMeter() {
 
-		entrance.addMeter(meter);
-		assertEquals("", meter, entrance.getMeter(0));
-	}
+      entrance.addMeter(meter);
+      assertEquals("", meter, entrance.getMeter(0));
+   }
 
-	/**
-	 * get meter from selected ArrayList. load from database.
-	 */
-	@Test
-	public final void testPositiveGetMeter() {
+   /**
+    * get meter from selected ArrayList. load from database.
+    */
+   @Test
+   public final void testPositiveGetMeter() {
 
-		entrance.addMeter(meter);
-		assertEquals("", meter, entrance.getMeter(0));
+      entrance.addMeter(meter);
+      assertEquals("", meter, entrance.getMeter(0));
 
-	}
+   }
 
-	/**
-	 * add meter to selected ArrayList. insert into database.
-	 */
-	@Test
-	public final void testNegativeGetMeter() {
+   /**
+    * add meter to selected ArrayList. insert into database.
+    */
+   @Test
+   public final void testNegativeGetMeter() {
 
-		assertEquals("", null, entrance.getMeter(0));
-	}
+      assertEquals("", null, entrance.getMeter(0));
+   }
 
-	/**
-	 * remove meter from selected ArrayList. delete from database.
-	 */
-	@Test
-	public final void testPositiveRemoveMeter() {
+   /**
+    * remove meter from selected ArrayList. delete from database.
+    */
+   @Test
+   public final void testPositiveRemoveMeter() {
 
-		entrance.addMeter(meter);
-		assertEquals("", meter, entrance.removeMeter(0));
-	}
+      entrance.addMeter(meter);
+      assertEquals("", meter, entrance.removeMeter(0));
+   }
 
-	/**
-	 * remove meter from selected ArrayList. delete from database.
-	 */
-	@Test
-	public final void testNegativeRemoveMeter() {
+   /**
+    * remove meter from selected ArrayList. delete from database.
+    */
+   @Test
+   public final void testNegativeRemoveMeter() {
 
-		assertEquals("", null, entrance.removeMeter(0));
-	}
+      assertEquals("", null, entrance.removeMeter(0));
+   }
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testMeterCount() {
+   /**
+    * bla.
+    */
+   @Test
+   public final void testMeterCount() {
 
-		assertEquals("", 0, entrance.meterCount());
-	}
+      assertEquals("", 0, entrance.meterCount());
+   }
 
-	/**
-	 * add apartment to selected ArrayList. insert into database.
-	 */
-	@Test
-	public final void testPositiveAddApartment() {
+   /**
+    * add apartment to selected ArrayList. insert into database.
+    */
+   @Test
+   public final void testPositiveAddApartment() {
 
-		entrance.addApartment(apartment);
-		assertEquals("", apartment, entrance.getApartment(0));
+      entrance.addApartment(apartment);
+      assertEquals("", apartment, entrance.getApartment(0));
 
-	}
+   }
 
-	/**
-	 * get apartment from selected ArrayList. load from database.
-	 */
-	@Test
-	public final void testPositiveGetApartment() {
+   /**
+    * get apartment from selected ArrayList. load from database.
+    */
+   @Test
+   public final void testPositiveGetApartment() {
 
-		entrance.addApartment(apartment);
-		assertEquals("", apartment, entrance.getApartment(0));
-	}
+      entrance.addApartment(apartment);
+      assertEquals("", apartment, entrance.getApartment(0));
+   }
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testNegativeGetApartment() {
+   /**
+    * bla.
+    */
+   @Test
+   public final void testNegativeGetApartment() {
 
-		assertEquals("", null, entrance.getApartment(0));
-	}
+      assertEquals("", null, entrance.getApartment(0));
+   }
 
-	/**
-	 * remove apartment from selected ArrayList. delete from database.
-	 */
-	@Test
-	public final void testPositiveRemoveApartment() {
+   /**
+    * remove apartment from selected ArrayList. delete from database.
+    */
+   @Test
+   public final void testPositiveRemoveApartment() {
 
-		entrance.addApartment(apartment);
-		assertEquals("", apartment, entrance.removeApartment(0));
-	}
+      entrance.addApartment(apartment);
+      assertEquals("", apartment, entrance.removeApartment(0));
+   }
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testNegativeRemoveApartment() {
+   /**
+    * bla.
+    */
+   @Test
+   public final void testNegativeRemoveApartment() {
 
-		assertEquals("", null, entrance.removeApartment(0));
-	}
+      assertEquals("", null, entrance.removeApartment(0));
+   }
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testApartmentCount() {
+   /**
+    * bla.
+    */
+   @Test
+   public final void testApartmentCount() {
 
-		assertEquals("", 0, entrance.apartmentCount());
-	}
+      assertEquals("", 0, entrance.apartmentCount());
+   }
 
-	/**
-	 * get empty apartments from selected ArrayList. load from database.
-	 */
-	@Test
-	public final void testPositiveGetEmptyApartments() {
+   /**
+    * get empty apartments from selected ArrayList. load from database.
+    */
+   @Test
+   public final void testPositiveGetEmptyApartments() {
 
-		// TODO: fill tmpList with data
-		final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+      // TODO: fill tmpList with data
+      final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
 
-//		assertEquals("", tmpList,
-//				data1.getEmptyApartments());
+      // assertEquals("", tmpList,
+      // data1.getEmptyApartments());
 
-	}
+   }
 
-	/**
-	 * get rented apartments from selected ArrayList. load from database.
-	 */
-	@Test
-	public final void testPositiveGetRentedApartments() {
+   /**
+    * get rented apartments from selected ArrayList. load from database.
+    */
+   @Test
+   public final void testPositiveGetRentedApartments() {
 
-		// TODO: fill tmpList with data
-		final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+      // TODO: fill tmpList with data
+      final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
 
-//		assertEquals("", tmpList,
-//				data2.getRentedApartments());
+      // assertEquals("", tmpList,
+      // data2.getRentedApartments());
 
-	}
+   }
 
-	/**
-	 * get boolean if entrance is empty. load from database.
-	 */
-	@Test
-	public final void testPositiveEntranceIsEmpty() {
+   /**
+    * get boolean if entrance is empty. load from database.
+    */
+   @Test
+   public final void testPositiveEntranceIsEmpty() {
 
-		assertEquals("", true, entrance.entranceIsEmpty());
-	}
+      assertEquals("", true, entrance.entranceIsEmpty());
+   }
 
-	/**
-	 * get boolean if entrance is empty. load from database.
-	 */
-	@Test
-	public final void testNegativeEntranceIsEmpty() {
+   /**
+    * get boolean if entrance is empty. load from database.
+    */
+   @Test
+   public final void testNegativeEntranceIsEmpty() {
 
-		entrance.addApartment(apartment);
-		assertEquals("", false, entrance.entranceIsEmpty());
-	}
+      entrance.addApartment(apartment);
+      assertEquals("", false, entrance.entranceIsEmpty());
+   }
 
-	/**
-	 * bla.
-	 */
-	@Test
-	public final void testToString() {
+   /**
+    * bla.
+    */
+   @Test
+   public final void testToString() {
 
-		assertNotNull(entrance.toString());
-	}
+      assertNotNull(entrance.toString());
+   }
 }

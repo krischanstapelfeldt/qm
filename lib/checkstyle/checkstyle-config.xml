@@ -75,7 +75,7 @@ Adapted Checkstyle configuration, that meets the students needs.
     <module name="TodoComment"/>
     <module name="UpperEll"/>
     <module name="LineLength">
-      <property name="max" value="120"/>
+      <property name="max" value="140"/>
     </module>
   </module>
   <module name="JavadocPackage"/>

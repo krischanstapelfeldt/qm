@@ -17,59 +17,57 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 /**
  * AddBuildingWindow shows the user a window to either add a building with "OK"
  * or to cancel the request with "Cancel"
- * 
- * @author Timm Suhl
  *
+ * @author Timm Suhl
  */
 public class AddBuildingWindow extends JDialog {
 
-	private static final long serialVersionUID = 4298418116709775705L;
+   private static final long serialVersionUID = 4298418116709775705L;
 
-	public AddBuildingWindow(final DataContainer model) {
+   public AddBuildingWindow(final DataContainer model) {
 
-		setTitle("add building");
+      setTitle("add building");
 
-		// ui components
-		final JPanel contentPnl = new JPanel();
-		final JLabel descriptionLbl = new JLabel(
-				"This will add a new building with a random ID to the tree");
-		contentPnl.add(descriptionLbl);
+      // ui components
+      final JPanel contentPnl = new JPanel();
+      final JLabel descriptionLbl = new JLabel("This will add a new building with a random ID to the tree");
+      contentPnl.add(descriptionLbl);
 
-		final JPanel buttonPnl = new JPanel(new FlowLayout());
-		final JButton saveBtn = new JButton(Strings.OK);
-		saveBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(final ActionEvent e) {
-				addBuilding(model);
-			}
-		});
-		final JButton cancelBtn = new JButton(Strings.CANCEL);
-		cancelBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(final ActionEvent e) {
-				dispose();
-			}
-		});
-		buttonPnl.add(saveBtn);
-		buttonPnl.add(cancelBtn);
+      final JPanel buttonPnl = new JPanel(new FlowLayout());
+      final JButton saveBtn = new JButton(Strings.OK);
+      saveBtn.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            addBuilding(model);
+         }
+      });
+      final JButton cancelBtn = new JButton(Strings.CANCEL);
+      cancelBtn.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            dispose();
+         }
+      });
+      buttonPnl.add(saveBtn);
+      buttonPnl.add(cancelBtn);
 
-		// layout manager
-		setLayout(new BorderLayout());
+      // layout manager
+      setLayout(new BorderLayout());
 
-		// add components
-		this.add(buttonPnl, BorderLayout.SOUTH);
-		this.add(contentPnl, BorderLayout.CENTER);
+      // add components
+      this.add(buttonPnl, BorderLayout.SOUTH);
+      this.add(contentPnl, BorderLayout.CENTER);
 
-		// layout window
-		pack();
-		setLocationRelativeTo(null);
-		setResizable(false);
-		setVisible(true);
-	}
+      // layout window
+      pack();
+      setLocationRelativeTo(null);
+      setResizable(false);
+      setVisible(true);
+   }
 
-	private void addBuilding(final DataContainer container) {
+   private void addBuilding(final DataContainer container) {
 
-		container.addBuilding(new Building(container));
-		dispose();
-	}
+      container.addBuilding(new Building(container));
+      dispose();
+   }
 }
