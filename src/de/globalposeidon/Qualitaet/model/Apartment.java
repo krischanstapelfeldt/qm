@@ -66,7 +66,10 @@ public class Apartment implements TreeNode {
 	}
 
 	public final Meter removeMeter(final int index) {
-		return meters.remove(index);
+		if (index >= 0 && index < meters.size()) {
+			return meters.remove(index);
+		}
+		return null;
 	}
 
 
@@ -76,7 +79,7 @@ public class Apartment implements TreeNode {
 
 	private final int maxTenants = 4;
 	public final boolean addTenant(final Tenant tentant) {
-		if (tenants.size() < maxTenants + 1) { // max 4 tenants for each apartment
+		if (tenants.size() < maxTenants) { // max 4 tenants for each apartment
 			tenants.add(tentant);
 			return true;
 		}
@@ -91,7 +94,10 @@ public class Apartment implements TreeNode {
 	}
 
 	public final Tenant removeTenant(final int index) {
-		return tenants.remove(index);
+		if (index >= 0 && index < tenants.size()) {
+			return tenants.remove(index);
+		}
+		return null;
 	}
 
 	public final int tenantCount() {
@@ -101,7 +107,7 @@ public class Apartment implements TreeNode {
 	// other stuff...
 	// ================================================================================
 	public final boolean apartmentIsEmpty() {
-		return meters.size() == 0;
+		return tenants.size() == 0;
 	}
 
 	@Override

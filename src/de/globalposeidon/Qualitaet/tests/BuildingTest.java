@@ -53,21 +53,30 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveCreateBuilding() {
-		
+
 		assertNotNull(building);
 	}
-	
+
 	/**
-	 * set renter to building
+	 * bla.
+	 */
+	@Test
+	public final void testGetID() {
+
+		assertNotNull((Integer) building.getID());
+	}
+
+	/**
+	 * set renter to building.
 	 */
 	@Test
 	public final void testPositiveSetRenter() {
-		
+
 		building.setRenter(renter);
 		assertEquals("", renter, building.getRenter());
 
 	}
-	
+
 	/**
 	 * get renter from selected building. load from database.
 	 */
@@ -96,7 +105,7 @@ public class BuildingTest extends TestCase {
 	 */
 	@Test
 	public final void testPositiveAddEntrance() {
-		
+
 		building.addEntrance(entrance);
 		assertEquals("", entrance, building.getEntrance(0));
 
@@ -112,7 +121,7 @@ public class BuildingTest extends TestCase {
 		assertEquals("", entrance, building.getEntrance(0));
 
 	}
-	
+
 	/**
 	 * get entrance from selected ArrayList. load from database.
 	 */
@@ -151,16 +160,36 @@ public class BuildingTest extends TestCase {
 	public final void testPositiveBuildingIsEmpty() {
 
 		assertEquals("", true, building.buildingIsEmpty());
-
 	}
 
 	/**
-	 * get empty buildings from selected ArrayList. load from database.
+	 * bla.
+	 */
+	@Test
+	public final void testNegativeBuildingIsEmpty() {
+
+		building.addEntrance(entrance);
+		assertEquals("", false, building.buildingIsEmpty());
+	}
+
+	/**
+	 * bla.
 	 */
 	@Test
 	public final void testEntranceCount() {
 
 		assertEquals("", 0, building.entranceCount());
-
 	}
+
+	/**
+	 * bla.
+	 */
+	@Test
+	public final void testToString() {
+
+		assertNotNull(building.toString());
+	}
+// <----- TREENODE TESTS ----->
+
+// TODO: Write this tests?
 }
