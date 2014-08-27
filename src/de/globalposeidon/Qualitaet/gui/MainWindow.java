@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -112,6 +113,12 @@ public class MainWindow extends JFrame {
       final JButton btnAddMeter = new JButton(Strings.ADDMETER);
       final JButton btnAddTenant = new JButton(Strings.ADDTENANT);
       final JButton btnDelete = new JButton(Strings.DELWSPACE);
+      
+      // add radiobuttons to a group
+      final ButtonGroup rdGroup = new ButtonGroup();
+      rdGroup.add(FunctionPanel.rdbtnUnsorted);
+      rdGroup.add(FunctionPanel.rdbtnRented);
+      rdGroup.add(FunctionPanel.rdbtnUnrented);
 
       // set buttons disabled to make them depending on node selection
       btnAddEntrance.setEnabled(false);
@@ -162,6 +169,7 @@ public class MainWindow extends JFrame {
 
       // SET BOTTOM PANEL
 
+      
       glBottomRightPanel.setHorizontalGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING).addComponent(pnlFunction,
             GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 

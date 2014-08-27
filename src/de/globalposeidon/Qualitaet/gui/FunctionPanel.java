@@ -41,18 +41,10 @@ public class FunctionPanel extends JPanel {
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   private final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED);
-   private final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED);
-   private final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED);
+   static  final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED);
+   static final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED);
+   static final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED);
 
-   // declare ButtonGroup
-   // TODO
-   private final ButtonGroup rdGroup = new ButtonGroup();
-
-   // add radiobuttons to a group
-   // rdGroup.add(rdbtnUnsorted);
-   // rdGroup.add(rdbtnRented);
-   // rdGroup.add(rdbtnUnRented);
 
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
@@ -70,8 +62,7 @@ public class FunctionPanel extends JPanel {
       add(lblMeterSearch, gbcLblMeterSearch);
 
       GridBagConstraints gbcLblMeterId = new GridBagConstraints();
-      gbcLblMeterId.anchor = GridBagConstraints.WEST;
-      gbcLblMeterId.insets = new Insets(0, 0, 5, 5);
+      gbcLblMeterId.insets = new Insets(10, 0, 5, 5);
       gbcLblMeterId.gridx = 0;
       gbcLblMeterId.gridy = 2;
       add(lblMeterId, gbcLblMeterId);
@@ -83,21 +74,19 @@ public class FunctionPanel extends JPanel {
       add(lblMakeReading, gbcLblMakeReading);
 
       GridBagConstraints gbcLblReadVal = new GridBagConstraints();
-      gbcLblReadVal.insets = new Insets(0, 0, 5, 0);
+      gbcLblReadVal.insets = new Insets(10, 0, 5, 0);
       gbcLblReadVal.gridx = 5;
       gbcLblReadVal.gridy = 2;
       add(lblReadVal, gbcLblReadVal);
 
       GridBagConstraints gbcLblReadPers = new GridBagConstraints();
       gbcLblReadPers.insets = new Insets(0, 0, 5, 5);
-      gbcLblReadPers.anchor = GridBagConstraints.EAST;
       gbcLblReadPers.gridx = 5;
       gbcLblReadPers.gridy = 3;
       add(lblReadPers, gbcLblReadPers);
 
       GridBagConstraints gbcTfMeterId = new GridBagConstraints();
-      gbcTfMeterId.insets = new Insets(0, 0, 5, 5);
-      gbcTfMeterId.anchor = GridBagConstraints.WEST;
+      gbcTfMeterId.insets = new Insets(10, 0, 5, 5);
       gbcTfMeterId.gridx = 1;
       gbcTfMeterId.gridy = 2;
       add(tfMeterId, gbcTfMeterId);
@@ -108,21 +97,19 @@ public class FunctionPanel extends JPanel {
       GridBagConstraints gbcSeparatorLeft = new GridBagConstraints();
       gbcSeparatorLeft.fill = GridBagConstraints.VERTICAL;
       gbcSeparatorLeft.gridheight = 6;
-      gbcSeparatorLeft.insets = new Insets(0, 0, 0, 5);
+      gbcSeparatorLeft.insets = new Insets(0, 30, 0, 30);
       gbcSeparatorLeft.gridx = 3;
       gbcSeparatorLeft.gridy = 0;
       add(separatorLeft, gbcSeparatorLeft);
 
       GridBagConstraints gbcLblSort = new GridBagConstraints();
-      // gbc_lblSort.anchor = GridBagConstraints.EAST;
       gbcLblSort.insets = new Insets(0, 0, 5, 5);
       gbcLblSort.gridx = 10;
       gbcLblSort.gridy = 1;
       add(lblSort, gbcLblSort);
 
       GridBagConstraints gbcTfReadingVal = new GridBagConstraints();
-      gbcTfReadingVal.insets = new Insets(0, 0, 5, 5);
-      gbcTfReadingVal.fill = GridBagConstraints.HORIZONTAL;
+      gbcTfReadingVal.insets = new Insets(10, 0, 5, 5);
       gbcTfReadingVal.gridx = 6;
       gbcTfReadingVal.gridy = 2;
       add(tfReadingVal, gbcTfReadingVal);
@@ -130,7 +117,6 @@ public class FunctionPanel extends JPanel {
 
       GridBagConstraints gbcTfPerson = new GridBagConstraints();
       gbcTfPerson.insets = new Insets(0, 0, 5, 5);
-      gbcTfPerson.fill = GridBagConstraints.HORIZONTAL;
       gbcTfPerson.gridx = 6;
       gbcTfPerson.gridy = 3;
       add(tfPerson, gbcTfPerson);
@@ -141,7 +127,7 @@ public class FunctionPanel extends JPanel {
       GridBagConstraints gbcSeparatorRight = new GridBagConstraints();
       gbcSeparatorRight.fill = GridBagConstraints.VERTICAL;
       gbcSeparatorRight.gridheight = 6;
-      gbcSeparatorRight.insets = new Insets(0, 0, 0, 5);
+      gbcSeparatorRight.insets = new Insets(0, 30, 0, 30);
       gbcSeparatorRight.gridx = 8;
       gbcSeparatorRight.gridy = 0;
       add(separatorRight, gbcSeparatorRight);
