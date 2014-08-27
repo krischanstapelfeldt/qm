@@ -1,4 +1,4 @@
-package de.globalposeidon.Qualitaet.model;
+/*package de.globalposeidon.Qualitaet.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,10 +30,7 @@ public class DBWorker {
          rs = getTable(DBTable.PERSON);
          rs = getTable(DBTable.READING);
 
-         /*
-          * ResultSet rs = statement.executeQuery("select * from person"); while (rs.next()) { // read the result set
-          * System.out.println("name = " + rs.getString("name")); System.out.println("id = " + rs.getInt("id")); }
-          */
+
          finalize();
       } catch (final SQLException e) {
          // if the error message is "out of memory",
@@ -102,3 +99,4 @@ public class DBWorker {
       return rs;
    }
 }
+*/

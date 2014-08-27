@@ -126,7 +126,7 @@ public class MainMenuBar extends JMenuBar {
 
          @Override
          public void actionPerformed(final ActionEvent e) {
-            new DBWorker("Testtest");
+            //new DBWorker("Testtest");
          }
       });
       dev.add(databaseTest);
