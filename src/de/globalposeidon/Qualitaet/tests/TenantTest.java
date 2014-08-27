@@ -42,9 +42,9 @@ public class TenantTest extends TestCase {
       final String surname = "Max";
       final String phone = "01234/5678912";
       final String email = "max@mustermann.de";
-      assertEquals("", null, new Tenant(name, surname, phone, email));
+      assertNotNull("", new Tenant(name, surname, phone, email));
 
-      assertEquals("", null, new Tenant());
+      assertNotNull("", new Tenant());
    }
 
 }
