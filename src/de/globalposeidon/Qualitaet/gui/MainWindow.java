@@ -242,6 +242,7 @@ public class MainWindow extends JFrame {
                btnAddTenant.setEnabled(false);
               
                // set right panel
+               cntPanel.removeAll();
                cntPanel.add(new BuildingPanel(selectedBuilding()));
                
                // set textfields and radiobuttons enable/disable
@@ -263,6 +264,7 @@ public class MainWindow extends JFrame {
                btnAddTenant.setEnabled(false);
                
                // set right panel
+               cntPanel.removeAll();
                cntPanel.add(new EntrancePanel(selectedEntrance()));
                
                // set textfields and radiobuttons enable/disable
@@ -282,6 +284,7 @@ public class MainWindow extends JFrame {
                btnAddTenant.setEnabled(true);
 
                // set right panel
+               cntPanel.removeAll();
                cntPanel.add(new ApartmentPanel(selectedApartment()));
                
                // set textfields and radiobuttons enable/disable
@@ -301,6 +304,7 @@ public class MainWindow extends JFrame {
                btnAddTenant.setEnabled(true);
 
                // set right panel
+               cntPanel.removeAll();
                cntPanel.add(new MeterPanel(selectedMeter()));
                
                // set textfields and radiobuttons enable/disable

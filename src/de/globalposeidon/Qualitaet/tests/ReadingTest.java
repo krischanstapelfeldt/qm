@@ -29,15 +29,16 @@ public class ReadingTest extends TestCase {
 	private Meter meter;
 	private Reading reading;
 
- 
-   /**
-    * BLA
-    *
-    * @throws Might
-    *             throw an exception. Unlikely, there is no method body.
-    */
+
    @Override
    @Before
+   /**
+    * Ramps the necessary objects up (dataContainer, building, meters,
+    * entrance, apartment)
+    *
+    * @throws Throws
+    *             an exception, when catching fire
+    */
 	public final void setUp() throws Exception {
 	   dataContainer = new DataContainer();
 	   building = new Building(dataContainer);
@@ -51,7 +52,7 @@ public class ReadingTest extends TestCase {
    @After
    public void tearDown() throws Exception {
    }
-   
+
    /**
     * create new reading. insert into database.
     */
@@ -61,7 +62,7 @@ public class ReadingTest extends TestCase {
       assertNotNull(reading);
 
    }
-   
+
    /**
     * create new reading. insert into database.
     */
