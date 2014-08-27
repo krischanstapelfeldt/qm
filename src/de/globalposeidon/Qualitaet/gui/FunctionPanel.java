@@ -34,8 +34,8 @@ public class FunctionPanel extends JPanel {
    // declare TextField
 
    static final JTextField tfMeterId = new JTextField();
-  static final JTextField tfReadingVal = new JTextField();
-  static final JTextField tfPerson = new JTextField();
+   static final JTextField tfReadingVal = new JTextField();
+   static final JTextField tfPerson = new JTextField();
 
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
