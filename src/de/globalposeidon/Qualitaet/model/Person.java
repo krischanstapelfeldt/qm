@@ -19,6 +19,7 @@ public class Person {
    public Person() {
       // some standard value for empty person
       this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
+      id = ((int) (Math.random() * 10000));
    }
 
    public Person(final String name, final String surname, final String phone, final String email) {
@@ -33,10 +34,6 @@ public class Person {
    // ================================================================================
    public final int getID() {
       return id;
-   }
-
-   public final void setID(final int iD) {
-      id = iD;
    }
 
    public final String getName() {
