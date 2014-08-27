@@ -13,7 +13,10 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.MeterReader;
 import de.globalposeidon.Qualitaet.model.Metertype;
+import de.globalposeidon.Qualitaet.model.Reading;
+import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 /**
  * This class contains the tests for the meter class.
@@ -31,6 +34,7 @@ public class MeterTest extends TestCase {
    private int currentValue;
    private int yearValue;
    private Date lastRead;
+   private Reading reading;
 
    @Override
    @Before
@@ -52,6 +56,7 @@ public class MeterTest extends TestCase {
       yearValue = 0;
       lastRead = new Date();
       meter = new Meter(meterID, type, apartment);
+      reading = new Reading(meter, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
    }
 
    @Override
@@ -83,9 +88,9 @@ public class MeterTest extends TestCase {
     * get type from selected meter. load from database.
     */
    @Test
-   public void testPositiveGetType() {
-      // assertEquals("", type, meter.getType());
+   public final void testPositiveGetType() {
 
+	   assertEquals("", type, meter.getType());
    }
 
    /**
@@ -157,10 +162,9 @@ public class MeterTest extends TestCase {
     * TODO BESCHREIBEN!!!
     */
    @Test
-   public void testPositiveMakeReading() {
+   public final void testPositiveMakeReading() {
 
-      // TODO: implement testPositiveMakeReading()
-
+	   assertNotNull(meter.makeReading());
    }
 
    /**

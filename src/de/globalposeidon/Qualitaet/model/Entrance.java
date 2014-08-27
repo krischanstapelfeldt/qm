@@ -49,10 +49,6 @@ public class Entrance implements TreeNode {
       return id;
    }
 
-   public final void setID(final int iD) {
-      id = iD;
-   }
-
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < meters.size()) {
          return meters.get(index);
@@ -105,7 +101,7 @@ public class Entrance implements TreeNode {
    public final ArrayList<Apartment> getEmptyApartments() {
       final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
       for (int i = 0; i < apartments.size(); ++i) {
-         if (!apartments.get(i).apartmentIsEmpty()) {
+         if (apartments.get(i).apartmentIsEmpty()) {
             tmpList.add(apartments.get(i));
          }
       }
@@ -115,7 +111,7 @@ public class Entrance implements TreeNode {
    public final ArrayList<Apartment> getRentedApartments() {
       final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
       for (int i = 0; i < apartments.size(); ++i) {
-         if (apartments.get(i).apartmentIsEmpty()) {
+         if (!apartments.get(i).apartmentIsEmpty()) {
             tmpList.add(apartments.get(i));
          }
       }

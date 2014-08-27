@@ -10,6 +10,12 @@ public class Reading {
 
    private int id;
 
+   private final Meter meter;
+   private final MeterReader reader;
+   private final ReadingInfo info;
+   private final Date readingDate;
+   private final int readingValue;
+
    public final Meter getMeter() {
       return meter;
    }
@@ -30,12 +36,6 @@ public class Reading {
       return readingValue;
    }
 
-   private final Meter meter;
-   private final MeterReader reader;
-   private final ReadingInfo info;
-   private final Date readingDate;
-   private final int readingValue;
-
    public Reading(final Meter meter, final MeterReader reader, final ReadingInfo info) {
       readingDate = new Date();
       this.meter = meter;
@@ -48,7 +48,4 @@ public class Reading {
       return id;
    }
 
-   public final void setID(final int iD) {
-      id = iD;
-   }
 }

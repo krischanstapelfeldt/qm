@@ -52,9 +52,6 @@ public class Meter implements TreeNode {
       return id;
    }
 
-   public final void setID(final int iD) {
-      id = iD;
-   }
 
    public final int getCurrentValue() {
       return currentValue;
@@ -91,10 +88,6 @@ public class Meter implements TreeNode {
 
    public final Metertype getType() {
       return type;
-   }
-
-   public final int getValue() {
-      return currentValue;
    }
 
    // ================================================================================

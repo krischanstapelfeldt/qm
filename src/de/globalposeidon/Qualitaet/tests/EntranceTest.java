@@ -14,6 +14,7 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
+import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
  * This class contains the tests for the entrance class.
@@ -25,6 +26,9 @@ public class EntranceTest extends TestCase {
    private Building building;
    private Entrance entrance;
    private Apartment apartment;
+   private Apartment apartmentFull;
+   private ArrayList<Apartment> emptyApartments;
+   private ArrayList<Apartment> fullApartments;
    private Meter meter;
 
    @Override
@@ -41,8 +45,13 @@ public class EntranceTest extends TestCase {
       building = new Building(dataContainer);
       entrance = new Entrance(building);
       apartment = new Apartment(entrance);
+      apartmentFull = new Apartment(entrance);
+      apartmentFull.addTenant(new Tenant());
+      emptyApartments = new ArrayList<Apartment>();
+      fullApartments = new ArrayList<Apartment>();
+      emptyApartments.add(apartment);
+      fullApartments.add(apartmentFull);
       meter = new Meter(001, Metertype.GAS, entrance);
-
    }
 
    @Override
@@ -190,12 +199,9 @@ public class EntranceTest extends TestCase {
    @Test
    public final void testPositiveGetEmptyApartments() {
 
-      // TODO: fill tmpList with data
-      final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
-
-      // assertEquals("", tmpList,
-      // data1.getEmptyApartments());
-
+	   entrance.addApartment(apartment);
+	   entrance.addApartment(apartmentFull);
+	   assertEquals("", emptyApartments, entrance.getEmptyApartments());
    }
 
    /**
@@ -204,12 +210,9 @@ public class EntranceTest extends TestCase {
    @Test
    public final void testPositiveGetRentedApartments() {
 
-      // TODO: fill tmpList with data
-      final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
-
-      // assertEquals("", tmpList,
-      // data2.getRentedApartments());
-
+      	entrance.addApartment(apartment);
+      	entrance.addApartment(apartmentFull);
+      	assertEquals("", fullApartments, entrance.getRentedApartments());
    }
 
    /**
