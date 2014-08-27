@@ -11,13 +11,11 @@ import javax.swing.JTextField;
 
 import java.awt.Insets;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
-import de.globalposeidon.Qualitaet.Ints;
 import de.globalposeidon.Qualitaet.Strings;
 
 public class FunctionPanel extends JPanel {
@@ -42,10 +40,9 @@ public class FunctionPanel extends JPanel {
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   static  final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
+   static final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
    static final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
    static final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
-
 
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
@@ -162,7 +159,5 @@ public class FunctionPanel extends JPanel {
       gbcBtnSearch.gridx = Strings.ONE;
       gbcBtnSearch.gridy = Strings.FIVE;
       add(btnSearch, gbcBtnSearch);
-
    }
-
 }
