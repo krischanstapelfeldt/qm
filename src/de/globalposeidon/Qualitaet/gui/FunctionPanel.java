@@ -42,9 +42,9 @@ public class FunctionPanel extends JPanel {
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   static  final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED);
-   static final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED);
-   static final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED);
+   static  final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
+   static final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
+   static final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
 
 
    // declare Separator
