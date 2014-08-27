@@ -36,49 +36,14 @@ public class ApartmentPanel extends JPanel {
       // pnlHeader.add(lblMeter);
       // pnlHeader.add(lblTenant);
 
-      // set Table Column Header
-      String[] titleTblBottom = new String[]{
-            Strings.METERID, Strings.METERTYPE
-      };
-      
-      String[][] dataBottom = new String[][]{
-            {"1234", "Gas"},
-            {"1233", "Power"},
-            {"1253", "Gas"},
-            {"1224", "Water"},
-            {"1278", "Gas"},
-            {"1276", "Gas"},
-            {"1233", "Power"},
-            {"1253", "Gas"},
-            {"1224", "Water"},
-            {"1278", "Gas"},
-            {"1276", "Gas"}
-      };
-      
-      String[] titleTblTop = new String[]{
-            Strings.TENANT
-      };
-      
-      String[][] dataTop = new String[][]{
-            {"Stapel"},
-            {"Slauber"},
-            {"Suhl"},
-            {"Selske"},           
-      };
-      
-      // Initial JTable
-      final JTable tblTop = new JTable(dataTop, titleTblTop);
-      final JTable tblBottom = new JTable(dataBottom, titleTblBottom);
-      
-
-
+    
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();
-
-      scrollPane.setViewportView(tblTop);
-      scrollPane2.setViewportView(tblBottom);
-
+      
+      scrollPane.setViewportView(ApartmentJTableTop.tblTop);
+      scrollPane2.setViewportView(ApartmentJTableTop.tblBottom);
+      
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);
 

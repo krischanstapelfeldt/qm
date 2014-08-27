@@ -18,7 +18,7 @@ public class Apartment implements TreeNode {
    private int id;
    private final Entrance entrance; // parent node
 
-   private final ArrayList<Meter> meters;
+   public static ArrayList<Meter> meters;
    private final ArrayList<Tenant> tenants;
 
    // ================================================================================
