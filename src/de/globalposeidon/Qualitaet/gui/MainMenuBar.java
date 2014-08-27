@@ -12,7 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import de.globalposeidon.Qualitaet.Strings;
-import de.globalposeidon.Qualitaet.model.DBWorker;
+//import de.globalposeidon.Qualitaet.model.DBWorker;
 
 /**
  * This class contains the main menu.
