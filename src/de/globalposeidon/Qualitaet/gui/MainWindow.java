@@ -241,7 +241,6 @@ public class MainWindow extends JFrame {
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
               
-
                // set right panel
                cntPanel.add(new BuildingPanel(selectedBuilding()));
                

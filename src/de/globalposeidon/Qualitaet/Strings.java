@@ -35,6 +35,7 @@ public final class Strings {
    public static final String HELP = "Help";
    public static final String HOUSENO = "House no.";
    public static final String METER = "meter";
+   public static final String METERTYPE = "metertype";
    public static final String OPENWSPACE = "open ";
    public static final String PHONE = "phone";
    public static final String READING = "reading";
