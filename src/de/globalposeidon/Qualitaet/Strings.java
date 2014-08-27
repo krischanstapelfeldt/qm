@@ -1,5 +1,7 @@
 package de.globalposeidon.Qualitaet;
 
+import java.awt.Insets;
+
 /**
  * String class for central string management.
  * @author Sebastian Lauber
@@ -80,4 +82,12 @@ public final class Strings {
    public static final String RENTERDETAILS = RENTER + " " + DETAILS;
    public static final String SORTBYUNRENTED = "sort by " + RENTED + "/" + UNRENTED;
    public static final String TENANTDETAILS = TENANT + " " + DETAILS;
+   
+   // int Terms
+   public static final int insFive = 5;
+   public static final int insTen = 10;
+   public static final int insThirty = 30;
+   public static final int insZero = 0;
+
+
 }
