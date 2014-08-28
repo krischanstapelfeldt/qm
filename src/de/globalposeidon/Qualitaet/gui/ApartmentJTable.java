@@ -15,7 +15,7 @@ public class ApartmentJTable {
    }
 
    
-// initial JTable Top
+   // initial JTable Top
    private static JTable tblTop = new JTable(ApartmentTableModelTop.getTblMdlTop());
 
    // Initial JTable Bottom

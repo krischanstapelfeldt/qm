@@ -37,8 +37,8 @@ public class EntrancePanel extends JPanel {
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();
 
-      scrollPane.setViewportView(table);
-      scrollPane2.setViewportView(table2);
+      scrollPane.setViewportView(EntranceJTable.getTblTop());
+      scrollPane2.setViewportView(EntranceJTable.getTblBottom());
 
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);

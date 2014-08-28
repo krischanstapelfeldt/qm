@@ -17,8 +17,8 @@ public class Entrance implements TreeNode {
    private final Random random = new Random();
    private final Building building; // parent node
 
-   private final ArrayList<Meter> meters; // can be 0
-   private final ArrayList<Apartment> apartments;
+   private static ArrayList<Meter> meters; // can be 0
+   private static ArrayList<Apartment> apartments;
 
    // ================================================================================
    // constructor
@@ -52,25 +52,25 @@ public class Entrance implements TreeNode {
    }
 
    public final Meter getMeter(final int index) {
-      if (index >= 0 && index < meters.size()) {
-         return meters.get(index);
+      if (index >= 0 && index < getMeters().size()) {
+         return getMeters().get(index);
       }
       return null;
    }
 
    public final void addMeter(final Meter var) {
-      meters.add(var);
+      getMeters().add(var);
    }
 
    public final Meter removeMeter(final int index) {
-      if (index >= 0 && index < meters.size()) {
-         return meters.get(index);
+      if (index >= 0 && index < getMeters().size()) {
+         return getMeters().get(index);
       }
       return null;
    }
 
    public final int meterCount() {
-      return meters.size();
+      return getMeters().size();
    }
 
    public final Apartment getApartment(final int index) {
@@ -139,13 +139,13 @@ public class Entrance implements TreeNode {
    @Override
    public final TreeNode getChildAt(final int childIndex) {
       System.out.println("get child at");
-      return apartments.size() > childIndex ? apartments.get(childIndex) : meters.get(childIndex - apartments.size());
+      return apartments.size() > childIndex ? apartments.get(childIndex) : getMeters().get(childIndex - apartments.size());
    }
 
    @Override
    public final int getChildCount() {
       System.out.println("get count");
-      return apartments.size() + meters.size();
+      return apartments.size() + getMeters().size();
    }
 
    @Override
@@ -173,8 +173,23 @@ public class Entrance implements TreeNode {
    public final Enumeration<TreeNode> children() {
       final ArrayList<TreeNode> children = new ArrayList<TreeNode>();
       children.addAll(apartments);
-      children.addAll(meters);
+      children.addAll(getMeters());
       return Collections.enumeration(children);
    }
 
+   public static ArrayList<Meter> getMeters() {
+      return meters;
+   }
+
+   public static void setMeters(final ArrayList<Meter> meters) {
+      Entrance.meters = meters;
+   }
+
+   public static ArrayList<Apartment> getApartment() {
+      return apartments;
+   }
+   
+   public static void setApartments(final ArrayList<Apartment> apartments) {
+      Entrance.apartments = apartments;
+   }
 }
