@@ -12,7 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import de.globalposeidon.Qualitaet.Strings;
-//import de.globalposeidon.Qualitaet.model.DBWorker;
+
+// import de.globalposeidon.Qualitaet.model.DBWorker;
 
 /**
  * This class contains the main menu.
@@ -126,7 +127,7 @@ public class MainMenuBar extends JMenuBar {
 
          @Override
          public void actionPerformed(final ActionEvent e) {
-            //new DBWorker("Testtest");
+            // new DBWorker("Testtest");
          }
       });
       dev.add(databaseTest);

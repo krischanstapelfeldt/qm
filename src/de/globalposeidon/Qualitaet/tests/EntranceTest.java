@@ -199,9 +199,9 @@ public class EntranceTest extends TestCase {
    @Test
    public final void testPositiveGetEmptyApartments() {
 
-	   entrance.addApartment(apartment);
-	   entrance.addApartment(apartmentFull);
-	   assertEquals("", emptyApartments, entrance.getEmptyApartments());
+      entrance.addApartment(apartment);
+      entrance.addApartment(apartmentFull);
+      assertEquals("", emptyApartments, entrance.getEmptyApartments());
    }
 
    /**
@@ -210,9 +210,9 @@ public class EntranceTest extends TestCase {
    @Test
    public final void testPositiveGetRentedApartments() {
 
-      	entrance.addApartment(apartment);
-      	entrance.addApartment(apartmentFull);
-      	assertEquals("", fullApartments, entrance.getRentedApartments());
+      entrance.addApartment(apartment);
+      entrance.addApartment(apartmentFull);
+      assertEquals("", fullApartments, entrance.getRentedApartments());
    }
 
    /**

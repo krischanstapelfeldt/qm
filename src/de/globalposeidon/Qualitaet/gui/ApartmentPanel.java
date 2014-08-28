@@ -37,40 +37,19 @@ public class ApartmentPanel extends JPanel {
       // pnlHeader.add(lblTenant);
 
       // set Table Column Header
-      String[] titleTblBottom = new String[]{
-            Strings.METERID, Strings.METERTYPE
-      };
-      
-      String[][] dataBottom = new String[][]{
-            {"1234", "Gas"},
-            {"1233", "Power"},
-            {"1253", "Gas"},
-            {"1224", "Water"},
-            {"1278", "Gas"},
-            {"1276", "Gas"},
-            {"1233", "Power"},
-            {"1253", "Gas"},
-            {"1224", "Water"},
-            {"1278", "Gas"},
-            {"1276", "Gas"}
-      };
-      
-      String[] titleTblTop = new String[]{
-            Strings.TENANT
-      };
-      
-      String[][] dataTop = new String[][]{
-            {"Stapel"},
-            {"Slauber"},
-            {"Suhl"},
-            {"Selske"},           
-      };
-      
+      String[] titleTblBottom = new String[]{Strings.METERID, Strings.METERTYPE};
+
+      // TODO - Das hat doch nix mit der GUI zu tun oder? Das darf nicht in den GUI Code
+      String[][] dataBottom = new String[][]{{"1234", "Gas"}, {"1233", "Power"}, {"1253", "Gas"}, {"1224", "Water"}, {"1278", "Gas"},
+            {"1276", "Gas"}, {"1233", "Power"}, {"1253", "Gas"}, {"1224", "Water"}, {"1278", "Gas"}, {"1276", "Gas"}};
+
+      String[] titleTblTop = new String[]{Strings.TENANT};
+
+      String[][] dataTop = new String[][]{{"Stapel"}, {"Slauber"}, {"Suhl"}, {"Selske"}};
+
       // Initial JTable
       final JTable tblTop = new JTable(dataTop, titleTblTop);
       final JTable tblBottom = new JTable(dataBottom, titleTblBottom);
-      
-
 
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();

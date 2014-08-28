@@ -61,10 +61,10 @@ public class Entrance implements TreeNode {
    }
 
    public final Meter removeMeter(final int index) {
-	   if (index >= 0 && index < meters.size()) {
-	         return meters.get(index);
-	      }
-	      return null;
+      if (index >= 0 && index < meters.size()) {
+         return meters.get(index);
+      }
+      return null;
    }
 
    public final int meterCount() {

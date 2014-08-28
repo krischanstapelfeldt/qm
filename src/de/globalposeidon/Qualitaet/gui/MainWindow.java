@@ -113,12 +113,12 @@ public class MainWindow extends JFrame {
       final JButton btnAddMeter = new JButton(Strings.ADDMETER);
       final JButton btnAddTenant = new JButton(Strings.ADDTENANT);
       final JButton btnDelete = new JButton(Strings.DELWSPACE);
-      
+
       // add radiobuttons to a group
       final ButtonGroup rdGroup = new ButtonGroup();
-      rdGroup.add(FunctionPanel.rdbtnUnsorted);
-      rdGroup.add(FunctionPanel.rdbtnRented);
-      rdGroup.add(FunctionPanel.rdbtnUnrented);
+      rdGroup.add(FunctionPanel.RDBTNUNSORTED);
+      rdGroup.add(FunctionPanel.RDBTNRENTED);
+      rdGroup.add(FunctionPanel.RDBTNUNRENTED);
 
       // set buttons disabled to make them depending on node selection
       btnAddEntrance.setEnabled(false);
@@ -126,11 +126,11 @@ public class MainWindow extends JFrame {
       btnAddMeter.setEnabled(false);
       btnAddTenant.setEnabled(false);
       // set texftfields and radiobutton disabled to make them depending on node selection
-      FunctionPanel.tfReadingVal.setEnabled(false);
-      FunctionPanel.tfPerson.setEnabled(false);
-      FunctionPanel.rdbtnUnsorted.setEnabled(false);
-      FunctionPanel.rdbtnRented.setEnabled(false);
-      FunctionPanel.rdbtnUnrented.setEnabled(false);
+      FunctionPanel.TFREADINGVAL.setEnabled(false);
+      FunctionPanel.TFPERSON.setEnabled(false);
+      FunctionPanel.RDBTNUNSORTED.setEnabled(false);
+      FunctionPanel.RDBTNRENTED.setEnabled(false);
+      FunctionPanel.RDBTNUNRENTED.setEnabled(false);
 
       // add FunctionPanel on BottomRightPanel
       pnlFunction.add(new FunctionPanel());
@@ -175,7 +175,6 @@ public class MainWindow extends JFrame {
 
       // SET BOTTOM PANEL
 
-      
       glBottomRightPanel.setHorizontalGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING).addComponent(pnlFunction,
             GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 
@@ -220,11 +219,11 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
-               FunctionPanel.tfReadingVal.setEnabled(false);
-               FunctionPanel.tfPerson.setEnabled(false);
-               FunctionPanel.rdbtnUnsorted.setEnabled(false);
-               FunctionPanel.rdbtnRented.setEnabled(false);
-               FunctionPanel.rdbtnUnrented.setEnabled(false);
+               FunctionPanel.TFREADINGVAL.setEnabled(false);
+               FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.RDBTNUNSORTED.setEnabled(false);
+               FunctionPanel.RDBTNRENTED.setEnabled(false);
+               FunctionPanel.RDBTNUNRENTED.setEnabled(false);
                return;
 
             }
@@ -240,18 +239,18 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
-              
+
                // set right panel
                cntPanel.removeAll();
                cntPanel.add(new BuildingPanel(selectedBuilding()));
-               
+
                // set textfields and radiobuttons enable/disable
-               FunctionPanel.tfReadingVal.setEnabled(false);
-               FunctionPanel.tfPerson.setEnabled(false);
-               FunctionPanel.rdbtnUnsorted.setEnabled(false);
-               FunctionPanel.rdbtnRented.setEnabled(false);
-               FunctionPanel.rdbtnUnrented.setEnabled(false);
-               
+               FunctionPanel.TFREADINGVAL.setEnabled(false);
+               FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.RDBTNUNSORTED.setEnabled(false);
+               FunctionPanel.RDBTNRENTED.setEnabled(false);
+               FunctionPanel.RDBTNUNRENTED.setEnabled(false);
+
             } else if (node instanceof Entrance) {
                System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
                setCurrentEntrance((Entrance) node);
@@ -262,18 +261,18 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(true);
                btnAddMeter.setEnabled(true);
                btnAddTenant.setEnabled(false);
-               
+
                // set right panel
                cntPanel.removeAll();
                cntPanel.add(new EntrancePanel(selectedEntrance()));
-               
+
                // set textfields and radiobuttons enable/disable
-               FunctionPanel.tfReadingVal.setEnabled(false);
-               FunctionPanel.tfPerson.setEnabled(false);
-               FunctionPanel.rdbtnUnsorted.setEnabled(false);
-               FunctionPanel.rdbtnRented.setEnabled(false);
-               FunctionPanel.rdbtnUnrented.setEnabled(false);
-               
+               FunctionPanel.TFREADINGVAL.setEnabled(false);
+               FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.RDBTNUNSORTED.setEnabled(false);
+               FunctionPanel.RDBTNRENTED.setEnabled(false);
+               FunctionPanel.RDBTNUNRENTED.setEnabled(false);
+
             } else if (node instanceof Apartment) {
                System.out.println("selected an apartment with ID: " + ((Apartment) node).getID());
                setCurrentApartment((Apartment) node);
@@ -286,14 +285,14 @@ public class MainWindow extends JFrame {
                // set right panel
                cntPanel.removeAll();
                cntPanel.add(new ApartmentPanel(selectedApartment()));
-               
+
                // set textfields and radiobuttons enable/disable
-               FunctionPanel.tfReadingVal.setEnabled(false);
-               FunctionPanel.tfPerson.setEnabled(false);
-               FunctionPanel.rdbtnUnsorted.setEnabled(true);
-               FunctionPanel.rdbtnRented.setEnabled(true);
-               FunctionPanel.rdbtnUnrented.setEnabled(true);
-               
+               FunctionPanel.TFREADINGVAL.setEnabled(false);
+               FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.RDBTNUNSORTED.setEnabled(true);
+               FunctionPanel.RDBTNRENTED.setEnabled(true);
+               FunctionPanel.RDBTNUNRENTED.setEnabled(true);
+
             } else if (node instanceof Meter) {
                System.out.println("selected an Meter with ID: " + ((Meter) node).getID());
                setCurrentMeter((Meter) node);
@@ -306,24 +305,24 @@ public class MainWindow extends JFrame {
                // set right panel
                cntPanel.removeAll();
                cntPanel.add(new MeterPanel(selectedMeter()));
-               
+
                // set textfields and radiobuttons enable/disable
-               FunctionPanel.tfReadingVal.setEnabled(true);
-               FunctionPanel.tfPerson.setEnabled(true);
-               FunctionPanel.rdbtnUnsorted.setEnabled(false);
-               FunctionPanel.rdbtnRented.setEnabled(false);
-               FunctionPanel.rdbtnUnrented.setEnabled(false);
-               
+               FunctionPanel.TFREADINGVAL.setEnabled(true);
+               FunctionPanel.TFPERSON.setEnabled(true);
+               FunctionPanel.RDBTNUNSORTED.setEnabled(false);
+               FunctionPanel.RDBTNRENTED.setEnabled(false);
+               FunctionPanel.RDBTNUNRENTED.setEnabled(false);
+
             } else {
                btnAddEntrance.setEnabled(false);
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
-               
+
             }
-           
+
          }
-         
+
       });
 
       // button listener

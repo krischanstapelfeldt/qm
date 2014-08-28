@@ -13,14 +13,19 @@ Adapted Checkstyle configuration, that meets the students needs.
   <property name="severity" value="warning"/>
   <module name="TreeWalker">
     <module name="JavadocMethod">
+      <property name="severity" value="info"/>
       <property name="suppressLoadErrors" value="true"/>
     </module>
-    <module name="JavadocType"/>
+    <module name="JavadocType">
+      <property name="severity" value="info"/>
+    </module>
     <module name="JavadocVariable">
       <property name="severity" value="ignore"/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
-    <module name="JavadocStyle"/>
+    <module name="JavadocStyle">
+      <property name="severity" value="info"/>
+    </module>
     <module name="ConstantName"/>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
@@ -54,11 +59,13 @@ Adapted Checkstyle configuration, that meets the students needs.
     <module name="RightCurly"/>
     <module name="AvoidInlineConditionals">
       <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="EmptyStatement"/>
     <module name="EqualsHashCode"/>
     <module name="HiddenField">
       <property name="severity" value="ignore"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
@@ -76,13 +83,17 @@ Adapted Checkstyle configuration, that meets the students needs.
     <module name="VisibilityModifier"/>
     <module name="ArrayTypeStyle"/>
     <module name="FinalParameters"/>
-    <module name="TodoComment"/>
+    <module name="TodoComment">
+      <property name="severity" value="error"/>
+    </module>
     <module name="UpperEll"/>
     <module name="LineLength">
       <property name="max" value="140"/>
     </module>
   </module>
-  <module name="JavadocPackage"/>
+  <module name="JavadocPackage">
+    <property name="severity" value="warning"/>
+  </module>
   <module name="NewlineAtEndOfFile"/>
   <module name="FileLength"/>
   <module name="FileTabCharacter"/>
