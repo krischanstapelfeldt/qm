@@ -40,11 +40,11 @@ public class BuildingPanel extends JPanel {
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();
 
-      scrollPane.setViewportView(table);
+      scrollPane.setViewportView(BuildingJTable.getTblTop());
       scrollPane2.setViewportView(table2);
 
       pnlMain.add(scrollPane);
-      pnlMain.add(scrollPane2);
+   //   pnlMain.add(scrollPane2);
 
       add(pnlHeader, BorderLayout.NORTH);
       add(pnlMain, BorderLayout.CENTER);

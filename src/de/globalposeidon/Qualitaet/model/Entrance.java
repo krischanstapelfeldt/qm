@@ -14,7 +14,7 @@ import javax.swing.tree.TreeNode;
  */
 public class Entrance implements TreeNode {
 
-   private final int id;
+   private int id;
    private final Random random = new Random();
    private final Building building; // parent node
 
@@ -52,6 +52,10 @@ public class Entrance implements TreeNode {
       return id;
    }
 
+   public final void setID(final int iD) {
+      id = iD;
+   }
+   
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < getMeters().size()) {
          return getMeters().get(index);

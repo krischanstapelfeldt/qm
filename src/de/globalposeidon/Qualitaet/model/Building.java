@@ -17,8 +17,8 @@ public class Building implements TreeNode {
    private final DataContainer dc; // parent node
    private final Random random = new Random();
 
-   private Renter renter;
-   private final ArrayList<Entrance> entrances;
+   private static Renter renter;
+   private static ArrayList<Entrance> entrances;
 
    // ================================================================================
    // constructor
@@ -44,7 +44,7 @@ public class Building implements TreeNode {
       return id;
    }
 
-   public final Renter getRenter() {
+   public static final Renter getRenter() {
       return renter;
    }
 
@@ -127,4 +127,11 @@ public class Building implements TreeNode {
       return Collections.enumeration(entrances);
    }
 
+   public static ArrayList<Entrance> getEntrance() {
+      return entrances;
+   }
+   
+   public static void setEntrances(final ArrayList<Entrance> entrances) {
+      Building.entrances = entrances;
+   }
 }
