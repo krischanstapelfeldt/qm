@@ -48,11 +48,12 @@ public class Meter implements TreeNode {
    // ================================================================================
    // access private variables
    // ================================================================================
-   
-   public void setID(int iD) {
+
+   public final void setID(final int iD) {
       id = iD;
-      
+
    }
+
    public final int getID() {
       return id;
    }
@@ -144,7 +145,5 @@ public class Meter implements TreeNode {
    public final Enumeration<?> children() {
       return null;
    }
-
-
 
 }

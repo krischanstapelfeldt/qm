@@ -13,7 +13,7 @@ import javax.swing.tree.TreeNode;
  */
 public class Entrance implements TreeNode {
 
-   private int id;
+   private final int id;
    private final Random random = new Random();
    private final Building building; // parent node
 

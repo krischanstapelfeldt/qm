@@ -20,12 +20,10 @@ public class Apartment implements TreeNode {
    private final Entrance entrance; // parent node
    private final Random random = new Random();
 
-
-   public  static  ArrayList<Meter> meters;
-   public static  ArrayList<Tenant> tenants;
+   private static ArrayList<Meter> meters;
+   private static ArrayList<Tenant> tenants;
 
    private static final int MAXTENANTS = 4;
-
 
    // ================================================================================
    // constructor
@@ -33,8 +31,8 @@ public class Apartment implements TreeNode {
 
    public Apartment(final Entrance entrance) {
       this.entrance = entrance;
-      meters = new ArrayList<Meter>();
-      tenants = new ArrayList<Tenant>();
+      setMeters(new ArrayList<Meter>());
+      setTenants(new ArrayList<Tenant>());
       id = random.nextInt();
    }
 
@@ -61,58 +59,58 @@ public class Apartment implements TreeNode {
    }
 
    public final void addMeter(final Meter meter) {
-      meters.add(meter);
+      getMeters().add(meter);
    }
 
    public final Meter getMeter(final int index) {
-      if (index >= 0 && index < meters.size()) {
-         return meters.get(index);
+      if (index >= 0 && index < getMeters().size()) {
+         return getMeters().get(index);
       }
       return null;
    }
 
    public final Meter removeMeter(final int index) {
-      if (index >= 0 && index < meters.size()) {
-         return meters.remove(index);
+      if (index >= 0 && index < getMeters().size()) {
+         return getMeters().remove(index);
       }
       return null;
    }
 
    public final int meterCount() {
-      return meters.size();
+      return getMeters().size();
    }
 
    public final boolean addTenant(final Tenant tentant) {
-      if (tenants.size() < MAXTENANTS) { // max 4 tenants for each apartment
-         tenants.add(tentant);
+      if (getTenants().size() < MAXTENANTS) { // max 4 tenants for each apartment
+         getTenants().add(tentant);
          return true;
       }
       return false;
    }
 
    public final Tenant getTenant(final int index) {
-      if (index >= 0 && index < tenants.size()) {
-         return tenants.get(index);
+      if (index >= 0 && index < getTenants().size()) {
+         return getTenants().get(index);
       }
       return null;
    }
 
    public final Tenant removeTenant(final int index) {
-      if (index >= 0 && index < tenants.size()) {
-         return tenants.remove(index);
+      if (index >= 0 && index < getTenants().size()) {
+         return getTenants().remove(index);
       }
       return null;
    }
 
    public final int tenantCount() {
-      return tenants.size();
+      return getTenants().size();
    }
 
    // ================================================================================
    // other stuff...
    // ================================================================================
    public final boolean apartmentIsEmpty() {
-      return tenants.size() == 0;
+      return getTenants().size() == 0;
    }
 
    @Override
@@ -129,12 +127,12 @@ public class Apartment implements TreeNode {
    // ================================================================================
    @Override
    public final TreeNode getChildAt(final int childIndex) {
-      return meters.get(childIndex);
+      return getMeters().get(childIndex);
    }
 
    @Override
    public final int getChildCount() {
-      return meters.size();
+      return getMeters().size();
    }
 
    @Override
@@ -160,7 +158,23 @@ public class Apartment implements TreeNode {
 
    @Override
    public final Enumeration<Meter> children() {
-      return Collections.enumeration(meters);
+      return Collections.enumeration(getMeters());
+   }
+
+   public static ArrayList<Meter> getMeters() {
+      return meters;
+   }
+
+   public static void setMeters(final ArrayList<Meter> meters) {
+      Apartment.meters = meters;
+   }
+
+   public static ArrayList<Tenant> getTenants() {
+      return tenants;
+   }
+
+   public static void setTenants(final ArrayList<Tenant> tenants) {
+      Apartment.tenants = tenants;
    }
 
 }

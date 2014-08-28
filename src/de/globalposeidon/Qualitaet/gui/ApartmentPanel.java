@@ -7,9 +7,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
-import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
 
 public class ApartmentPanel extends JPanel {
@@ -36,14 +34,13 @@ public class ApartmentPanel extends JPanel {
       // pnlHeader.add(lblMeter);
       // pnlHeader.add(lblTenant);
 
-
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();
-      
-      scrollPane.setViewportView(ApartmentJTable.tblTop);
-      scrollPane2.setViewportView(ApartmentJTable.tblBottom);
-      
+
+      scrollPane.setViewportView(ApartmentJTable.getTblTop());
+      scrollPane2.setViewportView(ApartmentJTable.getTblBottom());
+
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);
 

@@ -1,6 +1,5 @@
 package de.globalposeidon.Qualitaet.gui;
 
-
 import java.util.ArrayList;
 
 import javax.swing.JTable;
@@ -10,218 +9,282 @@ import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Tenant;
+
 /**
  * renter model.
  * @author Jens-Rainer Felske
  */
-public class ApartmentJTable{
-      
-   
-// set Table Top Column Header
-   static String[] titleTblTop = new String[]{
-      Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL
-   };
-   
-   // set Table Bottom Column Header
-   static String[] titleTblBottom = new String[]{
-         Strings.METERID, Strings.METERTYPE
-   };
+public class ApartmentJTable {
+   protected ApartmentJTable() {
+      throw new UnsupportedOperationException();
+   }
 
-      
+   // set Table Top Column Header
+   private static String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
+
+   // set Table Bottom Column Header
+   private static String[] titleTblBottom = new String[]{Strings.METERID, Strings.METERTYPE};
+
    // initial JTable Top
-   static JTable tblTop = new JTable(TblMdlTop.tblTopModel);
-   
+   private static JTable tblTop = new JTable(TblMdlTop.TBLTOPMDL);
+
    // configure TabelModel Top
-   static class TblMdlTop extends AbstractTableModel{
-      
+   static class TblMdlTop extends AbstractTableModel {
+
+      /**
+       *
+       */
+      private static final long serialVersionUID = -7166828471266641592L;
       static final int NAME = 0;
       static final int SURNAME = 1;
       static final int PHONE = 2;
       static final int EMAIL = 3;
-      
-      static final TblMdlTop tblTopModel = new TblMdlTop(Apartment.tenants);
-      
-    
-     public TblMdlTop(ArrayList<Tenant> tenants){
-                
-     }
-     
-    public int addElement(Tenant tenant) {
-        (Apartment.tenants).add(tenant);
-        this.fireTableDataChanged();
-        return Apartment.tenants.size()-1;
-    }
-    public void removeElement(final Apartment Tenant) {
-        Apartment.tenants.remove(Tenant);
-        this.fireTableDataChanged();
-    }
-    public void setEntries(final ArrayList<Tenant> dataList) {
-        clear();
-        for (int row = 0; row < dataList.size(); row++) {
-            Apartment.tenants.add(dataList.get(row));
-        }
-    }
-    public String getColumnName(int i) {
-       return titleTblTop[i];
-       }
-    public int getColumnCount() {
-       return titleTblTop.length;
-       }
-    public int getRowCount() {
-       return Apartment.tenants.size();
-       }
-    public Object getRowAt(int row) {
-       return Apartment.tenants.get(row);
-       }
-    public void setRowAt(final Tenant tenant, int row) {
-       Apartment.tenants.set(row, tenant);
-        this.fireTableRowsUpdated(row, row);
-    }
-    public Object getValueAt(final int row, final int col) {
-        if(col == NAME)
-            return ((Tenant)Apartment.tenants.get(row)).getName();
-        if(col == SURNAME)
-            return ((Tenant)Apartment.tenants.get(row)).getSurname();
-        if(col == PHONE)
-           return ((Tenant)Apartment.tenants.get(row)).getPhone();
-        if(col == EMAIL)
-           return ((Tenant)Apartment.tenants.get(row)).getEmail();
-        return (Object) null;
-    }
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if(columnIndex == NAME){ 
-           return true;
-        } 
-        else if(columnIndex == SURNAME) {
-           return true;
-        }
-        else if(columnIndex == PHONE){
-           return true;
-        }
-         else if(columnIndex == EMAIL){
-           return true;
-        }
-           
-        return false;
-    }
-    public void setValueAt(Object currentValue, int rowIndex, int columnIndex) {
-        if(columnIndex == NAME)
-            ((Tenant)Apartment.tenants.get(rowIndex)).setName((String) currentValue);
-        if(columnIndex == SURNAME)
-            ((Tenant)Apartment.tenants.get(rowIndex)).setSurname((String) currentValue);
-        if(columnIndex == PHONE)
-           ((Tenant)Apartment.tenants.get(rowIndex)).setPhone((String) currentValue);
-       if(columnIndex == EMAIL)
-           ((Tenant)Apartment.tenants.get(rowIndex)).setEmail((String) currentValue);
-    }
-    public void clear() {
-        int rows = getRowCount();
-        Apartment.tenants.clear();
-        fireTableRowsDeleted(0,rows);
-    }
-    public String[] getHeaders() {
-       return titleTblBottom;
-       }
-    public ArrayList<Tenant> getRowList() {
-       return Apartment.tenants;
-       }
-    public void setHeaders(final String[] headers) {
-       titleTblTop = headers;
-       }
-    public void setRowList(final ArrayList<Tenant> rowList) {
-       Apartment.tenants = rowList;
-       }
-  }
-         
-   
-   // Initial JTable Bottom
-   
-   static JTable tblBottom = new JTable(TblMdlBottom.tblBottomModel);
-   
-   // configure TabelModel Bottom
-    static class TblMdlBottom extends AbstractTableModel{
-       static final int METERID = 0;
-       static final int METERTYPE = 1;
-       static final TblMdlBottom tblBottomModel = new TblMdlBottom(Apartment.meters);
-       
-     
-      public TblMdlBottom(ArrayList<Meter> meters){
-                 
+
+      static final TblMdlTop TBLTOPMDL = new TblMdlTop(Apartment.getTenants());
+
+      public TblMdlTop(final ArrayList<Tenant> tenants) {
+
       }
-      
-     public int addElement(Meter meter) {
-         (Apartment.meters).add(meter);
-         this.fireTableDataChanged();
-         return Apartment.meters.size()-1;
-     }
-     public void removeElement(final Apartment Meter) {
-         Apartment.meters.remove(Meter);
-         this.fireTableDataChanged();
-     }
-     public void setEntries(final ArrayList<Meter> dataList) {
+
+      public int addElement(final Tenant tenant) {
+         (Apartment.getTenants()).add(tenant);
+         fireTableDataChanged();
+         return Apartment.getTenants().size() - 1;
+      }
+
+      public void removeElement(final Apartment tenant) {
+         Apartment.getTenants().remove(tenant);
+         fireTableDataChanged();
+      }
+
+      public void setEntries(final ArrayList<Tenant> dataList) {
          clear();
          for (int row = 0; row < dataList.size(); row++) {
-             Apartment.meters.add(dataList.get(row));
+            Apartment.getTenants().add(dataList.get(row));
          }
-     }
-     public String getColumnName(int i) {
-        return titleTblBottom[i];
-        }
-     public int getColumnCount() {
-        return titleTblBottom.length;
-        }
-     public int getRowCount() {
-        return Apartment.meters.size();
-        }
-     public Object getRowAt(int row) {
-        return Apartment.meters.get(row);
-        }
-     public void setRowAt(final Meter Meter, int row) {
-        Apartment.meters.set(row, Meter);
-         this.fireTableRowsUpdated(row, row);
-     }
-     public Object getValueAt(final int row, final int col) {
-         if(col == METERID)
-             return ((Meter)Apartment.meters.get(row)).getID();
-         if(col == METERTYPE)
-             return ((Meter)Apartment.meters.get(row)).getType();
-         return (Object) null;
-     }
-     public boolean isCellEditable(int rowIndex, int columnIndex) {
-         if(columnIndex == METERID){
+      }
+
+      @Override
+      public String getColumnName(final int i) {
+         return titleTblTop[i];
+      }
+
+      @Override
+      public int getColumnCount() {
+         return titleTblTop.length;
+      }
+
+      @Override
+      public int getRowCount() {
+         return Apartment.getTenants().size();
+      }
+
+      public Object getRowAt(final int row) {
+         return Apartment.getTenants().get(row);
+      }
+
+      public void setRowAt(final Tenant tenant, final int row) {
+         Apartment.getTenants().set(row, tenant);
+         fireTableRowsUpdated(row, row);
+      }
+
+      @Override
+      public Object getValueAt(final int row, final int col) {
+         if (col == NAME) {
+            return Apartment.getTenants().get(row).getName();
+         }
+         if (col == SURNAME) {
+            return Apartment.getTenants().get(row).getSurname();
+         }
+         if (col == PHONE) {
+            return Apartment.getTenants().get(row).getPhone();
+         }
+         if (col == EMAIL) {
+            return Apartment.getTenants().get(row).getEmail();
+         }
+         return null;
+      }
+
+      @Override
+      public boolean isCellEditable(final int rowIndex, final int columnIndex) {
+         if (columnIndex == NAME) {
+            return true;
+         } else if (columnIndex == SURNAME) {
+            return true;
+         } else if (columnIndex == PHONE) {
+            return true;
+         } else if (columnIndex == EMAIL) {
             return true;
          }
-         else if(columnIndex == METERTYPE){
+
+         return false;
+      }
+
+      @Override
+      public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
+         if (columnIndex == NAME) {
+            Apartment.getTenants().get(rowIndex).setName((String) currentValue);
+         }
+         if (columnIndex == SURNAME) {
+            Apartment.getTenants().get(rowIndex).setSurname((String) currentValue);
+         }
+         if (columnIndex == PHONE) {
+            Apartment.getTenants().get(rowIndex).setPhone((String) currentValue);
+         }
+         if (columnIndex == EMAIL) {
+            Apartment.getTenants().get(rowIndex).setEmail((String) currentValue);
+         }
+      }
+
+      public void clear() {
+         final int rows = getRowCount();
+         Apartment.getTenants().clear();
+         fireTableRowsDeleted(0, rows);
+      }
+
+      public String[] getHeaders() {
+         return titleTblBottom;
+      }
+
+      public ArrayList<Tenant> getRowList() {
+         return Apartment.getTenants();
+      }
+
+      public void setHeaders(final String[] headers) {
+         titleTblTop = headers;
+      }
+
+      public void setRowList(final ArrayList<Tenant> rowList) {
+         Apartment.setTenants(rowList);
+      }
+   }
+
+   // Initial JTable Bottom
+
+   private static JTable tblBottom = new JTable(TblMdlBottom.TBLBOTTOMMDL);
+
+   // configure TabelModel Bottom
+   static class TblMdlBottom extends AbstractTableModel {
+
+      private static final long serialVersionUID = 1817731260470629483L;
+      static final int METERID = 0;
+      static final int METERTYPE = 1;
+      static final TblMdlBottom TBLBOTTOMMDL = new TblMdlBottom(Apartment.getMeters());
+
+      public TblMdlBottom(final ArrayList<Meter> meters) {
+
+      }
+
+      public int addElement(final Meter meter) {
+         (Apartment.getMeters()).add(meter);
+         fireTableDataChanged();
+         return Apartment.getMeters().size() - 1;
+      }
+
+      public void removeElement(final Apartment meter) {
+         Apartment.getMeters().remove(meter);
+         fireTableDataChanged();
+      }
+
+      public void setEntries(final ArrayList<Meter> dataList) {
+         clear();
+         for (int row = 0; row < dataList.size(); row++) {
+            Apartment.getMeters().add(dataList.get(row));
+         }
+      }
+
+      @Override
+      public String getColumnName(final int i) {
+         return titleTblBottom[i];
+      }
+
+      @Override
+      public int getColumnCount() {
+         return titleTblBottom.length;
+      }
+
+      @Override
+      public int getRowCount() {
+         return Apartment.getMeters().size();
+      }
+
+      public Object getRowAt(final int row) {
+         return Apartment.getMeters().get(row);
+      }
+
+      public void setRowAt(final Meter meter, final int row) {
+         Apartment.getMeters().set(row, meter);
+         fireTableRowsUpdated(row, row);
+      }
+
+      @Override
+      public Object getValueAt(final int row, final int col) {
+         if (col == METERID) {
+            return Apartment.getMeters().get(row).getID();
+         }
+         if (col == METERTYPE) {
+            return Apartment.getMeters().get(row).getType();
+         }
+         return null;
+      }
+
+      @Override
+      public boolean isCellEditable(final int rowIndex, final int columnIndex) {
+         if (columnIndex == METERID) {
+            return true;
+         } else if (columnIndex == METERTYPE) {
             return true;
          }
          return false;
-     }
-     public void setValueAt(Object currentValue, int rowIndex, int columnIndex) {
-         if(columnIndex == METERID)
-             ((Meter)Apartment.meters.get(rowIndex)).setID((int) currentValue);
-         if(columnIndex == METERTYPE)
-             ((Meter)Apartment.meters.get(rowIndex)).setCurrentValue((int) currentValue);
-     }
-     public void clear() {
-         int rows = getRowCount();
-         Apartment.meters.clear();
-         fireTableRowsDeleted(0,rows);
-     }
-     public String[] getHeaders() {
-        return titleTblBottom;
-        }
-     public ArrayList<Meter> getRowList() {
-        return Apartment.meters;
-        }
-     public void setHeaders(final String[] headers) {
-        titleTblBottom = headers;
-        }
-     public void setRowList(final ArrayList<Meter> rowList) {
-        Apartment.meters = rowList;
-        }
+      }
+
+      @Override
+      public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
+         if (columnIndex == METERID) {
+            Apartment.getMeters().get(rowIndex).setID((int) currentValue);
+         }
+         if (columnIndex == METERTYPE) {
+            Apartment.getMeters().get(rowIndex).setCurrentValue((int) currentValue);
+         }
+      }
+
+      public void clear() {
+         final int rows = getRowCount();
+         Apartment.getMeters().clear();
+         fireTableRowsDeleted(0, rows);
+      }
+
+      public String[] getHeaders() {
+         return titleTblBottom;
+      }
+
+      public ArrayList<Meter> getRowList() {
+         return Apartment.getMeters();
+      }
+
+      public void setHeaders(final String[] headers) {
+         titleTblBottom = headers;
+      }
+
+      public void setRowList(final ArrayList<Meter> rowList) {
+         Apartment.setMeters(rowList);
+      }
    }
-    
-    
- 
+
+   public static JTable getTblBottom() {
+      return tblBottom;
+   }
+
+   public static void setTblBottom(final JTable tblBottom) {
+      ApartmentJTable.tblBottom = tblBottom;
+   }
+
+   public static JTable getTblTop() {
+      return tblTop;
+   }
+
+   public static void setTblTop(final JTable tblTop) {
+      ApartmentJTable.tblTop = tblTop;
+   }
 
 }

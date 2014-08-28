@@ -51,7 +51,7 @@ public class PersonTest extends TestCase {
    @Test
    public final void testPositiveCreatePerson() {
 
-      Person personEmpty = new Person();
+      final Person personEmpty = new Person();
       assertNotNull("", person);
       assertNotNull("", personEmpty);
 
