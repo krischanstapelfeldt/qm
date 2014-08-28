@@ -43,9 +43,9 @@ public class RenterTest extends TestCase {
       final String surname = "Max";
       final String phone = "01234/5678912";
       final String email = "max@mustermann.de";
-      assertEquals("", null, new Renter(name, surname, phone, email));
+      assertNotNull("", new Renter(name, surname, phone, email));
 
-      assertEquals("", null, new Renter());
+      assertNotNull("", new Renter());
    }
 
 }

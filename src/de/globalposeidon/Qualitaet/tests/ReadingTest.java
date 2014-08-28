@@ -23,12 +23,11 @@ import de.globalposeidon.Qualitaet.model.ReadingInfo;
  */
 public class ReadingTest extends TestCase {
 
-	private DataContainer dataContainer;
-	private Building building;
-	private Entrance entrance;
-	private Meter meter;
-	private Reading reading;
-
+   private DataContainer dataContainer;
+   private Building building;
+   private Entrance entrance;
+   private Meter meter;
+   private Reading reading;
 
    @Override
    @Before
@@ -39,13 +38,13 @@ public class ReadingTest extends TestCase {
     * @throws Throws
     *             an exception, when catching fire
     */
-	public final void setUp() throws Exception {
-	   dataContainer = new DataContainer();
-	   building = new Building(dataContainer);
-	   entrance =  new Entrance(building);
-	   meter = new Meter(001, Metertype.GAS, entrance);
-	   meter.setCurrentValue(1);
-	   reading = new Reading(meter, MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION);
+   public final void setUp() throws Exception {
+      dataContainer = new DataContainer();
+      building = new Building(dataContainer);
+      entrance = new Entrance(building);
+      meter = new Meter(001, Metertype.GAS, entrance);
+      meter.setCurrentValue(1);
+      reading = new Reading(meter, MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION);
    }
 
    @Override
@@ -69,7 +68,7 @@ public class ReadingTest extends TestCase {
    @Test
    public final void testPositiveGetMeter() {
 
-	   assertEquals("", meter, reading.getMeter());
+      assertEquals("", meter, reading.getMeter());
    }
 
    /**
@@ -78,7 +77,7 @@ public class ReadingTest extends TestCase {
    @Test
    public final void testPositiveGetReader() {
 
-	   assertEquals("", MeterReader.ENERGYPROVIDER, reading.getReader());
+      assertEquals("", MeterReader.ENERGYPROVIDER, reading.getReader());
    }
 
    /**
@@ -87,9 +86,8 @@ public class ReadingTest extends TestCase {
    @Test
    public final void testPositiveGetReadingInfo() {
 
-	   assertEquals("", ReadingInfo.ESTIMATION, reading.getInfo());
+      assertEquals("", ReadingInfo.ESTIMATION, reading.getInfo());
    }
-
 
    /**
     * bla.
@@ -97,9 +95,8 @@ public class ReadingTest extends TestCase {
    @Test
    public final void testPositiveGetReadingDate() {
 
-	   assertEquals("", new Date(), reading.getReadingDate());
+      assertEquals("", new Date(), reading.getReadingDate());
    }
-
 
    /**
     * bla.
@@ -107,7 +104,7 @@ public class ReadingTest extends TestCase {
    @Test
    public final void testPositiveGetReadingValue() {
 
-	   assertEquals("", 1, reading.getReadingValue());
+      assertEquals("", 1, reading.getReadingValue());
    }
 
    /**
@@ -115,6 +112,6 @@ public class ReadingTest extends TestCase {
     */
    @Test
    public final void testGetID() {
-	   assertNotNull(reading.getID());
+      assertNotNull(reading.getID());
    }
 }

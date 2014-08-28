@@ -52,8 +52,8 @@ public class PersonTest extends TestCase {
    public final void testPositiveCreatePerson() {
 
       Person personEmpty = new Person();
-      assertEquals("", true, person);
-      assertEquals("", true, personEmpty);
+      assertNotNull("", person);
+      assertNotNull("", personEmpty);
 
    }
 

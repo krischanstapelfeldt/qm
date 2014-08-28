@@ -90,7 +90,7 @@ public class MeterTest extends TestCase {
    @Test
    public final void testPositiveGetType() {
 
-	   assertEquals("", type, meter.getType());
+      assertEquals("", type, meter.getType());
    }
 
    /**
@@ -164,7 +164,7 @@ public class MeterTest extends TestCase {
    @Test
    public final void testPositiveMakeReading() {
 
-	   assertNotNull(meter.makeReading());
+      assertNotNull(meter.makeReading());
    }
 
    /**

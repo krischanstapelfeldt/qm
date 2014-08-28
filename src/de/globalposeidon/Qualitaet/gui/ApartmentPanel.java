@@ -36,7 +36,7 @@ public class ApartmentPanel extends JPanel {
       // pnlHeader.add(lblMeter);
       // pnlHeader.add(lblTenant);
 
-    
+
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();

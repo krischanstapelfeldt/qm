@@ -57,7 +57,6 @@ public class Meter implements TreeNode {
       return id;
    }
 
-
    public final int getCurrentValue() {
       return currentValue;
    }
@@ -81,7 +80,7 @@ public class Meter implements TreeNode {
    }
 
    public final Date getLastRead() {
-      return lastRead;
+      return (Date) lastRead.clone();
    }
 
    public final void setLastRead(final Date lastRead) {

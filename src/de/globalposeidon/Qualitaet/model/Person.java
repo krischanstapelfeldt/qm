@@ -1,5 +1,7 @@
 package de.globalposeidon.Qualitaet.model;
 
+import java.util.Random;
+
 /**
  * person model.
  * @author Timm Suhl
@@ -7,6 +9,7 @@ package de.globalposeidon.Qualitaet.model;
 public class Person {
 
    private int id;
+   private final Random random = new Random();
 
    private String name;
    private String surname;
@@ -19,7 +22,7 @@ public class Person {
    public Person() {
       // some standard value for empty person
       this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
-      id = ((int) (Math.random() * 10000));
+      id = random.nextInt();
    }
 
    public Person(final String name, final String surname, final String phone, final String email) {
