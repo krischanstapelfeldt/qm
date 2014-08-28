@@ -23,15 +23,17 @@ public class FunctionPanel extends JPanel {
    private final JLabel lblMeterSearch = new JLabel(Strings.METERSEARCH);
    private final JLabel lblReadVal = new JLabel(Strings.READINGVALUE);
    private final JLabel lblReadPers = new JLabel(Strings.READINGPERSON);
-   private final JLabel lblSort = new JLabel("Sort");
+   private final JLabel lblSort = new JLabel(Strings.SORT);
    private final JLabel lblMakeReading = new JLabel(Strings.MAKEREADING);
+   private final JLabel lblReadInfo = new JLabel(Strings.READINGINFO);
 
    // declare TextField
 
    static final JTextField TFMETERID = new JTextField();
    static final JTextField TFREADINGVAL = new JTextField();
    static final JTextField TFPERSON = new JTextField();
-
+   static final JTextField TFREADINGINFO = new JTextField();
+   
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
    private final JButton btnSearch = new JButton(Strings.SEARCH);
@@ -79,6 +81,12 @@ public class FunctionPanel extends JPanel {
       gbcLblReadPers.gridx = Strings.FIVE;
       gbcLblReadPers.gridy = Strings.THREE;
       add(lblReadPers, gbcLblReadPers);
+      
+      final GridBagConstraints gbcLblReadInfo = new GridBagConstraints();
+      gbcLblReadInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
+      gbcLblReadInfo.gridx = Strings.FIVE;
+      gbcLblReadInfo.gridy = Strings.FOUR;
+      add(lblReadInfo, gbcLblReadInfo);
 
       final GridBagConstraints gbcTfMeterId = new GridBagConstraints();
       gbcTfMeterId.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
@@ -116,6 +124,13 @@ public class FunctionPanel extends JPanel {
       gbcTfPerson.gridy = Strings.THREE;
       add(TFPERSON, gbcTfPerson);
       TFPERSON.setColumns(10);
+      
+      final GridBagConstraints gbcTfReadingInfo = new GridBagConstraints();
+      gbcTfReadingInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
+      gbcTfReadingInfo.gridx = Strings.SIX;
+      gbcTfReadingInfo.gridy = Strings.FOUR;
+      add(TFREADINGINFO, gbcTfReadingInfo);
+      TFREADINGINFO.setColumns(10);
 
       separatorRight.setOrientation(SwingConstants.VERTICAL);
       separatorRight.setForeground(Color.DARK_GRAY);

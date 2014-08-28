@@ -128,6 +128,7 @@ public class MainWindow extends JFrame {
       // set texftfields and radiobutton disabled to make them depending on node selection
       FunctionPanel.TFREADINGVAL.setEnabled(false);
       FunctionPanel.TFPERSON.setEnabled(false);
+      FunctionPanel.TFREADINGINFO.setEnabled(false);
       FunctionPanel.RDBTNUNSORTED.setEnabled(false);
       FunctionPanel.RDBTNRENTED.setEnabled(false);
       FunctionPanel.RDBTNUNRENTED.setEnabled(false);
@@ -221,6 +222,7 @@ public class MainWindow extends JFrame {
                btnAddTenant.setEnabled(false);
                FunctionPanel.TFREADINGVAL.setEnabled(false);
                FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.TFREADINGINFO.setEnabled(false);
                FunctionPanel.RDBTNUNSORTED.setEnabled(false);
                FunctionPanel.RDBTNRENTED.setEnabled(false);
                FunctionPanel.RDBTNUNRENTED.setEnabled(false);
@@ -247,6 +249,7 @@ public class MainWindow extends JFrame {
                // set textfields and radiobuttons enable/disable
                FunctionPanel.TFREADINGVAL.setEnabled(false);
                FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.TFREADINGINFO.setEnabled(false);
                FunctionPanel.RDBTNUNSORTED.setEnabled(false);
                FunctionPanel.RDBTNRENTED.setEnabled(false);
                FunctionPanel.RDBTNUNRENTED.setEnabled(false);
@@ -269,6 +272,7 @@ public class MainWindow extends JFrame {
                // set textfields and radiobuttons enable/disable
                FunctionPanel.TFREADINGVAL.setEnabled(false);
                FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.TFREADINGINFO.setEnabled(false);
                FunctionPanel.RDBTNUNSORTED.setEnabled(false);
                FunctionPanel.RDBTNRENTED.setEnabled(false);
                FunctionPanel.RDBTNUNRENTED.setEnabled(false);
@@ -289,6 +293,7 @@ public class MainWindow extends JFrame {
                // set textfields and radiobuttons enable/disable
                FunctionPanel.TFREADINGVAL.setEnabled(false);
                FunctionPanel.TFPERSON.setEnabled(false);
+               FunctionPanel.TFREADINGINFO.setEnabled(false);
                FunctionPanel.RDBTNUNSORTED.setEnabled(true);
                FunctionPanel.RDBTNRENTED.setEnabled(true);
                FunctionPanel.RDBTNUNRENTED.setEnabled(true);
@@ -309,6 +314,7 @@ public class MainWindow extends JFrame {
                // set textfields and radiobuttons enable/disable
                FunctionPanel.TFREADINGVAL.setEnabled(true);
                FunctionPanel.TFPERSON.setEnabled(true);
+               FunctionPanel.TFREADINGINFO.setEnabled(true);
                FunctionPanel.RDBTNUNSORTED.setEnabled(false);
                FunctionPanel.RDBTNRENTED.setEnabled(false);
                FunctionPanel.RDBTNUNRENTED.setEnabled(false);

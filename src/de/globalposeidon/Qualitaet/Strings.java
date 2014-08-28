@@ -33,27 +33,29 @@ public final class Strings {
    public static final String GLOBALPOSEIDON = "Global Poseidon";
    public static final String HELP = "Help";
    public static final String HOUSENO = "House no.";
+   public static final String MAKEREADING = "make reading";
    public static final String METER = "meter";
    public static final String METERTYPE = "metertype";
    public static final String NAME = "name";
    public static final String OPENWSPACE = "open ";
    public static final String PHONE = "phone";
    public static final String READING = "reading";
+   public static final String READINGINFO = "reading info";
+   public static final String READINGPERSON = "reading person";
    public static final String RENTED = "rented";
    public static final String RENTER = "renter";
    public static final String OK = "OK";
    public static final String SAVE = "save";
+   public static final String SEARCH = "search";
+   public static final String SORT = "sort";
    public static final String STREET = "street";
    public static final String SURNAME = "surname";
    public static final String TENANT = "tenant";
    public static final String TOWN = "town";
    public static final String UNRENTED = "unrented";
+   public static final String UNSORTED = "unsorted";
    public static final String VALUE = "value";
    public static final String ZIP = "ZIP Code";
-   public static final String SEARCH = "search";
-   public static final String MAKEREADING = "make reading";
-   public static final String READINGPERSON = "reading person";
-   public static final String UNSORTED = "unsorted";
 
    // advanced terms
    public static final String ADDAPARTMENT = ADDWSPACE + APARTMENT;
