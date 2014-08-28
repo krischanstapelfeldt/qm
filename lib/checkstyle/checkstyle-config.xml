@@ -106,6 +106,5 @@ Adapted Checkstyle configuration, that meets the students needs.
     <property name="severity" value="warning"/>
     <property name="format" value="System\.out\.print"/>
     <property name="message" value="You must not use System.out.println()! Use the logging API instead"/>
-    <property name="ignoreComments" value="true"/>
   </module>
 </module>
