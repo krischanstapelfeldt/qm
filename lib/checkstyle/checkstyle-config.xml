@@ -101,4 +101,11 @@ Adapted Checkstyle configuration, that meets the students needs.
     <property name="format" value="\s+$"/>
     <property name="message" value="Line has trailing spaces."/>
   </module>
+  <module name="RegexpSingleline">
+    <metadata name="net.sf.eclipsecs.core.comment" value="Forbid println() and print()"/>
+    <property name="severity" value="warning"/>
+    <property name="format" value="System\.out\.print"/>
+    <property name="message" value="You must not use System.out.println()! Use the logging API instead"/>
+    <property name="ignoreComments" value="true"/>
+  </module>
 </module>
