@@ -2,128 +2,145 @@
 //
 //import java.util.ArrayList;
 //
-//import javax.swing.JTable;
 //import javax.swing.table.AbstractTableModel;
 //
 //import de.globalposeidon.Qualitaet.Strings;
-//import de.globalposeidon.Qualitaet.gui.BuildingJTable;
 //
-//// configure TabelModel Bottom
-//public class BuildingTableModelBottom extends AbstractTableModel {
+////// configure TabelModel Bottom
+//   public class BuildingTableModelBottom extends AbstractTableModel {
 //
 //   /**
 //    * 
 //    */
-//   private static final long serialVersionUID = 7275188332461034629L;
-//   static final int RENTER = 0;
-//   // set Table Bottom Column Header
-//   private static String[] titleTblBottom = new String[] { Strings.RENTER };
+//      private static final long serialVersionUID = -7166828471266641592L;
+//      static final int NAME = 0;
+//      static final int SURNAME = 1;
+//      static final int PHONE = 2;
+//      static final int EMAIL = 3;
 //
-//   private static BuildingTableModelBottom TblMdlBottom = new BuildingTableModelBottom(Building.getRenter());
+//      // set Table Bottom Column Header
+//      private static String[] titleTblBottom = new String[] { Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL };
 //
-//   public BuildingTableModelBottom(final Renter renter) {
+//      private static final BuildingTableModelBottom TblMdlBottom = new BuildingTableModelBottom(Building.getRenter());
 //
-//   }
-
-//   public int addElement(final Renter renter) {
-//      (Building.getRenter()).add(renter);
-//      fireTableDataChanged();
-//      return Building.getRenter().size() - 1;
-//   }
+//      public BuildingTableModelBottom(Renter renter) {
 //
-//   public void removeElement(final Building renter) {
-//      Building.getRenter().remove(renter);
-//      fireTableDataChanged();
-//   }
-//
-//   public void setEntries(final ArrayList<Entrance> dataList) {
-//      clear();
-//      for (int row = 0; row < dataList.size(); row++) {
-//         Building.getEntrance().add(dataList.get(row));
-//      }
-//   }
-//
-//   @Override
-//   public String getColumnName(final int i) {
-//      return titleTblBottom[i];
-//   }
-//
-//   @Override
-//   public int getColumnCount() {
-//      return titleTblBottom.length;
-//   }
-//
-//   @Override
-//   public int getRowCount() {
-//      return Building.getRenter();
-//   }
-//
-//   public Object getRowAt(final int row) {
-//      return Building.getEntrance().get(row);
-//   }
-//
-//   public void setRowAt(final Entrance entrences, final int row) {
-//      Building.getEntrance().set(row, entrences);
-//      fireTableRowsUpdated(row, row);
-//   }
-//
-//   @Override
-//   public Object getValueAt(final int row, final int col) {
-//      if (col == ENTRANCE) {
-//         return Building.getEntrance().get(row).getID();
-//      }
-//      return null;
-//   }
-//
-//   @Override
-//   public boolean isCellEditable(final int rowIndex, final int columnIndex) {
-//      if (columnIndex == ENTRANCE) {
-//         return true;
 //      }
 //
-//      return false;
-//   }
-//
-//   @Override
-//   public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
-//      if (columnIndex == ENTRANCE) {
-//         Building.getEntrance().get(rowIndex).setID((int) currentValue);
+//      public Renter addElement(final Renter[] tmpArrayRenter) {
+//         Building.getRenter();
+//         fireTableDataChanged();
+//         return Building.getRenter();
 //      }
 //
-//   }
+//      public void removeElement(final Building renter) {
+//         Building.getRenter();
+//         fireTableDataChanged();
+//      }
 //
-//   public void clear() {
-//      final int rows = getRowCount();
-//      Building.getEntrance().clear();
-//      fireTableRowsDeleted(0, rows);
-//   }
+////      public void setEntries(final Renter dataList) {
+////         clear();
+////         for (int row = 0; row < dataList; row++) {
+////            Building.getRenter().add(dataList.get(row));
+////         }
+////      }
 //
-//   public String[] getHeaders() {
-//      return titleTblBottom;
-//   }
+//      @Override
+//      public String getColumnName(final int i) {
+//         return titleTblBottom[i];
+//      }
 //
-//   public ArrayList<Entrance> getRowList() {
-//      return Building.getEntrance();
-//   }
+//      @Override
+//      public int getColumnCount() {
+//         return titleTblBottom.length;
+//      }
 //
-//   public void setHeaders(final String[] headers) {
-//      titleTblBottom = headers;
-//   }
+//      @Override
+//      public int getRowCount() {
+//         return Building.getRenter().size();
+//      }
 //
-//   public void setRowList(final ArrayList<Entrance> rowList) {
-//      Building.setEntrances(rowList);
-//   }
+//      public Object getRowAt(final int row) {
+//         return Building.getRenter().get(row);
+//      }
 //
-//   public static JTable getTblBottom() {
-//      return getTblBottom();
-//   }
+//      public void setRowAt(final Renter renter, final int row) {
+//         Building.getRenter().set(row, renter);
+//         fireTableRowsUpdated(row, row);
+//      }
 //
-//   public static void setTblBottom(final JTable tblBottom) {
-//      BuildingJTable.setTblBottom(tblBottom);
-//   }
+//      @Override
+//      public Object getValueAt(final int row, final int col) {
+//         if (col == NAME) {
+//            return Building.getRenter().get(row).getName();
+//         }
+//         if (col == SURNAME) {
+//            return Building.getRenter().get(row).getSurname();
+//         }
+//         if (col == PHONE) {
+//            return Building.getRenter().get(row).getPhone();
+//         }
+//         if (col == EMAIL) {
+//            return Building.getRenter().get(row).getEmail();
+//         }
+//         return null;
+//      }
 //
-//   public static BuildingTableModelBottom getTblMdlBottom() {
-//      return TblMdlBottom;
-//   }
+//      @Override
+//      public boolean isCellEditable(final int rowIndex, final int columnIndex) {
+//         if (columnIndex == NAME) {
+//            return true;
+//         } else if (columnIndex == SURNAME) {
+//            return true;
+//         } else if (columnIndex == PHONE) {
+//            return true;
+//         } else if (columnIndex == EMAIL) {
+//            return true;
+//         }
+//
+//         return false;
+//      }
+//
+//      @Override
+//      public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
+//         if (columnIndex == NAME) {
+//            Building.getRenter().get(rowIndex).setName((String) currentValue);
+//         }
+//         if (columnIndex == SURNAME) {
+//            Building.getRenter().get(rowIndex).setSurname((String) currentValue);
+//         }
+//         if (columnIndex == PHONE) {
+//            Building.getRenter().get(rowIndex).setPhone((String) currentValue);
+//         }
+//         if (columnIndex == EMAIL) {
+//            Building.getRenter().get(rowIndex).setEmail((String) currentValue);
+//         }
+//      }
+//
+//      public void clear() {
+//         final int rows = getRowCount();
+//         Building.getRenter().clear();
+//         fireTableRowsDeleted(0, rows);
+//      }
+//
+//      public String[] getHeaders() {
+//         return titleTblBottom;
+//      }
+//
+//      public ArrayList<Tenant> getRowList() {
+//         return Building.getRenter();
+//      }
+//
+//      public void setHeaders(final String[] headers) {
+//         titleTblBottom = headers;
+//      }
+//
+//      public void setRowList(final ArrayList<Tenant> rowList) {
+//         Building.setRenter(rowList);
+//      }
+//
+//      public static BuildingTableModelBottom getTblMdlBottom() {
+//         return TblMdlBottom;
+//      }
 //
 //}

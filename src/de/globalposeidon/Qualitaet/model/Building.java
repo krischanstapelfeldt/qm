@@ -31,12 +31,7 @@ public class Building implements TreeNode {
    }
 
    // public Building(final Renter renter, final Entrance initialEntrance,
-   // final DataContainer dc) {
-   // this(dc);
-   // addEntrance(initialEntrance);
-   // this.renter = renter;
-   // }
-
+  
    // ================================================================================
    // access private variables
    // ================================================================================
@@ -50,8 +45,9 @@ public class Building implements TreeNode {
 
    public final void setRenter(final Renter renter) {
       this.renter = renter;
+      
    }
-
+   
    public final void addEntrance(final Entrance entrance) {
       entrances.add(entrance);
    }
