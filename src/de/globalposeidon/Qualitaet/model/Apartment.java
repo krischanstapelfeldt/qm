@@ -18,8 +18,8 @@ public class Apartment implements TreeNode {
    private int id;
    private final Entrance entrance; // parent node
 
-   public static ArrayList<Meter> meters;
-   private final ArrayList<Tenant> tenants;
+   public  static  ArrayList<Meter> meters;
+   public static  ArrayList<Tenant> tenants;
 
    // ================================================================================
    // constructor

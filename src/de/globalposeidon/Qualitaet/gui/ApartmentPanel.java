@@ -41,8 +41,8 @@ public class ApartmentPanel extends JPanel {
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();
       
-      scrollPane.setViewportView(ApartmentJTableTop.tblTop);
-      scrollPane2.setViewportView(ApartmentJTableTop.tblBottom);
+      scrollPane.setViewportView(ApartmentJTable.tblTop);
+      scrollPane2.setViewportView(ApartmentJTable.tblBottom);
       
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);
