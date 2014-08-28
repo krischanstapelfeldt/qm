@@ -1,6 +1,7 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
@@ -38,7 +39,10 @@ public class BuildingPanel extends JPanel {
 
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
+      scrollPane.getViewport().setBackground(Color.white);
       final JScrollPane scrollPane2 = new JScrollPane();
+      scrollPane2.getViewport().setBackground(Color.white);
+
 
       scrollPane.setViewportView(BuildingJTable.getTblTop());
       scrollPane2.setViewportView(table2);

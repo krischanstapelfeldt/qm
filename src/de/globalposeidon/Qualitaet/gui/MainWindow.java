@@ -125,7 +125,8 @@ public class MainWindow extends JFrame {
       btnAddApartment.setEnabled(false);
       btnAddMeter.setEnabled(false);
       btnAddTenant.setEnabled(false);
-      // set texftfields and radiobutton disabled to make them depending on node selection
+      // set texftfields and radiobutton disabled to make them depending on node
+      // selection
       FunctionPanel.TFREADINGVAL.setEnabled(false);
       FunctionPanel.TFPERSON.setEnabled(false);
       FunctionPanel.TFREADINGINFO.setEnabled(false);
@@ -142,65 +143,58 @@ public class MainWindow extends JFrame {
             .addGroup(glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
             .addGroup(
                   glLeftPanel
-                  .createSequentialGroup()
-                  .addContainerGap()
-                  .addGroup(
-                        glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
-                              Alignment.TRAILING,
-                              glLeftPanel
-                              .createSequentialGroup()
-                              .addGroup(
+                        .createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(
+                              glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
+                                    Alignment.TRAILING,
                                     glLeftPanel
-                                    .createParallelGroup(Alignment.LEADING)
-                                    .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                          Short.MAX_VALUE)
-                                          .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                                .addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                      Short.MAX_VALUE)
+                                          .createSequentialGroup()
+                                          .addGroup(
+                                                glLeftPanel
+                                                      .createParallelGroup(Alignment.LEADING)
+                                                      .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
+                                                      .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
+                                                      .addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
                                                       .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                                             Short.MAX_VALUE)
-                                                            .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                                  Short.MAX_VALUE)
-                                                                  .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                                        Short.MAX_VALUE)).addContainerGap()))));
+                                                      .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
+                                                      .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)).addContainerGap()))));
 
       glLeftPanel.setVerticalGroup(glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
             glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
-            .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
-            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
-            .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
+                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
+                  .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
+                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
+                  .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
 
       leftPanel.setLayout(glLeftPanel);
 
-      // SET BOTTOM PANEL
-
+      // Set Bottom Panel
       glBottomRightPanel.setHorizontalGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING).addComponent(pnlFunction,
-            GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
-            );
-
-      glBottomRightPanel.setVerticalGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
-            glBottomRightPanel.createSequentialGroup()
-
-            .addComponent(pnlFunction, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE).addGap(20)));
+      glBottomRightPanel.setVerticalGroup(glBottomRightPanel.createParallelGroup(Alignment.LEADING).addComponent(pnlFunction,
+            GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
       pnlBottomRight.setLayout(glBottomRightPanel);
 
       // order Layout at the Top part of the right splitpane
-
       glTopRightPanel.setHorizontalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING)
-            .addComponent(pnlBottomRight, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
-            );
-
-      glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
-            glTopRightPanel.createSequentialGroup()
-            .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlBottomRight, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-            .addGap(20)));
+      glTopRightPanel
+            .setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
+                  glTopRightPanel.createSequentialGroup()
+                        .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addGap(10)));
 
       rightPanel.setLayout(glTopRightPanel);
 
