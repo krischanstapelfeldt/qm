@@ -69,7 +69,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get id from selected entrance. load from database.
     */
    @Test
    public final void testGetID() {

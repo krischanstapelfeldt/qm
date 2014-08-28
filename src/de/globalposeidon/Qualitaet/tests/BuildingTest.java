@@ -54,7 +54,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get id from selected building. load from database.
     */
    @Test
    public final void testGetID() {

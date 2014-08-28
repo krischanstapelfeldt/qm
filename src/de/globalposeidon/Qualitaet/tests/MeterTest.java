@@ -8,15 +8,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.globalposeidon.Qualitaet.Ints;
 import de.globalposeidon.Qualitaet.model.Apartment;
 import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
-import de.globalposeidon.Qualitaet.model.MeterReader;
 import de.globalposeidon.Qualitaet.model.Metertype;
-import de.globalposeidon.Qualitaet.model.Reading;
-import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 /**
  * This class contains the tests for the meter class.
@@ -34,7 +32,6 @@ public class MeterTest extends TestCase {
    private int currentValue;
    private int yearValue;
    private Date lastRead;
-   private Reading reading;
 
    @Override
    @Before
@@ -56,7 +53,6 @@ public class MeterTest extends TestCase {
       yearValue = 0;
       lastRead = new Date();
       meter = new Meter(meterID, type, apartment);
-      reading = new Reading(meter, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
    }
 
    @Override
@@ -75,7 +71,7 @@ public class MeterTest extends TestCase {
    }
 
    /**
-    * get ID from selected meter. load from database.
+    * get id from selected meter. load from database.
     */
    @Test
    public final void testPositiveGetMeterID() {
@@ -108,8 +104,8 @@ public class MeterTest extends TestCase {
     */
    @Test
    public final void testPositiveSetCurrentValue() {
-      meter.setCurrentValue(meter.getCurrentValue() + 555);
-      assertEquals("", currentValue + 555, meter.getCurrentValue());
+      meter.setCurrentValue(meter.getCurrentValue() + Ints.FIVE_HUNDRED_FIFTY_FIVE.value());
+      assertEquals("", currentValue + Ints.FIVE_HUNDRED_FIFTY_FIVE.value(), meter.getCurrentValue());
 
    }
 
@@ -128,8 +124,8 @@ public class MeterTest extends TestCase {
     */
    @Test
    public final void testPositiveSetYearYalue() {
-      meter.setYearValue(meter.getYearValue() + 111);
-      assertEquals("", yearValue + 111, meter.getYearValue());
+      meter.setYearValue(meter.getYearValue() + Ints.ONE_HUNDRED_ELEVEN.value());
+      assertEquals("", yearValue + Ints.ONE_HUNDRED_ELEVEN.value(), meter.getYearValue());
 
    }
 
@@ -149,7 +145,7 @@ public class MeterTest extends TestCase {
    @Test
    public final void testPositiveSetLastRead() {
       final Date newDate = new Date();
-      newDate.setTime(meter.getLastRead().getTime() + 1 * 24 * 60 * 60 * 1000); // add
+      newDate.setTime(meter.getLastRead().getTime() + 1 * Ints.ONE_DAY_IN_SECONDS.value()); // add
       // one
       // day
 

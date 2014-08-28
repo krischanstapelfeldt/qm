@@ -11,6 +11,7 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.Metertype;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
@@ -38,7 +39,8 @@ public class ApartmentTest extends TestCase {
       building = new Building(dataContainer);
       entrance = new Entrance(building);
       apartment = new Apartment(entrance);
-
+      meter = new Meter(0001, Metertype.GAS, apartment);
+      tenant = new Tenant();
    }
 
    @Override
@@ -56,7 +58,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * //TODO
+    * get id from selected apartment. load from database.
     */
    @Test
    public final void testGetID() {
