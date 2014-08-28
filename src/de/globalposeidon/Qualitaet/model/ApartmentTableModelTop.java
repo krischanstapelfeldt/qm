@@ -143,5 +143,4 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       return TblMdlTop;
    }
 
-
 }

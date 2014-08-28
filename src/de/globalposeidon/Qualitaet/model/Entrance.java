@@ -9,6 +9,7 @@ import javax.swing.tree.TreeNode;
 
 /**
  * entrance model.
+ * 
  * @author Timm Suhl
  */
 public class Entrance implements TreeNode {
@@ -188,7 +189,7 @@ public class Entrance implements TreeNode {
    public static ArrayList<Apartment> getApartment() {
       return apartments;
    }
-   
+
    public static void setApartments(final ArrayList<Apartment> apartments) {
       Entrance.apartments = apartments;
    }

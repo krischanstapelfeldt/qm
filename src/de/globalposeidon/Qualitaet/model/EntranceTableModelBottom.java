@@ -76,8 +76,8 @@ public class EntranceTableModelBottom extends AbstractTableModel {
    public boolean isCellEditable(final int rowIndex, final int columnIndex) {
       if (columnIndex == APARTMENT) {
          return true;
-      } 
-      
+      }
+
       return false;
    }
 
@@ -86,7 +86,7 @@ public class EntranceTableModelBottom extends AbstractTableModel {
       if (columnIndex == APARTMENT) {
          Entrance.getApartment().get(rowIndex).setID((int) currentValue);
       }
- 
+
    }
 
    public void clear() {

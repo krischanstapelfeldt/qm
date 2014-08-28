@@ -2,6 +2,7 @@ package de.globalposeidon.Qualitaet;
 
 /**
  * String class for central string management.
+ * 
  * @author Sebastian Lauber
  */
 

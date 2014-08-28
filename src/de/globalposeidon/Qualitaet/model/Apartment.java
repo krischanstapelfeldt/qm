@@ -8,10 +8,12 @@ import java.util.Random;
 import javax.swing.tree.TreeNode;
 
 /*
- * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
+ * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung
+ * wohnen.
  */
 /**
  * apartment model.
+ * 
  * @author Timm Suhl
  */
 public class Apartment implements TreeNode {
@@ -81,7 +83,8 @@ public class Apartment implements TreeNode {
    }
 
    public final boolean addTenant(final Tenant tentant) {
-      if (getTenants().size() < MAXTENANTS) { // max 4 tenants for each apartment
+      if (getTenants().size() < MAXTENANTS) { // max 4 tenants for each
+                                              // apartment
          getTenants().add(tentant);
          return true;
       }

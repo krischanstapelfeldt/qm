@@ -7,6 +7,7 @@ import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
 
 /**
  * renter model.
+ * 
  * @author Jens-Rainer Felske
  */
 public class ApartmentJTable {
@@ -14,15 +15,12 @@ public class ApartmentJTable {
       throw new UnsupportedOperationException();
    }
 
-   
    // initial JTable Top
    private static JTable tblTop = new JTable(ApartmentTableModelTop.getTblMdlTop());
 
    // Initial JTable Bottom
    private static JTable tblBottom = new JTable(ApartmentTableModelBottom.getTblMdlBottom());
-   
-   
-   
+
    public static JTable getTblBottom() {
       return tblBottom;
    }
@@ -38,10 +36,5 @@ public class ApartmentJTable {
    public static void setTblTop(JTable tblTop) {
       ApartmentJTable.tblTop = tblTop;
    }
-   
-
-   
-
-
 
 }
