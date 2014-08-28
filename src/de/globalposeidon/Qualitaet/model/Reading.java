@@ -29,7 +29,7 @@ public class Reading {
    }
 
    public final Date getReadingDate() {
-      return readingDate;
+      return (Date) readingDate.clone();
    }
 
    public final int getReadingValue() {

@@ -3,6 +3,7 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.Random;
 
 import javax.swing.tree.TreeNode;
 
@@ -13,6 +14,7 @@ import javax.swing.tree.TreeNode;
 public class Entrance implements TreeNode {
 
    private int id;
+   private final Random random = new Random();
    private final Building building; // parent node
 
    private final ArrayList<Meter> meters; // can be 0
@@ -26,7 +28,7 @@ public class Entrance implements TreeNode {
       this.building = building;
       apartments = new ArrayList<Apartment>();
       meters = new ArrayList<Meter>();
-      id = ((int) (Math.random() * 10000));
+      id = random.nextInt();
    }
 
    // public Entrance(final Apartment initialApartment, final Building
