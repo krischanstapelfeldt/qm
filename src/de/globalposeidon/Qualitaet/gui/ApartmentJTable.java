@@ -1,7 +1,10 @@
 package de.globalposeidon.Qualitaet.gui;
 
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+
+import javax.swing.table.TableModel;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
 //import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
@@ -12,36 +15,15 @@ import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
  * 
  * @author Jens-Rainer Felske
  */
-public class ApartmentJTable {
-  // private ApartmentTableModelTop;
-	private JTable tblTop;
+public class ApartmentJTable extends JTable{
+
+	private static final long serialVersionUID = 5911359053543293865L;
+
 	/**
 	 * 
 	 */
    public ApartmentJTable(Apartment apartment) {
-	   tblTop = new JTable(new ApartmentTableModelTop(apartment));
-//      throw new UnsupportedOperationException();
-   }
-   
-  
-   // initial JTable Top
-   // Initial JTable Bottom
-//   private static JTable tblBottom = new JTable(ApartmentTableModelBottom.getTblMdlBottom());
-
-//   public static JTable getTblBottom() {
-//      return tblBottom;
-//   }
-
-//   public static void setTblBottom(JTable tblBottom) {
-//      ApartmentJTable.tblBottom = tblBottom;
-//   }
-
-   public final JTable getTblTop() {
-      return tblTop;
-   }
-
-   public void setTblTop(JTable tblTop) {
-      this.tblTop = tblTop;
+	   super(new ApartmentTableModelTop(apartment));
    }
 
 }
