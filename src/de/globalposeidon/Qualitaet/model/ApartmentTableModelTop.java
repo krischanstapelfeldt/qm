@@ -19,8 +19,7 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    static final int EMAIL = 3;
    
   // private final int index;
-  // private final Apartment apartment;
-   public static final ApartmentTableModelTop tblMdlTop = new ApartmentTableModelTop();
+//   public static final ApartmentTableModelTop tblMdlTop = new ApartmentTableModelTop();
    private final ArrayList<Tenant> tenants;
    private final Apartment apartment;
    
@@ -28,8 +27,8 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    private String[] titleTblTop = new String[] { Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL };
    
   
-   public ApartmentTableModelTop() {
-     // this.apartment = apartment;
+   public ApartmentTableModelTop(Apartment apartment) {
+      this.apartment = apartment;
       tenants = new ArrayList<Tenant>();
    }
    
