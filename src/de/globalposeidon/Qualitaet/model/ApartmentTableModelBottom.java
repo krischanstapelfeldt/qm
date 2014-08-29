@@ -14,24 +14,24 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    private static final int METERID = 0;
    private static final int METERTYPE = 1;
    // set Table Bottom Column Header
-   private String[] titleTblBottom = new String[] { Strings.METERID, Strings.METERTYPE };
+   private String[] titleTblBottom = new String[] {Strings.METERID, Strings.METERTYPE};
 
-   public ApartmentTableModelBottom(Apartment apartment) {
+   public ApartmentTableModelBottom(final Apartment apartment) {
       this.apartment = apartment;
    }
 
-   public int addElement(final Meter meter) {
+   public final int addElement(final Meter meter) {
       apartment.addMeter(meter);
       fireTableDataChanged();
       return apartment.meterCount() - 1;
    }
 
-   public void removeElement(final Apartment meter) {
+   public final void removeElement(final Apartment meter) {
       apartment.getMeters().remove(meter);
       fireTableDataChanged();
    }
 
-   public void setEntries(final ArrayList<Meter> dataList) {
+   public final void setEntries(final ArrayList<Meter> dataList) {
       clear();
       for (int row = 0; row < dataList.size(); row++) {
          apartment.getMeters().add(dataList.get(row));
@@ -39,31 +39,31 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    }
 
    @Override
-   public String getColumnName(final int i) {
+   public final String getColumnName(final int i) {
       return titleTblBottom[i];
    }
 
    @Override
-   public int getColumnCount() {
+   public final int getColumnCount() {
       return titleTblBottom.length;
    }
 
    @Override
-   public int getRowCount() {
+   public final int getRowCount() {
       return apartment.getMeters().size();
    }
 
-   public Object getRowAt(final int row) {
+   public final Object getRowAt(final int row) {
       return apartment.getMeters().get(row);
    }
 
-   public void setRowAt(final Meter meter, final int row) {
+   public final void setRowAt(final Meter meter, final int row) {
       apartment.getMeters().set(row, meter);
       fireTableRowsUpdated(row, row);
    }
 
    @Override
-   public Object getValueAt(final int row, final int col) {
+   public final Object getValueAt(final int row, final int col) {
       if (col == METERID) {
          return apartment.getMeters().get(row).getID();
       }
@@ -74,7 +74,7 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    }
 
    @Override
-   public boolean isCellEditable(final int rowIndex, final int columnIndex) {
+   public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
       if (columnIndex == METERID) {
          return true;
       } else if (columnIndex == METERTYPE) {
@@ -84,7 +84,7 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    }
 
    @Override
-   public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
+   public final void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
       if (columnIndex == METERID) {
          apartment.getMeters().get(rowIndex).setID((int) currentValue);
       }
@@ -93,25 +93,25 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
       }
    }
 
-   public void clear() {
+   public final void clear() {
       final int rows = getRowCount();
       apartment.getMeters().clear();
       fireTableRowsDeleted(0, rows);
    }
 
-   public String[] getHeaders() {
+   public final String[] getHeaders() {
       return titleTblBottom;
    }
 
-   public ArrayList<Meter> getRowList() {
+   public final ArrayList<Meter> getRowList() {
       return apartment.getMeters();
    }
 
-   public void setHeaders(final String[] headers) {
+   public final void setHeaders(final String[] headers) {
       titleTblBottom = headers;
    }
 
-   public void setRowList(final ArrayList<Meter> rowList) {
+   public final void setRowList(final ArrayList<Meter> rowList) {
       apartment.setMeters(rowList);
    }
 }

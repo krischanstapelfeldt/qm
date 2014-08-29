@@ -30,7 +30,6 @@ public class Building extends DefaultMutableTreeNode {
       id = random.nextInt();
       this.dc = dc;
    }
-  
    // ================================================================================
    // access private variables
    // ================================================================================
@@ -121,11 +120,11 @@ public class Building extends DefaultMutableTreeNode {
       return Collections.enumeration(entrances);
    }
 
-   public ArrayList<Entrance> getEntrances() {
+   public final ArrayList<Entrance> getEntrances() {
       return entrances;
    }
 
-   public  void setEntrances(final ArrayList<Entrance> entrances) {
+   public final void setEntrances(final ArrayList<Entrance> entrances) {
      this.entrances = entrances;
    }
 }

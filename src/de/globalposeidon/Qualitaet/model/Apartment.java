@@ -23,8 +23,8 @@ public class Apartment extends DefaultMutableTreeNode {
    private final Entrance entrance; // parent node
    private final Random random = new Random();
 
-   private  ArrayList<Meter> meters;
-   private  ArrayList<Tenant> tenants;
+   private ArrayList<Meter> meters;
+   private ArrayList<Tenant> tenants;
 
    private static final int MAXTENANTS = 4;
 
@@ -74,8 +74,8 @@ public class Apartment extends DefaultMutableTreeNode {
 
    public final boolean addTenant(final Tenant tentant) {
       if (tenants.size() < MAXTENANTS) { // max 4 tenants for each
-                                              // apartment
-    	 tenants.add(tentant);
+                                         // apartment
+         tenants.add(tentant);
          return true;
       }
       return false;
