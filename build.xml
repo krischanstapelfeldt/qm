@@ -64,7 +64,7 @@
 		<delete dir="${bin.dir}" />
 		<delete dir="junit" />
 		<delete dir="${reports.dir}" />
-		<delete dir="${jubula.output.dir}" />
+		<!--<delete dir="${jubula.output.dir}" />-->
 	</target>
 
 	<target name="checkstyle" depends="clean,init" description="Generates a report of code convention violations.">
@@ -101,7 +101,7 @@
 		<exclude name="**/*.java" />
 	</fileset>
 </copy>
-<mkdir dir="${jubula.output.dir}" />
+<!--<mkdir dir="${jubula.output.dir}" />-->
 <mkdir dir="${checkstyle.output.dir}" />
 <mkdir dir="${findbugs.output.dir}" />
 </target>
@@ -146,13 +146,13 @@
 </jacoco:coverage>
 </target>
 	
-<target name="jubulatest" description="Runs jubula tests" depends="jacoco-instrument">
+<!--<target name="jubulatest" description="Runs jubula tests" depends="jacoco-instrument">
 <jacoco:coverage destfile="${jacoco.exec.file}">
 	<exec executable="${jubula.exec.dir}/testexec">
 		<arg line="-c ${jubula.exec.dir}/config.xml"/>
 	</exec>
 </jacoco:coverage>
-</target>
+</target>-->
 
 <target name="junitreport" depends="AllTests" description="Generates a report from JUnit output">
 <junitreport todir="${junit.output.dir}">
@@ -203,5 +203,5 @@
 <touch file="${jar-bin.dir}/.jarcomplete" />
 </target>
 
-<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,findbugs,jacoco-instrument,junitreport,jubulatest,jacocoreport,create_run_jar" />
+<target name="jenkins" depends="clean,javadoc,init,checkstyle,build-project,findbugs,jacoco-instrument,junitreport,jacocoreport,create_run_jar" />
 </project>
