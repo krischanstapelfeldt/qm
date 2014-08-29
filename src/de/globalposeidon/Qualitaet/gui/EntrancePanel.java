@@ -11,6 +11,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import de.globalposeidon.Qualitaet.model.Entrance;
+import de.globalposeidon.Qualitaet.model.EntranceTableModelBottom;
+import de.globalposeidon.Qualitaet.model.EntranceTableModelTop;
 
 public class EntrancePanel extends JPanel {
 
@@ -30,18 +32,15 @@ public class EntrancePanel extends JPanel {
 
       pnlHeader.add(lblId);
 
-      // Initial JTable
-      final JTable table = new JTable();
-      final JTable table2 = new JTable();
-
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       final JScrollPane scrollPane2 = new JScrollPane();
 
-   //   scrollPane.setViewportView(EntranceJTable.getTblTop());
       scrollPane.getViewport().setBackground(Color.white);
-  //    scrollPane2.setViewportView(EntranceJTable.getTblBottom());
       scrollPane2.getViewport().setBackground(Color.white);
+
+      scrollPane.setViewportView(new JTable(new EntranceTableModelTop(entrance)));
+      scrollPane2.setViewportView(new JTable(new EntranceTableModelBottom(entrance)));
 
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);

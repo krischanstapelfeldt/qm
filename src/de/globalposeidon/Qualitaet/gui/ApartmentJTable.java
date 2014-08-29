@@ -1,13 +1,8 @@
 package de.globalposeidon.Qualitaet.gui;
 
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-
-import javax.swing.table.TableModel;
-
 import de.globalposeidon.Qualitaet.model.Apartment;
-//import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
 import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
 
 /**

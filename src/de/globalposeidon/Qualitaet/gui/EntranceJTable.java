@@ -1,38 +1,23 @@
-//package de.globalposeidon.Qualitaet.gui;
-//
-//import javax.swing.JTable;
-//
-///**
-// * renter model.
-// * 
-// * @author Jens-Rainer Felske
-// */
-//public class EntranceJTable {
-//
-//   protected EntranceJTable() {
-//      throw new UnsupportedOperationException();
-//   }
-//
-//   // initial JTable Top
-//   private static JTable tblTop = new JTable(EntranceTableModelTop.getTblMdlTop());
-//
-//   // Initial JTable Bottom
-//   private static JTable tblBottom = new JTable(EntranceTableModelBottom.getTblMdlBottom());
-//
-//   public static void setTblTop(JTable tblTop) {
-//      EntranceJTable.tblTop = tblTop;
-//   }
-//
-//   public static JTable getTblTop() {
-//      return tblTop;
-//   }
-//
-//   public static void setTblBottom(JTable tblBottom) {
-//      EntranceJTable.tblBottom = tblBottom;
-//   }
-//
-//   public static JTable getTblBottom() {
-//      return tblBottom;
-//   }
-//
-//}
+package de.globalposeidon.Qualitaet.gui;
+
+import javax.swing.JTable;
+
+import de.globalposeidon.Qualitaet.model.Entrance;
+import de.globalposeidon.Qualitaet.model.EntranceTableModelTop;
+
+/**
+ * 
+ * @author Jens-Rainer Felske
+ */
+public class EntranceJTable extends JTable {
+
+   /**
+    * 
+    */
+   private static final long serialVersionUID = 3906787486598015639L;
+
+   public EntranceJTable(Entrance entrance) {
+      super(new EntranceTableModelTop(entrance));
+      // throw new UnsupportedOperationException();
+   }
+}

@@ -14,10 +14,10 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    static final int METERID = 0;
    static final int METERTYPE = 1;
    // set Table Bottom Column Header
-   private static String[] titleTblBottom = new String[] { Strings.METERID, Strings.METERTYPE };
+   private String[] titleTblBottom = new String[] { Strings.METERID, Strings.METERTYPE };
 
    public ApartmentTableModelBottom(Apartment apartment) {
-	   this.apartment = apartment;
+      this.apartment = apartment;
    }
 
    public int addElement(final Meter meter) {

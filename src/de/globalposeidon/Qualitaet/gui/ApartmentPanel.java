@@ -48,7 +48,6 @@ public class ApartmentPanel extends JPanel {
       final JScrollPane scrollPane2 = new JScrollPane();
       scrollPane2.getViewport().setBackground(Color.white);
       
-      ApartmentJTable jtable = new ApartmentJTable(apartment);
       scrollPane.setViewportView(new JTable(new ApartmentTableModelTop(apartment)));
       scrollPane2.setViewportView(new JTable(new ApartmentTableModelBottom(apartment)));
 
