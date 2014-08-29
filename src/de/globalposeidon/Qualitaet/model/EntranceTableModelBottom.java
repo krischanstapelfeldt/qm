@@ -8,7 +8,6 @@ import de.globalposeidon.Qualitaet.Strings;
 
 // configure TabelModel Bottom
 public class EntranceTableModelBottom extends AbstractTableModel {
-  
    /**
     * Author Jens-Rainer Felske
     */

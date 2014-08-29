@@ -14,7 +14,6 @@ import javax.swing.tree.TreeNode;
  */
 /**
  * apartment model.
- * 
  * @author Timm Suhl
  */
 public class Apartment extends DefaultMutableTreeNode {
@@ -154,19 +153,19 @@ public class Apartment extends DefaultMutableTreeNode {
       return Collections.enumeration(meters);
    }
 
-   public ArrayList<Meter> getMeters() {
+   public final ArrayList<Meter> getMeters() {
       return meters;
    }
 
-   public void setMeters(final ArrayList<Meter> meters) {
+   public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
 
-   public ArrayList<Tenant> getTenants() {
+   public final ArrayList<Tenant> getTenants() {
       return tenants;
    }
 
-   public void setTenants(final ArrayList<Tenant> tenants) {
+   public final void setTenants(final ArrayList<Tenant> tenants) {
       this.tenants = tenants;
    }
 
