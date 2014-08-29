@@ -16,7 +16,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-
 import de.globalposeidon.Qualitaet.Strings;
 
 public class FunctionPanel extends JPanel {
@@ -97,7 +96,7 @@ public class FunctionPanel extends JPanel {
       gbcTfMeterId.gridx = Strings.ONE;
       gbcTfMeterId.gridy = Strings.TWO;
       add(TFMETERID, gbcTfMeterId);
-      TFMETERID.setColumns(10);
+      TFMETERID.setColumns(Strings.TEN);
 
       separatorLeft.setOrientation(SwingConstants.VERTICAL);
       separatorLeft.setForeground(Color.DARK_GRAY);
@@ -120,21 +119,21 @@ public class FunctionPanel extends JPanel {
       gbcTfReadingVal.gridx = Strings.SIX;
       gbcTfReadingVal.gridy = Strings.TWO;
       add(TFREADINGVAL, gbcTfReadingVal);
-      TFREADINGVAL.setColumns(10);
+      TFREADINGVAL.setColumns(Strings.TEN);
 
       final GridBagConstraints gbcTfPerson = new GridBagConstraints();
       gbcTfPerson.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfPerson.gridx = Strings.SIX;
       gbcTfPerson.gridy = Strings.THREE;
       add(TFPERSON, gbcTfPerson);
-      TFPERSON.setColumns(10);
+      TFPERSON.setColumns(Strings.TEN);
       
       final GridBagConstraints gbcTfReadingInfo = new GridBagConstraints();
       gbcTfReadingInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingInfo.gridx = Strings.SIX;
       gbcTfReadingInfo.gridy = Strings.FOUR;
       add(TFREADINGINFO, gbcTfReadingInfo);
-      TFREADINGINFO.setColumns(10);
+      TFREADINGINFO.setColumns(Strings.TEN);
 
       separatorRight.setOrientation(SwingConstants.VERTICAL);
       separatorRight.setForeground(Color.DARK_GRAY);

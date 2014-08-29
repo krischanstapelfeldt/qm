@@ -10,12 +10,9 @@ import de.globalposeidon.Qualitaet.model.BuildingTableModelTop;
  */
 public class BuildingJTable extends JTable {
 
-   /**
-    * 
-    */
    private static final long serialVersionUID = -3551963231471633148L;
 
-   protected BuildingJTable(Building building) {
+   protected BuildingJTable(final Building building) {
       super(new BuildingTableModelTop(building));
      // throw new UnsupportedOperationException();
    }

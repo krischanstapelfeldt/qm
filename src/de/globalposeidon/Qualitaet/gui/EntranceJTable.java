@@ -6,17 +6,13 @@ import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.EntranceTableModelTop;
 
 /**
- * 
  * @author Jens-Rainer Felske
  */
 public class EntranceJTable extends JTable {
 
-   /**
-    * 
-    */
    private static final long serialVersionUID = 3906787486598015639L;
 
-   public EntranceJTable(Entrance entrance) {
+   public EntranceJTable(final Entrance entrance) {
       super(new EntranceTableModelTop(entrance));
       // throw new UnsupportedOperationException();
    }

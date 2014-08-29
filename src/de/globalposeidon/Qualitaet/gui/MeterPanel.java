@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Meter;
 
 public class MeterPanel extends JPanel {
@@ -26,11 +27,11 @@ public class MeterPanel extends JPanel {
 
       // ui components
       final JPanel pnlHeader = new JPanel(new FlowLayout());
-      final JLabel lblId = new JLabel("Meter " + meter.getID());
-      final JLabel lblMeterType = new JLabel("|Metertype: " + meter.getType());
-      final JLabel lblCurValue = new JLabel("|Current Value: " + meter.getCurrentValue());
-      final JLabel lblYearValue = new JLabel("|Year Value: " + meter.getCurrentValue());
-      final JLabel lblLastRead = new JLabel("|Last Read: " + meter.getLastRead());
+      final JLabel lblId = new JLabel(Strings.METER + meter.getID());
+      final JLabel lblMeterType = new JLabel("|" + Strings.METERTYPE + ": " + meter.getType());
+      final JLabel lblCurValue = new JLabel("|" + Strings.CURRENTVALUE + ": " + meter.getCurrentValue());
+      final JLabel lblYearValue = new JLabel("|" + Strings.YEARVALUE + ": " + meter.getYearValue());
+      final JLabel lblLastRead = new JLabel("|" + Strings.LASTREAD + ": " + meter.getLastRead());
 
       pnlHeader.add(lblId);
       pnlHeader.add(lblMeterType);

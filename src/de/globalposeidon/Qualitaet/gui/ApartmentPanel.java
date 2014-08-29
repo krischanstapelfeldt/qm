@@ -19,7 +19,6 @@ public class ApartmentPanel extends JPanel {
 
    private static final long serialVersionUID = 8794147005620814516L;
    /**
-    * 
     * @param apartment
     */
    public ApartmentPanel(final Apartment apartment) {
@@ -47,7 +46,6 @@ public class ApartmentPanel extends JPanel {
       scrollPane.getViewport().setBackground(Color.white);
       final JScrollPane scrollPane2 = new JScrollPane();
       scrollPane2.getViewport().setBackground(Color.white);
-      
       scrollPane.setViewportView(new JTable(new ApartmentTableModelTop(apartment)));
       scrollPane2.setViewportView(new JTable(new ApartmentTableModelBottom(apartment)));
 

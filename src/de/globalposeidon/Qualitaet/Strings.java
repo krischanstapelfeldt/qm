@@ -103,4 +103,5 @@ public final class Strings {
    public static final int NINE = 9;
    public static final int TEN = 10;
    public static final int THIRTY = 30;
+   public static final int ONE_HUNDRED = 100;
 }
