@@ -8,7 +8,7 @@ import javax.swing.table.TableModel;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
 //import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
-import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
+import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
 
 /**
  * renter model.
@@ -23,7 +23,7 @@ public class ApartmentJTable extends JTable{
 	 * 
 	 */
    public ApartmentJTable(Apartment apartment) {
-	   super(new ApartmentTableModelTop(apartment));
+	   super(new ApartmentTableModelBottom(apartment));
    }
 
 }

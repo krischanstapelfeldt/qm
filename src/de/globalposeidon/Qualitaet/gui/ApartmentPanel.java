@@ -8,8 +8,11 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
+import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
+import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
 
 
 public class ApartmentPanel extends JPanel {
@@ -46,8 +49,8 @@ public class ApartmentPanel extends JPanel {
       scrollPane2.getViewport().setBackground(Color.white);
       
       ApartmentJTable jtable = new ApartmentJTable(apartment);
-      scrollPane.setViewportView(jtable);
-//      scrollPane2.setViewportView(ApartmentJTable.getTblBottom());
+      scrollPane.setViewportView(new JTable(new ApartmentTableModelTop(apartment)));
+      scrollPane2.setViewportView(new JTable(new ApartmentTableModelBottom(apartment)));
 
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);
