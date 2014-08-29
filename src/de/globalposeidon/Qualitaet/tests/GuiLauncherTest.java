@@ -41,16 +41,15 @@ public class GuiLauncherTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-	    Collection<Boolean> collection = new ArrayList<Boolean>();
-	    assertEquals(0, collection.size());
-	    try {
-			DataContainer dc = Launcher.createRandomModel();
-			new MainWindow(dc);
-			collection.add(true);
-		} catch (Exception e) {
-		}
-	    assertEquals(1, collection.size());
-	      
+        Collection<Boolean> collection = new ArrayList<Boolean>();
+        assertEquals(0, collection.size());
+        try {
+            DataContainer dc = Launcher.createRandomModel();
+            new MainWindow(dc);
+            collection.add(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals(1, collection.size());
    }
-
 }

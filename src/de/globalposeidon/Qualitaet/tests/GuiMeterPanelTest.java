@@ -18,8 +18,7 @@ import de.globalposeidon.Qualitaet.model.Metertype;
  */
 public class GuiMeterPanelTest extends TestCase {
 
-   Meter meter = null;
-   @Override
+   private Meter meter = null;
    @Before
    /**
     * No ramp up necessary.
@@ -27,10 +26,10 @@ public class GuiMeterPanelTest extends TestCase {
     * @throws Might
     *             throw an exception. Unlikely, there is no method body.
     */
-   public void setUp() throws Exception {
-	   Building building = new Building(null);
-	   Entrance entrance = new Entrance(building);
-	   meter = new Meter(0004, Metertype.POWER, entrance);
+   public void setUpGuiMeterPanelTest() throws Exception {
+       Building building = new Building(null);
+       Entrance entrance = new Entrance(building);
+       meter = new Meter(0001, Metertype.POWER, entrance);
    }
 
    @Override
@@ -44,8 +43,6 @@ public class GuiMeterPanelTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-	    assertNotNull(new MeterPanel(meter));
-	      
+       assertNotNull(new MeterPanel(meter));
    }
-
 }

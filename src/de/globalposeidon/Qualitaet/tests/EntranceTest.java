@@ -170,8 +170,8 @@ public class EntranceTest extends TestCase {
     */
    @Test
    public final void testPositiveRemoveApartment() {
-//	   TODO
-//	   apartment.removeTenant(0);
+//     TODO
+//     apartment.removeTenant(0);
 	  entrance.addApartment(apartment);
       assertNotNull(entrance.removeApartment(0));
    }
