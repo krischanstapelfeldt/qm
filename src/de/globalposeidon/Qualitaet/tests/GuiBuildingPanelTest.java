@@ -19,11 +19,10 @@ public class GuiBuildingPanelTest extends TestCase {
    @Before
    /**
     * No ramp up necessary.
-    *
     * @throws Might
     *             throw an exception. Unlikely, there is no method body.
     */
-   public void setUp() throws Exception {
+   public final void setUp() throws Exception {
        building = new Building(null);
    }
 

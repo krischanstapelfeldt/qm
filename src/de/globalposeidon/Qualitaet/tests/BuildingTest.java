@@ -11,7 +11,6 @@ import org.junit.Test;
 import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
-import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 /**

@@ -51,7 +51,8 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * create two new apartments. one with specific data, one with empty data. insert into database.
+    * create two new apartments. one with specific data, one with empty data.
+    * insert into database.
     */
    @Test
    public final void testPositiveCreateApartment() {
@@ -199,44 +200,45 @@ public class ApartmentTest extends TestCase {
     */
    @Test
    public final void testSetMeters() {
-	   
-	   ArrayList<Meter> tmpList = new ArrayList<Meter>();
-	   tmpList.add(meter);
-	   apartment.setMeters(tmpList);
-	   assertEquals("", 1, apartment.getMeters().size());
+
+      ArrayList<Meter> tmpList = new ArrayList<Meter>();
+      tmpList.add(meter);
+      apartment.setMeters(tmpList);
+      assertEquals("", 1, apartment.getMeters().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testGetMeters() {
-	   
-	   apartment.addMeter(meter);
-	   assertEquals("", 1, apartment.getMeters().size());
+
+      apartment.addMeter(meter);
+      assertEquals("", 1, apartment.getMeters().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testSetTenants() {
-	   
-	   ArrayList<Tenant> tmpList = new ArrayList<Tenant>();
-	   tmpList.add(tenant);
-	   apartment.setTenants(tmpList);
-	   assertEquals("", 1, apartment.getTenants().size());
+
+      ArrayList<Tenant> tmpList = new ArrayList<Tenant>();
+      tmpList.add(tenant);
+      apartment.setTenants(tmpList);
+      assertEquals("", 1, apartment.getTenants().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testGetTenants() {
-	   
-	   apartment.addTenant(tenant);
-	   assertEquals("", 1, apartment.getTenants().size());
+
+      apartment.addTenant(tenant);
+      assertEquals("", 1, apartment.getTenants().size());
    }
+
    /**
     * get boolean if apartment is empty. load from database.
     */
