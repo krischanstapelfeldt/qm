@@ -201,7 +201,6 @@ public class MainWindow extends JFrame {
       // popup-menu for tree
       addPopup(tree, new MainPopupMenu());
 
-      // TODO: make classes for right side panel
       // tree with single selection mode
       tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
       tree.addTreeSelectionListener(new TreeSelectionListener() {

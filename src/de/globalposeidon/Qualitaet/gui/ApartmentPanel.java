@@ -11,10 +11,14 @@ import javax.swing.JScrollPane;
 
 import de.globalposeidon.Qualitaet.model.Apartment;
 
+
 public class ApartmentPanel extends JPanel {
 
    private static final long serialVersionUID = 8794147005620814516L;
-
+   /**
+    * 
+    * @param apartment
+    */
    public ApartmentPanel(final Apartment apartment) {
 
       // set window layout
@@ -40,8 +44,9 @@ public class ApartmentPanel extends JPanel {
       scrollPane.getViewport().setBackground(Color.white);
       final JScrollPane scrollPane2 = new JScrollPane();
       scrollPane2.getViewport().setBackground(Color.white);
-
-      scrollPane.setViewportView(ApartmentJTable.getTblTop());
+      
+      ApartmentJTable jtable = new ApartmentJTable(apartment);
+      scrollPane.setViewportView(jtable.getTblTop());
 //      scrollPane2.setViewportView(ApartmentJTable.getTblBottom());
 
       pnlMain.add(scrollPane);

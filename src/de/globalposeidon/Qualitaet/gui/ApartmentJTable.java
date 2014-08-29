@@ -2,6 +2,8 @@ package de.globalposeidon.Qualitaet.gui;
 
 import javax.swing.JTable;
 
+
+import de.globalposeidon.Qualitaet.model.Apartment;
 //import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
 import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
 
@@ -12,14 +14,17 @@ import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
  */
 public class ApartmentJTable {
   // private ApartmentTableModelTop;
-
-   private ApartmentJTable() {
-      throw new UnsupportedOperationException();
+	private JTable tblTop;
+	/**
+	 * 
+	 */
+   public ApartmentJTable(Apartment apartment) {
+	   tblTop = new JTable(new ApartmentTableModelTop(apartment));
+//      throw new UnsupportedOperationException();
    }
    
   
    // initial JTable Top
-   private static JTable tblTop = new JTable(new ApartmentTableModelTop());
    // Initial JTable Bottom
 //   private static JTable tblBottom = new JTable(ApartmentTableModelBottom.getTblMdlBottom());
 
@@ -31,12 +36,12 @@ public class ApartmentJTable {
 //      ApartmentJTable.tblBottom = tblBottom;
 //   }
 
-   public static final JTable getTblTop() {
+   public final JTable getTblTop() {
       return tblTop;
    }
 
    public void setTblTop(JTable tblTop) {
-      ApartmentJTable.tblTop = tblTop;
+      this.tblTop = tblTop;
    }
 
 }

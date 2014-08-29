@@ -19,7 +19,7 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    static final int EMAIL = 3;
    
   // private final int index;
-  
+  // private final Apartment apartment;
    public static final ApartmentTableModelTop tblMdlTop = new ApartmentTableModelTop();
    private final ArrayList<Tenant> tenants;
    private final Apartment apartment;
