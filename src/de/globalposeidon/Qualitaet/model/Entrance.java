@@ -10,7 +10,6 @@ import javax.swing.tree.TreeNode;
 
 /**
  * entrance model.
- * 
  * @author Timm Suhl
  */
 public class Entrance extends DefaultMutableTreeNode {
@@ -44,22 +43,22 @@ public class Entrance extends DefaultMutableTreeNode {
       id = iD;
    }
 
-   public ArrayList<Meter> getMeters() {
-	      return meters;
+   public final ArrayList<Meter> getMeters() {
+      return meters;
    }
 
-   public void setMeters(final ArrayList<Meter> meters) {
+   public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
 
-   public ArrayList<Apartment> getApartments() {
+   public final ArrayList<Apartment> getApartments() {
       return apartments;
    }
 
-   public void setApartments(final ArrayList<Apartment> apartments) {
+   public final void setApartments(final ArrayList<Apartment> apartments) {
       this.apartments = apartments;
    }
-	   
+
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < getMeters().size()) {
          return getMeters().get(index);

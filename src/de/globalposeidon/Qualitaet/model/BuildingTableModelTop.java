@@ -10,31 +10,30 @@ import de.globalposeidon.Qualitaet.Strings;
 public class BuildingTableModelTop extends AbstractTableModel {
 
    /**
-    * 
+    * Author Jens-Rainer Felske
     */
    private static final long serialVersionUID = 7275188332461034629L;
    private static final int ENTRANCE = 0;
    private final Building building;
    // set Table Top Column Header
-   private String[] titleTblTop = new String[] { Strings.ENTRANCE };
+   private String[] titleTblTop = new String[] {Strings.ENTRANCE};
 
-
-   public BuildingTableModelTop(Building building) {
+   public BuildingTableModelTop(final Building building) {
       this.building = building;
    }
 
-   public int addElement(final Entrance entrance) {
+   public final int addElement(final Entrance entrance) {
       (building.getEntrances()).add(entrance);
       fireTableDataChanged();
       return building.getEntrances().size() - 1;
    }
 
-   public void removeElement(final Entrance entrances) {
+   public final void removeElement(final Entrance entrances) {
       building.getEntrances().remove(entrances);
       fireTableDataChanged();
    }
 
-   public void setEntries(final ArrayList<Entrance> dataList) {
+   public final void setEntries(final ArrayList<Entrance> dataList) {
       clear();
       for (int row = 0; row < dataList.size(); row++) {
          building.getEntrances().add(dataList.get(row));
@@ -42,31 +41,31 @@ public class BuildingTableModelTop extends AbstractTableModel {
    }
 
    @Override
-   public String getColumnName(final int i) {
+   public final String getColumnName(final int i) {
       return titleTblTop[i];
    }
 
    @Override
-   public int getColumnCount() {
+   public final int getColumnCount() {
       return titleTblTop.length;
    }
 
    @Override
-   public int getRowCount() {
+   public final int getRowCount() {
       return building.getEntrances().size();
    }
 
-   public Object getRowAt(final int row) {
+   public final Object getRowAt(final int row) {
       return building.getEntrances().get(row);
    }
 
-   public void setRowAt(final Entrance entrences, final int row) {
+   public final void setRowAt(final Entrance entrences, final int row) {
       building.getEntrances().set(row, entrences);
       fireTableRowsUpdated(row, row);
    }
 
    @Override
-   public Object getValueAt(final int row, final int col) {
+   public final Object getValueAt(final int row, final int col) {
       if (col == ENTRANCE) {
          return building.getEntrances().get(row).getID();
       }
@@ -74,7 +73,7 @@ public class BuildingTableModelTop extends AbstractTableModel {
    }
 
    @Override
-   public boolean isCellEditable(final int rowIndex, final int columnIndex) {
+   public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
       if (columnIndex == ENTRANCE) {
          return true;
       }
@@ -83,32 +82,32 @@ public class BuildingTableModelTop extends AbstractTableModel {
    }
 
    @Override
-   public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
+   public final void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
       if (columnIndex == ENTRANCE) {
          building.getEntrances().get(rowIndex).setID((int) currentValue);
       }
 
    }
 
-   public void clear() {
+   public final void clear() {
       final int rows = getRowCount();
       building.getEntrances().clear();
       fireTableRowsDeleted(0, rows);
    }
 
-   public String[] getHeaders() {
+   public final String[] getHeaders() {
       return titleTblTop;
    }
 
-   public ArrayList<Entrance> getRowList() {
+   public final ArrayList<Entrance> getRowList() {
       return building.getEntrances();
    }
 
-   public void setHeaders(final String[] headers) {
+   public final void setHeaders(final String[] headers) {
       titleTblTop = headers;
    }
 
-   public void setRowList(final ArrayList<Entrance> rowList) {
+   public final void setRowList(final ArrayList<Entrance> rowList) {
       building.setEntrances(rowList);
    }
 
