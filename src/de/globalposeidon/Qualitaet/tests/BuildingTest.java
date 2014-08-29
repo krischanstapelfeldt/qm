@@ -1,5 +1,7 @@
 package de.globalposeidon.Qualitaet.tests;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -9,6 +11,7 @@ import org.junit.Test;
 import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
+import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Renter;
 
 /**
@@ -177,6 +180,27 @@ public class BuildingTest extends TestCase {
       assertEquals("", 0, building.entranceCount());
    }
 
+   /**
+    * bla.
+    */
+   @Test
+   public final void testSetEntrances() {
+	   
+	   ArrayList<Entrance> tmpList = new ArrayList<Entrance>();
+	   tmpList.add(entrance);
+	   building.setEntrances(tmpList);
+	   assertEquals("", 1, building.getEntrances().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetEntrances() {
+	   
+	   building.addEntrance(entrance);
+	   assertEquals("", 1, building.getEntrances().size());
+   }
    /**
     * bla.
     */

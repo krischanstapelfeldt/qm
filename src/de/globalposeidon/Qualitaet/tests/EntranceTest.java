@@ -52,7 +52,6 @@ public class EntranceTest extends TestCase {
       emptyApartments.add(apartment);
       fullApartments.add(apartmentFull);
       meter = new Meter(001, Metertype.GAS, entrance);
-      System.out.println(apartment.tenantCount());
    }
 
    @Override
@@ -143,7 +142,7 @@ public class EntranceTest extends TestCase {
    public final void testPositiveAddApartment() {
 
       entrance.addApartment(apartment);
-      assertEquals("", apartment, entrance.getApartment(0));
+      assertEquals("", apartment, entrance.getApartments(0));
 
    }
 
@@ -154,7 +153,7 @@ public class EntranceTest extends TestCase {
    public final void testPositiveGetApartment() {
 
       entrance.addApartment(apartment);
-      assertEquals("", apartment, entrance.getApartment(0));
+      assertEquals("", apartment, entrance.getApartments(0));
    }
 
    /**
@@ -163,7 +162,7 @@ public class EntranceTest extends TestCase {
    @Test
    public final void testNegativeGetApartment() {
 
-      assertEquals("", null, entrance.getApartment(0));
+      assertEquals("", null, entrance.getApartments(0));
    }
 
    /**
@@ -233,6 +232,50 @@ public class EntranceTest extends TestCase {
       assertEquals("", false, entrance.entranceIsEmpty());
    }
 
+   /**
+    * bla.
+    */
+   @Test
+   public final void testSetMeters() {
+	   
+	   ArrayList<Meter> tmpList = new ArrayList<Meter>();
+	   tmpList.add(meter);
+	   entrance.setMeters(tmpList);
+	   assertEquals("", 1, entrance.getMeters().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetMeters() {
+	   
+	   entrance.addMeter(meter);
+	   assertEquals("", 1, entrance.getMeters().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testSetApartments() {
+	   
+	   ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+	   tmpList.add(apartment);
+	   entrance.setApartments(tmpList);
+	   assertEquals("", 1, entrance.getApartments().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetApartments() {
+	   
+	   entrance.addApartment(apartment);
+	   assertEquals("", 1, entrance.getApartments().size());
+   }
+   
    /**
     * bla.
     */

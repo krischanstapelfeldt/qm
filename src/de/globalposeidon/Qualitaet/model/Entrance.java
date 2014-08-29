@@ -43,6 +43,22 @@ public class Entrance implements TreeNode {
       id = iD;
    }
 
+   public ArrayList<Meter> getMeters() {
+	      return meters;
+   }
+
+   public void setMeters(final ArrayList<Meter> meters) {
+      this.meters = meters;
+   }
+
+   public ArrayList<Apartment> getApartments() {
+      return apartments;
+   }
+
+   public void setApartments(final ArrayList<Apartment> apartments) {
+      this.apartments = apartments;
+   }
+	   
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < getMeters().size()) {
          return getMeters().get(index);
@@ -65,7 +81,7 @@ public class Entrance implements TreeNode {
       return getMeters().size();
    }
 
-   public final Apartment getApartment(final int index) {
+   public final Apartment getApartments(final int index) {
       if (index >= 0 && index < apartments.size()) {
          return apartments.get(index);
       }
@@ -78,7 +94,7 @@ public class Entrance implements TreeNode {
 
    public final Apartment removeApartment(final int index) {
       if (index >= 0 && index < apartments.size()) {
-         if (getApartment(index).apartmentIsEmpty()) {
+         if (getApartments(index).apartmentIsEmpty()) {
             return apartments.remove(index);
          }
       }
@@ -95,7 +111,7 @@ public class Entrance implements TreeNode {
    public final ArrayList<Apartment> getEmptyApartments() {
       final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
       for (int i = 0; i < apartments.size(); ++i) {
-         if (getApartment(i).apartmentIsEmpty()) {
+         if (getApartments(i).apartmentIsEmpty()) {
             tmpList.add(apartments.get(i));
          }
       }
@@ -105,7 +121,7 @@ public class Entrance implements TreeNode {
    public final ArrayList<Apartment> getRentedApartments() {
       final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
       for (int i = 0; i < apartments.size(); ++i) {
-         if (!getApartment(i).apartmentIsEmpty()) {
+         if (!getApartments(i).apartmentIsEmpty()) {
             tmpList.add(apartments.get(i));
          }
       }
@@ -169,19 +185,4 @@ public class Entrance implements TreeNode {
       return Collections.enumeration(children);
    }
 
-   public ArrayList<Meter> getMeters() {
-      return meters;
-   }
-
-   public void setMeters(final ArrayList<Meter> meters) {
-      this.meters = meters;
-   }
-
-   public ArrayList<Apartment> getApartment() {
-      return apartments;
-   }
-
-   public void setApartments(final ArrayList<Apartment> apartments) {
-      this.apartments = apartments;
-   }
 }

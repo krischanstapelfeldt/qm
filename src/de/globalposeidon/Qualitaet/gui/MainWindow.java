@@ -224,7 +224,7 @@ public class MainWindow extends JFrame {
             }
             /* React to the node selection. */
             if (node instanceof Building) {
-               System.out.println("selected a building with ID:" + ((Building) node).getID());
+//               System.out.println("selected a building with ID:" + ((Building) node).getID());
                setCurrentBuilding((Building) node);
                // in case of switched building, set rest null
                setCurrentEntrance(null);
@@ -248,7 +248,7 @@ public class MainWindow extends JFrame {
                FunctionPanel.RDBTNUNRENTED.setEnabled(false);
 
             } else if (node instanceof Entrance) {
-               System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
+//               System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
                setCurrentEntrance((Entrance) node);
                // in case of switched building, set rest null
                setCurrentApartment(null);
@@ -271,7 +271,7 @@ public class MainWindow extends JFrame {
                FunctionPanel.RDBTNUNRENTED.setEnabled(false);
 
             } else if (node instanceof Apartment) {
-               System.out.println("selected an apartment with ID: " + ((Apartment) node).getID());
+//               System.out.println("selected an apartment with ID: " + ((Apartment) node).getID());
                setCurrentApartment((Apartment) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);
@@ -292,7 +292,7 @@ public class MainWindow extends JFrame {
                FunctionPanel.RDBTNUNRENTED.setEnabled(true);
 
             } else if (node instanceof Meter) {
-               System.out.println("selected an Meter with ID: " + ((Meter) node).getID());
+//               System.out.println("selected an Meter with ID: " + ((Meter) node).getID());
                setCurrentMeter((Meter) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);

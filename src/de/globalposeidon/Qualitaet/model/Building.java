@@ -121,7 +121,7 @@ public class Building implements TreeNode {
       return Collections.enumeration(entrances);
    }
 
-   public ArrayList<Entrance> getEntrance() {
+   public ArrayList<Entrance> getEntrances() {
       return entrances;
    }
 

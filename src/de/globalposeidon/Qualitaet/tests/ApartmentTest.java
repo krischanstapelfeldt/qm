@@ -1,5 +1,7 @@
 package de.globalposeidon.Qualitaet.tests;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -192,6 +194,49 @@ public class ApartmentTest extends TestCase {
       assertEquals("", 0, apartment.tenantCount());
    }
 
+   /**
+    * bla.
+    */
+   @Test
+   public final void testSetMeters() {
+	   
+	   ArrayList<Meter> tmpList = new ArrayList<Meter>();
+	   tmpList.add(meter);
+	   apartment.setMeters(tmpList);
+	   assertEquals("", 1, apartment.getMeters().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetMeters() {
+	   
+	   apartment.addMeter(meter);
+	   assertEquals("", 1, apartment.getMeters().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testSetTenants() {
+	   
+	   ArrayList<Tenant> tmpList = new ArrayList<Tenant>();
+	   tmpList.add(tenant);
+	   apartment.setTenants(tmpList);
+	   assertEquals("", 1, apartment.getTenants().size());
+   }
+   
+   /**
+    * bla.
+    */
+   @Test
+   public final void testGetTenants() {
+	   
+	   apartment.addTenant(tenant);
+	   assertEquals("", 1, apartment.getTenants().size());
+   }
    /**
     * get boolean if apartment is empty. load from database.
     */
