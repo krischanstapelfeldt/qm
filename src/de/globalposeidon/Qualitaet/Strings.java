@@ -22,6 +22,7 @@ public final class Strings {
    public static final String BUILDING = "building";
    public static final String CANCEL = "cancel";
    public static final String CLOSE = "close";
+   public static final String CURRENTVALUE = "currentvalue";
    public static final String DELWSPACE = "delete ";
    public static final String DETAILS = "details";
    public static final String EDIT = "Edit";
@@ -33,6 +34,7 @@ public final class Strings {
    public static final String GLOBALPOSEIDON = "Global Poseidon";
    public static final String HELP = "Help";
    public static final String HOUSENO = "House no.";
+   public static final String LASTREAD = "lastread";
    public static final String MAKEREADING = "make reading";
    public static final String METER = "meter";
    public static final String METERTYPE = "metertype";
@@ -55,6 +57,7 @@ public final class Strings {
    public static final String UNRENTED = "unrented";
    public static final String UNSORTED = "unsorted";
    public static final String VALUE = "value";
+   public static final String YEARVALUE = "yearvalue";
    public static final String ZIP = "ZIP Code";
 
    // advanced terms
