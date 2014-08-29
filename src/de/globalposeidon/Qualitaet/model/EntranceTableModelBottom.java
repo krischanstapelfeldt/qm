@@ -25,7 +25,7 @@ public class EntranceTableModelBottom extends AbstractTableModel {
       return entrance.getApartments().size() - 1;
    }
 
-   public void removeElement(final Entrance apartment) {
+   public void removeElement(final Apartment apartment) {
       entrance.getApartments().remove(apartment);
       fireTableDataChanged();
    }

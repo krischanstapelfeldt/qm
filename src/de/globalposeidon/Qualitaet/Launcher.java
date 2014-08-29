@@ -9,6 +9,7 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
+import de.globalposeidon.Qualitaet.model.Renter;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
@@ -54,6 +55,7 @@ public class Launcher {
       
       final Building b = new Building(dc);
       dc.addBuilding(b);
+      b.setRenter(new Renter());
       final Entrance e = new Entrance(b);
       b.addEntrance(e);
       final Meter me = new Meter(dc.meterCounter++, Metertype.POWER, e);
@@ -76,7 +78,7 @@ public class Launcher {
       ab.addMeter(mbb);
       final Meter mbc = new Meter(dc.meterCounter++, Metertype.WATER, a);
       ab.addMeter(mbc);
-      ab.addTenant(new Tenant("Steffens", "Jürgen", "5247521", "steffens@mail.de"));
+      ab.addTenant(new Tenant("Steffens", "Jï¿½rgen", "5247521", "steffens@mail.de"));
       ab.addTenant(new Tenant("Steffens", "Ursula", "5247521", "steffens@mail.de"));
       final Apartment ac = new Apartment(e);
       e.addApartment(ac);
@@ -93,6 +95,7 @@ public class Launcher {
 
       final Building b2 = new Building(dc);
       dc.addBuilding(b2);
+      b2.setRenter(new Renter());
       final Entrance e2 = new Entrance(b2);
       b2.addEntrance(e2);
       final Meter me2 = new Meter(dc.meterCounter++, Metertype.POWER, e2);
