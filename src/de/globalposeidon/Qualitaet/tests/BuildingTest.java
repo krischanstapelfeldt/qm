@@ -186,6 +186,4 @@ public class BuildingTest extends TestCase {
       assertNotNull(building.toString());
    }
    // <----- TREENODE TESTS ----->
-
-   // TODO: Write this tests?
 }

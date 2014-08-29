@@ -22,8 +22,8 @@ public class Apartment implements TreeNode {
    private final Entrance entrance; // parent node
    private final Random random = new Random();
 
-   private static ArrayList<Meter> meters;
-   private static ArrayList<Tenant> tenants;
+   private  ArrayList<Meter> meters;
+   private  ArrayList<Tenant> tenants;
 
    private static final int MAXTENANTS = 4;
 
@@ -33,21 +33,10 @@ public class Apartment implements TreeNode {
 
    public Apartment(final Entrance entrance) {
       this.entrance = entrance;
-      setMeters(new ArrayList<Meter>());
-      setTenants(new ArrayList<Tenant>());
+      meters = new ArrayList<Meter>();
+      tenants = new ArrayList<Tenant>();
       id = random.nextInt();
    }
-
-   // public Apartment(final Meter initialMeter, final Entrance entrance) {
-   // this(entrance);
-   // meters.add(initialMeter);
-   // }
-   //
-   // public Apartment(final Meter initialMeter, final Tenant initialTenant,
-   // final Entrance entrance) {
-   // this(initialMeter, entrance);
-   // tenants.add(initialTenant);
-   // }
 
    // ================================================================================
    // access private variables
@@ -61,59 +50,59 @@ public class Apartment implements TreeNode {
    }
 
    public final void addMeter(final Meter meter) {
-      getMeters().add(meter);
+      meters.add(meter);
    }
 
    public final Meter getMeter(final int index) {
-      if (index >= 0 && index < getMeters().size()) {
-         return getMeters().get(index);
+      if (index >= 0 && index < meters.size()) {
+         return meters.get(index);
       }
       return null;
    }
 
    public final Meter removeMeter(final int index) {
-      if (index >= 0 && index < getMeters().size()) {
-         return getMeters().remove(index);
+      if (index >= 0 && index < meters.size()) {
+         return meters.remove(index);
       }
       return null;
    }
 
    public final int meterCount() {
-      return getMeters().size();
+      return meters.size();
    }
 
    public final boolean addTenant(final Tenant tentant) {
-      if (getTenants().size() < MAXTENANTS) { // max 4 tenants for each
+      if (tenants.size() < MAXTENANTS) { // max 4 tenants for each
                                               // apartment
-         getTenants().add(tentant);
+    	 tenants.add(tentant);
          return true;
       }
       return false;
    }
 
    public final Tenant getTenant(final int index) {
-      if (index >= 0 && index < getTenants().size()) {
-         return getTenants().get(index);
+      if (index >= 0 && index < tenants.size()) {
+         return tenants.get(index);
       }
       return null;
    }
 
    public final Tenant removeTenant(final int index) {
-      if (index >= 0 && index < getTenants().size()) {
-         return getTenants().remove(index);
+      if (index >= 0 && index < tenants.size()) {
+         return tenants.remove(index);
       }
       return null;
    }
 
    public final int tenantCount() {
-      return getTenants().size();
+      return tenants.size();
    }
 
    // ================================================================================
    // other stuff...
    // ================================================================================
    public final boolean apartmentIsEmpty() {
-      return getTenants().size() == 0;
+      return tenants.size() == 0;
    }
 
    @Override
@@ -130,12 +119,12 @@ public class Apartment implements TreeNode {
    // ================================================================================
    @Override
    public final TreeNode getChildAt(final int childIndex) {
-      return getMeters().get(childIndex);
+      return meters.get(childIndex);
    }
 
    @Override
    public final int getChildCount() {
-      return getMeters().size();
+      return meters.size();
    }
 
    @Override
@@ -161,23 +150,23 @@ public class Apartment implements TreeNode {
 
    @Override
    public final Enumeration<Meter> children() {
-      return Collections.enumeration(getMeters());
+      return Collections.enumeration(meters);
    }
 
-   public static ArrayList<Meter> getMeters() {
+   public ArrayList<Meter> getMeters() {
       return meters;
    }
 
-   public static void setMeters(final ArrayList<Meter> meters) {
-      Apartment.meters = meters;
+   public void setMeters(final ArrayList<Meter> meters) {
+      this.meters = meters;
    }
 
-   public static ArrayList<Tenant> getTenants() {
+   public ArrayList<Tenant> getTenants() {
       return tenants;
    }
 
-   public static void setTenants(final ArrayList<Tenant> tenants) {
-      Apartment.tenants = tenants;
+   public void setTenants(final ArrayList<Tenant> tenants) {
+      this.tenants = tenants;
    }
 
 }

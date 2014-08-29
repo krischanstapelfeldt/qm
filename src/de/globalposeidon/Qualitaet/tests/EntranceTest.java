@@ -52,6 +52,7 @@ public class EntranceTest extends TestCase {
       emptyApartments.add(apartment);
       fullApartments.add(apartmentFull);
       meter = new Meter(001, Metertype.GAS, entrance);
+      System.out.println(apartment.tenantCount());
    }
 
    @Override
@@ -170,8 +171,7 @@ public class EntranceTest extends TestCase {
     */
    @Test
    public final void testPositiveRemoveApartment() {
-//     TODO
-//     apartment.removeTenant(0);
+	   
 	  entrance.addApartment(apartment);
       assertNotNull(entrance.removeApartment(0));
    }

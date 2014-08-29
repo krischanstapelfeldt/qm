@@ -30,7 +30,6 @@ public class AddMeterWindow extends JDialog {
       setTitle("add meter");
 
       // get object type
-      // TODO: Test if working
       final boolean isEntrance = (obj instanceof Entrance);
       System.out.println(isEntrance);
       // ui components
