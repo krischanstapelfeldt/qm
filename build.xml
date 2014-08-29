@@ -99,6 +99,7 @@
 		<exclude name="**/*.java" />
 	</fileset>
 </copy>
+<mkdir dir="${jubula.exec.dir}" />
 <mkdir dir="${checkstyle.output.dir}" />
 <mkdir dir="${findbugs.output.dir}" />
 </target>
