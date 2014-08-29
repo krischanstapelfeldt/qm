@@ -32,19 +32,19 @@ public class FunctionPanel extends JPanel {
 
    // declare TextField
 
-   final JTextField TFMETERID = new JTextField();
-   final JTextField TFREADINGVAL = new JTextField();
-   final JTextField TFPERSON = new JTextField();
-   final JTextField TFREADINGINFO = new JTextField();
-   
+   private final JTextField tfMeterId = new JTextField();
+   private final JTextField tfReadingVal = new JTextField();
+   private final JTextField tfPerson = new JTextField();
+   private final JTextField tfReadingInfo = new JTextField();
+
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   final JRadioButton RDBTNUNSORTED = new JRadioButton(Strings.UNSORTED, true);
-   final JRadioButton RDBTNRENTED = new JRadioButton(Strings.RENTED, false);
-   final JRadioButton RDBTNUNRENTED = new JRadioButton(Strings.UNRENTED, false);
+   private final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
+   private final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
+   private final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
 
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
@@ -84,7 +84,7 @@ public class FunctionPanel extends JPanel {
       gbcLblReadPers.gridx = Strings.FIVE;
       gbcLblReadPers.gridy = Strings.THREE;
       add(lblReadPers, gbcLblReadPers);
-      
+
       final GridBagConstraints gbcLblReadInfo = new GridBagConstraints();
       gbcLblReadInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcLblReadInfo.gridx = Strings.FIVE;
@@ -95,8 +95,8 @@ public class FunctionPanel extends JPanel {
       gbcTfMeterId.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfMeterId.gridx = Strings.ONE;
       gbcTfMeterId.gridy = Strings.TWO;
-      add(TFMETERID, gbcTfMeterId);
-      TFMETERID.setColumns(Strings.TEN);
+      add(tfMeterId, gbcTfMeterId);
+      tfMeterId.setColumns(Strings.TEN);
 
       separatorLeft.setOrientation(SwingConstants.VERTICAL);
       separatorLeft.setForeground(Color.DARK_GRAY);
@@ -118,22 +118,22 @@ public class FunctionPanel extends JPanel {
       gbcTfReadingVal.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingVal.gridx = Strings.SIX;
       gbcTfReadingVal.gridy = Strings.TWO;
-      add(TFREADINGVAL, gbcTfReadingVal);
-      TFREADINGVAL.setColumns(Strings.TEN);
+      add(tfReadingVal, gbcTfReadingVal);
+      tfReadingVal.setColumns(Strings.TEN);
 
       final GridBagConstraints gbcTfPerson = new GridBagConstraints();
       gbcTfPerson.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfPerson.gridx = Strings.SIX;
       gbcTfPerson.gridy = Strings.THREE;
-      add(TFPERSON, gbcTfPerson);
-      TFPERSON.setColumns(Strings.TEN);
-      
+      add(tfPerson, gbcTfPerson);
+      tfPerson.setColumns(Strings.TEN);
+
       final GridBagConstraints gbcTfReadingInfo = new GridBagConstraints();
       gbcTfReadingInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingInfo.gridx = Strings.SIX;
       gbcTfReadingInfo.gridy = Strings.FOUR;
-      add(TFREADINGINFO, gbcTfReadingInfo);
-      TFREADINGINFO.setColumns(Strings.TEN);
+      add(tfReadingInfo, gbcTfReadingInfo);
+      tfReadingInfo.setColumns(Strings.TEN);
 
       separatorRight.setOrientation(SwingConstants.VERTICAL);
       separatorRight.setForeground(Color.DARK_GRAY);
@@ -149,19 +149,19 @@ public class FunctionPanel extends JPanel {
       gbcRdbtnUnsorted.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
       gbcRdbtnUnsorted.gridx = Strings.TEN;
       gbcRdbtnUnsorted.gridy = Strings.TWO;
-      add(RDBTNUNSORTED, gbcRdbtnUnsorted);
+      add(rdbtnUnsorted, gbcRdbtnUnsorted);
 
       final GridBagConstraints gbcRdbtnRented = new GridBagConstraints();
       gbcRdbtnRented.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
       gbcRdbtnRented.gridx = Strings.TEN;
       gbcRdbtnRented.gridy = Strings.THREE;
-      add(RDBTNRENTED, gbcRdbtnRented);
+      add(rdbtnRented, gbcRdbtnRented);
 
       final GridBagConstraints gbcRdbtnUnrented = new GridBagConstraints();
       gbcRdbtnUnrented.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
       gbcRdbtnUnrented.gridx = Strings.TEN;
       gbcRdbtnUnrented.gridy = Strings.FOUR;
-      add(RDBTNUNRENTED, gbcRdbtnUnrented);
+      add(rdbtnUnrented, gbcRdbtnUnrented);
 
       final GridBagConstraints gbcBtnSave = new GridBagConstraints();
       gbcBtnSave.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.ZERO, Strings.FIVE);
@@ -174,12 +174,11 @@ public class FunctionPanel extends JPanel {
       gbcBtnSearch.gridx = Strings.ONE;
       gbcBtnSearch.gridy = Strings.FIVE;
       add(btnSearch, gbcBtnSearch);
-      
+
       btnSearch.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(final ActionEvent e) {
- 
-          }
-       });
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+         }
+      });
    }
 }
