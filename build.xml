@@ -15,6 +15,7 @@
 	<property name="jacoco.report.dir" location="${reports.dir}/jacoco" />
 	<property name="jacoco.exec.file" location="${bin.dir}/jacoco.exec" />
 	<property name="junit.output.dir" value="${reports.dir}/junit" />
+	<property name="jubula.exec.dir" value="C:/Program Files (x86)/jubula_8.0.00170/jubula" />
 	<property name="checkstyle.output.dir" value="${reports.dir}/checkstyle" />
 	<property name="checkstyle.dir" value="${lib.dir}/checkstyle" />
 	<property name="findbugs.jar" value="${lib.dir}/findbugs/lib/findbugs-ant.jar" />
@@ -138,6 +139,11 @@
 		</batchtest>
 
 	</junit>
+
+	<exec executable="${jubula.exec.dir}/testexec">
+		<arg line="-c ${jubula.exec.dir}/config.xml"/>
+	</exec>
+	
 </jacoco:coverage>
 </target>
 

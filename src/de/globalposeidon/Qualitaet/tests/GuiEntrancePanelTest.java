@@ -24,7 +24,7 @@ public class GuiEntrancePanelTest extends TestCase {
     * @throws Might
     *             throw an exception. Unlikely, there is no method body.
     */
-   public void setUpGuiEntrancePanelTest() throws Exception {
+   public void setUp() throws Exception {
        Building building = new Building(null);
        entrance = new Entrance(building);
    }
