@@ -33,11 +33,11 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       tenants = new ArrayList<Tenant>();
    }
    
-   public int addElement(final Tenant tenants) {
+   public int addElement(final Tenant tenant) {
      
-      (tenants).add(tenant);
+      apartment.addTenant(tenant);
       fireTableDataChanged();
-      return tenants.tenantCount() - 1;
+      return apartment.tenantCount() - 1;
    }
 
    public void removeElement(final Tenant tenant) {

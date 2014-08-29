@@ -118,7 +118,7 @@ public class Launcher {
       ab2.addMeter(mbb2);
       final Meter mbc2 = new Meter(dc.meterCounter++, Metertype.WATER, a2);
       ab2.addMeter(mbc2);
-      ab2.addTenant(new Tenant("Alimibi", "Max", "6978721", "vodkaMax@mail.de"));
+      ab2.addTenant(new Tenant("Alimibi", "Max", "6978721", "v@mail.de"));
       final Apartment ac2 = new Apartment(e2);
       e2.addApartment(ac2);
       final Meter mc2 = new Meter(dc.meterCounter++, Metertype.POWER, a2);
