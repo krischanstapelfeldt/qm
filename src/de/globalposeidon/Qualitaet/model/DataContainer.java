@@ -15,10 +15,12 @@ public class DataContainer implements TreeNode {
 
    private final UUID uuid;
    private final ArrayList<Building> buildings;
+   public int meterCounter;
 
    public DataContainer() {
       buildings = new ArrayList<>(1);
       uuid = UUID.randomUUID();
+      meterCounter = 0;
    }
 
    public final void addBuilding(final Building building) {

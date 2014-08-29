@@ -9,6 +9,7 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
+import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
  * This class launches the GUI and datamodel.
@@ -47,24 +48,86 @@ public class Launcher {
     * @return Prefilled DataContainer
     */
    public static DataContainer createRandomModel() {
+	   
+	  // T-MT-001
       final DataContainer dc = new DataContainer();
+      
       final Building b = new Building(dc);
       dc.addBuilding(b);
       final Entrance e = new Entrance(b);
       b.addEntrance(e);
+      final Meter me = new Meter(dc.meterCounter++, Metertype.POWER, e);
+      e.addMeter(me);
+      final Meter meb = new Meter(dc.meterCounter++, Metertype.GAS, e);
+      e.addMeter(meb);
       final Apartment a = new Apartment(e);
       e.addApartment(a);
-      final Meter m = new Meter(1, Metertype.POWER, a);
-      a.addMeter(m);
+      final Meter ma = new Meter(dc.meterCounter++, Metertype.POWER, a);
+      a.addMeter(ma);
+      final Meter mab = new Meter(dc.meterCounter++, Metertype.GAS, a);
+      a.addMeter(mab);
+      final Meter mac = new Meter(dc.meterCounter++, Metertype.WATER, a);
+      a.addMeter(mac);
+      final Apartment ab = new Apartment(e);
+      e.addApartment(ab);
+      final Meter mb = new Meter(dc.meterCounter++, Metertype.POWER, a);
+      ab.addMeter(mb);
+      final Meter mbb = new Meter(dc.meterCounter++, Metertype.GAS, a);
+      ab.addMeter(mbb);
+      final Meter mbc = new Meter(dc.meterCounter++, Metertype.WATER, a);
+      ab.addMeter(mbc);
+      ab.addTenant(new Tenant("Steffens", "Jürgen", "5247521", "steffens@mail.de"));
+      ab.addTenant(new Tenant("Steffens", "Ursula", "5247521", "steffens@mail.de"));
+      final Apartment ac = new Apartment(e);
+      e.addApartment(ac);
+      final Meter mc = new Meter(dc.meterCounter++, Metertype.POWER, a);
+      ac.addMeter(mc);
+      final Meter mcb = new Meter(dc.meterCounter++, Metertype.GAS, a);
+      ac.addMeter(mcb);
+      final Meter mcc = new Meter(dc.meterCounter++, Metertype.WATER, a);
+      ac.addMeter(mcc);
+      ac.addTenant(new Tenant("Bayer", "Krischan", "8784245", "nurSchnulzenGucken@mail.de"));
+      ac.addTenant(new Tenant("Bayer", "Martina", "8784245", "nurSchnulzenGucken@mail.de"));
+      ac.addTenant(new Tenant("Bayer", "Lisa", "8784245", "nurSchnulzenGucken@mail.de"));
+      ac.addTenant(new Tenant("Bayer", "Otto", "8784245", "nurSchnulzenGucken@mail.de"));
 
       final Building b2 = new Building(dc);
       dc.addBuilding(b2);
-      final Entrance e2 = new Entrance(b);
+      final Entrance e2 = new Entrance(b2);
       b2.addEntrance(e2);
-      final Apartment a2 = new Apartment(e);
+      final Meter me2 = new Meter(dc.meterCounter++, Metertype.POWER, e2);
+      e2.addMeter(me2);
+      final Meter meb2 = new Meter(dc.meterCounter++, Metertype.GAS, e2);
+      e2.addMeter(meb2);
+      final Apartment a2 = new Apartment(e2);
       e2.addApartment(a2);
-      final Meter m2 = new Meter(2, Metertype.POWER, a2);
-      a2.addMeter(m2);
+      final Meter ma2 = new Meter(dc.meterCounter++, Metertype.POWER, a2);
+      a2.addMeter(ma2);
+      final Meter mab2 = new Meter(dc.meterCounter++, Metertype.GAS, a2);
+      a2.addMeter(mab2);
+      final Meter mac2 = new Meter(dc.meterCounter++, Metertype.WATER, a2);
+      a2.addMeter(mac2);
+      a2.addTenant(new Tenant("Berg", "Kevin", "476358", "lassDieChantalAusmSchrankKaevin@mail.de"));
+      a2.addTenant(new Tenant("Berg", "Chantal", "476358", "lassDieChantalAusmSchrankKaevin@mail.de"));
+      a2.addTenant(new Tenant("Berg", "Jan-Hendrik-Olaf", "476358", "lassDieChantalAusmSchrankKaevin@mail.de"));
+      final Apartment ab2 = new Apartment(e2);
+      e2.addApartment(ab2);
+      final Meter mb2 = new Meter(dc.meterCounter++, Metertype.POWER, a2);
+      ab2.addMeter(mb2);
+      final Meter mbb2 = new Meter(dc.meterCounter++, Metertype.GAS, a2);
+      ab2.addMeter(mbb2);
+      final Meter mbc2 = new Meter(dc.meterCounter++, Metertype.WATER, a2);
+      ab2.addMeter(mbc2);
+      ab2.addTenant(new Tenant("Alimibi", "Max", "6978721", "vodkaMax@mail.de"));
+      final Apartment ac2 = new Apartment(e2);
+      e2.addApartment(ac2);
+      final Meter mc2 = new Meter(dc.meterCounter++, Metertype.POWER, a2);
+      ac2.addMeter(mc2);
+      final Meter mcb2 = new Meter(dc.meterCounter++, Metertype.GAS, a2);
+      ac2.addMeter(mcb2);
+      final Meter mcc2 = new Meter(dc.meterCounter++, Metertype.WATER, a2);
+      ac2.addMeter(mcc2);
+
       return dc;
    }
 

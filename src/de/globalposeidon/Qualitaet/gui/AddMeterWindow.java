@@ -31,7 +31,6 @@ public class AddMeterWindow extends JDialog {
 
       // get object type
       final boolean isEntrance = (obj instanceof Entrance);
-      System.out.println(isEntrance);
       // ui components
       final JPanel contentPnl = new JPanel(new FlowLayout());
       final JLabel descriptionLbl = isEntrance ? new JLabel("This will add a new meter to an entrance") : new JLabel(
