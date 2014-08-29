@@ -49,10 +49,8 @@ public class Launcher {
     * @return Prefilled DataContainer
     */
    public static DataContainer createRandomModel() {
-	   
-	  // T-MT-001
+      // T-MT-001
       final DataContainer dc = new DataContainer();
-      
       final Building b = new Building(dc);
       dc.addBuilding(b);
       b.setRenter(new Renter());

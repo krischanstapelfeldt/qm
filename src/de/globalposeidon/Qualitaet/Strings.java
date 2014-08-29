@@ -2,8 +2,7 @@ package de.globalposeidon.Qualitaet;
 
 /**
  * String class for central string management.
- * 
- * @author Sebastian Lauber
+  * @author Sebastian Lauber
  */
 
 public final class Strings {
@@ -90,7 +89,6 @@ public final class Strings {
    public static final String TENANTDETAILS = TENANT + " " + DETAILS;
 
    // int Terms
-
    public static final int ZERO = 0;
    public static final int ONE = 1;
    public static final int TWO = 2;
