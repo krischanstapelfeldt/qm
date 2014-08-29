@@ -29,7 +29,7 @@ public class EntranceTableModelTop extends AbstractTableModel {
       return entrance.meterCount() - 1;
    }
 
-   public final void removeElement(final Entrance meter) {
+   public final void removeElement(final Meter meter) {
       entrance.getMeters().remove(meter);
       fireTableDataChanged();
    }

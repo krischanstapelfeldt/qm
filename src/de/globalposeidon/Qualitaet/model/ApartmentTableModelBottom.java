@@ -26,7 +26,7 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
       return apartment.meterCount() - 1;
    }
 
-   public final void removeElement(final Apartment meter) {
+   public final void removeElement(final Meter meter) {
       apartment.getMeters().remove(meter);
       fireTableDataChanged();
    }
