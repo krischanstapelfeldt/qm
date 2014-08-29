@@ -2,11 +2,9 @@ package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
 
-import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
-import de.globalposeidon.Qualitaet.gui.ApartmentJTable;
 
 // configure TabelModel Bottom
 public class ApartmentTableModelBottom extends AbstractTableModel {
@@ -116,17 +114,4 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    public void setRowList(final ArrayList<Meter> rowList) {
       apartment.setMeters(rowList);
    }
-
-   public static JTable getTblBottom() {
-      return getTblBottom();
-   }
-
-//   public static void setTblBottom(final JTable tblBottom) {
-//      ApartmentJTable.setTblBottom(tblBottom);
-//   }
-//
-//   public static ApartmentTableModelBottom getTblMdlBottom() {
-//      return TblMdlBottom;
-//   }
-
 }
