@@ -63,6 +63,7 @@
 		<delete dir="${bin.dir}" />
 		<delete dir="junit" />
 		<delete dir="${reports.dir}" />
+		<delete dir="${jubula.exec.dir}" />
 	</target>
 
 	<target name="checkstyle" depends="clean,init" description="Generates a report of code convention violations.">
