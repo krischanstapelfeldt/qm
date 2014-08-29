@@ -19,25 +19,23 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    static final int EMAIL = 3;
    
   // private final int index;
-  
+  // private final Apartment apartment;
    public static final ApartmentTableModelTop tblMdlTop = new ApartmentTableModelTop();
    private final ArrayList<Tenant> tenants;
-   private final Apartment apartment;
-   
+
    // set Table Top Column Header
    private String[] titleTblTop = new String[] { Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL };
    
   
    public ApartmentTableModelTop() {
-     // this.apartment = apartment;
+    // this.apartment = apartment;
       tenants = new ArrayList<Tenant>();
    }
    
-   public int addElement(final Tenant tenants) {
-     
+   public int addElement(final Tenant tenant) {
       (tenants).add(tenant);
       fireTableDataChanged();
-      return tenants.tenantCount() - 1;
+      return tenants.size() - 1;
    }
 
    public void removeElement(final Tenant tenant) {
