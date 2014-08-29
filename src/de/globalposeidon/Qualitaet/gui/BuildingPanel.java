@@ -12,6 +12,7 @@ import javax.swing.JTable;
 
 import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.BuildingTableModelBottom;
+import de.globalposeidon.Qualitaet.model.BuildingTableModelTop;
 
 public class BuildingPanel extends JPanel {
 
@@ -34,19 +35,14 @@ public class BuildingPanel extends JPanel {
       pnlHeader.add(lblEntranceCount);
       pnlHeader.add(lblRenter);
 
-      // Initial JTable
-      final JTable table = new JTable();
-      final JTable table2 = new JTable(new BuildingTableModelBottom(building));
-
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       scrollPane.getViewport().setBackground(Color.white);
       final JScrollPane scrollPane2 = new JScrollPane();
       scrollPane2.getViewport().setBackground(Color.white);
 
-
-      scrollPane.setViewportView(table);
-      scrollPane2.setViewportView(table2);
+      scrollPane.setViewportView(new JTable(new BuildingTableModelTop(building)));
+      scrollPane2.setViewportView(new JTable(new BuildingTableModelBottom(building)));
 
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);
