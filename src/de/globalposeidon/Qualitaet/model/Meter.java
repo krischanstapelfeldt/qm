@@ -3,13 +3,14 @@ package de.globalposeidon.Qualitaet.model;
 import java.util.Date;
 import java.util.Enumeration;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 /**
  * meter model.
  * @author Timm Suhl
  */
-public class Meter implements TreeNode {
+public class Meter extends DefaultMutableTreeNode {
 
    private int id;
    private final Entrance entrance; // parent node

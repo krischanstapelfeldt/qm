@@ -4,14 +4,18 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
 
 import de.globalposeidon.Qualitaet.Strings;
 
@@ -29,26 +33,26 @@ public class FunctionPanel extends JPanel {
 
    // declare TextField
 
-   static final JTextField TFMETERID = new JTextField();
-   static final JTextField TFREADINGVAL = new JTextField();
-   static final JTextField TFPERSON = new JTextField();
-   static final JTextField TFREADINGINFO = new JTextField();
+   final JTextField TFMETERID = new JTextField();
+   final JTextField TFREADINGVAL = new JTextField();
+   final JTextField TFPERSON = new JTextField();
+   final JTextField TFREADINGINFO = new JTextField();
    
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   static final JRadioButton RDBTNUNSORTED = new JRadioButton(Strings.UNSORTED, true);
-   static final JRadioButton RDBTNRENTED = new JRadioButton(Strings.RENTED, false);
-   static final JRadioButton RDBTNUNRENTED = new JRadioButton(Strings.UNRENTED, false);
+   final JRadioButton RDBTNUNSORTED = new JRadioButton(Strings.UNSORTED, true);
+   final JRadioButton RDBTNRENTED = new JRadioButton(Strings.RENTED, false);
+   final JRadioButton RDBTNUNRENTED = new JRadioButton(Strings.UNRENTED, false);
 
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
    private final JSeparator separatorRight = new JSeparator();
 
    // create Panel
-   public FunctionPanel() {
+   public FunctionPanel(final JFrame parent) {
       final GridBagLayout gridBagLayout = new GridBagLayout();
       setLayout(gridBagLayout);
 
@@ -171,5 +175,12 @@ public class FunctionPanel extends JPanel {
       gbcBtnSearch.gridx = Strings.ONE;
       gbcBtnSearch.gridy = Strings.FIVE;
       add(btnSearch, gbcBtnSearch);
+      
+      btnSearch.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(final ActionEvent e) {
+ 
+          }
+       });
    }
 }

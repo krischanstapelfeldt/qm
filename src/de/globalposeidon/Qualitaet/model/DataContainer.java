@@ -5,13 +5,14 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.UUID;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 /**
  * datacontainer model.
  * @author Timm Suhl
  */
-public class DataContainer implements TreeNode {
+public class DataContainer extends DefaultMutableTreeNode {
 
    private final UUID uuid;
    private final ArrayList<Building> buildings;

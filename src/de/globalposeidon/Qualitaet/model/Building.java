@@ -5,13 +5,14 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 /**
  * building model.
  * @author Timm Suhl
  */
-public class Building implements TreeNode {
+public class Building extends DefaultMutableTreeNode {
 
    private final int id;
    private final DataContainer dc; // parent node
@@ -102,7 +103,6 @@ public class Building implements TreeNode {
 
    @Override
    public final int getIndex(final TreeNode node) {
-      // TODO Auto-generated method stub
       return 0;
    }
 

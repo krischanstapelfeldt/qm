@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 /*
@@ -16,7 +17,7 @@ import javax.swing.tree.TreeNode;
  * 
  * @author Timm Suhl
  */
-public class Apartment implements TreeNode {
+public class Apartment extends DefaultMutableTreeNode {
 
    private int id;
    private final Entrance entrance; // parent node

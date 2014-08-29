@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Random;
 
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.tree.TreeNode;
  * 
  * @author Timm Suhl
  */
-public class Entrance implements TreeNode {
+public class Entrance extends DefaultMutableTreeNode {
 
    private int id;
    private final Random random = new Random();

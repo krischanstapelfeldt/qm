@@ -1,5 +1,7 @@
 package de.globalposeidon.Qualitaet.tests;
 
+import javax.swing.JFrame;
+
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -36,7 +38,7 @@ public class GuiFunctionPanelTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-        assertNotNull(new FunctionPanel());
+        assertNotNull(new FunctionPanel(new JFrame()));
    }
 
 }
