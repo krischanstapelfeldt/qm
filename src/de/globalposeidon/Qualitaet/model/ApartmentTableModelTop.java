@@ -17,31 +17,38 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    static final int SURNAME = 1;
    static final int PHONE = 2;
    static final int EMAIL = 3;
-
+   
+  // private final int index;
+  
+   public static final ApartmentTableModelTop tblMdlTop = new ApartmentTableModelTop();
+   private final ArrayList<Tenant> tenants;
+   private final Apartment apartment;
+   
    // set Table Top Column Header
-   private static String[] titleTblTop = new String[] { Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL };
-
-   private static final ApartmentTableModelTop TblMdlTop = new ApartmentTableModelTop(Apartment.getTenants());
-
-   public ApartmentTableModelTop(final ArrayList<Tenant> tenants) {
-
+   private String[] titleTblTop = new String[] { Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL };
+   
+  
+   public ApartmentTableModelTop() {
+     // this.apartment = apartment;
+      tenants = new ArrayList<Tenant>();
    }
-
-   public int addElement(final Tenant tenant) {
-      (Apartment.getTenants()).add(tenant);
+   
+   public int addElement(final Tenant tenants) {
+     
+      (tenants).add(tenant);
       fireTableDataChanged();
-      return Apartment.getTenants().size() - 1;
+      return tenants.tenantCount() - 1;
    }
 
-   public void removeElement(final Apartment tenant) {
-      Apartment.getTenants().remove(tenant);
+   public void removeElement(final Tenant tenant) {
+      tenants.remove(tenant);
       fireTableDataChanged();
    }
 
    public void setEntries(final ArrayList<Tenant> dataList) {
       clear();
       for (int row = 0; row < dataList.size(); row++) {
-         Apartment.getTenants().add(dataList.get(row));
+         tenants.add(dataList.get(row));
       }
    }
 
@@ -57,31 +64,31 @@ public class ApartmentTableModelTop extends AbstractTableModel {
 
    @Override
    public int getRowCount() {
-      return Apartment.getTenants().size();
+      return tenants.size();
    }
 
    public Object getRowAt(final int row) {
-      return Apartment.getTenants().get(row);
+      return tenants.get(row);
    }
 
    public void setRowAt(final Tenant tenant, final int row) {
-      Apartment.getTenants().set(row, tenant);
+      tenants.set(row, tenant);
       fireTableRowsUpdated(row, row);
    }
 
    @Override
    public Object getValueAt(final int row, final int col) {
       if (col == NAME) {
-         return Apartment.getTenants().get(row).getName();
+         return tenants.get(row).getName();
       }
       if (col == SURNAME) {
-         return Apartment.getTenants().get(row).getSurname();
+         return tenants.get(row).getSurname();
       }
       if (col == PHONE) {
-         return Apartment.getTenants().get(row).getPhone();
+         return tenants.get(row).getPhone();
       }
       if (col == EMAIL) {
-         return Apartment.getTenants().get(row).getEmail();
+         return tenants.get(row).getEmail();
       }
       return null;
    }
@@ -104,22 +111,22 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    @Override
    public void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
       if (columnIndex == NAME) {
-         Apartment.getTenants().get(rowIndex).setName((String) currentValue);
+         tenants.get(rowIndex).setName((String) currentValue);
       }
       if (columnIndex == SURNAME) {
-         Apartment.getTenants().get(rowIndex).setSurname((String) currentValue);
+         tenants.get(rowIndex).setSurname((String) currentValue);
       }
       if (columnIndex == PHONE) {
-         Apartment.getTenants().get(rowIndex).setPhone((String) currentValue);
+         tenants.get(rowIndex).setPhone((String) currentValue);
       }
       if (columnIndex == EMAIL) {
-         Apartment.getTenants().get(rowIndex).setEmail((String) currentValue);
+         tenants.get(rowIndex).setEmail((String) currentValue);
       }
    }
 
    public void clear() {
       final int rows = getRowCount();
-      Apartment.getTenants().clear();
+      tenants.clear();
       fireTableRowsDeleted(0, rows);
    }
 
@@ -128,19 +135,19 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    }
 
    public ArrayList<Tenant> getRowList() {
-      return Apartment.getTenants();
+      return tenants;
    }
 
    public void setHeaders(final String[] headers) {
       titleTblTop = headers;
    }
 
-   public void setRowList(final ArrayList<Tenant> rowList) {
-      Apartment.setTenants(rowList);
-   }
+//   public void setRowList(final ArrayList<Tenant> rowList) {
+//      tenants(rowList);
+//   }
 
-   public static ApartmentTableModelTop getTblMdlTop() {
-      return TblMdlTop;
-   }
+//   public ApartmentTableModelTop getTblMdlTop() {
+//      return tblMdlTop;
+//   }
 
 }

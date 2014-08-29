@@ -44,7 +44,7 @@ public class BuildingPanel extends JPanel {
       scrollPane2.getViewport().setBackground(Color.white);
 
 
-      scrollPane.setViewportView(BuildingJTable.getTblTop());
+//      scrollPane.setViewportView(BuildingJTable.getTblTop());
       scrollPane2.setViewportView(table2);
 
       pnlMain.add(scrollPane);
