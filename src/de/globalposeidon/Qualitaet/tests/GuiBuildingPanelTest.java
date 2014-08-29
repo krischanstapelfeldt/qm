@@ -6,15 +6,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.globalposeidon.Qualitaet.gui.FunctionPanel;
-import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.gui.BuildingPanel;
+import de.globalposeidon.Qualitaet.model.Building;
 
 /**
  * This class contains the tests for the tenant class.
  * @author Krischan Stapelfeldt
  */
-public class GuiFunctionPanelTest extends TestCase {
+public class GuiBuildingPanelTest extends TestCase {
 
+   Building building = null;
    @Override
    @Before
    /**
@@ -24,6 +25,7 @@ public class GuiFunctionPanelTest extends TestCase {
     *             throw an exception. Unlikely, there is no method body.
     */
    public void setUp() throws Exception {
+	   building = new Building(null);
    }
 
    @Override
@@ -37,7 +39,7 @@ public class GuiFunctionPanelTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-	    assertNotNull(new FunctionPanel());
+	    assertNotNull(new BuildingPanel(building));
 	      
    }
 
