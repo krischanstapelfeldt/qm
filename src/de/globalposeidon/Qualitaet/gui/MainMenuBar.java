@@ -1,6 +1,8 @@
 package de.globalposeidon.Qualitaet.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Desktop;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -11,7 +13,9 @@ import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -66,6 +70,19 @@ public class MainMenuBar extends JMenuBar {
          @Override
          public void actionPerformed(final ActionEvent e) {
             saveCurrentContainer();
+            final JFrame okFrame = new JFrame();
+            okFrame.setLayout(new BorderLayout());
+            okFrame.add(new JLabel("Daten gespeichert"), BorderLayout.NORTH);
+            JButton okBtn = new JButton("OK");
+            okBtn.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    okFrame.dispose();
+                 }
+             });
+            okFrame.add(okBtn, BorderLayout.CENTER);
+            okFrame.pack();
+            okFrame.setLocationRelativeTo(null);
+            okFrame.show(true);
          }
       });
       final JMenuItem loadContainer = new JMenuItem("load");
