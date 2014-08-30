@@ -13,7 +13,9 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.MeterReader;
 import de.globalposeidon.Qualitaet.model.Metertype;
+import de.globalposeidon.Qualitaet.model.ReadingInfo;
 import de.globalposeidon.Qualitaet.model.Renter;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
@@ -62,7 +64,6 @@ public class Launcher {
 //                   c.printStackTrace();
 //                   return;
 //                }
-         	   
             	container = createRandomModel();
             	final MainWindow window = new MainWindow(container);
             	window.setVisible(true);
@@ -86,8 +87,8 @@ public class Launcher {
       final Entrance e = new Entrance(b);
       b.addEntrance(e);
       final Meter me = new Meter(dc.incMeterCnt(), Metertype.POWER, e);
-      me.setCurrentValue(100); me.makeReading();
-      me.setCurrentValue(9001); me.makeReading();
+      me.setCurrentValue(100); me.makeReading(MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      me.setCurrentValue(9001); me.makeReading(MeterReader.RENTER, ReadingInfo.ESTIMATION);
       e.addMeter(me);
       final Meter meb = new Meter(dc.incMeterCnt(), Metertype.GAS, e);
       e.addMeter(meb);

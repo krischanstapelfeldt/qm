@@ -14,7 +14,9 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.MeterReader;
 import de.globalposeidon.Qualitaet.model.Metertype;
+import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 /**
  * This class contains the tests for the meter class.
@@ -160,7 +162,7 @@ public class MeterTest extends TestCase {
    @Test
    public final void testPositiveMakeReading() {
 
-      assertNotNull(meter.makeReading());
+      assertNotNull(meter.makeReading(MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION));
    }
 
    /**

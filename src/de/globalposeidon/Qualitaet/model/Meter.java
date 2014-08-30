@@ -154,11 +154,13 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    // other stuff, dont know nice name
    // ================================================================================
    /**
-    * Zaehlung erzeugen.
+    * Zaehlung machen.
+    * @param reader reader
+    * @param info info
     * @return Zaehlung
     */
-   public final Reading makeReading() {
-       Reading reading = new Reading(this, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
+   public final Reading makeReading(final MeterReader reader, final ReadingInfo info) {
+       Reading reading = new Reading(this, reader, info);
        readings.add(reading);
       return reading;
    }

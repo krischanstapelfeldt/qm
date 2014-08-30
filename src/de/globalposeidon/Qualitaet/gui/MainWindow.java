@@ -483,7 +483,7 @@ public class MainWindow extends JFrame {
     * Aktuelles Gebauede.
     * @return Gebaude
     */
-   private Building selectedBuilding() {
+   public final Building selectedBuilding() {
 
       return currentBuilding;
    }
@@ -499,7 +499,7 @@ public class MainWindow extends JFrame {
     * Aktueller Eingang.
     * @return Eingang
     */
-   private Entrance selectedEntrance() {
+   public final Entrance selectedEntrance() {
 
       return currentEntrance;
    }
@@ -515,7 +515,7 @@ public class MainWindow extends JFrame {
     * Aktuelles Apartment.
     * @return apartment
     */
-   private Apartment selectedApartment() {
+   public final Apartment selectedApartment() {
 
       return currentApartment;
    }
@@ -531,7 +531,7 @@ public class MainWindow extends JFrame {
     * Aktuelle Zaehler.
     * @return Zaehler
     */
-   private Meter selectedMeter() {
+   public final Meter selectedMeter() {
 
       return currentMeter;
    }

@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.globalposeidon.Qualitaet.gui.FunctionPanel;
+import de.globalposeidon.Qualitaet.gui.MainWindow;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 
 /**
  * This class contains the tests for the tenant class.
@@ -37,7 +39,7 @@ public class GuiFunctionPanelTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-      assertNotNull(new FunctionPanel(new JFrame()));
+      assertNotNull(new FunctionPanel(new MainWindow(new DataContainer())));
    }
 
 }
