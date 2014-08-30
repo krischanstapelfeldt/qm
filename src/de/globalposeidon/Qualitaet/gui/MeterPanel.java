@@ -41,16 +41,15 @@ public class MeterPanel extends JPanel {
       pnlHeader.add(lblLastRead);
 
       // Initial JTable
-      final JTable table = new JTable(new MeterTableModelTop(meter));
       final JTable table2 = new JTable();
 
-      // Initial Scrollpane
+      // Initial JTable and Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       scrollPane.getViewport().setBackground(Color.white);
       final JScrollPane scrollPane2 = new JScrollPane();
       scrollPane2.getViewport().setBackground(Color.white);
 
-      scrollPane.setViewportView(table);
+      scrollPane.setViewportView(new JTable(new MeterTableModelTop(meter)));
       scrollPane2.setViewportView(table2);
 
       pnlMain.add(scrollPane);
