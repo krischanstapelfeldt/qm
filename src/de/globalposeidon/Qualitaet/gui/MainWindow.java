@@ -280,9 +280,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getTfPerson().setEnabled(false);
                panelFunction.getTfReadingInfo().setEnabled(false);
-               panelFunction.getRdbtnUnsorted().setEnabled(false);
-               panelFunction.getRdbtnRented().setEnabled(false);
-               panelFunction.getRdbtnUnrented().setEnabled(false);
+               panelFunction.getRdbtnUnsorted().setEnabled(true);
+               panelFunction.getRdbtnRented().setEnabled(true);
+               panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else if (node instanceof Apartment) {
                // System.out.println("selected an apartment with ID: " +
@@ -302,9 +302,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getTfPerson().setEnabled(false);
                panelFunction.getTfReadingInfo().setEnabled(false);
-               panelFunction.getRdbtnUnsorted().setEnabled(true);
-               panelFunction.getRdbtnRented().setEnabled(true);
-               panelFunction.getRdbtnUnrented().setEnabled(true);
+               panelFunction.getRdbtnUnsorted().setEnabled(false);
+               panelFunction.getRdbtnRented().setEnabled(false);
+               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Meter) {
                // System.out.println("selected an Meter with ID: " + ((Meter)
@@ -324,9 +324,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(true);
                panelFunction.getTfPerson().setEnabled(true);
                panelFunction.getTfReadingInfo().setEnabled(true);
-               panelFunction.getRdbtnUnsorted().setEnabled(true);
-               panelFunction.getRdbtnRented().setEnabled(true);
-               panelFunction.getRdbtnUnrented().setEnabled(true);
+               panelFunction.getRdbtnUnsorted().setEnabled(false);
+               panelFunction.getRdbtnRented().setEnabled(false);
+               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else {
                btnAddEntrance.setEnabled(false);
