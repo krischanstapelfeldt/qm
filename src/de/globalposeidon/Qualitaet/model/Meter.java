@@ -1,5 +1,6 @@
 package de.globalposeidon.Qualitaet.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 
@@ -24,6 +25,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    private int currentValue;
    private int yearValue; // wert zum 01.01 eines Jahres
    private Date lastRead; // letzter ablesewert
+   private ArrayList<Reading> readings;
 
    // ================================================================================
    // constructors
@@ -31,6 +33,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    // empty meter not allowed, so no Meter()
 
    public Meter(final int meterID, final Metertype type, final Entrance entrance) {
+	  readings = new ArrayList<Reading>();
       this.entrance = entrance;
       apartment = null;
       id = meterID;
@@ -41,6 +44,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    }
 
    public Meter(final int meterID, final Metertype type, final Apartment apartment) {
+	  readings = new ArrayList<Reading>();
       this.apartment = apartment;
       entrance = null;
       id = meterID;
@@ -100,11 +104,20 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
       return type;
    }
 
+   public ArrayList<Reading> getReadings(){
+	   return readings;
+   }
+   
+   public void setReadings(ArrayList<Reading> readings){
+	   this.readings = readings;
+   }
    // ================================================================================
    // other stuff, dont know nice name
    // ================================================================================
    public final Reading makeReading() {
-      return new Reading(this, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
+	  Reading reading = new Reading(this, MeterReader.JANITOR, ReadingInfo.ESTIMATION);
+	  readings.add(reading);
+      return reading;
    }
 
    @Override

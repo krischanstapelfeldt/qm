@@ -86,6 +86,8 @@ public class Launcher {
       final Entrance e = new Entrance(b);
       b.addEntrance(e);
       final Meter me = new Meter(dc.incMeterCnt(), Metertype.POWER, e);
+      me.setCurrentValue(100); me.makeReading();
+      me.setCurrentValue(9001); me.makeReading();
       e.addMeter(me);
       final Meter meb = new Meter(dc.incMeterCnt(), Metertype.GAS, e);
       e.addMeter(meb);

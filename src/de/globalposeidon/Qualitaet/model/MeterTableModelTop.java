@@ -1,6 +1,8 @@
  package de.globalposeidon.Qualitaet.model;
 
- import javax.swing.table.AbstractTableModel;
+ import java.util.ArrayList;
+
+import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
@@ -9,38 +11,28 @@ import de.globalposeidon.Qualitaet.Strings;
 
  private static final long serialVersionUID = -7166828471266641592L;
 
-
-// static final int METERID = 0;
-// static final int METERTYPE = 1;
-// static final int CURRENTVALUE = 2;
-// static final int YEARVALUE = 3;
-// static final int LASTREAD = 3;
-//
+// use this for modelBotoom (readings)
+//static final int METERID = 0;
+//static final int READINGID = 1;
+//static final int METERREADER = 2;
+//static final int READINGINFO = 3;
+//static final int READINGDATE = 4;
+//static final int READINGVALUE = 5;
  
+static final int METERID = 0;
+static final int METERTYPE = 1;
+static final int METERVALUE = 2;
+static final int METERYEARVALUE = 3;
+static final int LASTREAD = 4; 
+ 
+private Meter meter;
+ 
+// also use for readings
+//private String[] titleTblTop = new String[]{"ID Meter", "ID Reading", "Reader", "ReadingInfo", "Date", "Value"};
+private String[] titleTblTop = new String[]{"ID Meter", "Metertype", "Value", "yearValue", "last read"};
 
-//  private int meterid;
-//  private Metertype type;
-//  private int currentValue;
-//  private int yearValue;
-//  private Date lastRead;
-//  private Meter meter;
-  
-private Object[] objects;
-private Class[] classes;
-private String[] titleTblTop;
-      
  public MeterTableModelTop(final Meter meter) {
-// this.meter = meter;
-//  this.meterid = meter.getID();
-//  this.type = meter.getType();
-//  this.currentValue = meter.getCurrentValue();
-//  this.yearValue = meter.getYearValue();
-//  this.lastRead = meter.getLastRead();
-    
-    objects = new Object[]{meter.getID(), meter.getType(), meter.getCurrentValue(), meter.getYearValue(), meter.getLastRead()};
-    classes = new Class[]{Integer.class, String.class, Integer.class, Integer.class, Integer.class};
-    titleTblTop = new String[] { Strings.METERID, Strings.METERTYPE, Strings.CURRENTVALUE, Strings.YEARVALUE,
-          Strings.LASTREAD };
+	 this.meter = meter;
  }
     
     
@@ -61,11 +53,42 @@ private String[] titleTblTop;
  
  @Override
  public Object getValueAt(int rowIndex, int columnIndex) {
-   
-    return objects[columnIndex];
+	 if (columnIndex == METERID) {
+         return meter.getID();
+      }
+	 if (columnIndex == METERTYPE) {
+         return meter.getType();
+      }
+	 if (columnIndex == METERVALUE) {
+         return meter.getCurrentValue();
+      }
+	 if (columnIndex == METERYEARVALUE) {
+         return meter.getYearValue();
+      }
+	 if (columnIndex == LASTREAD) {
+         return meter.getLastRead();
+      }
+      return null;
  }
  
- public Class getColumnClass(int columnIndex){
-    return classes[columnIndex];
+ @Override
+ public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
+	 if (columnIndex == METERID) {
+         return false;
+      }
+	 if (columnIndex == METERTYPE) {
+         return false;
+      }
+	 if (columnIndex == METERVALUE) {
+         return true;
+      }
+	 if (columnIndex == METERYEARVALUE) {
+         return false;
+      }
+	 if (columnIndex == LASTREAD) {
+         return false;
+      }
+      return false;
  }
- }
+ 
+}

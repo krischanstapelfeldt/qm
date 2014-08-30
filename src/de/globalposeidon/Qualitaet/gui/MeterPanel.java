@@ -12,6 +12,7 @@ import javax.swing.JTable;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Meter;
+import de.globalposeidon.Qualitaet.model.MeterTableModelTop;
 
 public class MeterPanel extends JPanel {
 
@@ -40,7 +41,7 @@ public class MeterPanel extends JPanel {
       pnlHeader.add(lblLastRead);
 
       // Initial JTable
-      final JTable table = new JTable();
+      final JTable table = new JTable(new MeterTableModelTop(meter));
       final JTable table2 = new JTable();
 
       // Initial Scrollpane
