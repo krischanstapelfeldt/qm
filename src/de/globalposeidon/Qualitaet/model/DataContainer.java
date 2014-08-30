@@ -14,40 +14,60 @@ import javax.swing.tree.TreeNode;
  */
 public class DataContainer extends DefaultMutableTreeNode {
 
-   /**
-    *
-    */
    private static final long serialVersionUID = -2235030663900376387L;
    private final UUID uuid;
    private final ArrayList<Building> buildings;
    private int meterCounter;
-
+   /**
+    * .
+    */
    public DataContainer() {
       buildings = new ArrayList<>(1);
       uuid = UUID.randomUUID();
       setMeterCounter(0);
    }
-
+   /**
+    * .
+    * @param building
+    */
    public final void addBuilding(final Building building) {
       buildings.add(building);
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Building getBuilding(final int index) {
       return buildings.get(index);
    }
-   
+   /**
+    * .
+    * @param building
+    * @return
+    */
    public final boolean removeBuilding(Building building) {
 	      return buildings.remove(building);
 	   }
-
+   /**
+    * .
+    * @return
+    */
    public final int getBuildingCount() {
       return buildings.size();
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final int getBuildingID(final int index) {
       return buildings.get(index).getID();
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int incMeterCnt() {
       return meterCounter++;
    }
@@ -94,11 +114,17 @@ public class DataContainer extends DefaultMutableTreeNode {
    public final Enumeration<Building> children() {
       return Collections.enumeration(buildings);
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int getMeterCounter() {
       return meterCounter;
    }
-
+   /**
+    * .
+    * @param meterCounter
+    */
    public final void setMeterCounter(final int meterCounter) {
       this.meterCounter = meterCounter;
    }

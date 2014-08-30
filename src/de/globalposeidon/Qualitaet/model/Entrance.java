@@ -28,7 +28,10 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    // constructor
    // ================================================================================
-
+   /**
+    * .
+    * @param building
+    */
    public Entrance(final Building building) {
       this.building = building;
       apartments = new ArrayList<Apartment>();
@@ -39,63 +42,107 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    // access private variables
    // ================================================================================
+  /**
+   * .
+   * @return
+   */
    public final int getID() {
       return id;
    }
-
+   /**
+    * .
+    * @param iD
+    */
    public final void setID(final int iD) {
       id = iD;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final ArrayList<Meter> getMeters() {
       return meters;
    }
-
+   /**
+    * .
+    * @param meters
+    */
    public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final ArrayList<Apartment> getApartments() {
       return apartments;
    }
-
+   /**
+    * .
+    * @param apartments
+    */
    public final void setApartments(final ArrayList<Apartment> apartments) {
       this.apartments = apartments;
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < getMeters().size()) {
          return getMeters().get(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @param var
+    */
    public final void addMeter(final Meter var) {
       getMeters().add(var);
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Meter removeMeter(final int index) {
       if (index >= 0 && index < getMeters().size()) {
          return getMeters().get(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int meterCount() {
       return getMeters().size();
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Apartment getApartments(final int index) {
       if (index >= 0 && index < apartments.size()) {
          return apartments.get(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @param val
+    */
    public final void addApartment(final Apartment val) {
       apartments.add(val);
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Apartment removeApartment(final int index) {
       if (index >= 0 && index < apartments.size()) {
          if (getApartments(index).apartmentIsEmpty()) {
@@ -104,7 +151,10 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int apartmentCount() {
       return apartments.size();
    }
@@ -121,7 +171,10 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return tmpList;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final ArrayList<Apartment> getRentedApartments() {
       final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
       for (int i = 0; i < apartments.size(); ++i) {
@@ -131,7 +184,10 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return tmpList;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final boolean entranceIsEmpty() {
       return apartments.size() == 0;
    }

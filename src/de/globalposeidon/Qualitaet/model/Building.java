@@ -15,7 +15,7 @@ import javax.swing.tree.TreeNode;
 public class Building extends DefaultMutableTreeNode implements java.io.Serializable{
 
    /**
-    *
+    * .
     */
    private static final long serialVersionUID = 2774534346650927893L;
    private final int id;
@@ -28,7 +28,10 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    // constructor
    // ================================================================================
-
+   /**
+    * .
+    * @param dc
+    */
    public Building(final DataContainer dc) {
       entrances = new ArrayList<Entrance>();
       id = random.nextInt();
@@ -38,23 +41,40 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    // access private variables
    // ================================================================================
+   /**
+    * .
+    * @return
+    */
    public final int getID() {
       return id;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final Renter getRenter() {
       return renter;
    }
-
+   /**
+    * .
+    * @param renter
+    */
    public final void setRenter(final Renter renter) {
       this.renter = renter;
 
    }
-
+   /**
+    * .
+    * @param entrance
+    */
    public final void addEntrance(final Entrance entrance) {
       entrances.add(entrance);
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Entrance removeEntrance(final int index) {
       if (index >= 0 && index < entrances.size()) {
          if (getEntrance(index).entranceIsEmpty()) {
@@ -63,14 +83,21 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Entrance getEntrance(final int index) {
       if (index >= 0 && index < entrances.size()) {
          return entrances.get(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int entranceCount() {
       return entrances.size();
    }
@@ -78,6 +105,10 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    // other stuff...
    // ================================================================================
+   /**
+    * .
+    * @return
+    */
    public final boolean buildingIsEmpty() {
       return entrances.size() == 0;
    }
@@ -124,11 +155,17 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    public final Enumeration<Entrance> children() {
       return Collections.enumeration(entrances);
    }
-
+   /**
+    * .
+    * @return
+    */
    public final ArrayList<Entrance> getEntrances() {
       return entrances;
    }
-
+   /**
+    * .
+    * @param entrances
+    */
    public final void setEntrances(final ArrayList<Entrance> entrances) {
       this.entrances = entrances;
    }

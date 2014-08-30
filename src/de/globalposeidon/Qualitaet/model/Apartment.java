@@ -18,7 +18,7 @@ import javax.swing.tree.TreeNode;
 public class Apartment extends DefaultMutableTreeNode implements java.io.Serializable{
 
    /**
-    *
+    * .
     */
    private static final long serialVersionUID = -5046711217211082032L;
    private int id;
@@ -33,7 +33,10 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    // ================================================================================
    // constructor
    // ================================================================================
-
+   /**
+    * .
+    * @param entrance
+    */
    public Apartment(final Entrance entrance) {
       this.entrance = entrance;
       meters = new ArrayList<Meter>();
@@ -44,36 +47,61 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    // ================================================================================
    // access private variables
    // ================================================================================
+   /**
+    * .
+    * @return
+    */
    public final int getID() {
       return id;
    }
-
+   /**
+    * .
+    * @param iD
+    */
    public final void setID(final int iD) {
       id = iD;
    }
-
+   /**
+    * .
+    * @param meter
+    */
    public final void addMeter(final Meter meter) {
       meters.add(meter);
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < meters.size()) {
          return meters.get(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Meter removeMeter(final int index) {
       if (index >= 0 && index < meters.size()) {
          return meters.remove(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int meterCount() {
       return meters.size();
    }
-
+   /**
+    * .
+    * @param tentant
+    * @return
+    */
    public final boolean addTenant(final Tenant tentant) {
       if (tenants.size() < MAXTENANTS) { // max 4 tenants for each
          // apartment
@@ -82,21 +110,32 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
       }
       return false;
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Tenant getTenant(final int index) {
       if (index >= 0 && index < tenants.size()) {
          return tenants.get(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @param index
+    * @return
+    */
    public final Tenant removeTenant(final int index) {
       if (index >= 0 && index < tenants.size()) {
          return tenants.remove(index);
       }
       return null;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final int tenantCount() {
       return tenants.size();
    }
@@ -155,19 +194,31 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    public final Enumeration<Meter> children() {
       return Collections.enumeration(meters);
    }
-
+   /**
+    * .
+    * @return
+    */
    public final ArrayList<Meter> getMeters() {
       return meters;
    }
-
+   /**
+    * .
+    * @param meters
+    */
    public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
-
+   /**
+    * .
+    * @return
+    */
    public final ArrayList<Tenant> getTenants() {
       return tenants;
    }
-
+   /**
+    * .
+    * @param tenants
+    */
    public final void setTenants(final ArrayList<Tenant> tenants) {
       this.tenants = tenants;
    }
