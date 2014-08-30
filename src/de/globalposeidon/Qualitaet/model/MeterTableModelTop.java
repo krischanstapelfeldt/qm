@@ -2,19 +2,13 @@
 
  import javax.swing.table.AbstractTableModel;
 
+import de.globalposeidon.Qualitaet.Strings;
+
  //// configure TabelModel Bottom
  public class MeterTableModelTop extends AbstractTableModel {
 
  private static final long serialVersionUID = -7166828471266641592L;
 
-// use this for modelBotoom (readings)
-//static final int METERID = 0;
-//static final int READINGID = 1;
-//static final int METERREADER = 2;
-//static final int READINGINFO = 3;
-//static final int READINGDATE = 4;
-//static final int READINGVALUE = 5;
- 
 static final int METERID = 0;
 static final int METERTYPE = 1;
 static final int METERVALUE = 2;
@@ -23,9 +17,7 @@ static final int LASTREAD = 4;
  
 private Meter meter;
  
-// also use for readings
-//private String[] titleTblTop = new String[]{"ID Meter", "ID Reading", "Reader", "ReadingInfo", "Date", "Value"};
-private String[] titleTblTop = new String[]{"ID Meter", "Metertype", "Value", "yearValue", "last read"};
+private String[] titleTblTop = new String[]{Strings.METERID, Strings.METERTYPE, Strings.CURRENTVALUE, Strings.YEARVALUE, Strings.LASTREAD};
 
  public MeterTableModelTop(final Meter meter) {
 	 this.meter = meter;
