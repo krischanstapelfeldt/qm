@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 import de.globalposeidon.Qualitaet.model.Metertype;
@@ -25,7 +26,7 @@ public class AddMeterWindow extends JDialog {
 
    private static final long serialVersionUID = -4549927043320246284L;
 
-   public AddMeterWindow(final Object obj) {
+   public AddMeterWindow(final DataContainer container, final Object obj) {
 
       setTitle("add meter");
 
@@ -33,8 +34,8 @@ public class AddMeterWindow extends JDialog {
       final boolean isEntrance = (obj instanceof Entrance);
       // ui components
       final JPanel contentPnl = new JPanel(new FlowLayout());
-      final JLabel descriptionLbl = isEntrance ? new JLabel("This will add a new meter to an entrance") : new JLabel(
-            "This will add a new meter to an apartment");
+      final JLabel descriptionLbl = isEntrance 	? new JLabel("This will add a new meter to an entrance") 
+      											: new JLabel("This will add a new meter to an apartment");
       contentPnl.add(descriptionLbl);
 
       final JPanel buttonPnl = new JPanel(new FlowLayout());
@@ -43,9 +44,9 @@ public class AddMeterWindow extends JDialog {
          @Override
          public void actionPerformed(final ActionEvent e) {
             if (isEntrance) {
-               addMeter((Entrance) obj);
+               addMeter(container.incMeterCnt(), (Entrance) obj);
             } else {
-               addMeter((Apartment) obj);
+               addMeter(container.incMeterCnt(), (Apartment) obj);
             }
          }
       });
@@ -73,15 +74,14 @@ public class AddMeterWindow extends JDialog {
       setVisible(true);
    }
 
-   private void addMeter(final Entrance entrance) {
+   private void addMeter(int id, final Entrance entrance) {
       System.out.println("try to add meter to entrance...");
-      entrance.addMeter(new Meter(001, Metertype.GAS, entrance));
+      entrance.addMeter(new Meter(id, Metertype.GAS, entrance));
       dispose();
    }
 
-   private void addMeter(final Apartment apartment) {
+   private void addMeter(int id, final Apartment apartment) {
       System.out.println("try to add meter to apartment...");
-      apartment.addMeter(new Meter(001, Metertype.GAS, apartment));
       dispose();
    }
 }

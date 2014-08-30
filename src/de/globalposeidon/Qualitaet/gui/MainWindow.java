@@ -382,9 +382,9 @@ public class MainWindow extends JFrame {
          public void actionPerformed(final ActionEvent e) {
             AddMeterWindow addMeter;
             if (selectedApartment() != null) {
-               addMeter = new AddMeterWindow(selectedApartment());
+               addMeter = new AddMeterWindow(model, selectedApartment());
             } else {
-               addMeter = new AddMeterWindow(selectedEntrance());
+               addMeter = new AddMeterWindow(model, selectedEntrance());
             }
 
             addMeter.addWindowListener(new WindowAdapter() {
