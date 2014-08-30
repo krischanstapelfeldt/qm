@@ -170,8 +170,8 @@ public class EntranceTest extends TestCase {
     */
    @Test
    public final void testPositiveRemoveApartment() {
-	   
-	  entrance.addApartment(apartment);
+
+      entrance.addApartment(apartment);
       assertNotNull(entrance.removeApartment(0));
    }
 
@@ -237,45 +237,45 @@ public class EntranceTest extends TestCase {
     */
    @Test
    public final void testSetMeters() {
-	   
-	   ArrayList<Meter> tmpList = new ArrayList<Meter>();
-	   tmpList.add(meter);
-	   entrance.setMeters(tmpList);
-	   assertEquals("", 1, entrance.getMeters().size());
+
+      final ArrayList<Meter> tmpList = new ArrayList<Meter>();
+      tmpList.add(meter);
+      entrance.setMeters(tmpList);
+      assertEquals("", 1, entrance.getMeters().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testGetMeters() {
-	   
-	   entrance.addMeter(meter);
-	   assertEquals("", 1, entrance.getMeters().size());
+
+      entrance.addMeter(meter);
+      assertEquals("", 1, entrance.getMeters().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testSetApartments() {
-	   
-	   ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
-	   tmpList.add(apartment);
-	   entrance.setApartments(tmpList);
-	   assertEquals("", 1, entrance.getApartments().size());
+
+      final ArrayList<Apartment> tmpList = new ArrayList<Apartment>();
+      tmpList.add(apartment);
+      entrance.setApartments(tmpList);
+      assertEquals("", 1, entrance.getApartments().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testGetApartments() {
-	   
-	   entrance.addApartment(apartment);
-	   assertEquals("", 1, entrance.getApartments().size());
+
+      entrance.addApartment(apartment);
+      assertEquals("", 1, entrance.getApartments().size());
    }
-   
+
    /**
     * bla.
     */

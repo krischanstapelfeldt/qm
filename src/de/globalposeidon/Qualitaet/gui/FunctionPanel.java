@@ -31,19 +31,19 @@ public class FunctionPanel extends JPanel {
    private final JLabel lblReadInfo = new JLabel(Strings.READINGINFO);
 
    // declare TextField
-   final JTextField tfMeterId = new JTextField();
-   final JTextField tfReadingVal = new JTextField();
-   final JTextField tfPerson = new JTextField();
-   final JTextField tfReadingInfo = new JTextField();
+   private final JTextField tfMeterId = new JTextField();
+   private final JTextField tfReadingVal = new JTextField();
+   private final JTextField tfPerson = new JTextField();
+   private final JTextField tfReadingInfo = new JTextField();
 
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
-   final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
-   final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
+   private final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
+   private final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
+   private final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
 
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
@@ -117,22 +117,22 @@ public class FunctionPanel extends JPanel {
       gbcTfReadingVal.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingVal.gridx = Strings.SIX;
       gbcTfReadingVal.gridy = Strings.TWO;
-      add(tfReadingVal, gbcTfReadingVal);
-      tfReadingVal.setColumns(Strings.TEN);
+      add(getTfReadingVal(), gbcTfReadingVal);
+      getTfReadingVal().setColumns(Strings.TEN);
 
       final GridBagConstraints gbcTfPerson = new GridBagConstraints();
       gbcTfPerson.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfPerson.gridx = Strings.SIX;
       gbcTfPerson.gridy = Strings.THREE;
-      add(tfPerson, gbcTfPerson);
-      tfPerson.setColumns(Strings.TEN);
+      add(getTfPerson(), gbcTfPerson);
+      getTfPerson().setColumns(Strings.TEN);
 
       final GridBagConstraints gbcTfReadingInfo = new GridBagConstraints();
       gbcTfReadingInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingInfo.gridx = Strings.SIX;
       gbcTfReadingInfo.gridy = Strings.FOUR;
-      add(tfReadingInfo, gbcTfReadingInfo);
-      tfReadingInfo.setColumns(Strings.TEN);
+      add(getTfReadingInfo(), gbcTfReadingInfo);
+      getTfReadingInfo().setColumns(Strings.TEN);
 
       separatorRight.setOrientation(SwingConstants.VERTICAL);
       separatorRight.setForeground(Color.DARK_GRAY);
@@ -148,19 +148,19 @@ public class FunctionPanel extends JPanel {
       gbcRdbtnUnsorted.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
       gbcRdbtnUnsorted.gridx = Strings.TEN;
       gbcRdbtnUnsorted.gridy = Strings.TWO;
-      add(rdbtnUnsorted, gbcRdbtnUnsorted);
+      add(getRdbtnUnsorted(), gbcRdbtnUnsorted);
 
       final GridBagConstraints gbcRdbtnRented = new GridBagConstraints();
       gbcRdbtnRented.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
       gbcRdbtnRented.gridx = Strings.TEN;
       gbcRdbtnRented.gridy = Strings.THREE;
-      add(rdbtnRented, gbcRdbtnRented);
+      add(getRdbtnRented(), gbcRdbtnRented);
 
       final GridBagConstraints gbcRdbtnUnrented = new GridBagConstraints();
       gbcRdbtnUnrented.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
       gbcRdbtnUnrented.gridx = Strings.TEN;
       gbcRdbtnUnrented.gridy = Strings.FOUR;
-      add(rdbtnUnrented, gbcRdbtnUnrented);
+      add(getRdbtnUnrented(), gbcRdbtnUnrented);
 
       final GridBagConstraints gbcBtnSave = new GridBagConstraints();
       gbcBtnSave.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.ZERO, Strings.FIVE);
@@ -179,5 +179,29 @@ public class FunctionPanel extends JPanel {
          public void actionPerformed(final ActionEvent e) {
          }
       });
+   }
+
+   public final JRadioButton getRdbtnUnrented() {
+      return rdbtnUnrented;
+   }
+
+   public final JRadioButton getRdbtnRented() {
+      return rdbtnRented;
+   }
+
+   public final JRadioButton getRdbtnUnsorted() {
+      return rdbtnUnsorted;
+   }
+
+   public final JTextField getTfReadingInfo() {
+      return tfReadingInfo;
+   }
+
+   public final JTextField getTfPerson() {
+      return tfPerson;
+   }
+
+   public final JTextField getTfReadingVal() {
+      return tfReadingVal;
    }
 }

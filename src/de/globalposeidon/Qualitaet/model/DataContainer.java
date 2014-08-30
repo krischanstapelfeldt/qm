@@ -14,14 +14,18 @@ import javax.swing.tree.TreeNode;
  */
 public class DataContainer extends DefaultMutableTreeNode {
 
+   /**
+    *
+    */
+   private static final long serialVersionUID = -2235030663900376387L;
    private final UUID uuid;
    private final ArrayList<Building> buildings;
-   public int meterCounter;
+   private int meterCounter;
 
    public DataContainer() {
       buildings = new ArrayList<>(1);
       uuid = UUID.randomUUID();
-      meterCounter = 0;
+      setMeterCounter(0);
    }
 
    public final void addBuilding(final Building building) {
@@ -38,6 +42,10 @@ public class DataContainer extends DefaultMutableTreeNode {
 
    public final int getBuildingID(final int index) {
       return buildings.get(index).getID();
+   }
+
+   public final int incMeterCnt() {
+      return meterCounter++;
    }
 
    @Override
@@ -81,5 +89,13 @@ public class DataContainer extends DefaultMutableTreeNode {
    @Override
    public final Enumeration<Building> children() {
       return Collections.enumeration(buildings);
+   }
+
+   public final int getMeterCounter() {
+      return meterCounter;
+   }
+
+   public final void setMeterCounter(final int meterCounter) {
+      this.meterCounter = meterCounter;
    }
 }

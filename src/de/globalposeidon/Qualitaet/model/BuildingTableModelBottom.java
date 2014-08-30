@@ -14,8 +14,8 @@ public class BuildingTableModelBottom extends AbstractTableModel {
    static final int SURNAME = 1;
    static final int PHONE = 2;
    static final int EMAIL = 3;
-   private String[] titleTblTop = new String[] {Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
-   private Building building;
+   private String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
+   private final Building building;
 
    public BuildingTableModelBottom(final Building building) {
       this.building = building;
@@ -120,7 +120,7 @@ public class BuildingTableModelBottom extends AbstractTableModel {
    }
 
    public final ArrayList<Renter> getRowList() {
-      ArrayList<Renter> tmpList = new ArrayList<Renter>();
+      final ArrayList<Renter> tmpList = new ArrayList<Renter>();
       tmpList.add(building.getRenter());
       return tmpList;
    }

@@ -9,8 +9,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
 /*
- * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung
- * wohnen.
+ * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
  */
 /**
  * apartment model.
@@ -18,6 +17,10 @@ import javax.swing.tree.TreeNode;
  */
 public class Apartment extends DefaultMutableTreeNode {
 
+   /**
+    *
+    */
+   private static final long serialVersionUID = -5046711217211082032L;
    private int id;
    private final Entrance entrance; // parent node
    private final Random random = new Random();
@@ -73,7 +76,7 @@ public class Apartment extends DefaultMutableTreeNode {
 
    public final boolean addTenant(final Tenant tentant) {
       if (tenants.size() < MAXTENANTS) { // max 4 tenants for each
-                                         // apartment
+         // apartment
          tenants.add(tentant);
          return true;
       }

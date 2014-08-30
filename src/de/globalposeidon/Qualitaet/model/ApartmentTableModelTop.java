@@ -18,7 +18,7 @@ public class ApartmentTableModelTop extends AbstractTableModel {
 
    private final Apartment apartment;
    // set Table Top Column Header
-   private String[] titleTblTop = new String[] {Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
+   private String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
 
    public ApartmentTableModelTop(final Apartment apartment) {
       this.apartment = apartment;

@@ -6,17 +6,17 @@ import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
+/**
+ * Author Jens-Rainer Felske
+ */
 // configure TabelModel Top
 public class BuildingTableModelTop extends AbstractTableModel {
 
-   /**
-    * Author Jens-Rainer Felske
-    */
    private static final long serialVersionUID = 7275188332461034629L;
    private static final int ENTRANCE = 0;
    private final Building building;
    // set Table Top Column Header
-   private String[] titleTblTop = new String[] {Strings.ENTRANCE};
+   private String[] titleTblTop = new String[]{Strings.ENTRANCE};
 
    public BuildingTableModelTop(final Building building) {
       this.building = building;
@@ -84,7 +84,11 @@ public class BuildingTableModelTop extends AbstractTableModel {
    @Override
    public final void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
       if (columnIndex == ENTRANCE) {
-         building.getEntrances().get(rowIndex).setID((int) currentValue);
+         if (currentValue.getClass() == (String.class)) {
+            building.getEntrances().get(rowIndex).setID(new Integer((String) currentValue));
+         } else {
+            building.getEntrances().get(rowIndex).setID((int) currentValue);
+         }
       }
 
    }

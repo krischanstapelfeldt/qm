@@ -14,12 +14,13 @@ import de.globalposeidon.Qualitaet.model.Apartment;
 import de.globalposeidon.Qualitaet.model.ApartmentTableModelBottom;
 import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
 
-
 public class ApartmentPanel extends JPanel {
 
    private static final long serialVersionUID = 8794147005620814516L;
+
    /**
     * @param apartment
+    *           Apartment to view in ApartmentPanel.
     */
    public ApartmentPanel(final Apartment apartment) {
 

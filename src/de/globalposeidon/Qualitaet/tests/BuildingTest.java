@@ -184,22 +184,23 @@ public class BuildingTest extends TestCase {
     */
    @Test
    public final void testSetEntrances() {
-	   
-	   ArrayList<Entrance> tmpList = new ArrayList<Entrance>();
-	   tmpList.add(entrance);
-	   building.setEntrances(tmpList);
-	   assertEquals("", 1, building.getEntrances().size());
+
+      final ArrayList<Entrance> tmpList = new ArrayList<Entrance>();
+      tmpList.add(entrance);
+      building.setEntrances(tmpList);
+      assertEquals("", 1, building.getEntrances().size());
    }
-   
+
    /**
     * bla.
     */
    @Test
    public final void testGetEntrances() {
-	   
-	   building.addEntrance(entrance);
-	   assertEquals("", 1, building.getEntrances().size());
+
+      building.addEntrance(entrance);
+      assertEquals("", 1, building.getEntrances().size());
    }
+
    /**
     * bla.
     */

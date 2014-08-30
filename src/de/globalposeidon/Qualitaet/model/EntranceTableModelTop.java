@@ -1,23 +1,24 @@
 package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
+/**
+ * Author Jens-Rainer Felske
+ */
 // configure TabelModel Bottom
 public class EntranceTableModelTop extends AbstractTableModel {
 
-   /**
-    * Author Jens-Rainer Felske
-    */
    private static final long serialVersionUID = 1817731260470629483L;
-   private Entrance entrance;
+   private final Entrance entrance;
    static final int METERID = 0;
    static final int METERTYPE = 1;
    // set Table Bottom Column Header
-   private String[] titleTblTop = new String[] {Strings.METERID, Strings.METERTYPE};
+   private String[] titleTblTop = new String[]{Strings.METERID, Strings.METERTYPE};
 
    public EntranceTableModelTop(final Entrance entrance) {
       this.entrance = entrance;
@@ -89,10 +90,14 @@ public class EntranceTableModelTop extends AbstractTableModel {
    @Override
    public final void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
       if (columnIndex == METERID) {
-         entrance.getMeters().get(rowIndex).setID((int) currentValue);
+         if (currentValue.getClass() == (String.class)) {
+            entrance.getMeters().get(rowIndex).setID(new Integer((String) currentValue));
+         } else {
+            entrance.getMeters().get(rowIndex).setID((int) currentValue);
+         }
       }
       if (columnIndex == METERTYPE) {
-         entrance.getMeters().get(rowIndex).setCurrentValue((int) currentValue);
+         // TODO - Machte hier vorher keinen Sinn (hier wurden ints gesetzt, auf den Metertype, vielleicht sollte da was anderes hin
       }
    }
 

@@ -14,6 +14,6 @@ public class BuildingJTable extends JTable {
 
    protected BuildingJTable(final Building building) {
       super(new BuildingTableModelTop(building));
-     // throw new UnsupportedOperationException();
+      // throw new UnsupportedOperationException();
    }
 }

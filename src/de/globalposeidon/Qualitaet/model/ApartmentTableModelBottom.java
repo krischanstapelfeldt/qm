@@ -10,11 +10,11 @@ import de.globalposeidon.Qualitaet.Strings;
 public class ApartmentTableModelBottom extends AbstractTableModel {
 
    private static final long serialVersionUID = 1817731260470629483L;
-   private Apartment apartment;
+   private final Apartment apartment;
    private static final int METERID = 0;
    private static final int METERTYPE = 1;
    // set Table Bottom Column Header
-   private String[] titleTblBottom = new String[] {Strings.METERID, Strings.METERTYPE};
+   private String[] titleTblBottom = new String[]{Strings.METERID, Strings.METERTYPE};
 
    public ApartmentTableModelBottom(final Apartment apartment) {
       this.apartment = apartment;

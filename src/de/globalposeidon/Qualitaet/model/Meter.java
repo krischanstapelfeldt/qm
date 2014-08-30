@@ -12,6 +12,10 @@ import javax.swing.tree.TreeNode;
  */
 public class Meter extends DefaultMutableTreeNode {
 
+   /**
+    *
+    */
+   private static final long serialVersionUID = 415757316236669188L;
    private int id;
    private final Entrance entrance; // parent node
    private final Apartment apartment; // parent node

@@ -37,7 +37,7 @@ public class GuiFunctionPanelTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-        assertNotNull(new FunctionPanel(new JFrame()));
+      assertNotNull(new FunctionPanel(new JFrame()));
    }
 
 }

@@ -14,6 +14,10 @@ import javax.swing.tree.TreeNode;
  */
 public class Entrance extends DefaultMutableTreeNode {
 
+   /**
+    *
+    */
+   private static final long serialVersionUID = -2273564019802782697L;
    private int id;
    private final Random random = new Random();
    private final Building building; // parent node

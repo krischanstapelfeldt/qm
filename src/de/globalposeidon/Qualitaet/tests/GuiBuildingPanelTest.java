@@ -16,6 +16,8 @@ import de.globalposeidon.Qualitaet.model.Building;
 public class GuiBuildingPanelTest extends TestCase {
 
    private Building building = null;
+
+   @Override
    @Before
    /**
     * No ramp up necessary.
@@ -23,7 +25,7 @@ public class GuiBuildingPanelTest extends TestCase {
     *             throw an exception. Unlikely, there is no method body.
     */
    public final void setUp() throws Exception {
-       building = new Building(null);
+      building = new Building(null);
    }
 
    @Override
@@ -37,7 +39,7 @@ public class GuiBuildingPanelTest extends TestCase {
    @Test
    public final void testPositiveCreateTenant() {
 
-       assertNotNull(new BuildingPanel(building));
+      assertNotNull(new BuildingPanel(building));
    }
 
 }

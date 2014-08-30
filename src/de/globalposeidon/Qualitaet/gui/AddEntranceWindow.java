@@ -15,8 +15,8 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.Entrance;
 
 /**
- * AddEntranceWindow shows the user a window to either add a entrance to the
- * currently selected building with "OK" or to cancel the request with "Cancel".
+ * AddEntranceWindow shows the user a window to either add a entrance to the currently selected building with "OK" or to cancel the request
+ * with "Cancel".
  * @author Timm Suhl
  */
 public class AddEntranceWindow extends JDialog {

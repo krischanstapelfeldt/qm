@@ -121,9 +121,9 @@ public class MainWindow extends JFrame {
       final FunctionPanel panelFunction = new FunctionPanel(this);
       // add radiobuttons to a group
       final ButtonGroup rdGroup = new ButtonGroup();
-      rdGroup.add(panelFunction.rdbtnUnsorted);
-      rdGroup.add(panelFunction.rdbtnRented);
-      rdGroup.add(panelFunction.rdbtnUnrented);
+      rdGroup.add(panelFunction.getRdbtnUnsorted());
+      rdGroup.add(panelFunction.getRdbtnRented());
+      rdGroup.add(panelFunction.getRdbtnUnrented());
 
       // set buttons disabled to make them depending on node selection
       btnAddEntrance.setEnabled(false);
@@ -132,12 +132,12 @@ public class MainWindow extends JFrame {
       btnAddTenant.setEnabled(false);
       // set texftfields and radiobutton disabled to make them depending on node
       // selection
-      panelFunction.tfReadingVal.setEnabled(false);
-      panelFunction.tfPerson.setEnabled(false);
-      panelFunction.tfReadingInfo.setEnabled(false);
-      panelFunction.rdbtnUnsorted.setEnabled(false);
-      panelFunction.rdbtnRented.setEnabled(false);
-      panelFunction.rdbtnUnrented.setEnabled(false);
+      panelFunction.getTfReadingVal().setEnabled(false);
+      panelFunction.getTfPerson().setEnabled(false);
+      panelFunction.getTfReadingInfo().setEnabled(false);
+      panelFunction.getRdbtnUnsorted().setEnabled(false);
+      panelFunction.getRdbtnRented().setEnabled(false);
+      panelFunction.getRdbtnUnrented().setEnabled(false);
 
       // add FunctionPanel on BottomRightPanel
       pnlFunction.add(panelFunction);
@@ -147,37 +147,37 @@ public class MainWindow extends JFrame {
             .createParallelGroup(Alignment.LEADING)
             .addGroup(
                   glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.TWO_HUNDRED, Short.MAX_VALUE))
-            .addGroup(
-                  glLeftPanel
+                  .addGroup(
+                        glLeftPanel
                         .createSequentialGroup()
                         .addContainerGap()
                         .addGroup(
                               glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
                                     Alignment.TRAILING,
                                     glLeftPanel
-                                          .createSequentialGroup()
-                                          .addGroup(
-                                                glLeftPanel
-                                                      .createParallelGroup(Alignment.LEADING)
-                                                      .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
-                                                      .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
+                                    .createSequentialGroup()
+                                    .addGroup(
+                                          glLeftPanel
+                                          .createParallelGroup(Alignment.LEADING)
+                                          .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+                                                .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                      Short.MAX_VALUE)
                                                       .addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                                             Short.MAX_VALUE)
-                                                      .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
-                                                      .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
-                                                      .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)).addContainerGap()))));
+                                                            .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                                  Short.MAX_VALUE)
+                                                                  .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                                        Short.MAX_VALUE)
+                                                                        .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                                              Short.MAX_VALUE)).addContainerGap()))));
 
       glLeftPanel.setVerticalGroup(glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
             glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.FOUR_HUNDRED, Short.MAX_VALUE)
-                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
-                  .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
-                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
-                  .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
+            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
+            .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
+            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
+            .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
 
       leftPanel.setLayout(glLeftPanel);
 
@@ -197,9 +197,9 @@ public class MainWindow extends JFrame {
 
       glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
             glTopRightPanel.createSequentialGroup()
-                  .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                  .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                  .addGap(Strings.TEN)));
+            .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            .addGap(Strings.TEN)));
 
       rightPanel.setLayout(glTopRightPanel);
 
@@ -218,12 +218,12 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
-               panelFunction.tfReadingVal.setEnabled(false);
-               panelFunction.tfPerson.setEnabled(false);
-               panelFunction.tfReadingInfo.setEnabled(false);
-               panelFunction.rdbtnUnsorted.setEnabled(false);
-               panelFunction.rdbtnRented.setEnabled(false);
-               panelFunction.rdbtnUnrented.setEnabled(false);
+               panelFunction.getTfReadingVal().setEnabled(false);
+               panelFunction.getTfPerson().setEnabled(false);
+               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getRdbtnUnsorted().setEnabled(false);
+               panelFunction.getRdbtnRented().setEnabled(false);
+               panelFunction.getRdbtnUnrented().setEnabled(false);
                return;
 
             }
@@ -246,12 +246,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new BuildingPanel(selectedBuilding()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.tfReadingVal.setEnabled(false);
-               panelFunction.tfPerson.setEnabled(false);
-               panelFunction.tfReadingInfo.setEnabled(false);
-               panelFunction.rdbtnUnsorted.setEnabled(false);
-               panelFunction.rdbtnRented.setEnabled(false);
-               panelFunction.rdbtnUnrented.setEnabled(false);
+               panelFunction.getTfReadingVal().setEnabled(false);
+               panelFunction.getTfPerson().setEnabled(false);
+               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getRdbtnUnsorted().setEnabled(false);
+               panelFunction.getRdbtnRented().setEnabled(false);
+               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Entrance) {
                // System.out.println("selected an entrance with ID:" +
@@ -270,12 +270,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new EntrancePanel(selectedEntrance()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.tfReadingVal.setEnabled(false);
-               panelFunction.tfPerson.setEnabled(false);
-               panelFunction.tfReadingInfo.setEnabled(false);
-               panelFunction.rdbtnUnsorted.setEnabled(false);
-               panelFunction.rdbtnRented.setEnabled(false);
-               panelFunction.rdbtnUnrented.setEnabled(false);
+               panelFunction.getTfReadingVal().setEnabled(false);
+               panelFunction.getTfPerson().setEnabled(false);
+               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getRdbtnUnsorted().setEnabled(false);
+               panelFunction.getRdbtnRented().setEnabled(false);
+               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Apartment) {
                // System.out.println("selected an apartment with ID: " +
@@ -292,12 +292,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new ApartmentPanel(selectedApartment()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.tfReadingVal.setEnabled(false);
-               panelFunction.tfPerson.setEnabled(false);
-               panelFunction.tfReadingInfo.setEnabled(false);
-               panelFunction.rdbtnUnsorted.setEnabled(true);
-               panelFunction.rdbtnRented.setEnabled(true);
-               panelFunction.rdbtnUnrented.setEnabled(true);
+               panelFunction.getTfReadingVal().setEnabled(false);
+               panelFunction.getTfPerson().setEnabled(false);
+               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getRdbtnUnsorted().setEnabled(true);
+               panelFunction.getRdbtnRented().setEnabled(true);
+               panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else if (node instanceof Meter) {
                // System.out.println("selected an Meter with ID: " + ((Meter)
@@ -314,12 +314,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new MeterPanel(selectedMeter()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.tfReadingVal.setEnabled(true);
-               panelFunction.tfPerson.setEnabled(true);
-               panelFunction.tfReadingInfo.setEnabled(true);
-               panelFunction.rdbtnUnsorted.setEnabled(true);
-               panelFunction.rdbtnRented.setEnabled(true);
-               panelFunction.rdbtnUnrented.setEnabled(true);
+               panelFunction.getTfReadingVal().setEnabled(true);
+               panelFunction.getTfPerson().setEnabled(true);
+               panelFunction.getTfReadingInfo().setEnabled(true);
+               panelFunction.getRdbtnUnsorted().setEnabled(true);
+               panelFunction.getRdbtnRented().setEnabled(true);
+               panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else {
                btnAddEntrance.setEnabled(false);
@@ -467,7 +467,7 @@ public class MainWindow extends JFrame {
    }
 
    private Meter selectedMeter() {
-      
+
       return currentMeter;
    }
 
@@ -476,12 +476,13 @@ public class MainWindow extends JFrame {
    // find(treeModel.def, meterID);
    // }
 
-   private TreePath find(DefaultMutableTreeNode root, String s) {
+   // TODO - never used?
+   private TreePath find(final DefaultMutableTreeNode root, final String s) {
       @SuppressWarnings("unchecked")
-      Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
+      final Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
       System.out.println("find() - just before while loop");
       while (e.hasMoreElements()) {
-         DefaultMutableTreeNode node = e.nextElement();
+         final DefaultMutableTreeNode node = e.nextElement();
          System.out.println("find() - just after next element");
          if (node.toString().equalsIgnoreCase(s)) {
             return new TreePath(node.getPath());

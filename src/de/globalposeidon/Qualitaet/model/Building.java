@@ -14,6 +14,10 @@ import javax.swing.tree.TreeNode;
  */
 public class Building extends DefaultMutableTreeNode {
 
+   /**
+    *
+    */
+   private static final long serialVersionUID = 2774534346650927893L;
    private final int id;
    private final DataContainer dc; // parent node
    private final Random random = new Random();
@@ -30,6 +34,7 @@ public class Building extends DefaultMutableTreeNode {
       id = random.nextInt();
       this.dc = dc;
    }
+
    // ================================================================================
    // access private variables
    // ================================================================================
@@ -125,6 +130,6 @@ public class Building extends DefaultMutableTreeNode {
    }
 
    public final void setEntrances(final ArrayList<Entrance> entrances) {
-     this.entrances = entrances;
+      this.entrances = entrances;
    }
 }

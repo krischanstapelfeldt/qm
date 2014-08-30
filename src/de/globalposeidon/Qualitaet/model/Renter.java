@@ -18,4 +18,4 @@ public class Renter extends Person {
       super(name, surname, phone, email);
    }
 
- }
+}

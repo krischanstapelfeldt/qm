@@ -6,16 +6,17 @@ import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
+/**
+ * Author Jens-Rainer Felske
+ */
 // configure TabelModel Bottom
 public class EntranceTableModelBottom extends AbstractTableModel {
-   /**
-    * Author Jens-Rainer Felske
-    */
+
    private static final long serialVersionUID = 1817731260470629483L;
    static final int APARTMENT = 0;
    private final Entrance entrance;
    // set Table Bottom Column Header
-   private String[] titleTblBottom = new String[] {Strings.APARTMENT};
+   private String[] titleTblBottom = new String[]{Strings.APARTMENT};
 
    public EntranceTableModelBottom(final Entrance entrance) {
       this.entrance = entrance;
@@ -82,8 +83,8 @@ public class EntranceTableModelBottom extends AbstractTableModel {
 
    @Override
    public final void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
-      if (columnIndex == APARTMENT) {
-         entrance.getApartments().get(rowIndex).setID((int) currentValue);
+      if (columnIndex == APARTMENT && currentValue.getClass() == String.class) {
+         entrance.getApartments().get(rowIndex).setID(new Integer((String) currentValue));
       }
 
    }
