@@ -1,10 +1,6 @@
  package de.globalposeidon.Qualitaet.model;
 
- import java.util.ArrayList;
-
-import javax.swing.table.AbstractTableModel;
-
-import de.globalposeidon.Qualitaet.Strings;
+ import javax.swing.table.AbstractTableModel;
 
  //// configure TabelModel Bottom
  public class MeterTableModelTop extends AbstractTableModel {
@@ -74,19 +70,19 @@ private String[] titleTblTop = new String[]{"ID Meter", "Metertype", "Value", "y
  @Override
  public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
 	 if (columnIndex == METERID) {
-         return false;
-      }
-	 if (columnIndex == METERTYPE) {
-         return false;
-      }
-	 if (columnIndex == METERVALUE) {
          return true;
       }
-	 if (columnIndex == METERYEARVALUE) {
-         return false;
+	 else if (columnIndex == METERTYPE) {
+         return true;
       }
-	 if (columnIndex == LASTREAD) {
-         return false;
+	 else if (columnIndex == METERVALUE) {
+         return true;
+      }
+	 else if (columnIndex == METERYEARVALUE) {
+         return true;
+      }
+	 else if (columnIndex == LASTREAD) {
+         return true;
       }
       return false;
  }
