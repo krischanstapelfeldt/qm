@@ -58,7 +58,7 @@ public class MeterTableModelBottom extends AbstractTableModel {
          return meter.getLastRead();
       }
       if (columnIndex == READINGVALUE) {
-         return meter.getLastRead();
+         return meter.getReadings();
       }
       return null;
    }
