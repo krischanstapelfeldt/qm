@@ -12,7 +12,7 @@ import javax.swing.tree.TreeNode;
  * building model.
  * @author Timm Suhl
  */
-public class Building extends DefaultMutableTreeNode {
+public class Building extends DefaultMutableTreeNode implements java.io.Serializable{
 
    /**
     *

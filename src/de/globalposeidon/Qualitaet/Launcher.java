@@ -1,6 +1,11 @@
 package de.globalposeidon.Qualitaet;
 
 import java.awt.EventQueue;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import de.globalposeidon.Qualitaet.gui.MainWindow;
 import de.globalposeidon.Qualitaet.model.Apartment;
@@ -35,8 +40,32 @@ public class Launcher {
          @Override
          public void run() {
             try {
-               final MainWindow window = new MainWindow(createRandomModel());
-               window.setVisible(true);
+            	DataContainer container;
+            	
+            	String workingDir = System.getProperty("user.dir");
+         	   // Remove if load in MainMenuBar is working correctly
+         	   try {
+                   FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
+                   ObjectInputStream in = new ObjectInputStream(fileIn);
+                   container = (DataContainer) in.readObject();
+                   in.close();
+                   fileIn.close();
+                   System.out.println(workingDir+"\\container.ser");
+                }catch(IOException i) {
+             	  System.out.println("Some exception");
+             	  container = createRandomModel();
+                   i.printStackTrace();
+                   return;
+                }catch(ClassNotFoundException c) {
+                   System.out.println("Container class not found");
+                   container = createRandomModel();
+                   c.printStackTrace();
+                   return;
+                }
+         	   
+//            	container = createRandomModel();
+            	final MainWindow window = new MainWindow(container);
+            	window.setVisible(true);
             } catch (final Exception e) {
                e.printStackTrace();
             }

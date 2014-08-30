@@ -6,7 +6,7 @@ import java.util.Random;
  * person model.
  * @author Timm Suhl
  */
-public class Person {
+public class Person implements java.io.Serializable{
 
    private int id;
    private final Random random = new Random();

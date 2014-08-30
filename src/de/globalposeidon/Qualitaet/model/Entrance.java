@@ -12,7 +12,7 @@ import javax.swing.tree.TreeNode;
  * entrance model.
  * @author Timm Suhl
  */
-public class Entrance extends DefaultMutableTreeNode {
+public class Entrance extends DefaultMutableTreeNode implements java.io.Serializable{
 
    /**
     *
@@ -150,13 +150,11 @@ public class Entrance extends DefaultMutableTreeNode {
    // ================================================================================
    @Override
    public final TreeNode getChildAt(final int childIndex) {
-      System.out.println("get child at");
       return apartments.size() > childIndex ? apartments.get(childIndex) : getMeters().get(childIndex - apartments.size());
    }
 
    @Override
    public final int getChildCount() {
-      System.out.println("get count");
       return apartments.size() + getMeters().size();
    }
 

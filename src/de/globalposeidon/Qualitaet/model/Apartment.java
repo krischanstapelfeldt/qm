@@ -15,7 +15,7 @@ import javax.swing.tree.TreeNode;
  * apartment model.
  * @author Timm Suhl
  */
-public class Apartment extends DefaultMutableTreeNode {
+public class Apartment extends DefaultMutableTreeNode implements java.io.Serializable{
 
    /**
     *

@@ -10,7 +10,7 @@ import javax.swing.tree.TreeNode;
  * meter model.
  * @author Timm Suhl
  */
-public class Meter extends DefaultMutableTreeNode {
+public class Meter extends DefaultMutableTreeNode implements java.io.Serializable{
 
    /**
     *

@@ -3,6 +3,11 @@ package de.globalposeidon.Qualitaet.gui;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -10,8 +15,10 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTree;
 
 import de.globalposeidon.Qualitaet.Strings;
+import de.globalposeidon.Qualitaet.model.DataContainer;
 
 // import de.globalposeidon.Qualitaet.model.DBWorker;
 
@@ -22,6 +29,9 @@ import de.globalposeidon.Qualitaet.Strings;
 
 public class MainMenuBar extends JMenuBar {
    private static final long serialVersionUID = 3409407521701819128L;
+   
+   DataContainer model;
+   MainTreeModel treeModel;
 
    private void openWebpage(final URI uri) {
       final Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
@@ -42,11 +52,30 @@ public class MainMenuBar extends JMenuBar {
       }
    }
 
-   public MainMenuBar(final JFrame parent) {
-
+   public MainMenuBar(final JFrame parent, DataContainer model, MainTreeModel tree) {
+	   
+	   this.model = model;
+	   this.treeModel = tree;
+	   
       final JMenu file = new JMenu(Strings.FILE);
       add(file);
-
+      
+      final JMenuItem saveContainer = new JMenuItem(Strings.SAVE);
+      saveContainer.addActionListener(new ActionListener() {
+         // TODO replace force exit
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            saveCurrentContainer();
+         }
+      });
+      final JMenuItem loadContainer = new JMenuItem("load");
+      loadContainer.addActionListener(new ActionListener() {
+         // TODO replace force exit
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            readContainer();
+         }
+      });
       final JMenuItem close = new JMenuItem(Strings.CLOSE);
       close.addActionListener(new ActionListener() {
          // TODO replace force exit
@@ -55,6 +84,8 @@ public class MainMenuBar extends JMenuBar {
             System.exit(0);
          }
       });
+      file.add(saveContainer);
+      file.add(loadContainer);
       file.add(close);
 
       final JMenu edit = new JMenu(Strings.EDIT);
@@ -154,5 +185,44 @@ public class MainMenuBar extends JMenuBar {
          }
       });
       help.add(faq);
+   }
+   
+   private void saveCurrentContainer() {
+	   
+	   String workingDir = System.getProperty("user.dir");
+	   try {
+        FileOutputStream fileOut =
+        new FileOutputStream(workingDir+"\\container.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(model);
+        out.close();
+        fileOut.close();
+        System.out.println("Serialized data is saved in" + workingDir+"\\container.ser");
+	   }catch(IOException i) {
+         i.printStackTrace();
+	   }
+   }
+   // TODO not updating the view...
+   private void readContainer() {
+	   
+	   String workingDir = System.getProperty("user.dir");
+	   
+	   try {
+          FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
+          ObjectInputStream in = new ObjectInputStream(fileIn);
+          model = (DataContainer) in.readObject();
+          in.close();
+          fileIn.close();
+          treeModel.reload();
+          System.out.println(workingDir+"\\container.ser");
+       }catch(IOException i) {
+    	  System.out.println("Some exception");
+          i.printStackTrace();
+          return;
+       }catch(ClassNotFoundException c) {
+          System.out.println("Container class not found");
+          c.printStackTrace();
+          return;
+       }
    }
 }

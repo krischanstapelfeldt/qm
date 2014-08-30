@@ -8,6 +8,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Enumeration;
 
 import javax.swing.ButtonGroup;
@@ -42,7 +47,7 @@ public class MainWindow extends JFrame {
 
    private static final long serialVersionUID = 8601779252949758710L;
    private final Logger logger = LoggerFactory.getLogger(MainWindow.class);
-   private final DataContainer model;
+   public DataContainer model;
    private Building currentBuilding;
    private Entrance currentEntrance;
    private Apartment currentApartment;
@@ -72,8 +77,13 @@ public class MainWindow extends JFrame {
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       // Center frame
       setLocationRelativeTo(null);
+      
+      // Treemodel with model
+      treeModel = new MainTreeModel(model);
+      final JTree tree = new JTree(treeModel);
+      
       // MenuBar
-      setJMenuBar(new MainMenuBar(this));
+      setJMenuBar(new MainMenuBar(this, model, treeModel));
 
       // Initial splitpanes
       final JSplitPane splitPane = new JSplitPane();
@@ -106,9 +116,6 @@ public class MainWindow extends JFrame {
       final GroupLayout glBottomRightPanel = new GroupLayout(pnlBottomRight);
       final GroupLayout glTopRightPanel = new GroupLayout(rightPanel);
 
-      // Treemodel with model
-      treeModel = new MainTreeModel(model);
-      final JTree tree = new JTree(treeModel);
 
       // declare buttons
       final JButton btnAddBuilding = new JButton(Strings.ADDBUILDING);
@@ -471,23 +478,23 @@ public class MainWindow extends JFrame {
       return currentMeter;
    }
 
-   // should be called from within the function panel
-   // public void findMeter(String meterID) {
-   // find(treeModel.def, meterID);
-   // }
+// should be called from within the function panel
+//   public void findMeter(String meterID) {
+//	   find(treeModel.def, meterID);
+//   }
 
-   // TODO - never used?
-   private TreePath find(final DefaultMutableTreeNode root, final String s) {
-      @SuppressWarnings("unchecked")
-      final Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
-      System.out.println("find() - just before while loop");
-      while (e.hasMoreElements()) {
-         final DefaultMutableTreeNode node = e.nextElement();
-         System.out.println("find() - just after next element");
-         if (node.toString().equalsIgnoreCase(s)) {
-            return new TreePath(node.getPath());
-         }
-      }
-      return null;
-   }
+//   private TreePath find(final DefaultMutableTreeNode root, final String s) {
+//      @SuppressWarnings("unchecked")
+//      final Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
+//      System.out.println("find() - just before while loop");
+//      while (e.hasMoreElements()) {
+//         final DefaultMutableTreeNode node = e.nextElement();
+//         System.out.println("find() - just after next element");
+//         if (node.toString().equalsIgnoreCase(s)) {
+//            return new TreePath(node.getPath());
+//         }
+//      }
+//      return null;
+//   }
+   
 }
