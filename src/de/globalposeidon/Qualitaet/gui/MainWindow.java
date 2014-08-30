@@ -215,7 +215,7 @@ public class MainWindow extends JFrame {
       rightPanel.setLayout(glTopRightPanel);
 
       // popup-menu for tree
-      addPopup(tree, new MainPopupMenu());
+      //addPopup(tree, new MainPopupMenu());
 
       // tree with single selection mode
       tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
@@ -445,32 +445,32 @@ public class MainWindow extends JFrame {
       // tree.scrollPathToVisible(path);
    }
 
-   /**
-    * Popup hinzu.
-    * @param component comp
-    * @param popup pop
-    */
-   private static void addPopup(final Component component, final JPopupMenu popup) {
-      component.addMouseListener(new MouseAdapter() {
-         @Override
-         public void mousePressed(final MouseEvent e) {
-            if (e.isPopupTrigger()) {
-               showMenu(e);
-            }
-         }
-
-         @Override
-         public void mouseReleased(final MouseEvent e) {
-            if (e.isPopupTrigger()) {
-               showMenu(e);
-            }
-         }
-
-         private void showMenu(final MouseEvent e) {
-            popup.show(e.getComponent(), e.getX(), e.getY());
-         }
-      });
-   }
+//   /**
+//    * Popup hinzu.
+//    * @param component comp
+//    * @param popup pop
+//    */
+//   private static void addPopup(final Component component, final JPopupMenu popup) {
+//      component.addMouseListener(new MouseAdapter() {
+//         @Override
+//         public void mousePressed(final MouseEvent e) {
+//            if (e.isPopupTrigger()) {
+//               showMenu(e);
+//            }
+//         }
+//
+//         @Override
+//         public void mouseReleased(final MouseEvent e) {
+//            if (e.isPopupTrigger()) {
+//               showMenu(e);
+//            }
+//         }
+//
+//         private void showMenu(final MouseEvent e) {
+//            popup.show(e.getComponent(), e.getX(), e.getY());
+//         }
+//      });
+//   }
    /**
     * Aktuelles Gebaude setzen.
     * @param building Gebaude
