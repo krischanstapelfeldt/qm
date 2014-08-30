@@ -31,20 +31,19 @@ public class FunctionPanel extends JPanel {
    private final JLabel lblReadInfo = new JLabel(Strings.READINGINFO);
 
    // declare TextField
-
-   private final JTextField tfMeterId = new JTextField();
-   private final JTextField tfReadingVal = new JTextField();
-   private final JTextField tfPerson = new JTextField();
-   private final JTextField tfReadingInfo = new JTextField();
+   final JTextField tfMeterId = new JTextField();
+   final JTextField tfReadingVal = new JTextField();
+   final JTextField tfPerson = new JTextField();
+   final JTextField tfReadingInfo = new JTextField();
 
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
    // declare Radiobuttons
-   private final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
-   private final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
-   private final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
+   final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
+   final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
+   final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
 
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();

@@ -122,9 +122,9 @@ public class MainWindow extends JFrame {
       final FunctionPanel panelFunction = new FunctionPanel(this);
       // add radiobuttons to a group
       final ButtonGroup rdGroup = new ButtonGroup();
-      rdGroup.add(panelFunction.RDBTNUNSORTED);
-      rdGroup.add(panelFunction.RDBTNRENTED);
-      rdGroup.add(panelFunction.RDBTNUNRENTED);
+      rdGroup.add(panelFunction.rdbtnUnsorted);
+      rdGroup.add(panelFunction.rdbtnRented);
+      rdGroup.add(panelFunction.rdbtnUnrented);
 
       // set buttons disabled to make them depending on node selection
       btnAddEntrance.setEnabled(false);
@@ -133,12 +133,12 @@ public class MainWindow extends JFrame {
       btnAddTenant.setEnabled(false);
       // set texftfields and radiobutton disabled to make them depending on node
       // selection
-      panelFunction.TFREADINGVAL.setEnabled(false);
-      panelFunction.TFPERSON.setEnabled(false);
-      panelFunction.TFREADINGINFO.setEnabled(false);
-      panelFunction.RDBTNUNSORTED.setEnabled(false);
-      panelFunction.RDBTNRENTED.setEnabled(false);
-      panelFunction.RDBTNUNRENTED.setEnabled(false);
+      panelFunction.tfReadingVal.setEnabled(false);
+      panelFunction.tfPerson.setEnabled(false);
+      panelFunction.tfReadingInfo.setEnabled(false);
+      panelFunction.rdbtnUnsorted.setEnabled(false);
+      panelFunction.rdbtnRented.setEnabled(false);
+      panelFunction.rdbtnUnrented.setEnabled(false);
 
       // add FunctionPanel on BottomRightPanel
       pnlFunction.add(panelFunction);
@@ -219,12 +219,12 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
-               panelFunction.TFREADINGVAL.setEnabled(false);
-               panelFunction.TFPERSON.setEnabled(false);
-               panelFunction.TFREADINGINFO.setEnabled(false);
-               panelFunction.RDBTNUNSORTED.setEnabled(false);
-               panelFunction.RDBTNRENTED.setEnabled(false);
-               panelFunction.RDBTNUNRENTED.setEnabled(false);
+               panelFunction.tfReadingVal.setEnabled(false);
+               panelFunction.tfPerson.setEnabled(false);
+               panelFunction.tfReadingInfo.setEnabled(false);
+               panelFunction.rdbtnUnsorted.setEnabled(false);
+               panelFunction.rdbtnRented.setEnabled(false);
+               panelFunction.rdbtnUnrented.setEnabled(false);
                return;
 
             }
@@ -246,12 +246,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new BuildingPanel(selectedBuilding()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.TFREADINGVAL.setEnabled(false);
-               panelFunction.TFPERSON.setEnabled(false);
-               panelFunction.TFREADINGINFO.setEnabled(false);
-               panelFunction.RDBTNUNSORTED.setEnabled(false);
-               panelFunction.RDBTNRENTED.setEnabled(false);
-               panelFunction.RDBTNUNRENTED.setEnabled(false);
+               panelFunction.tfReadingVal.setEnabled(false);
+               panelFunction.tfPerson.setEnabled(false);
+               panelFunction.tfReadingInfo.setEnabled(false);
+               panelFunction.rdbtnUnsorted.setEnabled(false);
+               panelFunction.rdbtnRented.setEnabled(false);
+               panelFunction.rdbtnUnrented.setEnabled(false);
 
             } else if (node instanceof Entrance) {
 //               System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
@@ -269,12 +269,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new EntrancePanel(selectedEntrance()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.TFREADINGVAL.setEnabled(false);
-               panelFunction.TFPERSON.setEnabled(false);
-               panelFunction.TFREADINGINFO.setEnabled(false);
-               panelFunction.RDBTNUNSORTED.setEnabled(false);
-               panelFunction.RDBTNRENTED.setEnabled(false);
-               panelFunction.RDBTNUNRENTED.setEnabled(false);
+               panelFunction.tfReadingVal.setEnabled(false);
+               panelFunction.tfPerson.setEnabled(false);
+               panelFunction.tfReadingInfo.setEnabled(false);
+               panelFunction.rdbtnUnsorted.setEnabled(false);
+               panelFunction.rdbtnRented.setEnabled(false);
+               panelFunction.rdbtnUnrented.setEnabled(false);
 
             } else if (node instanceof Apartment) {
 //               System.out.println("selected an apartment with ID: " + ((Apartment) node).getID());
@@ -290,12 +290,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new ApartmentPanel(selectedApartment()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.TFREADINGVAL.setEnabled(false);
-               panelFunction.TFPERSON.setEnabled(false);
-               panelFunction.TFREADINGINFO.setEnabled(false);
-               panelFunction.RDBTNUNSORTED.setEnabled(true);
-               panelFunction.RDBTNRENTED.setEnabled(true);
-               panelFunction.RDBTNUNRENTED.setEnabled(true);
+               panelFunction.tfReadingVal.setEnabled(false);
+               panelFunction.tfPerson.setEnabled(false);
+               panelFunction.tfReadingInfo.setEnabled(false);
+               panelFunction.rdbtnUnsorted.setEnabled(true);
+               panelFunction.rdbtnRented.setEnabled(true);
+               panelFunction.rdbtnUnrented.setEnabled(true);
 
             } else if (node instanceof Meter) {
 //               System.out.println("selected an Meter with ID: " + ((Meter) node).getID());
@@ -311,12 +311,12 @@ public class MainWindow extends JFrame {
                cntPanel.add(new MeterPanel(selectedMeter()));
 
                // set textfields and radiobuttons enable/disable
-               panelFunction.TFREADINGVAL.setEnabled(true);
-               panelFunction.TFPERSON.setEnabled(true);
-               panelFunction.TFREADINGINFO.setEnabled(true);
-               panelFunction.RDBTNUNSORTED.setEnabled(false);
-               panelFunction.RDBTNRENTED.setEnabled(false);
-               panelFunction.RDBTNUNRENTED.setEnabled(false);
+               panelFunction.tfReadingVal.setEnabled(true);
+               panelFunction.tfPerson.setEnabled(true);
+               panelFunction.tfReadingInfo.setEnabled(true);
+               panelFunction.rdbtnUnsorted.setEnabled(true);
+               panelFunction.rdbtnRented.setEnabled(true);
+               panelFunction.rdbtnUnrented.setEnabled(true);
 
             } else {
                btnAddEntrance.setEnabled(false);
