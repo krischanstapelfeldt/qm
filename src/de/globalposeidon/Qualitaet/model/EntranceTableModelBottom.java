@@ -75,7 +75,7 @@ public class EntranceTableModelBottom extends AbstractTableModel {
    @Override
    public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
       if (columnIndex == APARTMENT) {
-         return true;
+         return false;
       }
 
       return false;

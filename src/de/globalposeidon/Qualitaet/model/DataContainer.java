@@ -35,6 +35,10 @@ public class DataContainer extends DefaultMutableTreeNode {
    public final Building getBuilding(final int index) {
       return buildings.get(index);
    }
+   
+   public final boolean removeBuilding(Building building) {
+	      return buildings.remove(building);
+	   }
 
    public final int getBuildingCount() {
       return buildings.size();

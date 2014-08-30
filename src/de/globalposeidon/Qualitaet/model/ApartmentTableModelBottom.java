@@ -76,9 +76,9 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    @Override
    public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
       if (columnIndex == METERID) {
-         return true;
+         return false;
       } else if (columnIndex == METERTYPE) {
-         return true;
+         return false;
       }
       return false;
    }

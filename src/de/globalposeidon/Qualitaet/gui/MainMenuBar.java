@@ -85,14 +85,14 @@ public class MainMenuBar extends JMenuBar {
             okFrame.show(true);
          }
       });
-      final JMenuItem loadContainer = new JMenuItem("load");
-      loadContainer.addActionListener(new ActionListener() {
-         // TODO replace force exit
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            readContainer();
-         }
-      });
+//      final JMenuItem loadContainer = new JMenuItem("load");
+//      loadContainer.addActionListener(new ActionListener() {
+//         // TODO replace force exit
+//         @Override
+//         public void actionPerformed(final ActionEvent e) {
+//            readContainer();
+//         }
+//      });
       final JMenuItem close = new JMenuItem(Strings.CLOSE);
       close.addActionListener(new ActionListener() {
          // TODO replace force exit
@@ -102,20 +102,20 @@ public class MainMenuBar extends JMenuBar {
          }
       });
       file.add(saveContainer);
-      file.add(loadContainer);
+//      file.add(loadContainer);
       file.add(close);
 
       final JMenu edit = new JMenu(Strings.EDIT);
       add(edit);
 
-      final JMenuItem apartment = new JMenuItem(Strings.ADDAPARTMENT);
-      edit.add(apartment);
-
-      final JMenuItem building = new JMenuItem(Strings.ADDBUILDING);
-      edit.add(building);
-
-      final JMenuItem renter = new JMenuItem(Strings.ADDRENTER);
-      edit.add(renter);
+//      final JMenuItem apartment = new JMenuItem(Strings.ADDAPARTMENT);
+//      edit.add(apartment);
+//
+//      final JMenuItem building = new JMenuItem(Strings.ADDBUILDING);
+//      edit.add(building);
+//
+//      final JMenuItem renter = new JMenuItem(Strings.ADDRENTER);
+//      edit.add(renter);
 
       final JMenu dev = new JMenu("Developer");
       add(dev);
@@ -170,16 +170,6 @@ public class MainMenuBar extends JMenuBar {
       });
       dev.add(testlink);
 
-      final JMenuItem databaseTest = new JMenuItem("start database test");
-      databaseTest.addActionListener(new ActionListener() {
-
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            // new DBWorker("Testtest");
-         }
-      });
-      dev.add(databaseTest);
-
       final JMenu help = new JMenu(Strings.HELP);
       add(help);
 
@@ -219,27 +209,27 @@ public class MainMenuBar extends JMenuBar {
          i.printStackTrace();
 	   }
    }
-   // TODO not updating the view...
-   private void readContainer() {
-	   
-	   String workingDir = System.getProperty("user.dir");
-	   
-	   try {
-          FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
-          ObjectInputStream in = new ObjectInputStream(fileIn);
-          model = (DataContainer) in.readObject();
-          in.close();
-          fileIn.close();
-          treeModel.reload();
-          System.out.println(workingDir+"\\container.ser");
-       }catch(IOException i) {
-    	  System.out.println("Some exception");
-          i.printStackTrace();
-          return;
-       }catch(ClassNotFoundException c) {
-          System.out.println("Container class not found");
-          c.printStackTrace();
-          return;
-       }
-   }
+//   // TODO not updating the view...
+//   private void readContainer() {
+//	   
+//	   String workingDir = System.getProperty("user.dir");
+//	   
+//	   try {
+//          FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
+//          ObjectInputStream in = new ObjectInputStream(fileIn);
+//          model = (DataContainer) in.readObject();
+//          in.close();
+//          fileIn.close();
+//          treeModel.reload();
+//          System.out.println(workingDir+"\\container.ser");
+//       }catch(IOException i) {
+//    	  System.out.println("Some exception");
+//          i.printStackTrace();
+//          return;
+//       }catch(ClassNotFoundException c) {
+//          System.out.println("Container class not found");
+//          c.printStackTrace();
+//          return;
+//       }
+//   }
 }

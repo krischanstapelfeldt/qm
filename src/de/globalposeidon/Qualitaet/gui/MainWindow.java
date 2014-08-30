@@ -137,6 +137,8 @@ public class MainWindow extends JFrame {
       btnAddApartment.setEnabled(false);
       btnAddMeter.setEnabled(false);
       btnAddTenant.setEnabled(false);
+      btnDelete.setEnabled(false);
+      
       // set texftfields and radiobutton disabled to make them depending on node
       // selection
       panelFunction.getTfReadingVal().setEnabled(false);
@@ -225,6 +227,7 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
+               btnDelete.setEnabled(false);
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getTfPerson().setEnabled(false);
                panelFunction.getTfReadingInfo().setEnabled(false);
@@ -247,6 +250,7 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
+               btnDelete.setEnabled(true);
 
                // set right panel
                cntPanel.removeAll();
@@ -271,6 +275,7 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(true);
                btnAddMeter.setEnabled(true);
                btnAddTenant.setEnabled(false);
+               btnDelete.setEnabled(true);
 
                // set right panel
                cntPanel.removeAll();
@@ -293,6 +298,7 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(true);
                btnAddMeter.setEnabled(true);
                btnAddTenant.setEnabled(true);
+               btnDelete.setEnabled(true);
 
                // set right panel
                cntPanel.removeAll();
@@ -315,6 +321,7 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(true);
                btnAddMeter.setEnabled(true);
                btnAddTenant.setEnabled(true);
+               btnDelete.setEnabled(true);
 
                // set right panel
                cntPanel.removeAll();
@@ -333,6 +340,7 @@ public class MainWindow extends JFrame {
                btnAddApartment.setEnabled(false);
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
+               btnDelete.setEnabled(false);
 
             }
 
@@ -407,6 +415,41 @@ public class MainWindow extends JFrame {
             });
          }
       });
+      btnDelete.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(final ActionEvent e) {
+        	  
+        	  final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
+              /* if nothing is selected */
+              if (node == null) {
+
+              }
+              /* React to the node selection. */
+              if (node instanceof Building) {
+            	  if (((Building) node).buildingIsEmpty()) {
+            		  model.removeBuilding(selectedBuilding());
+            	  }
+              } else if (node instanceof Entrance) {
+            	  if (((Entrance) node).entranceIsEmpty()) {
+            		  selectedBuilding().getEntrances().remove(node);
+            	  }
+              } else if (node instanceof Apartment) {
+            	  if (((Apartment) node).apartmentIsEmpty()) {
+            		  selectedEntrance().getApartments().remove(node);
+            	  }
+              } else if (node instanceof Meter) {
+            	  if (selectedApartment() != null) {
+            		  selectedApartment().getMeters().remove(node);
+            	  } else {
+            		  selectedEntrance().getMeters().remove(node);
+            	  }
+            	  
+              } else {
+
+              }
+        	  treeModel.reload();
+          }
+       });
 
       // TODO: WORK IN PROGRESS - Currently crashing
       // TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
@@ -496,5 +539,4 @@ public class MainWindow extends JFrame {
 //      }
 //      return null;
 //   }
-   
 }
