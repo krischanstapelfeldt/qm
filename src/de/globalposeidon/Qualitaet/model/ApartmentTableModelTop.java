@@ -22,8 +22,8 @@ public class ApartmentTableModelTop extends AbstractTableModel {
 
    public ApartmentTableModelTop(final Apartment apartment) {
       this.apartment = apartment;
+   
    }
-
    public final int addElement(final Tenant tenant) {
       apartment.addTenant(tenant);
       fireTableDataChanged();
@@ -52,7 +52,6 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       return titleTblTop.length;
    }
 
-   @Override
    public final int getRowCount() {
       return apartment.getTenants().size();
    }
@@ -132,4 +131,5 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       titleTblTop = headers;
    }
 
+   
 }
