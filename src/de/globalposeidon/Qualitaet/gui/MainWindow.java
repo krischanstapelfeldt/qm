@@ -43,11 +43,16 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 
+/**
+ * MainWindow Klasse.
+ * @author Timm
+ *
+ */
 public class MainWindow extends JFrame {
 
    private static final long serialVersionUID = 8601779252949758710L;
    private final Logger logger = LoggerFactory.getLogger(MainWindow.class);
-   public DataContainer model;
+   private DataContainer model;
    private Building currentBuilding;
    private Entrance currentEntrance;
    private Apartment currentApartment;
@@ -55,7 +60,10 @@ public class MainWindow extends JFrame {
 
    private MainTreeModel treeModel;
 
-   // Create the application.
+   /**
+    * Konstruktor.
+    * @param model model
+    */
    public MainWindow(final DataContainer model) {
       super(Strings.GLOBALPOSEIDON);
       this.model = model;
@@ -71,17 +79,19 @@ public class MainWindow extends JFrame {
    }
 
    // Initialize the contents of the frame
-
+   /**
+    * Initialisieren.
+    */
    private void initialize() {
       setSize(Strings.ONE_THOUSAND, Strings.SIX_HUNDRED);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       // Center frame
       setLocationRelativeTo(null);
-      
+
       // Treemodel with model
       treeModel = new MainTreeModel(model);
       final JTree tree = new JTree(treeModel);
-      
+
       // MenuBar
       setJMenuBar(new MainMenuBar(this, model, treeModel));
 
@@ -138,7 +148,7 @@ public class MainWindow extends JFrame {
       btnAddMeter.setEnabled(false);
       btnAddTenant.setEnabled(false);
       btnDelete.setEnabled(false);
-      
+
       // set texftfields and radiobutton disabled to make them depending on node
       // selection
       panelFunction.getTfReadingVal().setEnabled(false);
@@ -239,8 +249,6 @@ public class MainWindow extends JFrame {
             }
             /* React to the node selection. */
             if (node instanceof Building) {
-               // System.out.println("selected a building with ID:" +
-               // ((Building) node).getID());
                setCurrentBuilding((Building) node);
                // in case of switched building, set rest null
                setCurrentEntrance(null);
@@ -265,8 +273,6 @@ public class MainWindow extends JFrame {
                panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Entrance) {
-               // System.out.println("selected an entrance with ID:" +
-               // ((Entrance) node).getID());
                setCurrentEntrance((Entrance) node);
                // in case of switched building, set rest null
                setCurrentApartment(null);
@@ -290,8 +296,6 @@ public class MainWindow extends JFrame {
                panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else if (node instanceof Apartment) {
-               // System.out.println("selected an apartment with ID: " +
-               // ((Apartment) node).getID());
                setCurrentApartment((Apartment) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);
@@ -313,8 +317,6 @@ public class MainWindow extends JFrame {
                panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Meter) {
-               // System.out.println("selected an Meter with ID: " + ((Meter)
-               // node).getID());
                setCurrentMeter((Meter) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);
@@ -418,47 +420,44 @@ public class MainWindow extends JFrame {
       btnDelete.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(final ActionEvent e) {
-        	  
-        	  final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
-              /* if nothing is selected */
-              if (node == null) {
 
-              }
+              final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
               /* React to the node selection. */
               if (node instanceof Building) {
-            	  if (((Building) node).buildingIsEmpty()) {
-            		  model.removeBuilding(selectedBuilding());
-            	  }
+                  if (((Building) node).buildingIsEmpty()) {
+                      model.removeBuilding(selectedBuilding());
+                  }
               } else if (node instanceof Entrance) {
-            	  if (((Entrance) node).entranceIsEmpty()) {
-            		  selectedBuilding().getEntrances().remove(node);
-            	  }
+                  if (((Entrance) node).entranceIsEmpty()) {
+                      selectedBuilding().getEntrances().remove(node);
+                  }
               } else if (node instanceof Apartment) {
-            	  if (((Apartment) node).apartmentIsEmpty()) {
-            		  selectedEntrance().getApartments().remove(node);
-            	  }
+                  if (((Apartment) node).apartmentIsEmpty()) {
+                      selectedEntrance().getApartments().remove(node);
+                  }
               } else if (node instanceof Meter) {
-            	  if (selectedApartment() != null) {
-            		  selectedApartment().getMeters().remove(node);
-            	  } else {
-            		  selectedEntrance().getMeters().remove(node);
-            	  }
-            	  
-              } else {
-
+                  if (selectedApartment() != null) {
+                      selectedApartment().getMeters().remove(node);
+                  } else {
+                      selectedEntrance().getMeters().remove(node);
+                  }
               }
-        	  treeModel.reload();
+              treeModel.reload();
           }
        });
 
-      // TODO: WORK IN PROGRESS - Currently crashing
+
       // TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
       // "5");
       // tree.setSelectionPath(path);
       // tree.scrollPathToVisible(path);
    }
 
-   // Necessary to open the popup-menu
+   /**
+    * Popup hinzu.
+    * @param component comp
+    * @param popup pop
+    */
    private static void addPopup(final Component component, final JPopupMenu popup) {
       component.addMouseListener(new MouseAdapter() {
          @Override
@@ -480,42 +479,66 @@ public class MainWindow extends JFrame {
          }
       });
    }
-
+   /**
+    * Aktuelles Gebaude setzen.
+    * @param building Gebaude
+    */
    private void setCurrentBuilding(final Building building) {
 
       currentBuilding = building;
    }
-
+   /**
+    * Aktuelles Gebauede.
+    * @return Gebaude
+    */
    private Building selectedBuilding() {
 
       return currentBuilding;
    }
-
+   /**
+    * Aktuellen Eingang setzen.
+    * @param entrance Eingang
+    */
    private void setCurrentEntrance(final Entrance entrance) {
 
       currentEntrance = entrance;
    }
-
+   /**
+    * Aktueller Eingang.
+    * @return Eingang
+    */
    private Entrance selectedEntrance() {
 
       return currentEntrance;
    }
-
+   /**
+    * Aktuelles Apartment setzen.
+    * @param apartment Apartment
+    */
    private void setCurrentApartment(final Apartment apartment) {
 
       currentApartment = apartment;
    }
-
+   /**
+    * Aktuelles Apartment.
+    * @return apartment
+    */
    private Apartment selectedApartment() {
 
       return currentApartment;
    }
-
+   /**
+    * Aktuellen Zaehler setzen.
+    * @param meter Zaehler
+    */
    private void setCurrentMeter(final Meter meter) {
 
       currentMeter = meter;
    }
-
+   /**
+    * Aktuelle Zaehler.
+    * @return Zaehler
+    */
    private Meter selectedMeter() {
 
       return currentMeter;

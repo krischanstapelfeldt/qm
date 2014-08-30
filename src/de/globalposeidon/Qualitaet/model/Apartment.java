@@ -8,14 +8,11 @@ import java.util.Random;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
 
-/*
- * abgedeckte Anforderungen A13 - Es koennen bis zu 4 Mieter in einer Wohnung wohnen.
- */
 /**
  * apartment model.
  * @author Timm Suhl
  */
-public class Apartment extends DefaultMutableTreeNode implements java.io.Serializable{
+public class Apartment extends DefaultMutableTreeNode implements java.io.Serializable {
 
    private static final long serialVersionUID = -5046711217211082032L;
    private int id;
@@ -32,7 +29,7 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    // ================================================================================
    /**
     * Konstruktor.
-    * @param entrance Eingang zu welchem das Apartment zugehoerig ist.
+    * @param entrance Zugehoeriger Eingang
     */
    public Apartment(final Entrance entrance) {
       this.entrance = entrance;
@@ -45,30 +42,30 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    // access private variables
    // ================================================================================
    /**
-    * ID erhalten.
-    * @return ID
+    * Gibt ID zurueck.
+    * @return ID ID
     */
    public final int getID() {
       return id;
    }
    /**
     * ID setzen.
-    * @param iD
+    * @param iD ID
     */
    public final void setID(final int iD) {
       id = iD;
    }
    /**
     * Zaehler zu einem Apartment hinzufuegen.
-    * @param meter 
+    * @param meter meter
     */
    public final void addMeter(final Meter meter) {
       meters.add(meter);
    }
    /**
-    * Zaehler von einem Apartment.
-    * @param index
-    * @return
+    * Zaehler von einem Apartment erhalten.
+    * @param index index
+    * @return meter
     */
    public final Meter getMeter(final int index) {
       if (index >= 0 && index < meters.size()) {
@@ -78,8 +75,8 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    }
    /**
     * Zaehler von einem Apartment entfernen.
-    * @param index
-    * @return Zaehler
+    * @param index index
+    * @return Zaehler zaehler
     */
    public final Meter removeMeter(final int index) {
       if (index >= 0 && index < meters.size()) {
@@ -89,28 +86,28 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    }
    /**
     * Anzahl der Zaehler.
-    * @return Anzahl
+    * @return Anzahl Anzahl
     */
    public final int meterCount() {
       return meters.size();
    }
    /**
     * Mieter hinzufuegen.
-    * @param tentant
+    * @param tenant Mieter
     * @return Hinzugefuegt?
     */
-   public final boolean addTenant(final Tenant tentant) {
+   public final boolean addTenant(final Tenant tenant) {
       if (tenants.size() < MAXTENANTS) { // max 4 tenants for each
          // apartment
-         tenants.add(tentant);
+         tenants.add(tenant);
          return true;
       }
       return false;
    }
    /**
     * Mieter erhalten.
-    * @param index
-    * @return der Mieter
+    * @param index index
+    * @return tenant Mieter
     */
    public final Tenant getTenant(final int index) {
       if (index >= 0 && index < tenants.size()) {
@@ -120,7 +117,7 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    }
    /**
     * Mieter entfernen.
-    * @param index
+    * @param index index
     * @return Entfernten Mieter
     */
    public final Tenant removeTenant(final int index) {
@@ -204,21 +201,21 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    }
    /**
     * Liste mit Zaehlern setzen.
-    * @param meters
+    * @param meters meterliste
     */
    public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
    /**
     * Liste mit Mietern.
-    * @return
+    * @return liste
     */
    public final ArrayList<Tenant> getTenants() {
       return tenants;
    }
    /**
     * Liste mit Mietern setzen.
-    * @param tenants
+    * @param tenants mieterliste
     */
    public final void setTenants(final ArrayList<Tenant> tenants) {
       this.tenants = tenants;
