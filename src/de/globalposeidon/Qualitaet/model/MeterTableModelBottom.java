@@ -7,6 +7,10 @@ import de.globalposeidon.Qualitaet.Strings;
 // // configure TabelModel Bottom
 public class MeterTableModelBottom extends AbstractTableModel {
 
+   /**
+    * 
+    */
+   private static final long serialVersionUID = 566486559559380979L;
    // use this for modelBotoom (readings)
    static final int METERID = 0;
    static final int READINGID = 1;
