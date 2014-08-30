@@ -33,7 +33,7 @@ public class MeterTableModelBottom extends AbstractTableModel {
    @Override
    public int getRowCount() {
 
-      return 1;
+      return meter.getReadings().size();
    }
 
    public String getColumnName(final int i) {
@@ -46,19 +46,19 @@ public class MeterTableModelBottom extends AbstractTableModel {
          return meter.getID();
       }
       if (columnIndex == READINGID) {
-         return meter.getType();
+         return meter.getReadings().get(rowIndex).getID();
       }
       if (columnIndex == METERREADER) {
-         return meter.getCurrentValue();
+         return meter.getReadings().get(rowIndex).getReader();
       }
       if (columnIndex == READINGINFO) {
-         return meter.getYearValue();
+         return meter.getReadings().get(rowIndex).getInfo();
       }
       if (columnIndex == READINGDATE) {
-         return meter.getLastRead();
+         return meter.getReadings().get(rowIndex).getReadingDate();
       }
       if (columnIndex == READINGVALUE) {
-         return meter.getReadings();
+         return meter.getReadings().get(rowIndex).getReadingValue();
       }
       return null;
    }
