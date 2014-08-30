@@ -102,4 +102,8 @@ public final class Strings {
    public static final int TEN = 10;
    public static final int THIRTY = 30;
    public static final int ONE_HUNDRED = 100;
+   public static final int TWO_HUNDRED = 200;
+   public static final int FOUR_HUNDRED = 400;
+   public static final int SIX_HUNDRED = 600;
+   public static final int ONE_THOUSAND = 1000;
 }

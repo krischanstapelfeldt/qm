@@ -49,9 +49,8 @@ public class MainWindow extends JFrame {
    private Meter currentMeter;
 
    private MainTreeModel treeModel;
-   
-   // Create the application.
 
+   // Create the application.
    public MainWindow(final DataContainer model) {
       super(Strings.GLOBALPOSEIDON);
       this.model = model;
@@ -69,7 +68,7 @@ public class MainWindow extends JFrame {
    // Initialize the contents of the frame
 
    private void initialize() {
-      setSize(1000, 600);
+      setSize(Strings.ONE_THOUSAND, Strings.SIX_HUNDRED);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       // Center frame
       setLocationRelativeTo(null);
@@ -146,7 +145,8 @@ public class MainWindow extends JFrame {
       // order Grouplayout in the leftsplit
       glLeftPanel.setHorizontalGroup(glLeftPanel
             .createParallelGroup(Alignment.LEADING)
-            .addGroup(glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+            .addGroup(
+                  glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.TWO_HUNDRED, Short.MAX_VALUE))
             .addGroup(
                   glLeftPanel
                         .createSequentialGroup()
@@ -173,7 +173,7 @@ public class MainWindow extends JFrame {
                                                             Short.MAX_VALUE)).addContainerGap()))));
 
       glLeftPanel.setVerticalGroup(glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
-            glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.FOUR_HUNDRED, Short.MAX_VALUE)
                   .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
                   .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
                   .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
@@ -195,12 +195,11 @@ public class MainWindow extends JFrame {
             .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
-      glTopRightPanel
-            .setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
-                  glTopRightPanel.createSequentialGroup()
-                        .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addGap(10)));
+      glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
+            glTopRightPanel.createSequentialGroup()
+                  .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                  .addGap(Strings.TEN)));
 
       rightPanel.setLayout(glTopRightPanel);
 
@@ -230,7 +229,8 @@ public class MainWindow extends JFrame {
             }
             /* React to the node selection. */
             if (node instanceof Building) {
-//               System.out.println("selected a building with ID:" + ((Building) node).getID());
+               // System.out.println("selected a building with ID:" +
+               // ((Building) node).getID());
                setCurrentBuilding((Building) node);
                // in case of switched building, set rest null
                setCurrentEntrance(null);
@@ -254,7 +254,8 @@ public class MainWindow extends JFrame {
                panelFunction.rdbtnUnrented.setEnabled(false);
 
             } else if (node instanceof Entrance) {
-//               System.out.println("selected an entrance with ID:" + ((Entrance) node).getID());
+               // System.out.println("selected an entrance with ID:" +
+               // ((Entrance) node).getID());
                setCurrentEntrance((Entrance) node);
                // in case of switched building, set rest null
                setCurrentApartment(null);
@@ -277,7 +278,8 @@ public class MainWindow extends JFrame {
                panelFunction.rdbtnUnrented.setEnabled(false);
 
             } else if (node instanceof Apartment) {
-//               System.out.println("selected an apartment with ID: " + ((Apartment) node).getID());
+               // System.out.println("selected an apartment with ID: " +
+               // ((Apartment) node).getID());
                setCurrentApartment((Apartment) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);
@@ -298,7 +300,8 @@ public class MainWindow extends JFrame {
                panelFunction.rdbtnUnrented.setEnabled(true);
 
             } else if (node instanceof Meter) {
-//               System.out.println("selected an Meter with ID: " + ((Meter) node).getID());
+               // System.out.println("selected an Meter with ID: " + ((Meter)
+               // node).getID());
                setCurrentMeter((Meter) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);
@@ -397,11 +400,12 @@ public class MainWindow extends JFrame {
             });
          }
       });
-      
-// TODO: WORK IN PROGRESS - Currently crashing
-//      TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(), "5");
-//      tree.setSelectionPath(path);
-//      tree.scrollPathToVisible(path);
+
+      // TODO: WORK IN PROGRESS - Currently crashing
+      // TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
+      // "5");
+      // tree.setSelectionPath(path);
+      // tree.scrollPathToVisible(path);
    }
 
    // Necessary to open the popup-menu
@@ -463,26 +467,26 @@ public class MainWindow extends JFrame {
    }
 
    private Meter selectedMeter() {
-
+      
       return currentMeter;
    }
 
    // should be called from within the function panel
-//   public void findMeter(String meterID) {
-//	   find(treeModel.def, meterID);
-//   }
-//   
+   // public void findMeter(String meterID) {
+   // find(treeModel.def, meterID);
+   // }
+
    private TreePath find(DefaultMutableTreeNode root, String s) {
-	    @SuppressWarnings("unchecked")
-	    Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
-	    System.out.println("find() - just before while loop");
-	    while (e.hasMoreElements()) {
-	        DefaultMutableTreeNode node = e.nextElement();
-	        System.out.println("find() - just after next element");
-	        if (node.toString().equalsIgnoreCase(s)) {
-	            return new TreePath(node.getPath());
-	        }
-	    }
-	    return null;
-	}
+      @SuppressWarnings("unchecked")
+      Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
+      System.out.println("find() - just before while loop");
+      while (e.hasMoreElements()) {
+         DefaultMutableTreeNode node = e.nextElement();
+         System.out.println("find() - just after next element");
+         if (node.toString().equalsIgnoreCase(s)) {
+            return new TreePath(node.getPath());
+         }
+      }
+      return null;
+   }
 }
