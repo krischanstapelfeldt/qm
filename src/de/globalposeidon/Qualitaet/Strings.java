@@ -41,6 +41,8 @@ public final class Strings {
    public static final String OPENWSPACE = "open ";
    public static final String PHONE = "phone";
    public static final String READING = "reading";
+   public static final String READINGDATE = "reading date";
+   public static final String READINGID = "reading id";
    public static final String READINGINFO = "reading info";
    public static final String READINGPERSON = "reading person";
    public static final String RENTED = "rented";
