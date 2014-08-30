@@ -42,28 +42,28 @@ public class Launcher {
             try {
             	DataContainer container;
             	
-            	String workingDir = System.getProperty("user.dir");
-         	   // Remove if load in MainMenuBar is working correctly
-         	   try {
-                   FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
-                   ObjectInputStream in = new ObjectInputStream(fileIn);
-                   container = (DataContainer) in.readObject();
-                   in.close();
-                   fileIn.close();
-                   System.out.println(workingDir+"\\container.ser");
-                }catch(IOException i) {
-             	  System.out.println("Some exception");
-             	  container = createRandomModel();
-                   i.printStackTrace();
-                   return;
-                }catch(ClassNotFoundException c) {
-                   System.out.println("Container class not found");
-                   container = createRandomModel();
-                   c.printStackTrace();
-                   return;
-                }
+//            	String workingDir = System.getProperty("user.dir");
+//         	   // Remove if load in MainMenuBar is working correctly
+//         	   try {
+//                   FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
+//                   ObjectInputStream in = new ObjectInputStream(fileIn);
+//                   container = (DataContainer) in.readObject();
+//                   in.close();
+//                   fileIn.close();
+//                   System.out.println(workingDir+"\\container.ser");
+//                }catch(IOException i) {
+//             	  System.out.println("Some exception");
+//             	  container = createRandomModel();
+//                   i.printStackTrace();
+//                   return;
+//                }catch(ClassNotFoundException c) {
+//                   System.out.println("Container class not found");
+//                   container = createRandomModel();
+//                   c.printStackTrace();
+//                   return;
+//                }
          	   
-//            	container = createRandomModel();
+            	container = createRandomModel();
             	final MainWindow window = new MainWindow(container);
             	window.setVisible(true);
             } catch (final Exception e) {
