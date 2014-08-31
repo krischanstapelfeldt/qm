@@ -164,8 +164,8 @@ public class MainWindow extends JFrame {
       // set texftfields and radiobutton disabled to make them depending on node
       // selection
       panelFunction.getTfReadingVal().setEnabled(false);
-      panelFunction.getTfPerson().setEnabled(false);
-      panelFunction.getTfReadingInfo().setEnabled(false);
+      panelFunction.getCbPerson().setEnabled(false);
+      panelFunction.getCbReadingInfo().setEnabled(false);
       panelFunction.getRdbtnUnsorted().setEnabled(false);
       panelFunction.getRdbtnRented().setEnabled(false);
       panelFunction.getRdbtnUnrented().setEnabled(false);
@@ -251,8 +251,8 @@ public class MainWindow extends JFrame {
                btnAddTenant.setEnabled(false);
                btnDelete.setEnabled(false);
                panelFunction.getTfReadingVal().setEnabled(false);
-               panelFunction.getTfPerson().setEnabled(false);
-               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getCbPerson().setEnabled(false);
+               panelFunction.getCbReadingInfo().setEnabled(false);
                panelFunction.getRdbtnUnsorted().setEnabled(false);
                panelFunction.getRdbtnRented().setEnabled(false);
                panelFunction.getRdbtnUnrented().setEnabled(false);
@@ -278,8 +278,8 @@ public class MainWindow extends JFrame {
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(false);
-               panelFunction.getTfPerson().setEnabled(false);
-               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getCbPerson().setEnabled(false);
+               panelFunction.getCbReadingInfo().setEnabled(false);
                panelFunction.getRdbtnUnsorted().setEnabled(false);
                panelFunction.getRdbtnRented().setEnabled(false);
                panelFunction.getRdbtnUnrented().setEnabled(false);
@@ -301,8 +301,8 @@ public class MainWindow extends JFrame {
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(false);
-               panelFunction.getTfPerson().setEnabled(false);
-               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getCbPerson().setEnabled(false);
+               panelFunction.getCbReadingInfo().setEnabled(false);
                panelFunction.getRdbtnUnsorted().setEnabled(true);
                panelFunction.getRdbtnRented().setEnabled(true);
                panelFunction.getRdbtnUnrented().setEnabled(true);
@@ -322,8 +322,8 @@ public class MainWindow extends JFrame {
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(false);
-               panelFunction.getTfPerson().setEnabled(false);
-               panelFunction.getTfReadingInfo().setEnabled(false);
+               panelFunction.getCbPerson().setEnabled(false);
+               panelFunction.getCbReadingInfo().setEnabled(false);
                panelFunction.getRdbtnUnsorted().setEnabled(false);
                panelFunction.getRdbtnRented().setEnabled(false);
                panelFunction.getRdbtnUnrented().setEnabled(false);
@@ -343,8 +343,8 @@ public class MainWindow extends JFrame {
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(true);
-               panelFunction.getTfPerson().setEnabled(true);
-               panelFunction.getTfReadingInfo().setEnabled(true);
+               panelFunction.getCbPerson().setEnabled(true);
+               panelFunction.getCbReadingInfo().setEnabled(true);
                panelFunction.getRdbtnUnsorted().setEnabled(false);
                panelFunction.getRdbtnRented().setEnabled(false);
                panelFunction.getRdbtnUnrented().setEnabled(false);

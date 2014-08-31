@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -32,8 +33,8 @@ public class FunctionPanel extends JPanel {
    // declare TextField
    private final JTextField tfMeterId = new JTextField();
    private final JTextField tfReadingVal = new JTextField();
-   private final JTextField tfPerson = new JTextField();
-   private final JTextField tfReadingInfo = new JTextField();
+//   private final JTextField tfPerson = new JTextField();
+//   private final JTextField tfReadingInfo = new JTextField();
 
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
@@ -47,6 +48,11 @@ public class FunctionPanel extends JPanel {
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
    private final JSeparator separatorRight = new JSeparator();
+   
+   // set Combobox
+   private final JComboBox cbPerson = new JComboBox();
+   private final JComboBox cbReadInfo = new JComboBox();
+
 
    /**
     * Konstruktor.
@@ -73,6 +79,8 @@ public class FunctionPanel extends JPanel {
       gbcLblMakeReading.gridx = Strings.SIX;
       gbcLblMakeReading.gridy = Strings.ONE;
       add(lblMakeReading, gbcLblMakeReading);
+      
+      
 
       final GridBagConstraints gbcLblReadVal = new GridBagConstraints();
       gbcLblReadVal.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
@@ -122,19 +130,17 @@ public class FunctionPanel extends JPanel {
       add(getTfReadingVal(), gbcTfReadingVal);
       getTfReadingVal().setColumns(Strings.TEN);
 
-      final GridBagConstraints gbcTfPerson = new GridBagConstraints();
-      gbcTfPerson.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
-      gbcTfPerson.gridx = Strings.SIX;
-      gbcTfPerson.gridy = Strings.THREE;
-      add(getTfPerson(), gbcTfPerson);
-      getTfPerson().setColumns(Strings.TEN);
+      final GridBagConstraints gbccbPerson = new GridBagConstraints();
+      gbccbPerson.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
+      gbccbPerson.gridx = Strings.SIX;
+      gbccbPerson.gridy = Strings.THREE;
+      add(getCbPerson(), gbccbPerson);
 
       final GridBagConstraints gbcTfReadingInfo = new GridBagConstraints();
       gbcTfReadingInfo.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingInfo.gridx = Strings.SIX;
       gbcTfReadingInfo.gridy = Strings.FOUR;
-      add(getTfReadingInfo(), gbcTfReadingInfo);
-      getTfReadingInfo().setColumns(Strings.TEN);
+      add(getCbReadingInfo(), gbcTfReadingInfo);
 
       separatorRight.setOrientation(SwingConstants.VERTICAL);
       separatorRight.setForeground(Color.DARK_GRAY);
@@ -212,12 +218,12 @@ public class FunctionPanel extends JPanel {
       return rdbtnUnsorted;
    }
 
-   public final JTextField getTfReadingInfo() {
-      return tfReadingInfo;
+   public final JComboBox getCbReadingInfo() {
+      return cbReadInfo;
    }
 
-   public final JTextField getTfPerson() {
-      return tfPerson;
+   public final JComboBox getCbPerson() {
+      return cbPerson;
    }
 
    public final JTextField getTfReadingVal() {
