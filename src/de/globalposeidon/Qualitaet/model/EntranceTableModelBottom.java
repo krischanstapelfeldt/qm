@@ -15,8 +15,10 @@ public class EntranceTableModelBottom extends AbstractTableModel {
 
    private static final long serialVersionUID = 1817731260470629483L;
    static final int APARTMENT = 0;
+   static final int ISRENTED = 1;
+   
    private final Entrance entrance;
-   private String[] titleTblBottom = new String[]{Strings.APARTMENT};
+   private String[] titleTblBottom = new String[]{Strings.APARTMENT, "Rented?"};
    
    /**
     * Konstruktor.
@@ -47,6 +49,9 @@ public class EntranceTableModelBottom extends AbstractTableModel {
       if (col == APARTMENT) {
          return entrance.getApartments().get(row).getID();
       }
+      if (col == ISRENTED) {
+          return !entrance.getApartments().get(row).apartmentIsEmpty();
+       }
       return null;
    }
 
@@ -55,15 +60,10 @@ public class EntranceTableModelBottom extends AbstractTableModel {
       if (columnIndex == APARTMENT) {
          return false;
       }
-
+      if (columnIndex == ISRENTED) {
+          return false;
+       }
       return false;
    }
 
-   @Override
-   public final void setValueAt(final Object currentValue, final int rowIndex, final int columnIndex) {
-      if (columnIndex == APARTMENT && currentValue.getClass() == String.class) {
-         entrance.getApartments().get(rowIndex).setID(new Integer((String) currentValue));
-      }
-
-   }
 }

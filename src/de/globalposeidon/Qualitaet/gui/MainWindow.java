@@ -36,9 +36,9 @@ import de.globalposeidon.Qualitaet.model.Meter;
 
 /*
  * TODO MUSS
- * WIP - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...)
- * Suchen von Z�hlern!
- * Ablesefunktion f�r Z�hler ben�tigt Dropdown mit Auswahl f�r Reader und ReadingInfo
+ * DONE - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...)
+ * DONE - Suchen von Z�hlern!
+ * DONE - Ablesefunktion f�r Z�hler ben�tigt Dropdown mit Auswahl f�r Reader und ReadingInfo
  * Neue Ablesewerte und Datum k�nnen nur gr��er sein
  * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
  * Verbrauch/Tage seit der letzen Lesung -> Im Model!
@@ -48,9 +48,8 @@ import de.globalposeidon.Qualitaet.model.Meter;
  * TODO KANN
  * Daten sicher (Funktioniert, nur ausgeklammert, f�r Vossi ggfs aktivieren)
  * Titel f�r JTables
- * Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
- * Anzeige im Content nach Start & ohne Auswahl
- * Edit aus Menu entfernen
+ * DONE - Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
+ * DONE -Edit aus Menu entfernen
  * Spaces zwischen Trennstrichen im Contentpane
  * Felder auf Eingaben pr�fen(reine Zahl, etc)
  * Apartment Button "delete" -> "delete tenant" und nur bei auswahl einblenden
@@ -70,8 +69,10 @@ public class MainWindow extends JFrame {
    private Apartment currentApartment;
    private Meter currentMeter;
 
-   private MainTreeModel treeModel;
-
+   public MainTreeModel treeModel;
+   public JTree tree;
+   JPanel cntPanel;
+   
    /**
     * Konstruktor.
     * @param model
@@ -103,7 +104,7 @@ public class MainWindow extends JFrame {
 
       // Treemodel with model
       treeModel = new MainTreeModel(model);
-      final JTree tree = new JTree(treeModel);
+      tree = new JTree(treeModel);
       tree.setRootVisible(false);
 
       // MenuBar
@@ -128,7 +129,7 @@ public class MainWindow extends JFrame {
       final JPanel pnlFunction = new JPanel();
 
       // Set contentPanel
-      final JPanel cntPanel = new JPanel();
+      cntPanel = new JPanel();
 
       // declare BorderLayout at contentPanel
       cntPanel.setLayout(new BorderLayout());
@@ -151,9 +152,9 @@ public class MainWindow extends JFrame {
       final FunctionPanel panelFunction = new FunctionPanel(this);
       // add radiobuttons to a group
       final ButtonGroup rdGroup = new ButtonGroup();
-      rdGroup.add(panelFunction.getRdbtnUnsorted());
-      rdGroup.add(panelFunction.getRdbtnRented());
-      rdGroup.add(panelFunction.getRdbtnUnrented());
+//      rdGroup.add(panelFunction.getRdbtnUnsorted());
+//      rdGroup.add(panelFunction.getRdbtnRented());
+//      rdGroup.add(panelFunction.getRdbtnUnrented());
 
       // set buttons disabled to make them depending on node selection
       btnAddEntrance.setEnabled(false);
@@ -167,9 +168,9 @@ public class MainWindow extends JFrame {
       panelFunction.getTfReadingVal().setEnabled(false);
       panelFunction.getCbPerson().setEnabled(false);
       panelFunction.getCbReadingInfo().setEnabled(false);
-      panelFunction.getRdbtnUnsorted().setEnabled(false);
-      panelFunction.getRdbtnRented().setEnabled(false);
-      panelFunction.getRdbtnUnrented().setEnabled(false);
+//      panelFunction.getRdbtnUnsorted().setEnabled(false);
+//      panelFunction.getRdbtnRented().setEnabled(false);
+//      panelFunction.getRdbtnUnrented().setEnabled(false);
 
       // add FunctionPanel on BottomRightPanel
       pnlFunction.add(panelFunction);
@@ -235,9 +236,6 @@ public class MainWindow extends JFrame {
 
       rightPanel.setLayout(glTopRightPanel);
 
-      // popup-menu for tree
-      // addPopup(tree, new MainPopupMenu());
-
       // tree with single selection mode
       tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
       tree.addTreeSelectionListener(new TreeSelectionListener() {
@@ -254,9 +252,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-               panelFunction.getRdbtnUnsorted().setEnabled(false);
-               panelFunction.getRdbtnRented().setEnabled(false);
-               panelFunction.getRdbtnUnrented().setEnabled(false);
+//               panelFunction.getRdbtnUnsorted().setEnabled(false);
+//               panelFunction.getRdbtnRented().setEnabled(false);
+//               panelFunction.getRdbtnUnrented().setEnabled(false);
                return;
 
             }
@@ -281,9 +279,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-               panelFunction.getRdbtnUnsorted().setEnabled(false);
-               panelFunction.getRdbtnRented().setEnabled(false);
-               panelFunction.getRdbtnUnrented().setEnabled(false);
+//               panelFunction.getRdbtnUnsorted().setEnabled(false);
+//               panelFunction.getRdbtnRented().setEnabled(false);
+//               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Entrance) {
                setCurrentBuilding((Building) node.getParent());
@@ -305,9 +303,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-               panelFunction.getRdbtnUnsorted().setEnabled(true);
-               panelFunction.getRdbtnRented().setEnabled(true);
-               panelFunction.getRdbtnUnrented().setEnabled(true);
+//               panelFunction.getRdbtnUnsorted().setEnabled(true);
+//               panelFunction.getRdbtnRented().setEnabled(true);
+//               panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else if (node instanceof Apartment) {
                setCurrentEntrance((Entrance) node.getParent());
@@ -327,9 +325,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-               panelFunction.getRdbtnUnsorted().setEnabled(false);
-               panelFunction.getRdbtnRented().setEnabled(false);
-               panelFunction.getRdbtnUnrented().setEnabled(false);
+//               panelFunction.getRdbtnUnsorted().setEnabled(false);
+//               panelFunction.getRdbtnRented().setEnabled(false);
+//               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Meter) {
                setCurrentMeter((Meter) node);
@@ -348,9 +346,9 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(true);
                panelFunction.getCbPerson().setEnabled(true);
                panelFunction.getCbReadingInfo().setEnabled(true);
-               panelFunction.getRdbtnUnsorted().setEnabled(false);
-               panelFunction.getRdbtnRented().setEnabled(false);
-               panelFunction.getRdbtnUnrented().setEnabled(false);
+//               panelFunction.getRdbtnUnsorted().setEnabled(false);
+//               panelFunction.getRdbtnRented().setEnabled(false);
+//               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else {
                btnAddEntrance.setEnabled(false);
@@ -360,7 +358,6 @@ public class MainWindow extends JFrame {
                btnDelete.setEnabled(false);
             }
          }
-
       });
 
       // button listener
@@ -372,6 +369,8 @@ public class MainWindow extends JFrame {
                @Override
                public void windowClosed(final WindowEvent e) {
                   treeModel.reload();
+                  cntPanel.removeAll();
+                  cntPanel.repaint();
                }
             });
          }
@@ -384,6 +383,8 @@ public class MainWindow extends JFrame {
                @Override
                public void windowClosed(final WindowEvent e) {
                   treeModel.reload();
+                  cntPanel.removeAll();
+                  cntPanel.repaint();
                }
             });
          }
@@ -396,6 +397,8 @@ public class MainWindow extends JFrame {
                @Override
                public void windowClosed(final WindowEvent e) {
                   treeModel.reload();
+                  cntPanel.removeAll();
+                  cntPanel.repaint();
                }
             });
          }
@@ -414,6 +417,8 @@ public class MainWindow extends JFrame {
                @Override
                public void windowClosed(final WindowEvent e) {
                   treeModel.reload();
+                  cntPanel.removeAll();
+                  cntPanel.repaint();
                }
             });
          }
@@ -426,6 +431,8 @@ public class MainWindow extends JFrame {
                @Override
                public void windowClosed(final WindowEvent e) {
                   treeModel.reload();
+                  cntPanel.removeAll();
+                  cntPanel.repaint();
                }
             });
          }
@@ -470,10 +477,7 @@ public class MainWindow extends JFrame {
             cntPanel.repaint();
          }
       });
-//      TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
-//    	       "8");
-//    	       tree.setSelectionPath(path);
-//    	       tree.scrollPathToVisible(path);
+
    }
 
    /**
@@ -553,7 +557,10 @@ public class MainWindow extends JFrame {
    }
 
    public void findMeter(String meterID) {
-      find((DefaultMutableTreeNode) treeModel.getRoot(), meterID);
+	  treeModel.reload();
+	  TreePath path =find((DefaultMutableTreeNode) treeModel.getRoot(), meterID);
+      tree.setSelectionPath(path);
+	  tree.scrollPathToVisible(path);
    }
 
    private TreePath find(final DefaultMutableTreeNode root, final String s) {

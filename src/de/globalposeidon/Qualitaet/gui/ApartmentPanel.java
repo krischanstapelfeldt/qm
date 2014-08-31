@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
@@ -41,20 +43,23 @@ public class ApartmentPanel extends JPanel {
       final JPanel pnlHeader = new JPanel(new FlowLayout());
       final JLabel lblApartment = new JLabel("Apartment " + apartment.getID());
       final JButton btnDelete = new JButton(Strings.DELWSPACE + Strings.TENANT);
-      
-      // final JLabel lblMeter = new JLabel("|Meter: "
-      // + apartment.getMeter(0));
-      // final JLabel lblTenant = new JLabel("|Tenant: "
-      // + apartment.getTenant(0));
 
       pnlHeader.add(lblApartment);
       pnlHeader.add(btnDelete);
-      // pnlHeader.add(lblMeter);
-      // pnlHeader.add(lblTenant);
+      
+      btnDelete.setEnabled(false);
       topModel = new ApartmentTableModelTop(apartment);
       final JTable tableTop = new JTable(topModel);
       tableTop.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-      
+      tableTop.getSelectionModel().addListSelectionListener( new ListSelectionListener() {
+    	  public void valueChanged(ListSelectionEvent e) {
+    		  if (tableTop.getSelectedRow() >= 0) {
+    			  btnDelete.setEnabled(true);
+    		  } else {
+    			  btnDelete.setEnabled(false);
+    		  }
+    	  }
+      });      
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       scrollPane.getViewport().setBackground(Color.white);

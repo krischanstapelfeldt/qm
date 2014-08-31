@@ -45,16 +45,17 @@ public class Launcher {
          public void run() {
             try {
             	DataContainer container;
-            	
-//            	String workingDir = System.getProperty("user.dir");
-//         	   // Remove if load in MainMenuBar is working correctly
+            	container = createRandomModel();
+            	String workingDir = System.getProperty("user.dir");
+         	   // Remove if load in MainMenuBar is working correctly
 //         	   try {
-//                   FileInputStream fileIn = new FileInputStream(workingDir+"\\container.ser");
+//                   FileInputStream fileIn = new FileInputStream(workingDir+"/src/container.ser");
+//                   System.out.println(workingDir+"/src/container.ser");
 //                   ObjectInputStream in = new ObjectInputStream(fileIn);
-//                   container = (DataContainer) in.readObject();
-//                   in.close();
-//                   fileIn.close();
-//                   System.out.println(workingDir+"\\container.ser");
+//	               container = (DataContainer) in.readObject();
+//	               in.close();
+//	               fileIn.close();
+//
 //                }catch(IOException i) {
 //             	  System.out.println("Some exception");
 //             	  container = createRandomModel();
@@ -66,7 +67,6 @@ public class Launcher {
 //                   c.printStackTrace();
 //                   return;
 //                }
-            	container = createRandomModel();
             	final MainWindow window = new MainWindow(container);
             	window.setVisible(true);
             } catch (final Exception e) {
