@@ -23,6 +23,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    private int yearValue; // wert zum 01.01 eines Jahres
    private Date lastRead; // letzter ablesewert
    private ArrayList<Reading> readings;
+   private int readerCounter = 0;
 
    // ================================================================================
    // constructors
@@ -60,10 +61,6 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
       yearValue = 0;
       lastRead = new Date();
    }
-
-   // ================================================================================
-   // access private variables
-   // ================================================================================
    /**
     * ID setzen.
     * @param iD ID
@@ -159,12 +156,20 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
     * @param info info
     * @return Zaehlung
     */
-   public final Reading makeReading(final MeterReader reader, final ReadingInfo info) {
-       Reading reading = new Reading(this, reader, info);
+   public final Reading makeReading(Date date, final MeterReader reader, final ReadingInfo info) {
+	   Reading reading = new Reading(this, reader, info, date);
        readings.add(reading);
+       setLastRead(date); // Set last Read to today
       return reading;
    }
-
+   /**
+    * returns and then increases the reading counter
+    * @return counter
+    */
+   public int incReadingCounter() {
+	   return readerCounter++;
+   }
+   
    @Override
    public final String toString() {
       return (id + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);

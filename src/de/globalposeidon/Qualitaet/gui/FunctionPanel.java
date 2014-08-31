@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -200,7 +201,7 @@ public class FunctionPanel extends JPanel {
               } else { // all fields valid
                   Meter meter = parent.selectedMeter();
                   meter.setCurrentValue(Integer.parseInt(tfReadingVal.getText()));
-                  parent.selectedMeter().makeReading(MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+                  parent.selectedMeter().makeReading(new Date(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
               }
           }
        });

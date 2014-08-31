@@ -44,7 +44,7 @@ public class ReadingTest extends TestCase {
       entrance = new Entrance(building);
       meter = new Meter(001, Metertype.GAS, entrance);
       meter.setCurrentValue(1);
-      reading = new Reading(meter, MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION);
+      reading = new Reading(meter, MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION, new Date());
    }
 
    @Override

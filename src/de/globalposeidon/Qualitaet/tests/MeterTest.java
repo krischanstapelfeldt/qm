@@ -162,7 +162,7 @@ public class MeterTest extends TestCase {
    @Test
    public final void testPositiveMakeReading() {
 
-      assertNotNull(meter.makeReading(MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION));
+      assertNotNull(meter.makeReading(new Date(), MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION));
    }
 
    /**

@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Calendar;
+import java.util.Date;
 
 import de.globalposeidon.Qualitaet.gui.MainWindow;
 import de.globalposeidon.Qualitaet.model.Apartment;
@@ -79,6 +81,9 @@ public class Launcher {
     * @return Prefilled DataContainer
     */
    public static DataContainer createRandomModel() {
+	   
+	   Calendar cal = Calendar.getInstance(); // needed to set meters
+	   
       // T-MT-001
       final DataContainer dc = new DataContainer();
       final Building b = new Building(dc);
@@ -87,19 +92,31 @@ public class Launcher {
       final Entrance e = new Entrance(b);
       b.addEntrance(e);
       final Meter me = new Meter(dc.incMeterCnt(), Metertype.POWER, e);
-      me.setCurrentValue(100); me.makeReading(MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
-      me.setCurrentValue(9001); me.makeReading(MeterReader.RENTER, ReadingInfo.ESTIMATION);
+      cal.set(2014, 10,1); me.setCurrentValue(100); me.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      cal.set(2014, 11,1); me.setCurrentValue(9001); me.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
+      cal.set(2015,0,1); me.setYearValue(12501); me.setCurrentValue(12501); me.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
       e.addMeter(me);
       final Meter meb = new Meter(dc.incMeterCnt(), Metertype.GAS, e);
+      cal.set(2014,10,2); meb.setCurrentValue(10); meb.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.READING);
+      cal.set(2014,10,6); meb.setCurrentValue(14); meb.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
       e.addMeter(meb);
+// APARTMENT 1
       final Apartment a = new Apartment(e);
       e.addApartment(a);
       final Meter ma = new Meter(dc.incMeterCnt(), Metertype.POWER, a);
+      cal.set(2014,10,2); ma.setCurrentValue(99); ma.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
+      cal.set(2014,11,6); ma.setCurrentValue(300); ma.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION);
       a.addMeter(ma);
       final Meter mab = new Meter(dc.incMeterCnt(), Metertype.GAS, a);
+      cal.set(2014,10,2); mab.setCurrentValue(101); mab.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.READING);
+      cal.set(2014,11,6); mab.setCurrentValue(4242); mab.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.ESTIMATION);
       a.addMeter(mab);
       final Meter mac = new Meter(dc.incMeterCnt(), Metertype.WATER, a);
+      cal.set(2014, 10,1); mac.setCurrentValue(100); mac.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      cal.set(2014, 11,1); mac.setCurrentValue(3345); mac.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
+      cal.set(2015,0,1); mac.setYearValue(6000); mac.setCurrentValue(6000); mac.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
       a.addMeter(mac);
+// APARTMENT 2
       final Apartment ab = new Apartment(e);
       e.addApartment(ab);
       final Meter mb = new Meter(dc.incMeterCnt(), Metertype.POWER, a);
@@ -107,9 +124,13 @@ public class Launcher {
       final Meter mbb = new Meter(dc.incMeterCnt(), Metertype.GAS, a);
       ab.addMeter(mbb);
       final Meter mbc = new Meter(dc.incMeterCnt(), Metertype.WATER, a);
+      cal.set(2014, 10,1); mbc.setCurrentValue(100); mbc.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      cal.set(2014, 10,17); mbc.setCurrentValue(400); mbc.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.READING);
+      cal.set(2015,0,1); mbc.setYearValue(980); mbc.setCurrentValue(980); mbc.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
       ab.addMeter(mbc);
       ab.addTenant(new Tenant("Steffens", "J�rgen", "5247521", "steffens@mail.de"));
       ab.addTenant(new Tenant("Steffens", "Ursula", "5247521", "steffens@mail.de"));
+// APARTMENT 3
       final Apartment ac = new Apartment(e);
       e.addApartment(ac);
       final Meter mc = new Meter(dc.incMeterCnt(), Metertype.POWER, a);
@@ -117,6 +138,10 @@ public class Launcher {
       final Meter mcb = new Meter(dc.incMeterCnt(), Metertype.GAS, a);
       ac.addMeter(mcb);
       final Meter mcc = new Meter(dc.incMeterCnt(), Metertype.WATER, a);
+      cal.set(2014, 10,1); mcc.setCurrentValue(100); mcc.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      cal.set(2014, 11,20); mcc.setCurrentValue(3345); mcc.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
+      cal.set(2015,0,1); mcc.setYearValue(6000); mcc.setCurrentValue(6000); mcc.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
+      cal.set(2015,1,6); mcc.setCurrentValue(8101); mcc.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
       ac.addMeter(mcc);
       ac.addTenant(new Tenant("Bayer", "Krischan", "8784245", "nurSchnulzenGucken@mail.de"));
       ac.addTenant(new Tenant("Bayer", "Martina", "8784245", "nurSchnulzenGucken@mail.de"));
@@ -132,6 +157,7 @@ public class Launcher {
       e2.addMeter(me2);
       final Meter meb2 = new Meter(dc.incMeterCnt(), Metertype.GAS, e2);
       e2.addMeter(meb2);
+// APARTMENT 1
       final Apartment a2 = new Apartment(e2);
       e2.addApartment(a2);
       final Meter ma2 = new Meter(dc.incMeterCnt(), Metertype.POWER, a2);
@@ -143,6 +169,7 @@ public class Launcher {
       a2.addTenant(new Tenant("Berg", "Kevin", "476358", "lassDieChantalAusmSchrankKaevin@mail.de"));
       a2.addTenant(new Tenant("Berg", "Chantal", "476358", "lassDieChantalAusmSchrankKaevin@mail.de"));
       a2.addTenant(new Tenant("Berg", "Jan-Hendrik-Olaf", "476358", "lassDieChantalAusmSchrankKaevin@mail.de"));
+// APARTMENT 2
       final Apartment ab2 = new Apartment(e2);
       e2.addApartment(ab2);
       final Meter mb2 = new Meter(dc.incMeterCnt(), Metertype.POWER, a2);
@@ -152,6 +179,7 @@ public class Launcher {
       final Meter mbc2 = new Meter(dc.incMeterCnt(), Metertype.WATER, a2);
       ab2.addMeter(mbc2);
       ab2.addTenant(new Tenant("Alimibi", "Max", "6978721", "v@mail.de"));
+// APARTMENT 3
       final Apartment ac2 = new Apartment(e2);
       e2.addApartment(ac2);
       final Meter mc2 = new Meter(dc.incMeterCnt(), Metertype.POWER, a2);

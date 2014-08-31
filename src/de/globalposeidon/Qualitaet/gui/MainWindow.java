@@ -38,25 +38,25 @@ import de.globalposeidon.Qualitaet.model.Meter;
 
 /*
  * TODO MUSS
- * Testdaten für alle Zähler (unterschiedliche Werte, etc...)
- * Suchen von Zählern!
- * Ablesefunktion für Zähler benötigt Dropdown mit Auswahl für Reader und ReadingInfo
- * Neue Ablesewerte und Datum können nur größer sein
+ * WIP - Testdaten fï¿½r alle Zï¿½hler (unterschiedliche Werte, etc...)
+ * Suchen von Zï¿½hlern!
+ * Ablesefunktion fï¿½r Zï¿½hler benï¿½tigt Dropdown mit Auswahl fï¿½r Reader und ReadingInfo
+ * Neue Ablesewerte und Datum kï¿½nnen nur grï¿½ï¿½er sein
  * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
  * Verbrauch/Tage seit der letzen Lesung -> Im Model!
- * Löschen von Mietern
+ * Lï¿½schen von Mietern
  * Sortieren/Anzeige nach Vermietet und nicht vermietet (im JTable Feld "Vermietet?" und danach abfragen?)
  *
  * TODO KANN
- * Daten sicher (Funktioniert, nur ausgeklammert, für Vossi ggfs aktivieren)
- * Titel für JTables
- * Meldung über erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
+ * Daten sicher (Funktioniert, nur ausgeklammert, fï¿½r Vossi ggfs aktivieren)
+ * Titel fï¿½r JTables
+ * Meldung ï¿½ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
  * Anzeige im Content nach Start & ohne Auswahl
  * Edit aus Menu entfernen
  * Spaces zwischen Trennstrichen im Contentpane
- * Felder auf Eingaben prüfen(reine Zahl, etc)
+ * Felder auf Eingaben prï¿½fen(reine Zahl, etc)
  * Apartment Button "delete" -> "delete tenant" und nur bei auswahl einblenden
- * JTable Felder Größe an Inhalt anpassen?
+ * JTable Felder Grï¿½ï¿½e an Inhalt anpassen?
  */
 
 /**
