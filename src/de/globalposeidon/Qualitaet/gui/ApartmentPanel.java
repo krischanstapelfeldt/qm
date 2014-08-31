@@ -4,12 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
@@ -19,7 +22,7 @@ import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
 public class ApartmentPanel extends JPanel {
 
    private static final long serialVersionUID = 8794147005620814516L;
-
+   private ApartmentTableModelTop topModel;
    /**
     * @param apartment
     *           Apartment to view in ApartmentPanel.
@@ -37,7 +40,7 @@ public class ApartmentPanel extends JPanel {
       // ui components
       final JPanel pnlHeader = new JPanel(new FlowLayout());
       final JLabel lblApartment = new JLabel("Apartment " + apartment.getID());
-      final JButton btnDelete = new JButton(Strings.DELWSPACE);
+      final JButton btnDelete = new JButton(Strings.DELWSPACE + " apartment");
       
       // final JLabel lblMeter = new JLabel("|Meter: "
       // + apartment.getMeter(0));
@@ -48,7 +51,9 @@ public class ApartmentPanel extends JPanel {
       pnlHeader.add(btnDelete);
       // pnlHeader.add(lblMeter);
       // pnlHeader.add(lblTenant);
-      JTable tableTop = new JTable(new ApartmentTableModelTop(apartment));
+      topModel = new ApartmentTableModelTop(apartment);
+      final JTable tableTop = new JTable(topModel);
+      tableTop.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
       
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
@@ -64,17 +69,14 @@ public class ApartmentPanel extends JPanel {
 
       add(pnlHeader, BorderLayout.NORTH);
       add(pnlMain, BorderLayout.CENTER);
-  
    
-//   
-//   btnDelete.addActionListener(new ActionListener(){
-//      @Override
-//      public void actionPerformed(final ActionEvent e){
-//        ApartmentTableModelTop tableMTop = tableMTop.delete(apartment);
-//      }
-//
-// 
-//   });
+      btnDelete.addActionListener(new ActionListener(){
+    	  @Override
+    	  public void actionPerformed(final ActionEvent e){
+    		  topModel.deleteSelectedApartment(tableTop.getSelectedRow());
+    		  tableTop.revalidate();
+    	  }
+      });
 }  
 
 }

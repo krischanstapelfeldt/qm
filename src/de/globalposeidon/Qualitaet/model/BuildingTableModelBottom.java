@@ -6,7 +6,11 @@ import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
-// // configure TabelModel Bottom
+/**
+ * TableModel for BuildingPanel
+ * @author Hadschii
+ *
+ */
 public class BuildingTableModelBottom extends AbstractTableModel {
 
    private static final long serialVersionUID = -7166828471266641592L;
@@ -16,27 +20,15 @@ public class BuildingTableModelBottom extends AbstractTableModel {
    static final int EMAIL = 3;
    private String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
    private final Building building;
-
+   /**
+    * Konstruktor.
+    * @param building building
+    */
    public BuildingTableModelBottom(final Building building) {
       this.building = building;
    }
-
-   public final int addElement(final Renter renter) {
-      building.setRenter(renter);
-      fireTableDataChanged();
-      return 1;
-   }
-
-   public final void removeElement(final Renter renter) {
-      building.setRenter(null);
-      fireTableDataChanged();
-   }
-
-   public final void setEntries(final ArrayList<Renter> dataList) {
-      clear();
-      building.setRenter(dataList.get(0));
-   }
-
+   
+// ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblTop[i];
@@ -50,15 +42,6 @@ public class BuildingTableModelBottom extends AbstractTableModel {
    @Override
    public final int getRowCount() {
       return 1;
-   }
-
-   public final Object getRowAt(final int row) {
-      return building.getRenter();
-   }
-
-   public final void setRowAt(final Renter renter, final int row) {
-      building.setRenter(renter);
-      fireTableRowsUpdated(row, row);
    }
 
    @Override
@@ -107,25 +90,5 @@ public class BuildingTableModelBottom extends AbstractTableModel {
       if (columnIndex == EMAIL) {
          building.getRenter().setEmail((String) currentValue);
       }
-   }
-
-   public final void clear() {
-      final int rows = getRowCount();
-      building.setRenter(null);
-      fireTableRowsDeleted(0, rows);
-   }
-
-   public final String[] getHeaders() {
-      return titleTblTop;
-   }
-
-   public final ArrayList<Renter> getRowList() {
-      final ArrayList<Renter> tmpList = new ArrayList<Renter>();
-      tmpList.add(building.getRenter());
-      return tmpList;
-   }
-
-   public final void setHeaders(final String[] headers) {
-      titleTblTop = headers;
    }
 }

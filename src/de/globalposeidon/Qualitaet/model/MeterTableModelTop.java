@@ -4,79 +4,86 @@
 
 import de.globalposeidon.Qualitaet.Strings;
 
- //// configure TabelModel Bottom
- public class MeterTableModelTop extends AbstractTableModel {
+/**
+ * TableModel for Meterpanel.
+ * @author Hadschii
+ *
+ */
+public class MeterTableModelTop extends AbstractTableModel {
 
- private static final long serialVersionUID = -7166828471266641592L;
+	private static final long serialVersionUID = -7166828471266641592L;
 
-static final int METERID = 0;
-static final int METERTYPE = 1;
-static final int METERVALUE = 2;
-static final int METERYEARVALUE = 3;
-static final int LASTREAD = 4; 
- 
-private Meter meter;
- 
-private String[] titleTblTop = new String[]{Strings.METERID, Strings.METERTYPE, Strings.CURRENTVALUE, Strings.YEARVALUE, Strings.LASTREAD};
-
- public MeterTableModelTop(final Meter meter) {
-	 this.meter = meter;
- }
-    
-    
- @Override
- public int getColumnCount() {
-   return titleTblTop.length;
- }
-
- @Override
- public int getRowCount() {
-   
-    return 1;
- }
-
- public String getColumnName(final int i){
-    return titleTblTop[i];
- }
- 
- @Override
- public Object getValueAt(int rowIndex, int columnIndex) {
-	 if (columnIndex == METERID) {
-         return meter.getID();
-      }
-	 if (columnIndex == METERTYPE) {
-         return meter.getType();
-      }
-	 if (columnIndex == METERVALUE) {
-         return meter.getCurrentValue();
-      }
-	 if (columnIndex == METERYEARVALUE) {
-         return meter.getYearValue();
-      }
-	 if (columnIndex == LASTREAD) {
-         return meter.getLastRead();
-      }
-      return null;
- }
- 
- @Override
- public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
-	 if (columnIndex == METERID) {
-         return true;
-      }
-	 else if (columnIndex == METERTYPE) {
-         return true;
-      }
-	 else if (columnIndex == METERVALUE) {
-         return true;
-      }
-	 else if (columnIndex == METERYEARVALUE) {
-         return true;
-      }
-	 else if (columnIndex == LASTREAD) {
-         return true;
-      }
-      return false;
- }
+	static final int METERID = 0;
+	static final int METERTYPE = 1;
+	static final int METERVALUE = 2;
+	static final int METERYEARVALUE = 3;
+	static final int LASTREAD = 4; 
+	 
+	private Meter meter;
+	 
+	private String[] titleTblTop = new String[]{Strings.METERID, Strings.METERTYPE, Strings.CURRENTVALUE, Strings.YEARVALUE, Strings.LASTREAD};
+	/**
+	 * Konstruktor.
+	 * @param meter meter
+	 */
+	 public MeterTableModelTop(final Meter meter) {
+		 this.meter = meter;
+	 }
+	    
+// ----------- Abstract Table Model Methods	    
+	 @Override
+	 public int getColumnCount() {
+	   return titleTblTop.length;
+	 }
+	
+	 @Override
+	 public int getRowCount() {
+	   
+	    return 1;
+	 }
+	@Override
+	 public String getColumnName(final int i){
+	    return titleTblTop[i];
+	 }
+	 
+	 @Override
+	 public Object getValueAt(int rowIndex, int columnIndex) {
+		 if (columnIndex == METERID) {
+	         return meter.getID();
+	      }
+		 if (columnIndex == METERTYPE) {
+	         return meter.getType();
+	      }
+		 if (columnIndex == METERVALUE) {
+	         return meter.getCurrentValue();
+	      }
+		 if (columnIndex == METERYEARVALUE) {
+	         return meter.getYearValue();
+	      }
+		 if (columnIndex == LASTREAD) {
+	         return meter.getLastRead();
+	      }
+	      return null;
+	 }
+	 
+	 @Override
+	 public final boolean isCellEditable(final int rowIndex, final int columnIndex) {
+		 if (columnIndex == METERID) {
+	         return true;
+	      }
+		 else if (columnIndex == METERTYPE) {
+	         return true;
+	      }
+		 else if (columnIndex == METERVALUE) {
+	         return true;
+	      }
+		 else if (columnIndex == METERYEARVALUE) {
+	         return true;
+	      }
+		 else if (columnIndex == LASTREAD) {
+	         return true;
+	      }
+	      return false;
+	 }
  
 }

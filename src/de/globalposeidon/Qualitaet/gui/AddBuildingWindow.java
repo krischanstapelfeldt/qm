@@ -39,7 +39,7 @@ public class AddBuildingWindow extends JDialog {
 
       // ui components
       final JPanel contentPnl = new JPanel(new BorderLayout());
-      final JPanel tfPnl = new JPanel(new GridLayout(2, 4, 2, 2));
+      final JPanel tfPnl = new JPanel(new GridLayout(6, 2, 0, 0)); 
       final JLabel descriptionLbl = new JLabel("This will add a new building with a random ID and a given Renter to the tree");
       final JLabel lblBuildingName = new JLabel("Building Name"); tfBuildingName = new JTextField("");
       final JLabel lblFirstname = new JLabel("Firstname"); tfFirstname = new JTextField("");
@@ -47,6 +47,7 @@ public class AddBuildingWindow extends JDialog {
       final JLabel lblTel = new JLabel("Phone");tfTel = new JTextField("");
       final JLabel lblEmail = new JLabel("Mail");tfEmail = new JTextField("");
       tfPnl.add(lblBuildingName); tfPnl.add(tfBuildingName);
+      tfPnl.add(new JLabel("Renter:")); tfPnl.add(new JLabel("")); // empty row
       tfPnl.add(lblFirstname); tfPnl.add(tfFirstname);
       tfPnl.add(lblSurname); tfPnl.add(tfSurname);
       tfPnl.add(lblTel); tfPnl.add(tfTel);

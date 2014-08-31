@@ -8,7 +8,11 @@ import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
-// configure TabelModel Top
+/**
+ * Tablemodel for Apartmentpanel.
+ * @author Hadschii
+ *
+ */
 public class ApartmentTableModelTop extends AbstractTableModel {
 
    private static final long serialVersionUID = -7166828471266641592L;
@@ -18,61 +22,24 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    private static final int PHONE = 2;
    private static final int EMAIL = 3;
    
-   private Vector<TableModelListener> tableListener = new Vector<TableModelListener>();
-
    private final Apartment apartment;
-   // set Table Top Column Header
    private String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
-
+   /**
+    * Konstruktor.
+    * @param apartment apartment
+    */
    public ApartmentTableModelTop(final Apartment apartment) {
       this.apartment = apartment;
-   
    }
-   public final int addElement(final Tenant tenant) {
-      apartment.addTenant(tenant);
-      fireTableDataChanged();
-      return apartment.tenantCount() - 1;
-   }
-
-   public final void removeElement(final Tenant tenant) {
-      apartment.getTenants().remove(tenant);
-      fireTableDataChanged();
+   /**
+    * Method to delete a given row.
+    * @param row row
+    */
+   public void deleteSelectedApartment(int row) {
+	   apartment.removeTenant(row);
    }
 
-   @Override
-   public void addTableModelListener(TableModelListener l) {
-      // TODO Auto-generated method stub
-      tableListener.add(l);
-   }
-   
-//   public void delete(Apartment apartment) {
-//      
-//      int index = apartment.tenantCount();
-//      if (index >= 0) {
-//          apartment.remove(index);
-//          fireTableRowsDeleted(index, index);
-//      }
-//      if(rowIndex < 0) {
-//         return;
-//      }
-//    apartment.getTenants().remove(rowIndex);
-//      this.fireTableRowsDeleted(rowIndex, rowIndex);
-// 
-//      TableModelEvent event = new TableModelEvent(this, rowIndex, rowIndex, TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE);
-//  
-//      for(int i = 0, n = tableListener.size(); i < n; i++) {
-//         ((TableModelListener)tableListener.get(i)).tableChanged(event);
-//     }
-// }
-   
-   
-   public final void setEntries(final ArrayList<Tenant> dataList) {
-      clear();
-      for (int row = 0; row < dataList.size(); row++) {
-         apartment.getTenants().add(dataList.get(row));
-      }
-   }
-
+// ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblTop[i];
@@ -82,18 +49,9 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    public final int getColumnCount() {
       return titleTblTop.length;
    }
-
+   @Override
    public final int getRowCount() {
       return apartment.getTenants().size();
-   }
-
-   public final Object getRowAt(final int row) {
-      return apartment.getTenants().get(row);
-   }
-
-   public final void setRowAt(final Tenant tenant, final int row) {
-      apartment.getTenants().set(row, tenant);
-      fireTableRowsUpdated(row, row);
    }
 
    @Override
@@ -142,25 +100,5 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       if (columnIndex == EMAIL) {
          apartment.getTenants().get(rowIndex).setEmail((String) currentValue);
       }
-   }
-
-   public final void clear() {
-      final int rows = getRowCount();
-      apartment.getTenants().clear();
-      fireTableRowsDeleted(0, rows);
-   }
-
-   public final String[] getHeaders() {
-      return titleTblTop;
-   }
-
-   public final ArrayList<Tenant> getRowList() {
-      return apartment.getTenants();
-   }
-
-   public final void setHeaders(final String[] headers) {
-      titleTblTop = headers;
-   }
-
-   
+   }   
 }
