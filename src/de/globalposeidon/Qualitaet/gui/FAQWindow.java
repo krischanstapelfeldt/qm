@@ -27,6 +27,7 @@ public class FAQWindow extends JDialog {
       contentPnl.add(textArea, BorderLayout.NORTH);
       
       this.add(contentPnl);
+      
       // layout
       pack();
       setLocationRelativeTo(parent);
