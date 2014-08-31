@@ -286,6 +286,7 @@ public class MainWindow extends JFrame {
                panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Entrance) {
+               setCurrentBuilding((Building) node.getParent());
                setCurrentEntrance((Entrance) node);
                // in case of switched building, set rest null
                setCurrentApartment(null);
@@ -309,6 +310,7 @@ public class MainWindow extends JFrame {
                panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else if (node instanceof Apartment) {
+               setCurrentEntrance((Entrance) node.getParent());
                setCurrentApartment((Apartment) node);
                // also set other buttons enabled/disabled
                btnAddEntrance.setEnabled(true);
@@ -356,9 +358,7 @@ public class MainWindow extends JFrame {
                btnAddMeter.setEnabled(false);
                btnAddTenant.setEnabled(false);
                btnDelete.setEnabled(false);
-
             }
-
          }
 
       });
@@ -466,14 +466,14 @@ public class MainWindow extends JFrame {
                new InfoDialog("INFO", "Zaehler entfernt");
             }
             treeModel.reload();
-            cntPanel.removeAll(); // not working
+            cntPanel.removeAll();
+            cntPanel.repaint();
          }
       });
-
-//       TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
-//       "8");
-//       tree.setSelectionPath(path);
-//       tree.scrollPathToVisible(path);
+//      TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
+//    	       "8");
+//    	       tree.setSelectionPath(path);
+//    	       tree.scrollPathToVisible(path);
    }
 
    /**
@@ -569,7 +569,7 @@ public class MainWindow extends JFrame {
                      node_r = enumr.nextElement();
                      if (node_r.getClass() == Meter.class) {
                         Meter meter = (Meter) node_r;
-                        System.out.println(node_r);
+//                        System.out.println(node_r);
                         if (meter.getID() == new Integer(s))
                            return new TreePath(node.getPath());
                      }
@@ -582,11 +582,6 @@ public class MainWindow extends JFrame {
             // Ja, das knallt manchmal, aber das kann ignoriert werden
          }
       }
-
-      System.out.println("find() - just before while loop");
-      // while (e.hasMoreElements()) {
-      //
-      // }
       return null;
    }
 }
