@@ -438,15 +438,24 @@ public class MainWindow extends JFrame {
             /* React to the node selection. */
             if (node instanceof Building) {
                if (((Building) node).buildingIsEmpty()) {
-                  model.removeBuilding(selectedBuilding());
+            	   model.removeBuilding(selectedBuilding());
+            	   new InfoDialog("INFO", "Gebaude entfernt");
+               } else {
+            	   new InfoDialog("ERROR", "Gebaude nicht leer");
                }
             } else if (node instanceof Entrance) {
                if (((Entrance) node).entranceIsEmpty()) {
                   selectedBuilding().getEntrances().remove(node);
+                  new InfoDialog("INFO", "Eingang entfernt");
+               } else {
+            	   new InfoDialog("ERROR", "Eingang nicht leer");
                }
             } else if (node instanceof Apartment) {
                if (((Apartment) node).apartmentIsEmpty()) {
                   selectedEntrance().getApartments().remove(node);
+                  new InfoDialog("INFO", "Apartment entfernt");
+               } else {
+            	   new InfoDialog("ERROR", "Apartment nicht leer");
                }
             } else if (node instanceof Meter) {
                if (selectedApartment() != null) {
@@ -454,15 +463,17 @@ public class MainWindow extends JFrame {
                } else {
                   selectedEntrance().getMeters().remove(node);
                }
+               new InfoDialog("INFO", "Zaehler entfernt");
             }
             treeModel.reload();
+            cntPanel.removeAll(); // not working
          }
       });
 
-       TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
-       "8");
-       tree.setSelectionPath(path);
-       tree.scrollPathToVisible(path);
+//       TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
+//       "8");
+//       tree.setSelectionPath(path);
+//       tree.scrollPathToVisible(path);
    }
 
    /**

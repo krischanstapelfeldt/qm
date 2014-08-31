@@ -31,6 +31,7 @@ public class InfoDialog extends JDialog {
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		setAlwaysOnTop(true);
+		setSize(200, 75);
 		
 		JLabel lblInfoText = new JLabel(text);
 		JButton btnOK = new JButton(Strings.OK);
@@ -44,7 +45,7 @@ public class InfoDialog extends JDialog {
 		add(lblInfoText, BorderLayout.CENTER);
 		add(btnOK, BorderLayout.SOUTH);
 		
-		pack();
+//		pack();
 		setVisible(true);
 	}
 
