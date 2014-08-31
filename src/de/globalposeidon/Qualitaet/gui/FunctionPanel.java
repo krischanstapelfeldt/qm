@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -36,8 +37,8 @@ public class FunctionPanel extends JPanel {
    // declare TextField
    private final JTextField tfMeterId = new JTextField();
    private final JTextField tfReadingVal = new JTextField();
-//   private final JTextField tfPerson = new JTextField();
-//   private final JTextField tfReadingInfo = new JTextField();
+   // private final JTextField tfPerson = new JTextField();
+   // private final JTextField tfReadingInfo = new JTextField();
 
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
@@ -51,31 +52,32 @@ public class FunctionPanel extends JPanel {
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
    private final JSeparator separatorRight = new JSeparator();
-   
+
    // set Combobox
-   
+
    private JComboBox cbPerson;
    private JComboBox cbReadInfo;
    private DefaultComboBoxModel cbModelPerson;
    private DefaultComboBoxModel cmModelReadInfo;
-   
+
    /**
     * Konstruktor.
-    * @param parent parent.
+    * 
+    * @param parent
+    *           parent.
     */
    public FunctionPanel(final MainWindow parent) {
       final GridBagLayout gridBagLayout = new GridBagLayout();
       setLayout(gridBagLayout);
-      
-      
+
       cbPerson = new JComboBox(MeterReader.values());
-      for(int i = 0; i < cbPerson.getItemCount(); i++){
+      for (int i = 0; i < cbPerson.getItemCount(); i++) {
       }
-     
-      cbReadInfo = new JComboBox (ReadingInfo.values());
-      for(int i = 0; i < cbReadInfo.getItemCount(); i++){
+
+      cbReadInfo = new JComboBox(ReadingInfo.values());
+      for (int i = 0; i < cbReadInfo.getItemCount(); i++) {
       }
-         
+
       final GridBagConstraints gbcLblMeterSearch = new GridBagConstraints();
       gbcLblMeterSearch.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcLblMeterSearch.gridx = Strings.ONE;
@@ -93,8 +95,6 @@ public class FunctionPanel extends JPanel {
       gbcLblMakeReading.gridx = Strings.SIX;
       gbcLblMakeReading.gridy = Strings.ONE;
       add(lblMakeReading, gbcLblMakeReading);
-      
-      
 
       final GridBagConstraints gbcLblReadVal = new GridBagConstraints();
       gbcLblReadVal.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
@@ -201,24 +201,38 @@ public class FunctionPanel extends JPanel {
          public void actionPerformed(final ActionEvent e) {
          }
       });
+
+      btnSave.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            MeterReader tmpMr = null;
+            ReadingInfo tmpP = null;
+            if (tfReadingVal.getText().equals("")) {
+               tfReadingVal.requestFocus();
+            } else {
+               if (cbPerson.getSelectedIndex() == 0) {
+                  tmpMr = MeterReader.JANITOR;
+                  System.out.println("janitor selected");
+               } else if (cbPerson.getSelectedIndex() == 1) {
+                  tmpMr = MeterReader.RENTER;
+                  System.out.println("renter selected");
+               } else if (cbPerson.getSelectedIndex() == 2) {
+                  tmpMr = MeterReader.ENERGYPROVIDER;
+                  System.out.println("energy selected");
+               }
+
+               if (cbReadInfo.getSelectedIndex() == 0) {
+                  tmpP = ReadingInfo.READING;
+               } else if (cbReadInfo.getSelectedIndex() == 1) {
+                  tmpP = ReadingInfo.ESTIMATION;
+               }
+
+               parent.selectedMeter().setCurrentValue(Integer.parseInt(tfReadingVal.getText()));
+               parent.selectedMeter().makeReading(new Date(), tmpMr, tmpP);
+            }
+         }
+      });
    }
-//      btnSave.addActionListener(new ActionListener() {
-//          @Override
-//          public void actionPerformed(final ActionEvent e) {
-//              if (tfReadingVal.getText().equals("")) {
-//                  tfReadingVal.requestFocus();
-//              } else if (tfReadingInfo.getText().equals("")) {
-//                  tfReadingInfo.requestFocus();
-//              } else if (tfPerson.getText().equals("")) {
-//                  tfPerson.requestFocus();
-//              } el se { // all fields valid
-//                  Meter meter = parent.selectedMeter();
-//                  meter.setCurrentValue(Integer.parseInt(tfReadingVal.getText()));
-//                  parent.selectedMeter().makeReading(new Date(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
-//              }
-//          }
-//       });
-//   }
 
    public final JRadioButton getRdbtnUnrented() {
       return rdbtnUnrented;

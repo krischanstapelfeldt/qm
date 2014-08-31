@@ -26,13 +26,16 @@ public final class Strings {
    public static final String DETAILS = "details";
    public static final String EDIT = "Edit";
    public static final String EMAIL = "email";
+   public static final String ENERGYPROVIDER = "energyprovider";
    public static final String ENTRANCE = "entrance";
+   public static final String ESTIMATION = "estimation";
    public static final String FAQ = "FAQ";
    public static final String FILE = "File";
    public static final String FIRSTNAME = "first name";
    public static final String GLOBALPOSEIDON = "Global Poseidon";
    public static final String HELP = "Help";
    public static final String HOUSENO = "House no.";
+   public static final String JANITOR = "janitor";
    public static final String LASTREAD = "lastread";
    public static final String MAKEREADING = "make reading";
    public static final String METER = "meter";
