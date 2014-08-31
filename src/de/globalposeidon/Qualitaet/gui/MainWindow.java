@@ -35,14 +35,26 @@ import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 
 /*
- * TODO MUSS WIP - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...) Suchen von Z�hlern! Ablesefunktion f�r Z�hler ben�tigt
- * Dropdown mit Auswahl f�r Reader und ReadingInfo Neue Ablesewerte und Datum k�nnen nur gr��er sein Verbrauch seit 1.1. anzeigen/berechnen
- * (Testdaten erzeugen!) Verbrauch/Tage seit der letzen Lesung -> Im Model! L�schen von Mietern Sortieren/Anzeige nach Vermietet und nicht
- * vermietet (im JTable Feld "Vermietet?" und danach abfragen?) TODO KANN Daten sicher (Funktioniert, nur ausgeklammert, f�r Vossi ggfs
- * aktivieren) Titel f�r JTables Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...) Anzeige im Content nach Start &
- * ohne Auswahl Edit aus Menu entfernen Spaces zwischen Trennstrichen im Contentpane Felder auf Eingaben pr�fen(reine Zahl, etc) Apartment
- * Button "delete" -> "delete tenant" und nur bei auswahl einblenden JTable Felder Gr��e an Inhalt anpassen?
- */
+ * TODO MUSS
+ * WIP - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...)
+ * Suchen von Z�hlern!
+ * Ablesefunktion f�r Z�hler ben�tigt Dropdown mit Auswahl f�r Reader und ReadingInfo
+ * Neue Ablesewerte und Datum k�nnen nur gr��er sein
+ * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
+ * Verbrauch/Tage seit der letzen Lesung -> Im Model!
+ * DONE - L�schen von Mietern
+ * Sortieren/Anzeige nach Vermietet und nicht vermietet (im JTable Feld "Vermietet?" und danach abfragen?)
+ *
+ * TODO KANN
+ * Daten sicher (Funktioniert, nur ausgeklammert, f�r Vossi ggfs aktivieren)
+ * Titel f�r JTables
+ * Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
+ * Anzeige im Content nach Start & ohne Auswahl
+ * Edit aus Menu entfernen
+ * Spaces zwischen Trennstrichen im Contentpane
+ * Felder auf Eingaben pr�fen(reine Zahl, etc)
+ * Apartment Button "delete" -> "delete tenant" und nur bei auswahl einblenden
+ * JTable Felder Gr��e an Inhalt anpassen?*/
 
 /**
  * MainWindow Klasse.
@@ -447,38 +459,12 @@ public class MainWindow extends JFrame {
          }
       });
 
-      // TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
-      // "5");
-      // tree.setSelectionPath(path);
-      // tree.scrollPathToVisible(path);
+       TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
+       "8");
+       tree.setSelectionPath(path);
+       tree.scrollPathToVisible(path);
    }
 
-   // /**
-   // * Popup hinzu.
-   // * @param component comp
-   // * @param popup pop
-   // */
-   // private static void addPopup(final Component component, final JPopupMenu popup) {
-   // component.addMouseListener(new MouseAdapter() {
-   // @Override
-   // public void mousePressed(final MouseEvent e) {
-   // if (e.isPopupTrigger()) {
-   // showMenu(e);
-   // }
-   // }
-   //
-   // @Override
-   // public void mouseReleased(final MouseEvent e) {
-   // if (e.isPopupTrigger()) {
-   // showMenu(e);
-   // }
-   // }
-   //
-   // private void showMenu(final MouseEvent e) {
-   // popup.show(e.getComponent(), e.getX(), e.getY());
-   // }
-   // });
-   // }
    /**
     * Aktuelles Gebaude setzen.
     * @param building

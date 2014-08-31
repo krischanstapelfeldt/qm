@@ -82,6 +82,7 @@ public class AddMeterWindow extends JDialog {
 
    private void addMeter(int id, final Apartment apartment) {
       System.out.println("try to add meter to apartment...");
+      apartment.addMeter(new Meter(id, Metertype.GAS, apartment));
       dispose();
    }
 }
