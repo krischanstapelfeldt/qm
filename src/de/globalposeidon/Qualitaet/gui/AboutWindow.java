@@ -25,9 +25,9 @@ public class AboutWindow extends JDialog {
 
       final JPanel contentPnl = new JPanel(new BorderLayout());
       // add text
-      final JLabel lblAbout = new JLabel("Gebaueudeverwaltung\n" + "von Felske, Lauber, Stapelfeldt, Suhl\n"
-            + "fuer Grundlagen QM | Sommersemester 14");
 
+      final JLabel lblAbout = new JLabel("Gebäudeverwaltung\n" + "von Felske, Lauber, Stapelfeldt, Suhl\n"
+            + "für Grundlagen QM | Sommersemester 14");
 
       final JButton btnOk = new JButton(Strings.OK);
       contentPnl.add(lblAbout, BorderLayout.NORTH);
