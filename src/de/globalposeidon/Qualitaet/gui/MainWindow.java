@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Enumeration;
 
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
@@ -18,7 +19,9 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.UIManager;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import org.slf4j.Logger;
@@ -32,32 +35,18 @@ import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 
 /*
- * TODO MUSS
- * WIP - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...)
- * Suchen von Z�hlern!
- * Ablesefunktion f�r Z�hler ben�tigt Dropdown mit Auswahl f�r Reader und ReadingInfo
- * Neue Ablesewerte und Datum k�nnen nur gr��er sein
- * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
- * Verbrauch/Tage seit der letzen Lesung -> Im Model!
- * DONE - L�schen von Mietern
- * Sortieren/Anzeige nach Vermietet und nicht vermietet (im JTable Feld "Vermietet?" und danach abfragen?)
- *
- * TODO KANN
- * Daten sicher (Funktioniert, nur ausgeklammert, f�r Vossi ggfs aktivieren)
- * Titel f�r JTables
- * Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
- * Anzeige im Content nach Start & ohne Auswahl
- * Edit aus Menu entfernen
- * Spaces zwischen Trennstrichen im Contentpane
- * Felder auf Eingaben pr�fen(reine Zahl, etc)
- * Apartment Button "delete" -> "delete tenant" und nur bei auswahl einblenden
- * JTable Felder Gr��e an Inhalt anpassen?
+ * TODO MUSS WIP - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...) Suchen von Z�hlern! Ablesefunktion f�r Z�hler ben�tigt
+ * Dropdown mit Auswahl f�r Reader und ReadingInfo Neue Ablesewerte und Datum k�nnen nur gr��er sein Verbrauch seit 1.1. anzeigen/berechnen
+ * (Testdaten erzeugen!) Verbrauch/Tage seit der letzen Lesung -> Im Model! L�schen von Mietern Sortieren/Anzeige nach Vermietet und nicht
+ * vermietet (im JTable Feld "Vermietet?" und danach abfragen?) TODO KANN Daten sicher (Funktioniert, nur ausgeklammert, f�r Vossi ggfs
+ * aktivieren) Titel f�r JTables Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...) Anzeige im Content nach Start &
+ * ohne Auswahl Edit aus Menu entfernen Spaces zwischen Trennstrichen im Contentpane Felder auf Eingaben pr�fen(reine Zahl, etc) Apartment
+ * Button "delete" -> "delete tenant" und nur bei auswahl einblenden JTable Felder Gr��e an Inhalt anpassen?
  */
 
 /**
  * MainWindow Klasse.
  * @author Timm
- *
  */
 public class MainWindow extends JFrame {
 
@@ -73,7 +62,8 @@ public class MainWindow extends JFrame {
 
    /**
     * Konstruktor.
-    * @param model model
+    * @param model
+    *           model
     */
    public MainWindow(final DataContainer model) {
       super(Strings.GLOBALPOSEIDON);
@@ -102,7 +92,7 @@ public class MainWindow extends JFrame {
       // Treemodel with model
       treeModel = new MainTreeModel(model);
       final JTree tree = new JTree(treeModel);
-      tree.setRootVisible( false );
+      tree.setRootVisible(false);
 
       // MenuBar
       setJMenuBar(new MainMenuBar(this, model, treeModel));
@@ -137,7 +127,6 @@ public class MainWindow extends JFrame {
       // declare GroupLayout at rightpanel
       final GroupLayout glBottomRightPanel = new GroupLayout(pnlBottomRight);
       final GroupLayout glTopRightPanel = new GroupLayout(rightPanel);
-
 
       // declare buttons
       final JButton btnAddBuilding = new JButton(Strings.ADDBUILDING);
@@ -178,37 +167,37 @@ public class MainWindow extends JFrame {
             .createParallelGroup(Alignment.LEADING)
             .addGroup(
                   glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.TWO_HUNDRED, Short.MAX_VALUE))
-                  .addGroup(
-                        glLeftPanel
+            .addGroup(
+                  glLeftPanel
                         .createSequentialGroup()
                         .addContainerGap()
                         .addGroup(
                               glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
                                     Alignment.TRAILING,
                                     glLeftPanel
-                                    .createSequentialGroup()
-                                    .addGroup(
-                                          glLeftPanel
-                                          .createParallelGroup(Alignment.LEADING)
-                                          .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                Short.MAX_VALUE)
-                                                .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                      Short.MAX_VALUE)
+                                          .createSequentialGroup()
+                                          .addGroup(
+                                                glLeftPanel
+                                                      .createParallelGroup(Alignment.LEADING)
+                                                      .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
+                                                      .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
                                                       .addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                                             Short.MAX_VALUE)
-                                                            .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                                  Short.MAX_VALUE)
-                                                                  .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                                        Short.MAX_VALUE)
-                                                                        .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                                              Short.MAX_VALUE)).addContainerGap()))));
+                                                      .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
+                                                      .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)
+                                                      .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                            Short.MAX_VALUE)).addContainerGap()))));
 
       glLeftPanel.setVerticalGroup(glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
             glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.FOUR_HUNDRED, Short.MAX_VALUE)
-            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
-            .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
-            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
-            .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
+                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
+                  .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
+                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
+                  .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
 
       leftPanel.setLayout(glLeftPanel);
 
@@ -228,14 +217,14 @@ public class MainWindow extends JFrame {
 
       glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
             glTopRightPanel.createSequentialGroup()
-            .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-            .addGap(Strings.TEN)));
+                  .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                  .addGap(Strings.TEN)));
 
       rightPanel.setLayout(glTopRightPanel);
 
       // popup-menu for tree
-      //addPopup(tree, new MainPopupMenu());
+      // addPopup(tree, new MainPopupMenu());
 
       // tree with single selection mode
       tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
@@ -430,34 +419,33 @@ public class MainWindow extends JFrame {
          }
       });
       btnDelete.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(final ActionEvent e) {
+         @Override
+         public void actionPerformed(final ActionEvent e) {
 
-              final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
-              /* React to the node selection. */
-              if (node instanceof Building) {
-                  if (((Building) node).buildingIsEmpty()) {
-                      model.removeBuilding(selectedBuilding());
-                  }
-              } else if (node instanceof Entrance) {
-                  if (((Entrance) node).entranceIsEmpty()) {
-                      selectedBuilding().getEntrances().remove(node);
-                  }
-              } else if (node instanceof Apartment) {
-                  if (((Apartment) node).apartmentIsEmpty()) {
-                      selectedEntrance().getApartments().remove(node);
-                  }
-              } else if (node instanceof Meter) {
-                  if (selectedApartment() != null) {
-                      selectedApartment().getMeters().remove(node);
-                  } else {
-                      selectedEntrance().getMeters().remove(node);
-                  }
-              }
-              treeModel.reload();
-          }
-       });
-
+            final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
+            /* React to the node selection. */
+            if (node instanceof Building) {
+               if (((Building) node).buildingIsEmpty()) {
+                  model.removeBuilding(selectedBuilding());
+               }
+            } else if (node instanceof Entrance) {
+               if (((Entrance) node).entranceIsEmpty()) {
+                  selectedBuilding().getEntrances().remove(node);
+               }
+            } else if (node instanceof Apartment) {
+               if (((Apartment) node).apartmentIsEmpty()) {
+                  selectedEntrance().getApartments().remove(node);
+               }
+            } else if (node instanceof Meter) {
+               if (selectedApartment() != null) {
+                  selectedApartment().getMeters().remove(node);
+               } else {
+                  selectedEntrance().getMeters().remove(node);
+               }
+            }
+            treeModel.reload();
+         }
+      });
 
       // TreePath path = find((DefaultMutableTreeNode) treeModel.getRoot(),
       // "5");
@@ -465,40 +453,42 @@ public class MainWindow extends JFrame {
       // tree.scrollPathToVisible(path);
    }
 
-//   /**
-//    * Popup hinzu.
-//    * @param component comp
-//    * @param popup pop
-//    */
-//   private static void addPopup(final Component component, final JPopupMenu popup) {
-//      component.addMouseListener(new MouseAdapter() {
-//         @Override
-//         public void mousePressed(final MouseEvent e) {
-//            if (e.isPopupTrigger()) {
-//               showMenu(e);
-//            }
-//         }
-//
-//         @Override
-//         public void mouseReleased(final MouseEvent e) {
-//            if (e.isPopupTrigger()) {
-//               showMenu(e);
-//            }
-//         }
-//
-//         private void showMenu(final MouseEvent e) {
-//            popup.show(e.getComponent(), e.getX(), e.getY());
-//         }
-//      });
-//   }
+   // /**
+   // * Popup hinzu.
+   // * @param component comp
+   // * @param popup pop
+   // */
+   // private static void addPopup(final Component component, final JPopupMenu popup) {
+   // component.addMouseListener(new MouseAdapter() {
+   // @Override
+   // public void mousePressed(final MouseEvent e) {
+   // if (e.isPopupTrigger()) {
+   // showMenu(e);
+   // }
+   // }
+   //
+   // @Override
+   // public void mouseReleased(final MouseEvent e) {
+   // if (e.isPopupTrigger()) {
+   // showMenu(e);
+   // }
+   // }
+   //
+   // private void showMenu(final MouseEvent e) {
+   // popup.show(e.getComponent(), e.getX(), e.getY());
+   // }
+   // });
+   // }
    /**
     * Aktuelles Gebaude setzen.
-    * @param building Gebaude
+    * @param building
+    *           Gebaude
     */
    private void setCurrentBuilding(final Building building) {
 
       currentBuilding = building;
    }
+
    /**
     * Aktuelles Gebauede.
     * @return Gebaude
@@ -507,14 +497,17 @@ public class MainWindow extends JFrame {
 
       return currentBuilding;
    }
+
    /**
     * Aktuellen Eingang setzen.
-    * @param entrance Eingang
+    * @param entrance
+    *           Eingang
     */
    private void setCurrentEntrance(final Entrance entrance) {
 
       currentEntrance = entrance;
    }
+
    /**
     * Aktueller Eingang.
     * @return Eingang
@@ -523,14 +516,17 @@ public class MainWindow extends JFrame {
 
       return currentEntrance;
    }
+
    /**
     * Aktuelles Apartment setzen.
-    * @param apartment Apartment
+    * @param apartment
+    *           Apartment
     */
    private void setCurrentApartment(final Apartment apartment) {
 
       currentApartment = apartment;
    }
+
    /**
     * Aktuelles Apartment.
     * @return apartment
@@ -539,14 +535,17 @@ public class MainWindow extends JFrame {
 
       return currentApartment;
    }
+
    /**
     * Aktuellen Zaehler setzen.
-    * @param meter Zaehler
+    * @param meter
+    *           Zaehler
     */
    private void setCurrentMeter(final Meter meter) {
 
       currentMeter = meter;
    }
+
    /**
     * Aktuelle Zaehler.
     * @return Zaehler
@@ -556,22 +555,41 @@ public class MainWindow extends JFrame {
       return currentMeter;
    }
 
-// should be called from within the function panel
-//   public void findMeter(String meterID) {
-//	   find(treeModel.def, meterID);
-//   }
+   public void findMeter(String meterID) {
+      find((DefaultMutableTreeNode) treeModel.getRoot(), meterID);
+   }
 
-//   private TreePath find(final DefaultMutableTreeNode root, final String s) {
-//      @SuppressWarnings("unchecked")
-//      final Enumeration<DefaultMutableTreeNode> e = root.depthFirstEnumeration();
-//      System.out.println("find() - just before while loop");
-//      while (e.hasMoreElements()) {
-//         final DefaultMutableTreeNode node = e.nextElement();
-//         System.out.println("find() - just after next element");
-//         if (node.toString().equalsIgnoreCase(s)) {
-//            return new TreePath(node.getPath());
-//         }
-//      }
-//      return null;
-//   }
+   private TreePath find(final DefaultMutableTreeNode root, final String s) {
+
+      for (Enumeration<DefaultMutableTreeNode> e = root.preorderEnumeration(); e.hasMoreElements();) {
+         DefaultMutableTreeNode node = null;
+         try {
+            node = e.nextElement();
+            if (node.getChildCount() > 0) {
+               for (Enumeration<DefaultMutableTreeNode> enumr = node.children(); enumr.hasMoreElements();) {
+                  DefaultMutableTreeNode node_r = null;
+                  try {
+                     node_r = enumr.nextElement();
+                     if (node_r.getClass() == Meter.class) {
+                        Meter meter = (Meter) node_r;
+                        System.out.println(node_r);
+                        if (meter.getID() == new Integer(s))
+                           return new TreePath(node.getPath());
+                     }
+                  } catch (Exception exa) {
+                       // Ja, das knallt manchmal, aber das kann ignoriert werden
+                  }
+               }
+            }
+         } catch (Exception e2) {
+            // Ja, das knallt manchmal, aber das kann ignoriert werden
+         }
+      }
+
+      System.out.println("find() - just before while loop");
+      // while (e.hasMoreElements()) {
+      //
+      // }
+      return null;
+   }
 }
