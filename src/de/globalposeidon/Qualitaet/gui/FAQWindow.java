@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +24,11 @@ public class FAQWindow extends JDialog {
       setTitle("faq");
       // add text
       final JPanel contentPnl = new JPanel(new BorderLayout());
-      final JTextArea textArea = new JTextArea("Hier eine FAQ schreiben...");
+      final JLabel lblFaq = new JLabel("Hier eine FAQ schreiben...");
 
       JButton btnOk = new JButton(Strings.OK);
       contentPnl.add(btnOk, BorderLayout.SOUTH);
-      contentPnl.add(textArea, BorderLayout.NORTH);
+      contentPnl.add(lblFaq, BorderLayout.NORTH);
 
       this.add(contentPnl);
 
