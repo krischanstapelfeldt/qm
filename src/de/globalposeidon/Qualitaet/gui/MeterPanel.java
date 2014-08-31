@@ -30,10 +30,10 @@ public class MeterPanel extends JPanel {
       // ui components
       final JPanel pnlHeader = new JPanel(new FlowLayout());
       final JLabel lblId = new JLabel(Strings.METER + meter.getID());
-      final JLabel lblMeterType = new JLabel("|" + Strings.METERTYPE + ": " + meter.getType());
-      final JLabel lblCurValue = new JLabel("|" + Strings.CURRENTVALUE + ": " + meter.getCurrentValue());
-      final JLabel lblYearValue = new JLabel("|" + Strings.YEARVALUE + ": " + meter.getYearValue());
-      final JLabel lblLastRead = new JLabel("|" + Strings.LASTREAD + ": " + meter.getLastRead());
+      final JLabel lblMeterType = new JLabel(" | " + Strings.METERTYPE + ": " + meter.getType());
+      final JLabel lblCurValue = new JLabel(" | " + Strings.CURRENTVALUE + ": " + meter.getCurrentValue());
+      final JLabel lblYearValue = new JLabel(" | " + Strings.YEARVALUE + ": " + meter.getYearValue());
+      final JLabel lblLastRead = new JLabel(" | " + Strings.LASTREAD + ": " + meter.getLastRead());
 
       pnlHeader.add(lblId);
       pnlHeader.add(lblMeterType);
