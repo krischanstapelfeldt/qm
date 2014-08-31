@@ -8,77 +8,60 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreePath;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.MeterReader;
 import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 public class FunctionPanel extends JPanel {
-
+   private final Logger logger = LoggerFactory.getLogger(FunctionPanel.class);
    private static final long serialVersionUID = 5869251984510316018L;
    // declare Labels
    private final JLabel lblMeterId = new JLabel(Strings.METERID);
    private final JLabel lblMeterSearch = new JLabel(Strings.METERSEARCH);
    private final JLabel lblReadVal = new JLabel(Strings.READINGVALUE);
    private final JLabel lblReadPers = new JLabel(Strings.READINGPERSON);
-//   private final JLabel lblSort = new JLabel(Strings.SORT);
    private final JLabel lblMakeReading = new JLabel(Strings.MAKEREADING);
    private final JLabel lblReadInfo = new JLabel(Strings.READINGINFO);
 
    // declare TextField
    private final JTextField tfMeterId = new JTextField();
    private final JTextField tfReadingVal = new JTextField();
-   // private final JTextField tfPerson = new JTextField();
-   // private final JTextField tfReadingInfo = new JTextField();
 
    // declare Buttons
    private final JButton btnSave = new JButton(Strings.SAVE);
    private final JButton btnSearch = new JButton(Strings.SEARCH);
 
-   // declare Radiobuttons
-//   private final JRadioButton rdbtnUnsorted = new JRadioButton(Strings.UNSORTED, true);
-//   private final JRadioButton rdbtnRented = new JRadioButton(Strings.RENTED, false);
-//   private final JRadioButton rdbtnUnrented = new JRadioButton(Strings.UNRENTED, false);
-
    // declare Separator
    private final JSeparator separatorLeft = new JSeparator();
-//   private final JSeparator separatorRight = new JSeparator();
 
    // set Combobox
 
-   private JComboBox cbPerson;
-   private JComboBox cbReadInfo;
-   private DefaultComboBoxModel cbModelPerson;
-   private DefaultComboBoxModel cmModelReadInfo;
+   private final JComboBox<?> cbPerson;
+   private final JComboBox<?> cbReadInfo;
 
    /**
     * Konstruktor.
-    * 
     * @param parent
     *           parent.
     */
+   @SuppressWarnings({"unchecked", "rawtypes"})
    public FunctionPanel(final MainWindow parent) {
       final GridBagLayout gridBagLayout = new GridBagLayout();
       setLayout(gridBagLayout);
 
       cbPerson = new JComboBox(MeterReader.values());
-      for (int i = 0; i < cbPerson.getItemCount(); i++) {
-      }
-
       cbReadInfo = new JComboBox(ReadingInfo.values());
-      for (int i = 0; i < cbReadInfo.getItemCount(); i++) {
-      }
 
       final GridBagConstraints gbcLblMeterSearch = new GridBagConstraints();
       gbcLblMeterSearch.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.FIVE, Strings.FIVE);
@@ -133,12 +116,6 @@ public class FunctionPanel extends JPanel {
       gbcSeparatorLeft.gridy = Strings.ZERO;
       add(separatorLeft, gbcSeparatorLeft);
 
-//      final GridBagConstraints gbcLblSort = new GridBagConstraints();
-//      gbcLblSort.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.FIVE, Strings.FIVE);
-//      gbcLblSort.gridx = Strings.TEN;
-//      gbcLblSort.gridy = Strings.ONE;
-//      add(lblSort, gbcLblSort);
-
       final GridBagConstraints gbcTfReadingVal = new GridBagConstraints();
       gbcTfReadingVal.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcTfReadingVal.gridx = Strings.SIX;
@@ -158,34 +135,6 @@ public class FunctionPanel extends JPanel {
       gbcTfReadingInfo.gridy = Strings.FOUR;
       add(getCbReadingInfo(), gbcTfReadingInfo);
 
-//      separatorRight.setOrientation(SwingConstants.VERTICAL);
-//      separatorRight.setForeground(Color.DARK_GRAY);
-//      final GridBagConstraints gbcSeparatorRight = new GridBagConstraints();
-//      gbcSeparatorRight.fill = GridBagConstraints.VERTICAL;
-//      gbcSeparatorRight.gridheight = Strings.SIX;
-//      gbcSeparatorRight.insets = new Insets(Strings.ZERO, Strings.THIRTY, Strings.ZERO, Strings.THIRTY);
-//      gbcSeparatorRight.gridx = Strings.EIGHT;
-//      gbcSeparatorRight.gridy = Strings.ZERO;
-//      add(separatorRight, gbcSeparatorRight);
-//
-//      final GridBagConstraints gbcRdbtnUnsorted = new GridBagConstraints();
-//      gbcRdbtnUnsorted.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
-//      gbcRdbtnUnsorted.gridx = Strings.TEN;
-//      gbcRdbtnUnsorted.gridy = Strings.TWO;
-//      add(getRdbtnUnsorted(), gbcRdbtnUnsorted);
-//
-//      final GridBagConstraints gbcRdbtnRented = new GridBagConstraints();
-//      gbcRdbtnRented.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
-//      gbcRdbtnRented.gridx = Strings.TEN;
-//      gbcRdbtnRented.gridy = Strings.THREE;
-//      add(getRdbtnRented(), gbcRdbtnRented);
-//
-//      final GridBagConstraints gbcRdbtnUnrented = new GridBagConstraints();
-//      gbcRdbtnUnrented.insets = new Insets(Strings.TEN, Strings.ZERO, Strings.FIVE, Strings.ZERO);
-//      gbcRdbtnUnrented.gridx = Strings.TEN;
-//      gbcRdbtnUnrented.gridy = Strings.FOUR;
-//      add(getRdbtnUnrented(), gbcRdbtnUnrented);
-
       final GridBagConstraints gbcBtnSave = new GridBagConstraints();
       gbcBtnSave.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.ZERO, Strings.FIVE);
       gbcBtnSave.gridx = Strings.SIX;
@@ -201,9 +150,9 @@ public class FunctionPanel extends JPanel {
       btnSearch.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(final ActionEvent e) {
-        	if (!tfMeterId.getText().equals("")) {
-        		parent.findMeter(tfMeterId.getText());
-        	}
+            if (!tfMeterId.getText().equals("")) {
+               parent.findMeter(tfMeterId.getText());
+            }
          }
       });
 
@@ -217,13 +166,13 @@ public class FunctionPanel extends JPanel {
             } else {
                if (cbPerson.getSelectedIndex() == 0) {
                   tmpMr = MeterReader.JANITOR;
-                  System.out.println("janitor selected");
+                  logger.debug("janitor selected");
                } else if (cbPerson.getSelectedIndex() == 1) {
                   tmpMr = MeterReader.RENTER;
-                  System.out.println("renter selected");
+                  logger.debug("renter selected");
                } else if (cbPerson.getSelectedIndex() == 2) {
                   tmpMr = MeterReader.ENERGYPROVIDER;
-                  System.out.println("energy selected");
+                  logger.debug("energy selected");
                }
 
                if (cbReadInfo.getSelectedIndex() == 0) {
@@ -240,23 +189,11 @@ public class FunctionPanel extends JPanel {
       });
    }
 
-//   public final JRadioButton getRdbtnUnrented() {
-//      return rdbtnUnrented;
-//   }
-//
-//   public final JRadioButton getRdbtnRented() {
-//      return rdbtnRented;
-//   }
-//
-//   public final JRadioButton getRdbtnUnsorted() {
-//      return rdbtnUnsorted;
-//   }
-
-   public final JComboBox getCbReadingInfo() {
+   public final JComboBox<?> getCbReadingInfo() {
       return cbReadInfo;
    }
 
-   public final JComboBox getCbPerson() {
+   public final JComboBox<?> getCbPerson() {
       return cbPerson;
    }
 

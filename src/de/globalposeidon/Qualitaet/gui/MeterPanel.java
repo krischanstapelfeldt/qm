@@ -41,7 +41,6 @@ public class MeterPanel extends JPanel {
       pnlHeader.add(lblYearValue);
       pnlHeader.add(lblLastRead);
 
-  
       // Initial JTable and Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       scrollPane.getViewport().setBackground(Color.white);

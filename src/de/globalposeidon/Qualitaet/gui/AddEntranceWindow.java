@@ -29,7 +29,8 @@ public class AddEntranceWindow extends JDialog {
 
       // ui components
       final JPanel contentPnl = new JPanel(new FlowLayout());
-      final JLabel descriptionLbl = new JLabel("This will add a new entrance with a random ID to the building with ID: " + building.getID());
+      final JLabel descriptionLbl = new JLabel("This will add a new entrance with a random ID"
+            + " to the building with ID: " + building.getID());
       contentPnl.add(descriptionLbl);
 
       final JPanel buttonPnl = new JPanel(new FlowLayout());

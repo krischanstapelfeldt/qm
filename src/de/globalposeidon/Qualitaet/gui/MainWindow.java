@@ -34,45 +34,24 @@ import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
 
-/*
- * TODO MUSS
- * DONE - Testdaten f�r alle Z�hler (unterschiedliche Werte, etc...)
- * DONE - Suchen von Z�hlern!
- * DONE - Ablesefunktion f�r Z�hler ben�tigt Dropdown mit Auswahl f�r Reader und ReadingInfo
- * Neue Ablesewerte und Datum k�nnen nur gr��er sein
- * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
- * Verbrauch/Tage seit der letzen Lesung -> Im Model!
- * DONE - L�schen von Mietern
- * Sortieren/Anzeige nach Vermietet und nicht vermietet (im JTable Feld "Vermietet?" und danach abfragen?)
- *
- * TODO KANN
- * Daten sicher (Funktioniert, nur ausgeklammert, f�r Vossi ggfs aktivieren)
- * Titel f�r JTables
- * DONE - Meldung �ber erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
- * DONE -Edit aus Menu entfernen
- * Spaces zwischen Trennstrichen im Contentpane
- * Felder auf Eingaben pr�fen(reine Zahl, etc)
- * Apartment Button "delete" -> "delete tenant" und nur bei auswahl einblenden
- * JTable Felder Gr��e an Inhalt anpassen?*/
-
 /**
  * MainWindow Klasse.
- * @author Timm
+ * @author Timm Suhl
  */
 public class MainWindow extends JFrame {
 
    private static final long serialVersionUID = 8601779252949758710L;
    private final Logger logger = LoggerFactory.getLogger(MainWindow.class);
-   private DataContainer model;
+   private final DataContainer model;
    private Building currentBuilding;
    private Entrance currentEntrance;
    private Apartment currentApartment;
    private Meter currentMeter;
 
-   public MainTreeModel treeModel;
-   public JTree tree;
-   JPanel cntPanel;
-   
+   private MainTreeModel treeModel;
+   private JTree tree;
+   private JPanel cntPanel;
+
    /**
     * Konstruktor.
     * @param model
@@ -103,12 +82,12 @@ public class MainWindow extends JFrame {
       setLocationRelativeTo(null);
 
       // Treemodel with model
-      treeModel = new MainTreeModel(model);
-      tree = new JTree(treeModel);
-      tree.setRootVisible(false);
+      setTreeModel(new MainTreeModel(model));
+      setTree(new JTree(getTreeModel()));
+      getTree().setRootVisible(false);
 
       // MenuBar
-      setJMenuBar(new MainMenuBar(this, model, treeModel));
+      setJMenuBar(new MainMenuBar(this, model, getTreeModel()));
 
       // Initial splitpanes
       final JSplitPane splitPane = new JSplitPane();
@@ -129,10 +108,10 @@ public class MainWindow extends JFrame {
       final JPanel pnlFunction = new JPanel();
 
       // Set contentPanel
-      cntPanel = new JPanel();
+      setCntPanel(new JPanel());
 
       // declare BorderLayout at contentPanel
-      cntPanel.setLayout(new BorderLayout());
+      getCntPanel().setLayout(new BorderLayout());
 
       // declare GroupLayout at leftpanel
       final GroupLayout glLeftPanel = new GroupLayout(leftPanel);
@@ -150,11 +129,7 @@ public class MainWindow extends JFrame {
       final JButton btnDelete = new JButton(Strings.DELWSPACE);
 
       final FunctionPanel panelFunction = new FunctionPanel(this);
-      // add radiobuttons to a group
-      final ButtonGroup rdGroup = new ButtonGroup();
-//      rdGroup.add(panelFunction.getRdbtnUnsorted());
-//      rdGroup.add(panelFunction.getRdbtnRented());
-//      rdGroup.add(panelFunction.getRdbtnUnrented());
+      new ButtonGroup();
 
       // set buttons disabled to make them depending on node selection
       btnAddEntrance.setEnabled(false);
@@ -163,14 +138,15 @@ public class MainWindow extends JFrame {
       btnAddTenant.setEnabled(false);
       btnDelete.setEnabled(false);
 
-      // set texftfields and radiobutton disabled to make them depending on node
+      // set texftfields and radiobutton disabled to make them depending on
+      // node
       // selection
       panelFunction.getTfReadingVal().setEnabled(false);
       panelFunction.getCbPerson().setEnabled(false);
       panelFunction.getCbReadingInfo().setEnabled(false);
-//      panelFunction.getRdbtnUnsorted().setEnabled(false);
-//      panelFunction.getRdbtnRented().setEnabled(false);
-//      panelFunction.getRdbtnUnrented().setEnabled(false);
+      // panelFunction.getRdbtnUnsorted().setEnabled(false);
+      // panelFunction.getRdbtnRented().setEnabled(false);
+      // panelFunction.getRdbtnUnrented().setEnabled(false);
 
       // add FunctionPanel on BottomRightPanel
       pnlFunction.add(panelFunction);
@@ -179,38 +155,39 @@ public class MainWindow extends JFrame {
       glLeftPanel.setHorizontalGroup(glLeftPanel
             .createParallelGroup(Alignment.LEADING)
             .addGroup(
-                  glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.TWO_HUNDRED, Short.MAX_VALUE))
-            .addGroup(
-                  glLeftPanel
+                  glLeftPanel.createSequentialGroup().addComponent(getTree(), GroupLayout.DEFAULT_SIZE, Strings.TWO_HUNDRED,
+                        Short.MAX_VALUE))
+                  .addGroup(
+                        glLeftPanel
                         .createSequentialGroup()
                         .addContainerGap()
                         .addGroup(
                               glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
                                     Alignment.TRAILING,
                                     glLeftPanel
-                                          .createSequentialGroup()
-                                          .addGroup(
-                                                glLeftPanel
-                                                      .createParallelGroup(Alignment.LEADING)
-                                                      .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
-                                                      .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
+                                    .createSequentialGroup()
+                                    .addGroup(
+                                          glLeftPanel
+                                          .createParallelGroup(Alignment.LEADING)
+                                          .addComponent(btnAddTenant, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                Short.MAX_VALUE)
+                                                .addComponent(btnAddBuilding, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                      Short.MAX_VALUE)
                                                       .addComponent(btnAddApartment, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
                                                             Short.MAX_VALUE)
-                                                      .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
-                                                      .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)
-                                                      .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-                                                            Short.MAX_VALUE)).addContainerGap()))));
+                                                            .addComponent(btnAddMeter, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                                  Short.MAX_VALUE)
+                                                                  .addComponent(btnAddEntrance, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                                        Short.MAX_VALUE)
+                                                                        .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
+                                                                              Short.MAX_VALUE)).addContainerGap()))));
 
       glLeftPanel.setVerticalGroup(glLeftPanel.createParallelGroup(Alignment.LEADING).addGroup(
-            glLeftPanel.createSequentialGroup().addComponent(tree, GroupLayout.DEFAULT_SIZE, Strings.FOUR_HUNDRED, Short.MAX_VALUE)
-                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
-                  .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
-                  .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
-                  .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
+            glLeftPanel.createSequentialGroup().addComponent(getTree(), GroupLayout.DEFAULT_SIZE, Strings.FOUR_HUNDRED, Short.MAX_VALUE)
+            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddBuilding).addPreferredGap(ComponentPlacement.RELATED)
+            .addComponent(btnAddEntrance).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddApartment)
+            .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnAddMeter).addPreferredGap(ComponentPlacement.RELATED)
+            .addComponent(btnAddTenant).addPreferredGap(ComponentPlacement.RELATED).addComponent(btnDelete).addContainerGap()));
 
       leftPanel.setLayout(glLeftPanel);
 
@@ -226,22 +203,22 @@ public class MainWindow extends JFrame {
       // order Layout at the Top part of the right splitpane
       glTopRightPanel.setHorizontalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING)
             .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            .addComponent(getCntPanel(), GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
       glTopRightPanel.setVerticalGroup(glTopRightPanel.createParallelGroup(Alignment.LEADING).addGroup(
             glTopRightPanel.createSequentialGroup()
-                  .addComponent(cntPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                  .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                  .addGap(Strings.TEN)));
+            .addComponent(getCntPanel(), GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlBottomRight, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+            .addGap(Strings.TEN)));
 
       rightPanel.setLayout(glTopRightPanel);
 
       // tree with single selection mode
-      tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-      tree.addTreeSelectionListener(new TreeSelectionListener() {
+      getTree().getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+      getTree().addTreeSelectionListener(new TreeSelectionListener() {
          @Override
          public void valueChanged(final TreeSelectionEvent e) {
-            final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
+            final TreeNode node = (TreeNode) getTree().getLastSelectedPathComponent();
             /* if nothing is selected */
             if (node == null) {
                btnAddEntrance.setEnabled(false);
@@ -252,9 +229,6 @@ public class MainWindow extends JFrame {
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-//               panelFunction.getRdbtnUnsorted().setEnabled(false);
-//               panelFunction.getRdbtnRented().setEnabled(false);
-//               panelFunction.getRdbtnUnrented().setEnabled(false);
                return;
 
             }
@@ -272,16 +246,13 @@ public class MainWindow extends JFrame {
                btnDelete.setEnabled(true);
 
                // set right panel
-               cntPanel.removeAll();
-               cntPanel.add(new BuildingPanel(selectedBuilding()));
+               getCntPanel().removeAll();
+               getCntPanel().add(new BuildingPanel(selectedBuilding()));
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-//               panelFunction.getRdbtnUnsorted().setEnabled(false);
-//               panelFunction.getRdbtnRented().setEnabled(false);
-//               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Entrance) {
                setCurrentBuilding((Building) node.getParent());
@@ -296,16 +267,13 @@ public class MainWindow extends JFrame {
                btnDelete.setEnabled(true);
 
                // set right panel
-               cntPanel.removeAll();
-               cntPanel.add(new EntrancePanel(selectedEntrance()));
+               getCntPanel().removeAll();
+               getCntPanel().add(new EntrancePanel(selectedEntrance()));
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-//               panelFunction.getRdbtnUnsorted().setEnabled(true);
-//               panelFunction.getRdbtnRented().setEnabled(true);
-//               panelFunction.getRdbtnUnrented().setEnabled(true);
 
             } else if (node instanceof Apartment) {
                setCurrentEntrance((Entrance) node.getParent());
@@ -318,16 +286,13 @@ public class MainWindow extends JFrame {
                btnDelete.setEnabled(true);
 
                // set right panel
-               cntPanel.removeAll();
-               cntPanel.add(new ApartmentPanel(selectedApartment()));
+               getCntPanel().removeAll();
+               getCntPanel().add(new ApartmentPanel(selectedApartment()));
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(false);
                panelFunction.getCbPerson().setEnabled(false);
                panelFunction.getCbReadingInfo().setEnabled(false);
-//               panelFunction.getRdbtnUnsorted().setEnabled(false);
-//               panelFunction.getRdbtnRented().setEnabled(false);
-//               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else if (node instanceof Meter) {
                setCurrentMeter((Meter) node);
@@ -339,16 +304,13 @@ public class MainWindow extends JFrame {
                btnDelete.setEnabled(true);
 
                // set right panel
-               cntPanel.removeAll();
-               cntPanel.add(new MeterPanel(selectedMeter()));
+               getCntPanel().removeAll();
+               getCntPanel().add(new MeterPanel(selectedMeter()));
 
                // set textfields and radiobuttons enable/disable
                panelFunction.getTfReadingVal().setEnabled(true);
                panelFunction.getCbPerson().setEnabled(true);
                panelFunction.getCbReadingInfo().setEnabled(true);
-//               panelFunction.getRdbtnUnsorted().setEnabled(false);
-//               panelFunction.getRdbtnRented().setEnabled(false);
-//               panelFunction.getRdbtnUnrented().setEnabled(false);
 
             } else {
                btnAddEntrance.setEnabled(false);
@@ -368,9 +330,9 @@ public class MainWindow extends JFrame {
             addBuilding.addWindowListener(new WindowAdapter() {
                @Override
                public void windowClosed(final WindowEvent e) {
-                  treeModel.reload();
-                  cntPanel.removeAll();
-                  cntPanel.repaint();
+                  getTreeModel().reload();
+                  getCntPanel().removeAll();
+                  getCntPanel().repaint();
                }
             });
          }
@@ -382,9 +344,9 @@ public class MainWindow extends JFrame {
             addEntrance.addWindowListener(new WindowAdapter() {
                @Override
                public void windowClosed(final WindowEvent e) {
-                  treeModel.reload();
-                  cntPanel.removeAll();
-                  cntPanel.repaint();
+                  getTreeModel().reload();
+                  getCntPanel().removeAll();
+                  getCntPanel().repaint();
                }
             });
          }
@@ -396,9 +358,9 @@ public class MainWindow extends JFrame {
             addApartment.addWindowListener(new WindowAdapter() {
                @Override
                public void windowClosed(final WindowEvent e) {
-                  treeModel.reload();
-                  cntPanel.removeAll();
-                  cntPanel.repaint();
+                  getTreeModel().reload();
+                  getCntPanel().removeAll();
+                  getCntPanel().repaint();
                }
             });
          }
@@ -416,9 +378,9 @@ public class MainWindow extends JFrame {
             addMeter.addWindowListener(new WindowAdapter() {
                @Override
                public void windowClosed(final WindowEvent e) {
-                  treeModel.reload();
-                  cntPanel.removeAll();
-                  cntPanel.repaint();
+                  getTreeModel().reload();
+                  getCntPanel().removeAll();
+                  getCntPanel().repaint();
                }
             });
          }
@@ -430,9 +392,9 @@ public class MainWindow extends JFrame {
             addTenant.addWindowListener(new WindowAdapter() {
                @Override
                public void windowClosed(final WindowEvent e) {
-                  treeModel.reload();
-                  cntPanel.removeAll();
-                  cntPanel.repaint();
+                  getTreeModel().reload();
+                  getCntPanel().removeAll();
+                  getCntPanel().repaint();
                }
             });
          }
@@ -441,28 +403,28 @@ public class MainWindow extends JFrame {
          @Override
          public void actionPerformed(final ActionEvent e) {
 
-            final TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
+            final TreeNode node = (TreeNode) getTree().getLastSelectedPathComponent();
             /* React to the node selection. */
             if (node instanceof Building) {
                if (((Building) node).buildingIsEmpty()) {
-            	   model.removeBuilding(selectedBuilding());
-            	   new InfoDialog("INFO", "Gebaude entfernt");
+                  model.removeBuilding(selectedBuilding());
+                  new InfoDialog("INFO", "Gebaude entfernt");
                } else {
-            	   new InfoDialog("ERROR", "Gebaude nicht leer");
+                  new InfoDialog("ERROR", "Gebaude nicht leer");
                }
             } else if (node instanceof Entrance) {
                if (((Entrance) node).entranceIsEmpty()) {
                   selectedBuilding().getEntrances().remove(node);
                   new InfoDialog("INFO", "Eingang entfernt");
                } else {
-            	   new InfoDialog("ERROR", "Eingang nicht leer");
+                  new InfoDialog("ERROR", "Eingang nicht leer");
                }
             } else if (node instanceof Apartment) {
                if (((Apartment) node).apartmentIsEmpty()) {
                   selectedEntrance().getApartments().remove(node);
                   new InfoDialog("INFO", "Apartment entfernt");
                } else {
-            	   new InfoDialog("ERROR", "Apartment nicht leer");
+                  new InfoDialog("ERROR", "Apartment nicht leer");
                }
             } else if (node instanceof Meter) {
                if (selectedApartment() != null) {
@@ -472,9 +434,9 @@ public class MainWindow extends JFrame {
                }
                new InfoDialog("INFO", "Zaehler entfernt");
             }
-            treeModel.reload();
-            cntPanel.removeAll();
-            cntPanel.repaint();
+            getTreeModel().reload();
+            getCntPanel().removeAll();
+            getCntPanel().repaint();
          }
       });
 
@@ -556,39 +518,67 @@ public class MainWindow extends JFrame {
       return currentMeter;
    }
 
-   public void findMeter(String meterID) {
-	  treeModel.reload();
-	  TreePath path =find((DefaultMutableTreeNode) treeModel.getRoot(), meterID);
-      tree.setSelectionPath(path);
-	  tree.scrollPathToVisible(path);
+   public final void findMeter(final String meterID) {
+      getTreeModel().reload();
+      final TreePath path = find((DefaultMutableTreeNode) getTreeModel().getRoot(), meterID);
+      getTree().setSelectionPath(path);
+      getTree().scrollPathToVisible(path);
    }
 
+   @SuppressWarnings("unchecked")
    private TreePath find(final DefaultMutableTreeNode root, final String s) {
 
-      for (Enumeration<DefaultMutableTreeNode> e = root.preorderEnumeration(); e.hasMoreElements();) {
+      for (final Enumeration<DefaultMutableTreeNode> e = root.preorderEnumeration(); e.hasMoreElements();) {
          DefaultMutableTreeNode node = null;
          try {
             node = e.nextElement();
             if (node.getChildCount() > 0) {
-               for (Enumeration<DefaultMutableTreeNode> enumr = node.children(); enumr.hasMoreElements();) {
-                  DefaultMutableTreeNode node_r = null;
+               for (final Enumeration<DefaultMutableTreeNode> enumr = node.children(); enumr.hasMoreElements();) {
+                  DefaultMutableTreeNode noder = null;
                   try {
-                     node_r = enumr.nextElement();
-                     if (node_r.getClass() == Meter.class) {
-                        Meter meter = (Meter) node_r;
-//                        System.out.println(node_r);
-                        if (meter.getID() == new Integer(s))
+                     noder = enumr.nextElement();
+                     if (noder.getClass() == Meter.class) {
+                        final Meter meter = (Meter) noder;
+                        if (meter.getID() == new Integer(s)) {
                            return new TreePath(node.getPath());
+                        }
                      }
-                  } catch (Exception exa) {
-                       // Ja, das knallt manchmal, aber das kann ignoriert werden
+                  } catch (final Exception exac) {
+                     logger.debug("Suche hat Exception geworfen");
+                     // Ja, das knallt manchmal, aber das kann ignoriert
+                     // werden
                   }
                }
             }
-         } catch (Exception e2) {
+         } catch (final Exception e2) {
+            logger.debug("Suche hat Exception geworfen");
             // Ja, das knallt manchmal, aber das kann ignoriert werden
          }
       }
       return null;
+   }
+
+   public final MainTreeModel getTreeModel() {
+      return treeModel;
+   }
+
+   public final void setTreeModel(final MainTreeModel treeModel) {
+      this.treeModel = treeModel;
+   }
+
+   public final JTree getTree() {
+      return tree;
+   }
+
+   public final void setTree(final JTree tree) {
+      this.tree = tree;
+   }
+
+   public final JPanel getCntPanel() {
+      return cntPanel;
+   }
+
+   public final void setCntPanel(final JPanel cntPanel) {
+      this.cntPanel = cntPanel;
    }
 }

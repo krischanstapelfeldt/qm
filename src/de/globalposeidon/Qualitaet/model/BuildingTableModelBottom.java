@@ -1,7 +1,5 @@
 package de.globalposeidon.Qualitaet.model;
 
-import java.util.ArrayList;
-
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
@@ -9,7 +7,6 @@ import de.globalposeidon.Qualitaet.Strings;
 /**
  * TableModel for BuildingPanel
  * @author Hadschii
- *
  */
 public class BuildingTableModelBottom extends AbstractTableModel {
 
@@ -18,17 +15,19 @@ public class BuildingTableModelBottom extends AbstractTableModel {
    static final int SURNAME = 1;
    static final int PHONE = 2;
    static final int EMAIL = 3;
-   private String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
+   private final String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
    private final Building building;
+
    /**
     * Konstruktor.
-    * @param building building
+    * @param building
+    *           building
     */
    public BuildingTableModelBottom(final Building building) {
       this.building = building;
    }
-   
-// ----------- Abstract Table Model Methods
+
+   // ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblTop[i];

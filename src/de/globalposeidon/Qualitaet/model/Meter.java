@@ -11,7 +11,7 @@ import javax.swing.tree.TreeNode;
  * meter model.
  * @author Timm Suhl
  */
-public class Meter extends DefaultMutableTreeNode implements java.io.Serializable{
+public class Meter extends DefaultMutableTreeNode implements java.io.Serializable {
 
    private static final long serialVersionUID = 415757316236669188L;
    private int id;
@@ -31,12 +31,15 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    // empty meter not allowed, so no Meter()
    /**
     * Konstruktor.
-    * @param meterID ID
-    * @param type Typ
-    * @param entrance Eingang
+    * @param meterID
+    *           ID
+    * @param type
+    *           Typ
+    * @param entrance
+    *           Eingang
     */
    public Meter(final int meterID, final Metertype type, final Entrance entrance) {
-       readings = new ArrayList<Reading>();
+      readings = new ArrayList<Reading>();
       this.entrance = entrance;
       apartment = null;
       id = meterID;
@@ -45,14 +48,18 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
       yearValue = 0;
       lastRead = new Date();
    }
+
    /**
     * Konstruktor.
-    * @param meterID ID
-    * @param type Typ
-    * @param apartment Apartment
+    * @param meterID
+    *           ID
+    * @param type
+    *           Typ
+    * @param apartment
+    *           Apartment
     */
    public Meter(final int meterID, final Metertype type, final Apartment apartment) {
-       readings = new ArrayList<Reading>();
+      readings = new ArrayList<Reading>();
       this.apartment = apartment;
       entrance = null;
       id = meterID;
@@ -61,13 +68,16 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
       yearValue = 0;
       lastRead = new Date();
    }
+
    /**
     * ID setzen.
-    * @param iD ID
+    * @param iD
+    *           ID
     */
    public final void setID(final int iD) {
       id = iD;
    }
+
    /**
     * ID erhalte.
     * @return ID
@@ -75,6 +85,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    public final int getID() {
       return id;
    }
+
    /**
     * Aktueller Wert.
     * @return Wert
@@ -82,9 +93,11 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    public final int getCurrentValue() {
       return currentValue;
    }
+
    /**
     * Aktuellen Wert setzen.
-    * @param currentValue Wert
+    * @param currentValue
+    *           Wert
     */
    public final void setCurrentValue(final int currentValue) {
       // only can be set forward
@@ -92,6 +105,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
          this.currentValue = currentValue;
       }
    }
+
    /**
     * Wert zum 1.1. des Jahres
     * @return Wert
@@ -99,9 +113,11 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    public final int getYearValue() {
       return yearValue;
    }
+
    /**
     * Jahreswert setzen.
-    * @param yearValue Wert
+    * @param yearValue
+    *           Wert
     */
    public final void setYearValue(final int yearValue) {
       // only can be set forward
@@ -109,6 +125,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
          this.yearValue = yearValue;
       }
    }
+
    /**
     * Zuletzt gelesen am.
     * @return Datum.
@@ -116,9 +133,11 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    public final Date getLastRead() {
       return (Date) lastRead.clone();
    }
+
    /**
     * Zuletzt gelesen am setzen.
-    * @param lastRead Datum
+    * @param lastRead
+    *           Datum
     */
    public final void setLastRead(final Date lastRead) {
       // only can be set forward
@@ -126,6 +145,7 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
          this.lastRead = lastRead;
       }
    }
+
    /**
     * Typ des Zaehlers.
     * @return Typ
@@ -133,43 +153,50 @@ public class Meter extends DefaultMutableTreeNode implements java.io.Serializabl
    public final Metertype getType() {
       return type;
    }
+
    /**
     * Liste mit allen Zaehlungen.
     * @return Liste
     */
-   public final ArrayList<Reading> getReadings(){
-       return readings;
+   public final ArrayList<Reading> getReadings() {
+      return readings;
    }
+
    /**
     * Liste der Zaehlungen setzen.
-    * @param readings Liste
+    * @param readings
+    *           Liste
     */
    public final void setReadings(final ArrayList<Reading> readings) {
-       this.readings = readings;
+      this.readings = readings;
    }
+
    // ================================================================================
    // other stuff, dont know nice name
    // ================================================================================
    /**
     * Zaehlung machen.
-    * @param reader reader
-    * @param info info
+    * @param reader
+    *           reader
+    * @param info
+    *           info
     * @return Zaehlung
     */
-   public final Reading makeReading(Date date, final MeterReader reader, final ReadingInfo info) {
-	   Reading reading = new Reading(this, reader, info, date);
-       readings.add(reading);
-       setLastRead(date); // Set last Read to today
+   public final Reading makeReading(final Date date, final MeterReader reader, final ReadingInfo info) {
+      final Reading reading = new Reading(this, reader, info, date);
+      readings.add(reading);
+      setLastRead(date); // Set last Read to today
       return reading;
    }
+
    /**
     * returns and then increases the reading counter
     * @return counter
     */
-   public int incReadingCounter() {
-	   return readerCounter++;
+   public final int incReadingCounter() {
+      return readerCounter++;
    }
-   
+
    @Override
    public final String toString() {
       return (id + " " + type + " " + currentValue + " " + yearValue + " " + lastRead);

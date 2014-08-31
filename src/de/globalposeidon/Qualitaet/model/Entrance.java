@@ -12,7 +12,7 @@ import javax.swing.tree.TreeNode;
  * entrance model.
  * @author Timm Suhl
  */
-public class Entrance extends DefaultMutableTreeNode implements java.io.Serializable{
+public class Entrance extends DefaultMutableTreeNode implements java.io.Serializable {
 
    private static final long serialVersionUID = -2273564019802782697L;
    private int id;
@@ -27,7 +27,8 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    /**
     * Konstuktor.
-    * @param building Gebaude
+    * @param building
+    *           Gebaude
     */
    public Entrance(final Building building) {
       this.building = building;
@@ -39,20 +40,23 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    // access private variables
    // ================================================================================
-  /**
-   * ID des Eingangs.
-   * @return id
-   */
+   /**
+    * ID des Eingangs.
+    * @return id
+    */
    public final int getID() {
       return id;
    }
+
    /**
     * ID des Eingangs setzen.
-    * @param iD ID
+    * @param iD
+    *           ID
     */
    public final void setID(final int iD) {
       id = iD;
    }
+
    /**
     * Liste mit Zaehlern.
     * @return liste
@@ -60,13 +64,16 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    public final ArrayList<Meter> getMeters() {
       return meters;
    }
+
    /**
     * Setzen der Zaehlerliste.
-    * @param meters Zaehlerliste
+    * @param meters
+    *           Zaehlerliste
     */
    public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
+
    /**
     * Liste mit Apartments.
     * @return Apartmentliste
@@ -74,16 +81,20 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    public final ArrayList<Apartment> getApartments() {
       return apartments;
    }
+
    /**
     * Setzen der Apartmentliste.
-    * @param apartments Apartmentliste
+    * @param apartments
+    *           Apartmentliste
     */
    public final void setApartments(final ArrayList<Apartment> apartments) {
       this.apartments = apartments;
    }
+
    /**
     * Zaehler zu Index.
-    * @param index index
+    * @param index
+    *           index
     * @return Zaehler
     */
    public final Meter getMeter(final int index) {
@@ -92,16 +103,20 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
+
    /**
     * Zaehler hinzfuegen.
-    * @param var Zaehler
+    * @param var
+    *           Zaehler
     */
    public final void addMeter(final Meter var) {
       getMeters().add(var);
    }
+
    /**
     * Zaehler entfernen.
-    * @param index index
+    * @param index
+    *           index
     * @return Zaehler
     */
    public final Meter removeMeter(final int index) {
@@ -110,6 +125,7 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
+
    /**
     * Anzahl Zaehler.
     * @return Anzahl
@@ -117,9 +133,11 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
    public final int meterCount() {
       return getMeters().size();
    }
+
    /**
     * Apartmentliste.
-    * @param index index
+    * @param index
+    *           index
     * @return liste
     */
    public final Apartment getApartments(final int index) {
@@ -128,16 +146,20 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
+
    /**
     * Apartment hinzu.
-    * @param val Apartment
+    * @param val
+    *           Apartment
     */
    public final void addApartment(final Apartment val) {
       apartments.add(val);
    }
+
    /**
     * Apartment entfernen.
-    * @param index index
+    * @param index
+    *           index
     * @return Apartment
     */
    public final Apartment removeApartment(final int index) {
@@ -148,6 +170,7 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
+
    /**
     * Anzahl Apartments.
     * @return Anzahl
@@ -172,6 +195,7 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return tmpList;
    }
+
    /**
     * Liste mit vermieteten Apartments.
     * @return liste
@@ -185,6 +209,7 @@ public class Entrance extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return tmpList;
    }
+
    /**
     * Eingang leer?.
     * @return JA/NEIN

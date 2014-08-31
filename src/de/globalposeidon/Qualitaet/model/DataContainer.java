@@ -18,6 +18,7 @@ public class DataContainer extends DefaultMutableTreeNode {
    private final UUID uuid;
    private final ArrayList<Building> buildings;
    private int meterCounter;
+
    /**
     * Konstruktor.
     */
@@ -26,29 +27,36 @@ public class DataContainer extends DefaultMutableTreeNode {
       uuid = UUID.randomUUID();
       setMeterCounter(0);
    }
+
    /**
     * Gebaude hinzufuegen.
-    * @param building Gebauede
+    * @param building
+    *           Gebauede
     */
    public final void addBuilding(final Building building) {
       buildings.add(building);
    }
+
    /**
     * Gebaude erhalten.
-    * @param index index
+    * @param index
+    *           index
     * @return Gebauede
     */
    public final Building getBuilding(final int index) {
       return buildings.get(index);
    }
+
    /**
     * Gebaude entfernen.
-    * @param building Gebauede
+    * @param building
+    *           Gebauede
     * @return Wurde das Gebaude entfernt?
     */
    public final boolean removeBuilding(final Building building) {
-	   return buildings.remove(building);
+      return buildings.remove(building);
    }
+
    /**
     * Anzahl der Gebaude.
     * @return Anzahl Gebaeude
@@ -56,14 +64,17 @@ public class DataContainer extends DefaultMutableTreeNode {
    public final int getBuildingCount() {
       return buildings.size();
    }
+
    /**
     * ID vom Gebauede.
-    * @param index index
+    * @param index
+    *           index
     * @return ID
     */
    public final int getBuildingID(final int index) {
       return buildings.get(index).getID();
    }
+
    /**
     * Counter fuer Zaehler erhoehen.
     * @return Anzahl
@@ -114,6 +125,7 @@ public class DataContainer extends DefaultMutableTreeNode {
    public final Enumeration<Building> children() {
       return Collections.enumeration(buildings);
    }
+
    /**
     * Anzahl der Zaehler.
     * @return Anzahl
@@ -121,9 +133,11 @@ public class DataContainer extends DefaultMutableTreeNode {
    public final int getMeterCounter() {
       return meterCounter;
    }
+
    /**
     * .
-    * @param meterCounter Counter setzen
+    * @param meterCounter
+    *           Counter setzen
     */
    public final void setMeterCounter(final int meterCounter) {
       this.meterCounter = meterCounter;

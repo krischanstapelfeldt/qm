@@ -26,7 +26,7 @@ public class FAQWindow extends JDialog {
       final JPanel contentPnl = new JPanel(new BorderLayout());
       final JLabel lblFaq = new JLabel("Hier eine FAQ schreiben...");
 
-      JButton btnOk = new JButton(Strings.OK);
+      final JButton btnOk = new JButton(Strings.OK);
       contentPnl.add(btnOk, BorderLayout.SOUTH);
       contentPnl.add(lblFaq, BorderLayout.NORTH);
 

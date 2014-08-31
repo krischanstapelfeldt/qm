@@ -1,7 +1,5 @@
 package de.globalposeidon.Qualitaet.tests;
 
-import javax.swing.JFrame;
-
 import junit.framework.TestCase;
 
 import org.junit.After;

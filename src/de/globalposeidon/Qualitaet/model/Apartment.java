@@ -29,7 +29,8 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    // ================================================================================
    /**
     * Konstruktor.
-    * @param entrance Zugehoeriger Eingang
+    * @param entrance
+    *           Zugehoeriger Eingang
     */
    public Apartment(final Entrance entrance) {
       this.entrance = entrance;
@@ -48,23 +49,29 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    public final int getID() {
       return id;
    }
+
    /**
     * ID setzen.
-    * @param iD ID
+    * @param iD
+    *           ID
     */
    public final void setID(final int iD) {
       id = iD;
    }
+
    /**
     * Zaehler zu einem Apartment hinzufuegen.
-    * @param meter meter
+    * @param meter
+    *           meter
     */
    public final void addMeter(final Meter meter) {
       meters.add(meter);
    }
+
    /**
     * Zaehler von einem Apartment erhalten.
-    * @param index index
+    * @param index
+    *           index
     * @return meter
     */
    public final Meter getMeter(final int index) {
@@ -73,9 +80,11 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
       }
       return null;
    }
+
    /**
     * Zaehler von einem Apartment entfernen.
-    * @param index index
+    * @param index
+    *           index
     * @return Zaehler zaehler
     */
    public final Meter removeMeter(final int index) {
@@ -84,6 +93,7 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
       }
       return null;
    }
+
    /**
     * Anzahl der Zaehler.
     * @return Anzahl Anzahl
@@ -91,9 +101,11 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    public final int meterCount() {
       return meters.size();
    }
+
    /**
     * Mieter hinzufuegen.
-    * @param tenant Mieter
+    * @param tenant
+    *           Mieter
     * @return Hinzugefuegt?
     */
    public final boolean addTenant(final Tenant tenant) {
@@ -104,9 +116,11 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
       }
       return false;
    }
+
    /**
     * Mieter erhalten.
-    * @param index index
+    * @param index
+    *           index
     * @return tenant Mieter
     */
    public final Tenant getTenant(final int index) {
@@ -115,9 +129,11 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
       }
       return null;
    }
+
    /**
     * Mieter entfernen.
-    * @param index index
+    * @param index
+    *           index
     * @return Entfernten Mieter
     */
    public final Tenant removeTenant(final int index) {
@@ -126,6 +142,7 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
       }
       return null;
    }
+
    /**
     * Anzahl Mieter.
     * @return Anzahl
@@ -192,6 +209,7 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    public final Enumeration<Meter> children() {
       return Collections.enumeration(meters);
    }
+
    /**
     * Liste mit Zaehler.
     * @return Liste
@@ -199,13 +217,16 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    public final ArrayList<Meter> getMeters() {
       return meters;
    }
+
    /**
     * Liste mit Zaehlern setzen.
-    * @param meters meterliste
+    * @param meters
+    *           meterliste
     */
    public final void setMeters(final ArrayList<Meter> meters) {
       this.meters = meters;
    }
+
    /**
     * Liste mit Mietern.
     * @return liste
@@ -213,9 +234,11 @@ public class Apartment extends DefaultMutableTreeNode implements java.io.Seriali
    public final ArrayList<Tenant> getTenants() {
       return tenants;
    }
+
    /**
     * Liste mit Mietern setzen.
-    * @param tenants mieterliste
+    * @param tenants
+    *           mieterliste
     */
    public final void setTenants(final ArrayList<Tenant> tenants) {
       this.tenants = tenants;

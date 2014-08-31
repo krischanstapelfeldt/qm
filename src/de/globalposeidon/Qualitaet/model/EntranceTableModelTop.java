@@ -1,8 +1,5 @@
 package de.globalposeidon.Qualitaet.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
@@ -10,7 +7,6 @@ import de.globalposeidon.Qualitaet.Strings;
 /**
  * TableModel for Entrancepanel.
  * @author Hadschii
- *
  */
 public class EntranceTableModelTop extends AbstractTableModel {
 
@@ -19,16 +15,18 @@ public class EntranceTableModelTop extends AbstractTableModel {
    static final int METERID = 0;
    static final int METERTYPE = 1;
    // set Table Bottom Column Header
-   private String[] titleTblTop = new String[]{Strings.METERID, Strings.METERTYPE};
+   private final String[] titleTblTop = new String[]{Strings.METERID, Strings.METERTYPE};
+
    /**
     * Konstruktor.
-    * @param entrance entrance
+    * @param entrance
+    *           entrance
     */
    public EntranceTableModelTop(final Entrance entrance) {
       this.entrance = entrance;
    }
 
-// ----------- Abstract Table Model Methods
+   // ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblTop[i];
@@ -73,8 +71,6 @@ public class EntranceTableModelTop extends AbstractTableModel {
          } else {
             entrance.getMeters().get(rowIndex).setID((int) currentValue);
          }
-      }
-      if (columnIndex == METERTYPE) {
       }
    }
 }

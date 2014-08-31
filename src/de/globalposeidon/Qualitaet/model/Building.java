@@ -28,9 +28,10 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    // ================================================================================
    /**
     * Konstruktor.
-    * @param dc datacontainer
+    * @param dc
+    *           datacontainer
     */
-   public Building(final DataContainer dc, String name) {
+   public Building(final DataContainer dc, final String name) {
       entrances = new ArrayList<Entrance>();
       this.name = name;
       id = random.nextInt();
@@ -47,6 +48,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    public final int getID() {
       return id;
    }
+
    /**
     * Name des Gebauedes.
     * @return ID
@@ -54,6 +56,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    public final String getName() {
       return name;
    }
+
    /**
     * Vermieter des Gebaudes.
     * @return vermieter
@@ -61,24 +64,30 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    public final Renter getRenter() {
       return renter;
    }
+
    /**
     * Vermieter des Geb�udes setzen.
-    * @param renter vermieter
+    * @param renter
+    *           vermieter
     */
    public final void setRenter(final Renter renter) {
       this.renter = renter;
 
    }
+
    /**
     * Eingang hinzufuegen.
-    * @param entrance Eingang
+    * @param entrance
+    *           Eingang
     */
    public final void addEntrance(final Entrance entrance) {
       entrances.add(entrance);
    }
+
    /**
     * Eingang entfernen.
-    * @param index index
+    * @param index
+    *           index
     * @return Eingang
     */
    public final Entrance removeEntrance(final int index) {
@@ -89,9 +98,11 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
+
    /**
     * Eingang erhalten.
-    * @param index index
+    * @param index
+    *           index
     * @return Eingang
     */
    public final Entrance getEntrance(final int index) {
@@ -100,6 +111,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
       }
       return null;
    }
+
    /**
     * Anzahl der Eingaenge.
     * @return Anzahl
@@ -161,6 +173,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    public final Enumeration<Entrance> children() {
       return Collections.enumeration(entrances);
    }
+
    /**
     * Liste mit Eingaengen.
     * @return liste
@@ -168,9 +181,11 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
    public final ArrayList<Entrance> getEntrances() {
       return entrances;
    }
+
    /**
     * Liste mit Eingaengen setzen.
-    * @param entrances liste
+    * @param entrances
+    *           liste
     */
    public final void setEntrances(final ArrayList<Entrance> entrances) {
       this.entrances = entrances;

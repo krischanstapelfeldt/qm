@@ -14,8 +14,6 @@ import javax.swing.JTextField;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.Apartment;
-import de.globalposeidon.Qualitaet.model.Building;
-import de.globalposeidon.Qualitaet.model.Renter;
 import de.globalposeidon.Qualitaet.model.Tenant;
 
 /**
@@ -41,14 +39,22 @@ public class AddTenantWindow extends JDialog {
       final JPanel contentPnl = new JPanel(new BorderLayout());
       final JPanel tfPnl = new JPanel(new GridLayout(2, 3, 2, 2));
       final JLabel descriptionLbl = new JLabel("This will add a new tenant to the apartment with ID: " + apartment.getID());
-      final JLabel lblFirstname = new JLabel("Firstname"); tfFirstname = new JTextField("");
-      final JLabel lblSurname = new JLabel("Surname");tfSurname = new JTextField("");
-      final JLabel lblTel = new JLabel("Phone");tfTel = new JTextField("");
-      final JLabel lblEmail = new JLabel("Mail");tfEmail = new JTextField("");
-      tfPnl.add(lblFirstname); tfPnl.add(tfFirstname);
-      tfPnl.add(lblSurname); tfPnl.add(tfSurname);
-      tfPnl.add(lblTel); tfPnl.add(tfTel);
-      tfPnl.add(lblEmail); tfPnl.add(tfEmail);
+      final JLabel lblFirstname = new JLabel("Firstname");
+      tfFirstname = new JTextField("");
+      final JLabel lblSurname = new JLabel("Surname");
+      tfSurname = new JTextField("");
+      final JLabel lblTel = new JLabel("Phone");
+      tfTel = new JTextField("");
+      final JLabel lblEmail = new JLabel("Mail");
+      tfEmail = new JTextField("");
+      tfPnl.add(lblFirstname);
+      tfPnl.add(tfFirstname);
+      tfPnl.add(lblSurname);
+      tfPnl.add(tfSurname);
+      tfPnl.add(lblTel);
+      tfPnl.add(tfTel);
+      tfPnl.add(lblEmail);
+      tfPnl.add(tfEmail);
       contentPnl.add(descriptionLbl, BorderLayout.NORTH);
       contentPnl.add(tfPnl, BorderLayout.CENTER);
 
@@ -85,18 +91,18 @@ public class AddTenantWindow extends JDialog {
    }
 
    private void addTenant(final Apartment apartment) {
-	   
-	   if (tfFirstname.getText().equals("")) {
-		   tfFirstname.requestFocus();
-	   } else if (tfSurname.getText().equals("")) {
-		   tfSurname.requestFocus();
-	   } else if (tfTel.getText().equals("")) {
-		   tfTel.requestFocus();
-	   } else if (tfEmail.getText().equals("")) {
-		   tfEmail.requestFocus();
-	   } else { // all fields valid
-		   apartment.addTenant(new Tenant(tfFirstname.getText(), tfSurname.getText(), tfTel.getText(), tfEmail.getText()));
-		   dispose();
-	   }
+
+      if (tfFirstname.getText().equals("")) {
+         tfFirstname.requestFocus();
+      } else if (tfSurname.getText().equals("")) {
+         tfSurname.requestFocus();
+      } else if (tfTel.getText().equals("")) {
+         tfTel.requestFocus();
+      } else if (tfEmail.getText().equals("")) {
+         tfEmail.requestFocus();
+      } else { // all fields valid
+         apartment.addTenant(new Tenant(tfFirstname.getText(), tfSurname.getText(), tfTel.getText(), tfEmail.getText()));
+         dispose();
+      }
    }
 }

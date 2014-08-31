@@ -24,15 +24,15 @@ import de.globalposeidon.Qualitaet.model.ApartmentTableModelTop;
 public class ApartmentPanel extends JPanel {
 
    private static final long serialVersionUID = 8794147005620814516L;
-   private ApartmentTableModelTop topModel;
+   private final ApartmentTableModelTop topModel;
+
    /**
     * @param apartment
     *           Apartment to view in ApartmentPanel.
     */
-  
+
    public ApartmentPanel(final Apartment apartment) {
-     
-      
+
       // set window layout
       final JPanel pnlMain = new JPanel();
 
@@ -46,20 +46,21 @@ public class ApartmentPanel extends JPanel {
 
       pnlHeader.add(lblApartment);
       pnlHeader.add(btnDelete);
-      
+
       btnDelete.setEnabled(false);
       topModel = new ApartmentTableModelTop(apartment);
       final JTable tableTop = new JTable(topModel);
       tableTop.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-      tableTop.getSelectionModel().addListSelectionListener( new ListSelectionListener() {
-    	  public void valueChanged(ListSelectionEvent e) {
-    		  if (tableTop.getSelectedRow() >= 0) {
-    			  btnDelete.setEnabled(true);
-    		  } else {
-    			  btnDelete.setEnabled(false);
-    		  }
-    	  }
-      });      
+      tableTop.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+         @Override
+         public void valueChanged(final ListSelectionEvent e) {
+            if (tableTop.getSelectedRow() >= 0) {
+               btnDelete.setEnabled(true);
+            } else {
+               btnDelete.setEnabled(false);
+            }
+         }
+      });
       // Initial Scrollpane
       final JScrollPane scrollPane = new JScrollPane();
       scrollPane.getViewport().setBackground(Color.white);
@@ -67,22 +68,22 @@ public class ApartmentPanel extends JPanel {
       scrollPane2.getViewport().setBackground(Color.white);
       scrollPane.setViewportView(tableTop);
       scrollPane2.setViewportView(new JTable(new ApartmentTableModelBottom(apartment)));
-      tableTop.setRowSelectionAllowed( true );
-      
+      tableTop.setRowSelectionAllowed(true);
+
       pnlMain.add(scrollPane);
       pnlMain.add(scrollPane2);
 
       add(pnlHeader, BorderLayout.NORTH);
       add(pnlMain, BorderLayout.CENTER);
-   
-      btnDelete.addActionListener(new ActionListener(){
-    	  @Override
-    	  public void actionPerformed(final ActionEvent e){
-    		  topModel.deleteSelectedApartment(tableTop.getSelectedRow());
-    		  tableTop.revalidate();
-    		  new InfoDialog("INFO", "Mieter geloescht!");
-    	  }
+
+      btnDelete.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            topModel.deleteSelectedApartment(tableTop.getSelectedRow());
+            tableTop.revalidate();
+            new InfoDialog("INFO", "Mieter geloescht!");
+         }
       });
-}  
+   }
 
 }

@@ -6,8 +6,12 @@ import java.util.Random;
  * person model.
  * @author Timm Suhl
  */
-public class Person implements java.io.Serializable{
+public class Person implements java.io.Serializable {
 
+   /**
+    *
+    */
+   private static final long serialVersionUID = 1L;
    private int id;
    private final Random random = new Random();
 
@@ -27,12 +31,17 @@ public class Person implements java.io.Serializable{
       this("Barrack", "Obama", "123789223", "oToTheB@usa.de");
       id = random.nextInt();
    }
+
    /**
     * Konstruktor.
-    * @param name name
-    * @param surname nachname
-    * @param phone telefon
-    * @param email mail
+    * @param name
+    *           name
+    * @param surname
+    *           nachname
+    * @param phone
+    *           telefon
+    * @param email
+    *           mail
     */
    public Person(final String name, final String surname, final String phone, final String email) {
       this.name = name;
@@ -51,6 +60,7 @@ public class Person implements java.io.Serializable{
    public final int getID() {
       return id;
    }
+
    /**
     * Namen erhalten.
     * @return Name
@@ -58,13 +68,16 @@ public class Person implements java.io.Serializable{
    public final String getName() {
       return name;
    }
+
    /**
     * Name setzen.
-    * @param name name
+    * @param name
+    *           name
     */
    public final void setName(final String name) {
       this.name = name;
    }
+
    /**
     * Nachname erhalten.
     * @return nachname
@@ -72,13 +85,16 @@ public class Person implements java.io.Serializable{
    public final String getSurname() {
       return surname;
    }
+
    /**
     * Nachname setzen.
-    * @param surname nachname
+    * @param surname
+    *           nachname
     */
    public final void setSurname(final String surname) {
       this.surname = surname;
    }
+
    /**
     * Telefonnummer erhalten.
     * @return telefonnummer
@@ -86,13 +102,16 @@ public class Person implements java.io.Serializable{
    public final String getPhone() {
       return phone;
    }
+
    /**
     * Telefonnummer setzen.
-    * @param phone telefonnummer
+    * @param phone
+    *           telefonnummer
     */
    public final void setPhone(final String phone) {
       this.phone = phone;
    }
+
    /**
     * Email erhalten.
     * @return mail
@@ -100,9 +119,11 @@ public class Person implements java.io.Serializable{
    public final String getEmail() {
       return email;
    }
+
    /**
     * Email setzen.
-    * @param email mail
+    * @param email
+    *           mail
     */
    public final void setEmail(final String email) {
       this.email = email;

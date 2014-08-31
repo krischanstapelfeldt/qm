@@ -63,6 +63,7 @@ public class BuildingTest extends TestCase {
 
       assertNotNull(building.getID());
    }
+
    /**
     * get id from selected building. load from database.
     */
@@ -71,6 +72,7 @@ public class BuildingTest extends TestCase {
 
       assertNotNull(building.getName());
    }
+
    /**
     * set renter to building.
     */

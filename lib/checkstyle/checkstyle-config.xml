@@ -5,9 +5,8 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: CheckstyleGlobalPoseidon
-    Description: 
-Adapted Checkstyle configuration, that meets the students needs.
+    Checkstyle-Configuration: Global Poseidon
+    Description: none
 -->
 <module name="Checker">
   <property name="severity" value="warning"/>
@@ -49,7 +48,9 @@ Adapted Checkstyle configuration, that meets the students needs.
     <module name="ParenPad"/>
     <module name="TypecastParenPad"/>
     <module name="WhitespaceAfter"/>
-    <module name="WhitespaceAround"/>
+    <module name="WhitespaceAround">
+      <property name="severity" value="info"/>
+    </module>
     <module name="ModifierOrder"/>
     <module name="RedundantModifier"/>
     <module name="AvoidNestedBlocks"/>
@@ -69,7 +70,10 @@ Adapted Checkstyle configuration, that meets the students needs.
     </module>
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
-    <module name="MagicNumber"/>
+    <module name="MagicNumber">
+      <property name="severity" value="info"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
+    </module>
     <module name="MissingSwitchDefault"/>
     <module name="RedundantThrows">
       <property name="suppressLoadErrors" value="true"/>

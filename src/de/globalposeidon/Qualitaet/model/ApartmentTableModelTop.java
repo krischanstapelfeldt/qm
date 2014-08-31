@@ -1,9 +1,5 @@
 package de.globalposeidon.Qualitaet.model;
 
-import java.util.ArrayList;
-import java.util.Vector;
-
-import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
@@ -11,7 +7,6 @@ import de.globalposeidon.Qualitaet.Strings;
 /**
  * Tablemodel for Apartmentpanel.
  * @author Hadschii
- *
  */
 public class ApartmentTableModelTop extends AbstractTableModel {
 
@@ -21,25 +16,29 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    private static final int SURNAME = 1;
    private static final int PHONE = 2;
    private static final int EMAIL = 3;
-   
+
    private final Apartment apartment;
-   private String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
+   private final String[] titleTblTop = new String[]{Strings.NAME, Strings.SURNAME, Strings.PHONE, Strings.EMAIL};
+
    /**
     * Konstruktor.
-    * @param apartment apartment
+    * @param apartment
+    *           apartment
     */
    public ApartmentTableModelTop(final Apartment apartment) {
       this.apartment = apartment;
    }
+
    /**
     * Method to delete a given row.
-    * @param row row
+    * @param row
+    *           row
     */
-   public void deleteSelectedApartment(int row) {
-	   apartment.removeTenant(row);
+   public final void deleteSelectedApartment(final int row) {
+      apartment.removeTenant(row);
    }
 
-// ----------- Abstract Table Model Methods
+   // ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblTop[i];
@@ -49,6 +48,7 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    public final int getColumnCount() {
       return titleTblTop.length;
    }
+
    @Override
    public final int getRowCount() {
       return apartment.getTenants().size();
@@ -100,5 +100,5 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       if (columnIndex == EMAIL) {
          apartment.getTenants().get(rowIndex).setEmail((String) currentValue);
       }
-   }   
+   }
 }

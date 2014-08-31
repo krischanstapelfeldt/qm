@@ -1,7 +1,5 @@
 package de.globalposeidon.Qualitaet.model;
 
-import java.util.ArrayList;
-
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
@@ -9,7 +7,6 @@ import de.globalposeidon.Qualitaet.Strings;
 /**
  * Tablemodel for Apartmentpanel.
  * @author Hadschii
- *
  */
 public class ApartmentTableModelBottom extends AbstractTableModel {
 
@@ -18,16 +15,18 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    private static final int METERID = 0;
    private static final int METERTYPE = 1;
    // set Table Bottom Column Header
-   private String[] titleTblBottom = new String[]{Strings.METERID, Strings.METERTYPE};
+   private final String[] titleTblBottom = new String[]{Strings.METERID, Strings.METERTYPE};
+
    /**
     * Konstruktor.
-    * @param apartment apartment
+    * @param apartment
+    *           apartment
     */
    public ApartmentTableModelBottom(final Apartment apartment) {
       this.apartment = apartment;
    }
-   
-// ----------- Abstract Table Model Methods
+
+   // ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblBottom[i];
