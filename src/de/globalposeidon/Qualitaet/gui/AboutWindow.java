@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,11 +25,11 @@ public class AboutWindow extends JDialog {
 
       final JPanel contentPnl = new JPanel(new BorderLayout());
       // add text
-      final JTextArea textArea = new JTextArea("Geb??udeverwaltung\n" + "von Felske, Lauber, Stapelfeldt, Suhl\n"
-            + "f??r Grundlagen QM | Sommersemester 14");
+      final JLabel lblAbout = new JLabel("Gebaueudeverwaltung\n" + "von Felske, Lauber, Stapelfeldt, Suhl\n"
+            + "fuer Grundlagen QM | Sommersemester 14");
 
       final JButton btnOk = new JButton(Strings.OK);
-      contentPnl.add(textArea, BorderLayout.NORTH);
+      contentPnl.add(lblAbout, BorderLayout.NORTH);
       contentPnl.add(btnOk, BorderLayout.SOUTH);
 
       this.add(contentPnl);

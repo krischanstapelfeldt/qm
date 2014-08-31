@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import de.globalposeidon.Qualitaet.Strings;
+import de.globalposeidon.Qualitaet.model.MeterReader;
+import de.globalposeidon.Qualitaet.model.ReadingInfo;
 
 public class FunctionPanel extends JPanel {
 
@@ -50,10 +53,12 @@ public class FunctionPanel extends JPanel {
    private final JSeparator separatorRight = new JSeparator();
    
    // set Combobox
-   private final JComboBox cbPerson = new JComboBox();
-   private final JComboBox cbReadInfo = new JComboBox();
-
-
+   
+   private JComboBox cbPerson;
+   private JComboBox cbReadInfo;
+   private DefaultComboBoxModel cbModelPerson;
+   private DefaultComboBoxModel cmModelReadInfo;
+   
    /**
     * Konstruktor.
     * @param parent parent.
@@ -61,7 +66,16 @@ public class FunctionPanel extends JPanel {
    public FunctionPanel(final MainWindow parent) {
       final GridBagLayout gridBagLayout = new GridBagLayout();
       setLayout(gridBagLayout);
-
+      
+      
+      cbPerson = new JComboBox(MeterReader.values());
+      for(int i = 0; i < cbPerson.getItemCount(); i++){
+      }
+     
+      cbReadInfo = new JComboBox (ReadingInfo.values());
+      for(int i = 0; i < cbReadInfo.getItemCount(); i++){
+      }
+         
       final GridBagConstraints gbcLblMeterSearch = new GridBagConstraints();
       gbcLblMeterSearch.insets = new Insets(Strings.ZERO, Strings.ZERO, Strings.FIVE, Strings.FIVE);
       gbcLblMeterSearch.gridx = Strings.ONE;
