@@ -25,6 +25,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
+import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +35,29 @@ import de.globalposeidon.Qualitaet.model.Building;
 import de.globalposeidon.Qualitaet.model.DataContainer;
 import de.globalposeidon.Qualitaet.model.Entrance;
 import de.globalposeidon.Qualitaet.model.Meter;
+
+/*
+ * TODO MUSS
+ * Testdaten für alle Zähler (unterschiedliche Werte, etc...)
+ * Suchen von Zählern!
+ * Ablesefunktion für Zähler benötigt Dropdown mit Auswahl für Reader und ReadingInfo
+ * Neue Ablesewerte und Datum können nur größer sein
+ * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
+ * Verbrauch/Tage seit der letzen Lesung -> Im Model!
+ * Löschen von Mietern
+ * Sortieren/Anzeige nach Vermietet und nicht vermietet (im JTable Feld "Vermietet?" und danach abfragen?)
+ *
+ * TODO KANN
+ * Daten sicher (Funktioniert, nur ausgeklammert, für Vossi ggfs aktivieren)
+ * Titel für JTables
+ * Meldung über erfolgreiche/ nicht erfolgreiche Aktionen. (JFrame Klasse ...)
+ * Anzeige im Content nach Start & ohne Auswahl
+ * Edit aus Menu entfernen
+ * Spaces zwischen Trennstrichen im Contentpane
+ * Felder auf Eingaben prüfen(reine Zahl, etc)
+ * Apartment Button "delete" -> "delete tenant" und nur bei auswahl einblenden
+ * JTable Felder Größe an Inhalt anpassen?
+ */
 
 /**
  * MainWindow Klasse.

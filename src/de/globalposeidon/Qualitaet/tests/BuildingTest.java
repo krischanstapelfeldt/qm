@@ -152,7 +152,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * get empty buildings from selected ArrayList. load from database.
+    * test if building is empty.
     */
    @Test
    public final void testPositiveBuildingIsEmpty() {
@@ -161,7 +161,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * test if building is full.
     */
    @Test
    public final void testNegativeBuildingIsEmpty() {
@@ -171,7 +171,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get entrance count.
     */
    @Test
    public final void testEntranceCount() {
@@ -180,7 +180,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * set a list of entrances.
     */
    @Test
    public final void testSetEntrances() {
@@ -192,7 +192,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get a list of entrances.
     */
    @Test
    public final void testGetEntrances() {
@@ -202,7 +202,7 @@ public class BuildingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * test toString for class.
     */
    @Test
    public final void testToString() {

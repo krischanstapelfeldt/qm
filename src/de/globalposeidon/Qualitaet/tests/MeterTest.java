@@ -157,7 +157,7 @@ public class MeterTest extends TestCase {
    }
 
    /**
-    * TODO BESCHREIBEN!!!
+    * Create a reading.
     */
    @Test
    public final void testPositiveMakeReading() {

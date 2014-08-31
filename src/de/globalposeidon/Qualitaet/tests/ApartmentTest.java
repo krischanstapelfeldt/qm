@@ -98,7 +98,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla..
+    * remove meter from selected apartment.
     */
    @Test
    public final void testPositiveRemoveMeter() {
@@ -117,7 +117,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get meter count from selected apartment.
     */
    @Test
    public final void testMeterCount() {
@@ -135,7 +135,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * add more then four tenants to dhe selected apartment.
     */
    @Test
    public final void testNegativeAddTenant() {
@@ -158,7 +158,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * try to get tenant which does not exist.
     */
    @Test
    public final void testNegativeGetTenant() {
@@ -167,7 +167,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * remove tenant from apartment.
     */
    @Test
    public final void testPositiveRemoveTenant() {
@@ -177,7 +177,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * try to remove tenant which does not exist.
     */
    @Test
    public final void testNegativeRemoveTenant() {
@@ -186,7 +186,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get tenant count.
     */
    @Test
    public final void testTenantCount() {
@@ -195,7 +195,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * set a list of meters.
     */
    @Test
    public final void testSetMeters() {
@@ -207,7 +207,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get a list of meters.
     */
    @Test
    public final void testGetMeters() {
@@ -217,7 +217,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * set a list of tenants.
     */
    @Test
    public final void testSetTenants() {
@@ -229,7 +229,7 @@ public class ApartmentTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get a list of tenants.
     */
    @Test
    public final void testGetTenants() {

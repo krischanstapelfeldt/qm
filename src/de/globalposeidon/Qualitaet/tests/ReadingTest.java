@@ -72,7 +72,7 @@ public class ReadingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get the reader from the selected reading.
     */
    @Test
    public final void testPositiveGetReader() {
@@ -81,7 +81,7 @@ public class ReadingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get the reading info from selected reading.
     */
    @Test
    public final void testPositiveGetReadingInfo() {
@@ -90,7 +90,7 @@ public class ReadingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get date from selected reading.
     */
    @Test
    public final void testPositiveGetReadingDate() {
@@ -99,7 +99,7 @@ public class ReadingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get the reading value from selected reading.
     */
    @Test
    public final void testPositiveGetReadingValue() {
@@ -108,7 +108,7 @@ public class ReadingTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get the id from the reading.
     */
    @Test
    public final void testGetID() {

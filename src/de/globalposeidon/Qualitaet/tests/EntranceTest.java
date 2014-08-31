@@ -127,7 +127,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get meter count.
     */
    @Test
    public final void testMeterCount() {
@@ -157,7 +157,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * try to get a apartment which does not exist.
     */
    @Test
    public final void testNegativeGetApartment() {
@@ -176,7 +176,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * try to remove a apartment which does not exist.
     */
    @Test
    public final void testNegativeRemoveApartment() {
@@ -185,7 +185,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get apartment count.
     */
    @Test
    public final void testApartmentCount() {
@@ -233,7 +233,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * set a list of meters.
     */
    @Test
    public final void testSetMeters() {
@@ -245,7 +245,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get a list of meters.
     */
    @Test
    public final void testGetMeters() {
@@ -255,7 +255,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * set a list of apartments.
     */
    @Test
    public final void testSetApartments() {
@@ -267,7 +267,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * get a list of apartments.
     */
    @Test
    public final void testGetApartments() {
@@ -277,7 +277,7 @@ public class EntranceTest extends TestCase {
    }
 
    /**
-    * bla.
+    * test toString.
     */
    @Test
    public final void testToString() {
