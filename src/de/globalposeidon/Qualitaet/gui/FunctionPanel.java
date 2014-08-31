@@ -6,10 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -18,11 +16,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import de.globalposeidon.Qualitaet.Strings;
-import de.globalposeidon.Qualitaet.model.Building;
-import de.globalposeidon.Qualitaet.model.Meter;
-import de.globalposeidon.Qualitaet.model.MeterReader;
-import de.globalposeidon.Qualitaet.model.ReadingInfo;
-import de.globalposeidon.Qualitaet.model.Renter;
 
 public class FunctionPanel extends JPanel {
 
@@ -188,24 +181,24 @@ public class FunctionPanel extends JPanel {
          public void actionPerformed(final ActionEvent e) {
          }
       });
-
-      btnSave.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(final ActionEvent e) {
-              if (tfReadingVal.getText().equals("")) {
-                  tfReadingVal.requestFocus();
-              } else if (tfReadingInfo.getText().equals("")) {
-                  tfReadingInfo.requestFocus();
-              } else if (tfPerson.getText().equals("")) {
-                  tfPerson.requestFocus();
-              } else { // all fields valid
-                  Meter meter = parent.selectedMeter();
-                  meter.setCurrentValue(Integer.parseInt(tfReadingVal.getText()));
-                  parent.selectedMeter().makeReading(new Date(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
-              }
-          }
-       });
    }
+//      btnSave.addActionListener(new ActionListener() {
+//          @Override
+//          public void actionPerformed(final ActionEvent e) {
+//              if (tfReadingVal.getText().equals("")) {
+//                  tfReadingVal.requestFocus();
+//              } else if (tfReadingInfo.getText().equals("")) {
+//                  tfReadingInfo.requestFocus();
+//              } else if (tfPerson.getText().equals("")) {
+//                  tfPerson.requestFocus();
+//              } el se { // all fields valid
+//                  Meter meter = parent.selectedMeter();
+//                  meter.setCurrentValue(Integer.parseInt(tfReadingVal.getText()));
+//                  parent.selectedMeter().makeReading(new Date(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+//              }
+//          }
+//       });
+//   }
 
    public final JRadioButton getRdbtnUnrented() {
       return rdbtnUnrented;

@@ -1,7 +1,9 @@
 package de.globalposeidon.Qualitaet.model;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
+import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
@@ -15,6 +17,8 @@ public class ApartmentTableModelTop extends AbstractTableModel {
    private static final int SURNAME = 1;
    private static final int PHONE = 2;
    private static final int EMAIL = 3;
+   
+   private Vector<TableModelListener> tableListener = new Vector<TableModelListener>();
 
    private final Apartment apartment;
    // set Table Top Column Header
@@ -35,6 +39,33 @@ public class ApartmentTableModelTop extends AbstractTableModel {
       fireTableDataChanged();
    }
 
+   @Override
+   public void addTableModelListener(TableModelListener l) {
+      // TODO Auto-generated method stub
+      tableListener.add(l);
+   }
+   
+//   public void delete(Apartment apartment) {
+//      
+//      int index = apartment.tenantCount();
+//      if (index >= 0) {
+//          apartment.remove(index);
+//          fireTableRowsDeleted(index, index);
+//      }
+//      if(rowIndex < 0) {
+//         return;
+//      }
+//    apartment.getTenants().remove(rowIndex);
+//      this.fireTableRowsDeleted(rowIndex, rowIndex);
+// 
+//      TableModelEvent event = new TableModelEvent(this, rowIndex, rowIndex, TableModelEvent.ALL_COLUMNS, TableModelEvent.DELETE);
+//  
+//      for(int i = 0, n = tableListener.size(); i < n; i++) {
+//         ((TableModelListener)tableListener.get(i)).tableChanged(event);
+//     }
+// }
+   
+   
    public final void setEntries(final ArrayList<Tenant> dataList) {
       clear();
       for (int row = 0; row < dataList.size(); row++) {

@@ -65,15 +65,16 @@ public class ApartmentPanel extends JPanel {
       add(pnlHeader, BorderLayout.NORTH);
       add(pnlMain, BorderLayout.CENTER);
   
-   }
+   
+//   
 //   btnDelete.addActionListener(new ActionListener(){
 //      @Override
 //      public void actionPerformed(final ActionEvent e){
-//         ApartmentTableModelTop.removeElement(tenant);
+//        ApartmentTableModelTop tableMTop = tableMTop.delete(apartment);
 //      }
 //
 // 
 //   });
-      
+}  
 
 }
