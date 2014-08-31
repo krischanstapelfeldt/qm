@@ -7,39 +7,26 @@ import javax.swing.table.AbstractTableModel;
 import de.globalposeidon.Qualitaet.Strings;
 
 /**
- * Author Jens-Rainer Felske
+ * TableModel for Entrancepanel.
+ * @author Hadschii
+ *
  */
-// configure TabelModel Bottom
 public class EntranceTableModelBottom extends AbstractTableModel {
 
    private static final long serialVersionUID = 1817731260470629483L;
    static final int APARTMENT = 0;
    private final Entrance entrance;
-   // set Table Bottom Column Header
    private String[] titleTblBottom = new String[]{Strings.APARTMENT};
-
+   
+   /**
+    * Konstruktor.
+    * @param entrance entrance
+    */
    public EntranceTableModelBottom(final Entrance entrance) {
       this.entrance = entrance;
    }
-
-   public final int addElement(final Apartment apartment) {
-      (entrance.getApartments()).add(apartment);
-      fireTableDataChanged();
-      return entrance.getApartments().size() - 1;
-   }
-
-   public final void removeElement(final Apartment apartment) {
-      entrance.getApartments().remove(apartment);
-      fireTableDataChanged();
-   }
-
-   public final void setEntries(final ArrayList<Apartment> dataList) {
-      clear();
-      for (int row = 0; row < dataList.size(); row++) {
-         entrance.getApartments().add(dataList.get(row));
-      }
-   }
-
+   
+// ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblBottom[i];
@@ -53,15 +40,6 @@ public class EntranceTableModelBottom extends AbstractTableModel {
    @Override
    public final int getRowCount() {
       return entrance.getApartments().size();
-   }
-
-   public final Object getRowAt(final int row) {
-      return entrance.getApartments().get(row);
-   }
-
-   public final void setRowAt(final Apartment apartment, final int row) {
-      entrance.getApartments().set(row, apartment);
-      fireTableRowsUpdated(row, row);
    }
 
    @Override
@@ -87,27 +65,5 @@ public class EntranceTableModelBottom extends AbstractTableModel {
          entrance.getApartments().get(rowIndex).setID(new Integer((String) currentValue));
       }
 
-   }
-
-   public final void clear() {
-      final int rows = getRowCount();
-      entrance.getApartments().clear();
-      fireTableRowsDeleted(0, rows);
-   }
-
-   public final String[] getHeaders() {
-      return titleTblBottom;
-   }
-
-   public final ArrayList<Apartment> getRowList() {
-      return entrance.getApartments();
-   }
-
-   public final void setHeaders(final String[] headers) {
-      titleTblBottom = headers;
-   }
-
-   public final void setRowList(final ArrayList<Apartment> rowList) {
-      entrance.setApartments(rowList);
    }
 }

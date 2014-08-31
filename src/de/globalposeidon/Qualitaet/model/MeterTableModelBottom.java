@@ -4,14 +4,15 @@ import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
-// // configure TabelModel Bottom
+/**
+ * TableModel for Meterpanel.
+ * @author Hadschii
+ *
+ */
 public class MeterTableModelBottom extends AbstractTableModel {
 
-   /**
-    * 
-    */
    private static final long serialVersionUID = 566486559559380979L;
-   // use this for modelBotoom (readings)
+   
    static final int METERID = 0;
    static final int READINGID = 1;
    static final int METERREADER = 2;
@@ -21,14 +22,17 @@ public class MeterTableModelBottom extends AbstractTableModel {
 
    private Meter meter;
 
-   // also use for readings
    private String[] titleTblBottom = new String[] { Strings.METERID, Strings.READING, Strings.READINGPERSON, Strings.READINGINFO,
          Strings.READINGDATE, Strings.READINGVALUE };
-
+   /**
+    * Konstruktor.
+    * @param meter meter
+    */
    public MeterTableModelBottom(final Meter meter) {
       this.meter = meter;
    }
 
+// ----------- Abstract Table Model Methods
    @Override
    public int getColumnCount() {
       return titleTblBottom.length;
@@ -39,7 +43,7 @@ public class MeterTableModelBottom extends AbstractTableModel {
 
       return meter.getReadings().size();
    }
-
+   @Override
    public String getColumnName(final int i) {
       return titleTblBottom[i];
    }

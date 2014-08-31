@@ -6,7 +6,11 @@ import javax.swing.table.AbstractTableModel;
 
 import de.globalposeidon.Qualitaet.Strings;
 
-// configure TabelModel Bottom
+/**
+ * Tablemodel for Apartmentpanel.
+ * @author Hadschii
+ *
+ */
 public class ApartmentTableModelBottom extends AbstractTableModel {
 
    private static final long serialVersionUID = 1817731260470629483L;
@@ -15,29 +19,15 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    private static final int METERTYPE = 1;
    // set Table Bottom Column Header
    private String[] titleTblBottom = new String[]{Strings.METERID, Strings.METERTYPE};
-
+   /**
+    * Konstruktor.
+    * @param apartment apartment
+    */
    public ApartmentTableModelBottom(final Apartment apartment) {
       this.apartment = apartment;
    }
-
-   public final int addElement(final Meter meter) {
-      apartment.addMeter(meter);
-      fireTableDataChanged();
-      return apartment.meterCount() - 1;
-   }
-
-   public final void removeElement(final Meter meter) {
-      apartment.getMeters().remove(meter);
-      fireTableDataChanged();
-   }
-
-   public final void setEntries(final ArrayList<Meter> dataList) {
-      clear();
-      for (int row = 0; row < dataList.size(); row++) {
-         apartment.getMeters().add(dataList.get(row));
-      }
-   }
-
+   
+// ----------- Abstract Table Model Methods
    @Override
    public final String getColumnName(final int i) {
       return titleTblBottom[i];
@@ -51,15 +41,6 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
    @Override
    public final int getRowCount() {
       return apartment.getMeters().size();
-   }
-
-   public final Object getRowAt(final int row) {
-      return apartment.getMeters().get(row);
-   }
-
-   public final void setRowAt(final Meter meter, final int row) {
-      apartment.getMeters().set(row, meter);
-      fireTableRowsUpdated(row, row);
    }
 
    @Override
@@ -91,27 +72,5 @@ public class ApartmentTableModelBottom extends AbstractTableModel {
       if (columnIndex == METERTYPE) {
          apartment.getMeters().get(rowIndex).setCurrentValue((int) currentValue);
       }
-   }
-
-   public final void clear() {
-      final int rows = getRowCount();
-      apartment.getMeters().clear();
-      fireTableRowsDeleted(0, rows);
-   }
-
-   public final String[] getHeaders() {
-      return titleTblBottom;
-   }
-
-   public final ArrayList<Meter> getRowList() {
-      return apartment.getMeters();
-   }
-
-   public final void setHeaders(final String[] headers) {
-      titleTblBottom = headers;
-   }
-
-   public final void setRowList(final ArrayList<Meter> rowList) {
-      apartment.setMeters(rowList);
    }
 }
