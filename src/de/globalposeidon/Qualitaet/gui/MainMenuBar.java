@@ -2,13 +2,10 @@ package de.globalposeidon.Qualitaet.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -19,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JTree;
 
 import de.globalposeidon.Qualitaet.Strings;
 import de.globalposeidon.Qualitaet.model.DataContainer;
@@ -104,71 +100,6 @@ public class MainMenuBar extends JMenuBar {
       file.add(saveContainer);
 //      file.add(loadContainer);
       file.add(close);
-
-      final JMenu edit = new JMenu(Strings.EDIT);
-      add(edit);
-
-//      final JMenuItem apartment = new JMenuItem(Strings.ADDAPARTMENT);
-//      edit.add(apartment);
-//
-//      final JMenuItem building = new JMenuItem(Strings.ADDBUILDING);
-//      edit.add(building);
-//
-//      final JMenuItem renter = new JMenuItem(Strings.ADDRENTER);
-//      edit.add(renter);
-
-      final JMenu dev = new JMenu("Developer");
-      add(dev);
-
-      final JMenuItem jenkins = new JMenuItem(Strings.OPENJENKINS);
-      jenkins.addActionListener(new ActionListener() {
-
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            openWebpage("http://stapelfeldt.selfhost.eu:8080");
-         }
-      });
-      dev.add(jenkins);
-
-      final JMenuItem jUnitJenkins = new JMenuItem(Strings.OPENJUNITJENKINS);
-      jUnitJenkins.addActionListener(new ActionListener() {
-
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            openWebpage("http://stapelfeldt.selfhost.eu:8080/" + "job/Global%20Poseidon/ws/reports/junit/index.html");
-         }
-      });
-      dev.add(jUnitJenkins);
-
-      final JMenuItem jaCoCoJenkins = new JMenuItem(Strings.OPENJACOCOJENKINS);
-      jaCoCoJenkins.addActionListener(new ActionListener() {
-
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            openWebpage("http://stapelfeldt.selfhost.eu:8080/" + "job/Global%20Poseidon/ws/reports/jacoco/index.html");
-         }
-      });
-      dev.add(jaCoCoJenkins);
-
-      final JMenuItem mantis = new JMenuItem(Strings.OPENMANTIS);
-      mantis.addActionListener(new ActionListener() {
-
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            openWebpage("http://stapelfeldt.selfhost.eu/mantis/mantisbt-1.2.17/");
-         }
-      });
-      dev.add(mantis);
-
-      final JMenuItem testlink = new JMenuItem(Strings.OPENTESTLINK);
-      testlink.addActionListener(new ActionListener() {
-
-         @Override
-         public void actionPerformed(final ActionEvent e) {
-            openWebpage("http://stapelfeldt.selfhost.eu/testlink/testlink-1.9.10/");
-         }
-      });
-      dev.add(testlink);
 
       final JMenu help = new JMenu(Strings.HELP);
       add(help);
