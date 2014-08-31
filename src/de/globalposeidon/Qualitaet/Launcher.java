@@ -86,7 +86,7 @@ public class Launcher {
 	   
       // T-MT-001
       final DataContainer dc = new DataContainer();
-      final Building b = new Building(dc);
+      final Building b = new Building(dc, "Atlantic Haus");
       dc.addBuilding(b);
       b.setRenter(new Renter());
       final Entrance e = new Entrance(b);
@@ -148,7 +148,7 @@ public class Launcher {
       ac.addTenant(new Tenant("Bayer", "Lisa", "8784245", "nurSchnulzenGucken@mail.de"));
       ac.addTenant(new Tenant("Bayer", "Otto", "8784245", "nurSchnulzenGucken@mail.de"));
 
-      final Building b2 = new Building(dc);
+      final Building b2 = new Building(dc, "Studentenwohnheim 311");
       dc.addBuilding(b2);
       b2.setRenter(new Renter());
       final Entrance e2 = new Entrance(b2);
@@ -173,6 +173,10 @@ public class Launcher {
       final Apartment ab2 = new Apartment(e2);
       e2.addApartment(ab2);
       final Meter mb2 = new Meter(dc.incMeterCnt(), Metertype.POWER, a2);
+      cal.set(2014, 10,1); mb2.setCurrentValue(4009); mb2.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      cal.set(2014, 11,20); mb2.setCurrentValue(9001); mb2.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
+      cal.set(2015,0,1); mb2.setYearValue(11000); mb2.setCurrentValue(11000); mcc.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
+      cal.set(2015,1,6); mb2.setCurrentValue(12010); mb2.makeReading(cal.getTime(), MeterReader.JANITOR, ReadingInfo.ESTIMATION);
       ab2.addMeter(mb2);
       final Meter mbb2 = new Meter(dc.incMeterCnt(), Metertype.GAS, a2);
       ab2.addMeter(mbb2);
@@ -187,6 +191,8 @@ public class Launcher {
       final Meter mcb2 = new Meter(dc.incMeterCnt(), Metertype.GAS, a2);
       ac2.addMeter(mcb2);
       final Meter mcc2 = new Meter(dc.incMeterCnt(), Metertype.WATER, a2);
+      cal.set(2014, 10,1); mcc2.setCurrentValue(42); mcc2.makeReading(cal.getTime(), MeterReader.ENERGYPROVIDER, ReadingInfo.READING);
+      cal.set(2014, 11,20); mcc2.setCurrentValue(9001); mcc2.makeReading(cal.getTime(), MeterReader.RENTER, ReadingInfo.ESTIMATION);
       ac2.addMeter(mcc2);
 
       return dc;

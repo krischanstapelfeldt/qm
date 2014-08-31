@@ -38,7 +38,7 @@ public class ApartmentTest extends TestCase {
     */
    public final void setUp() throws Exception {
       dataContainer = new DataContainer();
-      building = new Building(dataContainer);
+      building = new Building(dataContainer, "Testname");
       entrance = new Entrance(building);
       apartment = new Apartment(entrance);
       meter = new Meter(0001, Metertype.GAS, apartment);

@@ -25,7 +25,7 @@ public class GuiBuildingPanelTest extends TestCase {
     *             throw an exception. Unlikely, there is no method body.
     */
    public final void setUp() throws Exception {
-      building = new Building(null);
+      building = new Building(null, "Testname");
    }
 
    @Override

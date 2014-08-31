@@ -27,7 +27,7 @@ public class GuiApartmentPanelTest extends TestCase {
     *             throw an exception. Unlikely, there is no method body.
     */
    public final void setUp() throws Exception {
-      final Building building = new Building(null);
+      final Building building = new Building(null, "Testname");
       final Entrance entrance = new Entrance(building);
       apartment = new Apartment(entrance);
    }

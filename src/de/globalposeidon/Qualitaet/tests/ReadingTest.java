@@ -40,7 +40,7 @@ public class ReadingTest extends TestCase {
     */
    public final void setUp() throws Exception {
       dataContainer = new DataContainer();
-      building = new Building(dataContainer);
+      building = new Building(dataContainer, "Testname");
       entrance = new Entrance(building);
       meter = new Meter(001, Metertype.GAS, entrance);
       meter.setCurrentValue(1);

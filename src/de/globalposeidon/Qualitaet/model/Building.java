@@ -16,6 +16,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
 
    private static final long serialVersionUID = 2774534346650927893L;
    private final int id;
+   private final String name;
    private final DataContainer dc; // parent node
    private final Random random = new Random();
 
@@ -29,8 +30,9 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
     * Konstruktor.
     * @param dc datacontainer
     */
-   public Building(final DataContainer dc) {
+   public Building(final DataContainer dc, String name) {
       entrances = new ArrayList<Entrance>();
+      this.name = name;
       id = random.nextInt();
       this.dc = dc;
    }
@@ -46,6 +48,13 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
       return id;
    }
    /**
+    * Name des Gebauedes.
+    * @return ID
+    */
+   public final String getName() {
+      return name;
+   }
+   /**
     * Vermieter des Gebaudes.
     * @return vermieter
     */
@@ -53,7 +62,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
       return renter;
    }
    /**
-    * Vermieter des Gebäudes setzen.
+    * Vermieter des Gebï¿½udes setzen.
     * @param renter vermieter
     */
    public final void setRenter(final Renter renter) {
@@ -112,7 +121,7 @@ public class Building extends DefaultMutableTreeNode implements java.io.Serializ
 
    @Override
    public final String toString() {
-      return "Building " + getID();
+      return getName();
    }
 
    // ================================================================================

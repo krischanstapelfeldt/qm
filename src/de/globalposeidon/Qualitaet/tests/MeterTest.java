@@ -46,7 +46,7 @@ public class MeterTest extends TestCase {
     */
    public final void setUp() throws Exception {
       dataContainer = new DataContainer();
-      building = new Building(dataContainer);
+      building = new Building(dataContainer, "Testname");
       entrance = new Entrance(building);
       apartment = new Apartment(entrance);
       meterID = (int) new Date().getTime();

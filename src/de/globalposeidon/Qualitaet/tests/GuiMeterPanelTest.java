@@ -28,7 +28,7 @@ public class GuiMeterPanelTest extends TestCase {
     *             throw an exception. Unlikely, there is no method body.
     */
    public final void setUp() throws Exception {
-      final Building building = new Building(null);
+      final Building building = new Building(null, "Testname");
       final Entrance entrance = new Entrance(building);
       meter = new Meter(0001, Metertype.POWER, entrance);
    }

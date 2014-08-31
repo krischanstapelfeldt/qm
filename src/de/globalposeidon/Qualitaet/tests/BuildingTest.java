@@ -35,7 +35,7 @@ public class BuildingTest extends TestCase {
    public final void setUp() throws Exception {
       dataContainer = new DataContainer();
       renter = new Renter();
-      building = new Building(dataContainer);
+      building = new Building(dataContainer, "Testname");
       entrance = new Entrance(building);
       // entrances = new ArrayList<Entrance>();
       // entrances.add(initialEntrance);
@@ -63,7 +63,14 @@ public class BuildingTest extends TestCase {
 
       assertNotNull(building.getID());
    }
+   /**
+    * get id from selected building. load from database.
+    */
+   @Test
+   public final void testGetName() {
 
+      assertNotNull(building.getName());
+   }
    /**
     * set renter to building.
     */
