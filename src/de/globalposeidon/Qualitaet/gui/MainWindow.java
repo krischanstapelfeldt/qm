@@ -39,7 +39,7 @@ import de.globalposeidon.Qualitaet.model.Meter;
  * Neue Ablesewerte und Datum k�nnen nur gr��er sein
  * Verbrauch seit 1.1. anzeigen/berechnen (Testdaten erzeugen!)
  * Verbrauch/Tage seit der letzen Lesung -> Im Model!
- * L�schen von Mietern
+ * DONE - L�schen von Mietern
  * Sortieren/Anzeige nach Vermietet und nicht vermietet (im JTable Feld "Vermietet?" und danach abfragen?)
  *
  * TODO KANN

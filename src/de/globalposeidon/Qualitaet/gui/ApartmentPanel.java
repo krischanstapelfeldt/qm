@@ -40,7 +40,7 @@ public class ApartmentPanel extends JPanel {
       // ui components
       final JPanel pnlHeader = new JPanel(new FlowLayout());
       final JLabel lblApartment = new JLabel("Apartment " + apartment.getID());
-      final JButton btnDelete = new JButton(Strings.DELWSPACE + " apartment");
+      final JButton btnDelete = new JButton(Strings.DELWSPACE + Strings.TENANT);
       
       // final JLabel lblMeter = new JLabel("|Meter: "
       // + apartment.getMeter(0));
@@ -75,6 +75,7 @@ public class ApartmentPanel extends JPanel {
     	  public void actionPerformed(final ActionEvent e){
     		  topModel.deleteSelectedApartment(tableTop.getSelectedRow());
     		  tableTop.revalidate();
+    		  new InfoDialog("INFO", "Mieter geloescht!");
     	  }
       });
 }  
