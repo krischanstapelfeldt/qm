@@ -1,6 +1,8 @@
 package de.globalposeidon.Qualitaet.gui;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -10,6 +12,8 @@ import javax.swing.JTextArea;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.globalposeidon.Qualitaet.Strings;
 
 public class FAQWindow extends JDialog {
    private static final long serialVersionUID = -7412097759123813493L;
@@ -21,20 +25,25 @@ public class FAQWindow extends JDialog {
       // add text
       final JPanel contentPnl = new JPanel(new BorderLayout());
       final JTextArea textArea = new JTextArea("Hier eine FAQ schreiben...");
-      
-      JButton btnOk = new JButton("Ok");
+
+      JButton btnOk = new JButton(Strings.OK);
       contentPnl.add(btnOk, BorderLayout.SOUTH);
       contentPnl.add(textArea, BorderLayout.NORTH);
-      
+
       this.add(contentPnl);
-      
+
       // layout
       pack();
       setLocationRelativeTo(parent);
       setResizable(false);
       setVisible(true);
-      
- 
+
+      btnOk.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(final ActionEvent e) {
+            dispose();
+         }
+      });
 
    }
 }
