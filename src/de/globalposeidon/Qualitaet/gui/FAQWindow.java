@@ -1,7 +1,11 @@
 package de.globalposeidon.Qualitaet.gui;
 
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import org.slf4j.Logger;
@@ -15,12 +19,21 @@ public class FAQWindow extends JDialog {
       logger.debug("Add FAQ window opened");
       setTitle("faq");
       // add text
+      final JPanel contentPnl = new JPanel(new BorderLayout());
       final JTextArea textArea = new JTextArea("Hier eine FAQ schreiben...");
-      getContentPane().add(textArea);
+      
+      JButton btnOk = new JButton("Ok");
+      contentPnl.add(btnOk, BorderLayout.SOUTH);
+      contentPnl.add(textArea, BorderLayout.NORTH);
+      
+      this.add(contentPnl);
       // layout
       pack();
       setLocationRelativeTo(parent);
       setResizable(false);
       setVisible(true);
+      
+ 
+
    }
 }
